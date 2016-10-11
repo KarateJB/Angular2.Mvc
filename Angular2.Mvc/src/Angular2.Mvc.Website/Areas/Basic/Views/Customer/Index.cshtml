@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<core-app>
+    <div>
+        <p><img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    </div>
+</core-app>
+
+@section Scripts {
+    <script>
+        System.config({
+            map: {
+                app: '/app'
+            },
+            packages: {
+                'app': {
+                    defaultExtension: 'js'
+                }
+            },
+        });
+        System.import('app/main').then(null, console.error.bind(console));
+    </script>
+}
+
+
+
