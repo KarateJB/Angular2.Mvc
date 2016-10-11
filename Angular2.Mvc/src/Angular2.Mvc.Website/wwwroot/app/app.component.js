@@ -21,6 +21,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    console.log("Fucking init!");
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'core-app',
