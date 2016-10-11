@@ -35,24 +35,13 @@
     <div class="container body-content">
         <div>
             @RenderBody()
-        </div> @RenderSection("scripts", required: false)
+        </div>
+        @RenderSection("scripts", required: false)
         <hr />
         <footer>
             <p>&copy; 2016 - Angular2.Mvc</p>
         </footer>
     </div>
-    @section Scripts {
-        <script>
-    System.config({
-        packages: {
-            'app': {
-                defaultExtension: 'js'
-            }
-        },
-    });
-    System.import('app/main').then(null, console.error.bind(console));
-        </script>
-    }
 </body>
 
 </html>

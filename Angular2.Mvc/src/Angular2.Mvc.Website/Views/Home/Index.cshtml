@@ -7,20 +7,23 @@
     <div>
         <p><img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
     </div>
-</core-app> 
+</core-app>
 
 @section Scripts {
     <script>
-    System.config({
-        packages: {
-            'app': {
-                defaultExtension: 'js'
-            }
-        },
-    });
-    System.import('app/main').then(null, console.error.bind(console));
-    </script> 
+        System.config({
+            map: {
+                app: 'scripts/dev/app'
+            },
+            packages: {
+                'app': {
+                    defaultExtension: 'js'
+                }
+            },
+        });
+        System.import('app/main').then(null, console.error.bind(console));
+    </script>
 }
 
- 
+
 
