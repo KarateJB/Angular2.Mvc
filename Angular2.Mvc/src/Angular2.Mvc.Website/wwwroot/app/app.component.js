@@ -22,12 +22,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function AppComponent() {
                 }
                 AppComponent.prototype.ngOnInit = function () {
-                    console.log("Fucking init!");
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'core-app',
-                        template: '<h3>Welcome to .NET Core 1.0 + MVC6 + Angular 2</h3>'
+                        template: '<h3>Hello world!</h3>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
