@@ -3,17 +3,18 @@
 }
 
 <h2>Index</h2>
-<core-app>
+<hr />
+<customer-index>
     <div>
         <p><img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
     </div>
-</core-app>
+</customer-index>
 
 @section Scripts {
     <script>
         System.config({
             map: {
-                app: '/scripts/dev/app'
+                app: '/app'
             },
             packages: {
                 'app': {
@@ -21,7 +22,7 @@
                 }
             },
         });
-        System.import('app/main').then(null, console.error.bind(console));
+        System.import('app/Basic/Customer/customer.index.main').then(null, console.error.bind(console));
     </script>
 }
 

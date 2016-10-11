@@ -1,6 +1,6 @@
 ﻿import {bootstrap} from 'angular2/platform/browser';
-import {AppComponent} from './app.component';
+import {CustomerIndexComponent} from './customer.index.component';
 import {enableProdMode} from 'angular2/core';
 
 //enableProdMode();
-bootstrap(AppComponent);  
+bootstrap(CustomerIndexComponent);
