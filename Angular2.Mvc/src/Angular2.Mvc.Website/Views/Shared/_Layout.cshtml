@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/lib-npm/es6-shim/es6-shim.js"></script>
+    <script src="~/lib-npm/angular2/angular2-polyfills.js"></script>
+    <script src="~/lib-npm/systemjs/system.src.js"></script>
+    <script src="~/lib-npm/rxjs/Rx.js"></script>
+    <script src="~/lib-npm/angular2/angular2.js"></script>
+</head>
+
+<body>
+    <div> @RenderBody() </div> @RenderSection("scripts", required: false)
+</body>
+
+</html> Index.cshtml @{ ViewData["Title"] = "Home Page"; }
+<core-app>
+    <div>
+        <p>
+            <img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    </div>
+</core-app> 
+
+@section Scripts {
+    <script>
+
+    System.config({
+        packages: {
+            'app': {
+                defaultExtension: 'js'
+            }
+        },
+    });
+    System.import('app/main').then(null, console.error.bind(console));
+    </script> }  
