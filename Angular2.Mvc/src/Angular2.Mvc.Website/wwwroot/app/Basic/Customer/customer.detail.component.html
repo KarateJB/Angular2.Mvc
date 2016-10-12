@@ -1,0 +1,41 @@
+﻿<div>
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <td>
+                    ID
+                </td>
+
+                <td>
+                    {{customer.Id}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+
+                <td [innerHtml]="customer.Name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone
+                </td>
+
+                <td>
+                    {{customer.Phone}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age
+                </td>
+
+                <td>
+                    {{customer.Age}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

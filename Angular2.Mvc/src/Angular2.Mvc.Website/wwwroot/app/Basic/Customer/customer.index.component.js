@@ -1,4 +1,4 @@
-System.register(['angular2/core', './Customer.Service'], function(exports_1, context_1) {
+System.register(['angular2/core', './Customer.Service', './customer.detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './Customer.Service'], function(exports_1, con
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Customer_Service_1;
+    var core_1, Customer_Service_1, customer_detail_component_1;
     var CustomerIndexComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './Customer.Service'], function(exports_1, con
             },
             function (Customer_Service_1_1) {
                 Customer_Service_1 = Customer_Service_1_1;
+            },
+            function (customer_detail_component_1_1) {
+                customer_detail_component_1 = customer_detail_component_1_1;
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
@@ -33,18 +36,30 @@ System.register(['angular2/core', './Customer.Service'], function(exports_1, con
                     var _this = this;
                     this.custService.getAll().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
                 };
+                //Get to edit page
+                CustomerIndexComponent.prototype.editCustomer = function (item) {
+                };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
                     //Remove item
                     var index = this.data.indexOf(item);
                     this.data.splice(index, 1);
                 };
+                //Show details of the customer
+                CustomerIndexComponent.prototype.showDetail = function (cust) {
+                    this.selectedCustomer = cust;
+                };
+                //Back to list (Show list)
+                CustomerIndexComponent.prototype.backToList = function () {
+                    this.selectedCustomer = null;
+                };
                 CustomerIndexComponent = __decorate([
                     core_1.Component({
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],
                         templateUrl: '/app/Basic/Customer/customer.index.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.index.component.css']
+                        styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
+                        directives: [customer_detail_component_1.CustomerDetailComponent]
                     }), 
                     __metadata('design:paramtypes', [Customer_Service_1.CustomerService])
                 ], CustomerIndexComponent);

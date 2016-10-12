@@ -1,5 +1,5 @@
 ﻿<div>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" [hidden]="selectedCustomer">
         <thead>
             <tr>
                 <td>ID</td>
@@ -13,10 +13,12 @@
             <tr *ngFor="let item of data; let sn=index">
                 <!--<td class="col-sm-1 text-center">{{sn+1}}</td>-->
                 <td class="col-sm-1 text-center">{{item.Id}}</td>
-                <td class="col-sm-2" [innerHtml]="item.Name"></td>
+                <td class="col-sm-2" >
+                    <a href="#" [innerHtml]="item.Name" (click)="showDetail(item)"></a>
+                </td>
                 <td class="col-sm-2">{{item.Phone}}</td>
                 <td class="col-sm-1">{{item.Age}}</td>
-                <td>
+                <td class="col-sm-2">
                     <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)"/>
                     &nbsp;
                     <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)"/>
@@ -24,5 +26,11 @@
             </tr>
         </tbody>
     </table>
+
+    <div *ngIf="selectedCustomer">
+        <customer-detail  [selectedCustomer]="selectedCustomer">
+        </customer-detail>
+        <input type="button" class="btn btn-primary" value="Back" (click)="backToList()" />
+    </div>
 
 </div>
