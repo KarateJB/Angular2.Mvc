@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './Customer.Service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,40 +10,41 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var CustomerIndexComponent, customers;
+    var core_1, Customer_Service_1;
+    var CustomerIndexComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (Customer_Service_1_1) {
+                Customer_Service_1 = Customer_Service_1_1;
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent() {
+                function CustomerIndexComponent(custService) {
+                    this.custService = custService;
                     this.title = "Customers";
-                    this.data = customers;
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
+                    this.initCustomers();
+                };
+                CustomerIndexComponent.prototype.initCustomers = function () {
+                    var _this = this;
+                    this.custService.getCustomers().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
                 };
                 CustomerIndexComponent = __decorate([
                     core_1.Component({
                         selector: 'customer-index',
+                        providers: [Customer_Service_1.CustomerService],
                         templateUrl: '/app/Basic/Customer/customer.index.component.html',
                         styleUrls: ['/app/Basic/Customer/customer.index.component.css']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [Customer_Service_1.CustomerService])
                 ], CustomerIndexComponent);
                 return CustomerIndexComponent;
             }());
             exports_1("CustomerIndexComponent", CustomerIndexComponent);
-            customers = [{ "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
-                { "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
-                { "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
-                { "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
-                { "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
-                { "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
-                { "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
-                { "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
         }
     }
 });

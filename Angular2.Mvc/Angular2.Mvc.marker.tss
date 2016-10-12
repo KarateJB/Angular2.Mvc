@@ -2,13 +2,13 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
-      <string>src\angular2.mvc.website\views\shared\_layout.cshtml</string>
+      <string>src\Angular2.Mvc.Website\Views\Shared\_Layout.cshtml</string>
     </extensions>
     <highlightIndex>2</highlightIndex>
   </TabHighlightState>
   <TabHighlightState>
     <extensions>
-      <string>src\Angular2.Mvc.Website\Areas\Basic\Views\Customer\Index.cshtml</string>
+      <string>src\angular2.mvc.website\areas\basic\views\customer\index.cshtml</string>
     </extensions>
     <highlightIndex>1</highlightIndex>
   </TabHighlightState>

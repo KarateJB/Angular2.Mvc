@@ -11,6 +11,7 @@ System.register(['angular2/platform/browser', './customer.index.component'], fun
                 customer_index_component_1 = customer_index_component_1_1;
             }],
         execute: function() {
+            //import {CustomerService} from './customer.service';
             //enableProdMode();
             browser_1.bootstrap(customer_index_component_1.CustomerIndexComponent);
         }
