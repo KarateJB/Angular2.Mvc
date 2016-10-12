@@ -1,5 +1,5 @@
 ﻿import {Component, OnInit} from 'angular2/core';
-//import {RouteConfig, Router, ROUTER_PROVIDERS} from 'angular2/router';
+import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
 import {CustomerDetailComponent} from './customer.detail.component';
@@ -12,21 +12,15 @@ import {CustomerEditComponent} from './customer.edit.component';
     //providers: [ROUTER_PROVIDERS, CustomerService],
     templateUrl: '/app/Basic/Customer/customer.index.component.html',
     styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
-    directives: [CustomerDetailComponent]
+    directives: [ROUTER_DIRECTIVES,CustomerDetailComponent]
 })
-
-//    @RouteConfig([
-//        //{ path: '...', component: CustomerIndexComponent, as: 'Index' },
-//        { path: '/Basic/Customer/Edit:id', name: 'Edit', component: CustomerEditComponent }
-//])
-
 
 export class CustomerIndexComponent implements OnInit {
     title: string;
     data: any[];
     selectedCustomer: Customer;
     constructor(
-        //private router: Router,
+        private router: Router,
         private custService: CustomerService) {
         this.title = "Customers";
     }
@@ -42,8 +36,8 @@ export class CustomerIndexComponent implements OnInit {
 
     //Get to edit page
     private editCustomer(item: Customer) {
-        console.log("Redirect to edit page!");
-        //this.router.navigate(['Edit']);
+        console.log("Redirect to edit page with customer id :" + item.Id);
+        this.router.navigate(['Edit', { id: item.Id }]);
     }
 
     //Remove customer

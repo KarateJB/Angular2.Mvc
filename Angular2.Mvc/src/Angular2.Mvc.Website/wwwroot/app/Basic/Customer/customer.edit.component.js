@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './Customer.Service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './Customer', './Customer.Service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_Service_1;
+    var core_1, router_1, Customer_1, Customer_Service_1;
     var CustomerEditComponent;
     return {
         setters:[
@@ -20,16 +20,35 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service'], func
             function (router_1_1) {
                 router_1 = router_1_1;
             },
+            function (Customer_1_1) {
+                Customer_1 = Customer_1_1;
+            },
             function (Customer_Service_1_1) {
                 Customer_Service_1 = Customer_Service_1_1;
             }],
         execute: function() {
             CustomerEditComponent = (function () {
-                function CustomerEditComponent(custService) {
+                function CustomerEditComponent(router, routeParam, custService) {
+                    this.router = router;
+                    this.routeParam = routeParam;
                     this.custService = custService;
                     this.title = "Customers - Edit";
+                    this.customer = new Customer_1.Customer();
                 }
                 CustomerEditComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var custIdValue = this.routeParam.get('id');
+                    console.log("custId=" + custIdValue);
+                    var custId = +custIdValue; //Equales to parseInt
+                    //let custId = parseInt(custIdValue);
+                    this.custService.get(custId).then(function (data) {
+                        console.log(data);
+                        _this.customer = data;
+                    });
+                };
+                //Back to list
+                CustomerEditComponent.prototype.BackToList = function () {
+                    this.router.navigate(['Index']);
                 };
                 //Back to list (Show list)
                 CustomerEditComponent.prototype.backToList = function () {
@@ -42,7 +61,7 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service'], func
                         templateUrl: '/app/Basic/Customer/customer.edit.component.html',
                         styleUrls: ['/app/Basic/Customer/customer.edit.component.css']
                     }), 
-                    __metadata('design:paramtypes', [Customer_Service_1.CustomerService])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, Customer_Service_1.CustomerService])
                 ], CustomerEditComponent);
                 return CustomerEditComponent;
             }());

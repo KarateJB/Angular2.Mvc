@@ -17,7 +17,7 @@ import {CustomerRoutes} from './customer.Route';
     ]
 })
 
-@RouteConfig(CustomerRoutes
+@RouteConfig(CustomerRoutes)
 //@RouteConfig([
 //    { path: '/Basic/Customer/Index', name: 'Index', component: CustomerIndexComponent },
 //    { path: '/Basic/Customer/Edit:id', name: 'Edit', component: CustomerEditComponent }
@@ -26,7 +26,6 @@ import {CustomerRoutes} from './customer.Route';
 export class CustomerAppComponent {
     constructor(private router: Router) {
 
-        console.log("Redirect to index page!");
         this.router.navigate(['Index']);
 
     }

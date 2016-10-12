@@ -1,5 +1,5 @@
 ﻿import {Component, OnInit} from 'angular2/core';
-import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
 
@@ -13,14 +13,33 @@ import {CustomerService} from './Customer.Service';
 
 export class CustomerEditComponent implements OnInit {
     title: string;
-    data: any[];
+    customer: Customer;
     selectedCustomer: Customer;
     constructor(
+        private router: Router,
+        private routeParam: RouteParams,
         private custService: CustomerService) {
         this.title = "Customers - Edit";
+        this.customer = new Customer();
     }
 
     ngOnInit() {
+        var custIdValue = this.routeParam.get('id');
+        console.log("custId=" + custIdValue);
+
+        let custId = +custIdValue; //Equales to parseInt
+        //let custId = parseInt(custIdValue);
+
+        this.custService.get(custId).then(
+                data => {
+                    console.log(data);
+                    this.customer = data
+                });
+    }
+
+    //Back to list
+    private BackToList() {
+        this.router.navigate(['Index']);
     }
 
 

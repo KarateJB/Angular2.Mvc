@@ -24,6 +24,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 CustomerService.prototype.getAll = function () {
                     return new Promise(function (resolve) { return setTimeout(function () { return resolve(customers); }, 1000); });
                 };
+                CustomerService.prototype.get = function (id) {
+                    return new Promise(function (resolve) {
+                        var cust = customers.find(function (x) { return x.Id == id; });
+                        setTimeout(function () { return resolve(cust); }, 1000);
+                    });
+                };
                 CustomerService.prototype.create = function (item) {
                 };
                 CustomerService.prototype.update = function (item) {

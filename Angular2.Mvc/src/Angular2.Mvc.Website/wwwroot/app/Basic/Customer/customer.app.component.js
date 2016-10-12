@@ -33,7 +33,6 @@ System.register(['angular2/core', 'angular2/router', './customer.index.component
             CustomerAppComponent = (function () {
                 function CustomerAppComponent(router) {
                     this.router = router;
-                    console.log("Redirect to index page!");
                     this.router.navigate(['Index']);
                 }
                 CustomerAppComponent = __decorate([

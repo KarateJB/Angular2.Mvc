@@ -1,4 +1,4 @@
-System.register(['angular2/core', './Customer.Service', './customer.detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './Customer.Service', './customer.detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Customer_Service_1, customer_detail_component_1;
+    var core_1, router_1, Customer_Service_1, customer_detail_component_1;
     var CustomerIndexComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (Customer_Service_1_1) {
                 Customer_Service_1 = Customer_Service_1_1;
@@ -25,9 +28,8 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent(
-                    //private router: Router,
-                    custService) {
+                function CustomerIndexComponent(router, custService) {
+                    this.router = router;
                     this.custService = custService;
                     this.title = "Customers";
                 }
@@ -40,8 +42,8 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
                 };
                 //Get to edit page
                 CustomerIndexComponent.prototype.editCustomer = function (item) {
-                    console.log("Redirect to edit page!");
-                    //this.router.navigate(['Edit']);
+                    console.log("Redirect to edit page with customer id :" + item.Id);
+                    this.router.navigate(['Edit', { id: item.Id }]);
                 };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
@@ -64,9 +66,9 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
                         //providers: [ROUTER_PROVIDERS, CustomerService],
                         templateUrl: '/app/Basic/Customer/customer.index.component.html',
                         styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
-                        directives: [customer_detail_component_1.CustomerDetailComponent]
+                        directives: [router_1.ROUTER_DIRECTIVES, customer_detail_component_1.CustomerDetailComponent]
                     }), 
-                    __metadata('design:paramtypes', [Customer_Service_1.CustomerService])
+                    __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
                 ], CustomerIndexComponent);
                 return CustomerIndexComponent;
             }());

@@ -8,6 +8,13 @@ export class CustomerService implements ICrudService {
         return new Promise<Customer[]>(
             resolve => setTimeout(() => resolve(customers), 1000));
     }
+    public get(id: number) {
+        return new Promise<Customer>(
+            resolve => {
+                var cust = customers.find(x => x.Id == id);
+                setTimeout(() => resolve(cust), 1000);
+            });
+    }
     public create(item: Customer) {
 
     }

@@ -14,7 +14,7 @@ System.register(['./customer.index.component', './customer.edit.component'], fun
         execute: function() {
             exports_1("CustomerRoutes", CustomerRoutes = [
                 { path: '/Basic/Customer/Index', name: 'Index', component: customer_index_component_1.CustomerIndexComponent },
-                { path: '/Basic/Customer/Edit:id', name: 'Edit', component: customer_edit_component_1.CustomerEditComponent }
+                { path: '/Basic/Customer/Edit/:id', name: 'Edit', component: customer_edit_component_1.CustomerEditComponent }
             ]);
         }
     }
