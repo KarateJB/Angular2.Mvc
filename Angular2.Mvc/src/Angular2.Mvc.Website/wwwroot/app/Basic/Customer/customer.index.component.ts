@@ -24,6 +24,7 @@ export class CustomerIndexComponent implements OnInit {
             data =>this.data = data); //非同步 & delay for 2 sec
     }
 
+    //Remove customer
     private deleteCustomer(item: Customer) {
         //Remove item
         var index = this.data.indexOf(item);

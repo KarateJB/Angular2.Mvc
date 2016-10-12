@@ -33,6 +33,7 @@ System.register(['angular2/core', './Customer.Service'], function(exports_1, con
                     var _this = this;
                     this.custService.getAll().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
                 };
+                //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
                     //Remove item
                     var index = this.data.indexOf(item);
