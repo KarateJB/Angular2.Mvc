@@ -11,8 +11,14 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
 
     public class CustomerController : Controller
     {
-     [Route("[action]")]
+        [Route("[action]")]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("[action]")]
+        public IActionResult Edit()
         {
             return View();
         }

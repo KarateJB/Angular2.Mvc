@@ -25,7 +25,9 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent(custService) {
+                function CustomerIndexComponent(
+                    //private router: Router,
+                    custService) {
                     this.custService = custService;
                     this.title = "Customers";
                 }
@@ -38,6 +40,8 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
                 };
                 //Get to edit page
                 CustomerIndexComponent.prototype.editCustomer = function (item) {
+                    console.log("Redirect to edit page!");
+                    //this.router.navigate(['Edit']);
                 };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
@@ -57,6 +61,7 @@ System.register(['angular2/core', './Customer.Service', './customer.detail.compo
                     core_1.Component({
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],
+                        //providers: [ROUTER_PROVIDERS, CustomerService],
                         templateUrl: '/app/Basic/Customer/customer.index.component.html',
                         styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
                         directives: [customer_detail_component_1.CustomerDetailComponent]
