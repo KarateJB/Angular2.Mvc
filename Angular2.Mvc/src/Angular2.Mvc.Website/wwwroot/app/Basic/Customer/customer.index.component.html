@@ -2,18 +2,25 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <td></td>
+                <td>ID</td>
                 <td class="text-center">Name</td>
                 <td class="text-center">Phone</td>
                 <td class="text-center">Age</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of data; let sn=index">
-                <td class="col-sm-1 text-center">{{sn+1}}</td>
+                <!--<td class="col-sm-1 text-center">{{sn+1}}</td>-->
+                <td class="col-sm-1 text-center">{{item.Id}}</td>
                 <td class="col-sm-2" [innerHtml]="item.Name"></td>
                 <td class="col-sm-2">{{item.Phone}}</td>
                 <td class="col-sm-1">{{item.Age}}</td>
+                <td>
+                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)"/>
+                    &nbsp;
+                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)"/>
+                 </td>
             </tr>
         </tbody>
     </table>

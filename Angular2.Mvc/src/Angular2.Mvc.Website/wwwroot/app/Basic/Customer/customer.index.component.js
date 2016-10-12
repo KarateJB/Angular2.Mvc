@@ -31,7 +31,12 @@ System.register(['angular2/core', './Customer.Service'], function(exports_1, con
                 };
                 CustomerIndexComponent.prototype.initCustomers = function () {
                     var _this = this;
-                    this.custService.getCustomers().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
+                    this.custService.getAll().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
+                };
+                CustomerIndexComponent.prototype.deleteCustomer = function (item) {
+                    //Remove item
+                    var index = this.data.indexOf(item);
+                    this.data.splice(index, 1);
                 };
                 CustomerIndexComponent = __decorate([
                     core_1.Component({

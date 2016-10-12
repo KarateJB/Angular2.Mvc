@@ -21,8 +21,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             CustomerService = (function () {
                 function CustomerService() {
                 }
-                CustomerService.prototype.getCustomers = function () {
+                CustomerService.prototype.getAll = function () {
                     return new Promise(function (resolve) { return setTimeout(function () { return resolve(customers); }, 1000); });
+                };
+                CustomerService.prototype.create = function (item) {
+                };
+                CustomerService.prototype.update = function (item) {
+                };
+                CustomerService.prototype.delete = function (item) {
                 };
                 CustomerService = __decorate([
                     core_1.Injectable(), 
@@ -31,14 +37,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 return CustomerService;
             }());
             exports_1("CustomerService", CustomerService);
-            customers = [{ "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
-                { "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
-                { "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
-                { "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
-                { "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
-                { "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
-                { "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
-                { "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
+            customers = [{ "Id": 1, "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
+                { "Id": 2, "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
+                { "Id": 3, "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
+                { "Id": 4, "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
+                { "Id": 5, "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
+                { "Id": 6, "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
+                { "Id": 7, "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
+                { "Id": 8, "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
         }
     }
 });

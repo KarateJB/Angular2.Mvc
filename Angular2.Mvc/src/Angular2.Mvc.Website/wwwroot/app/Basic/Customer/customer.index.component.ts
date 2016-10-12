@@ -1,4 +1,5 @@
 ﻿import {Component, OnInit} from 'angular2/core';
+import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
 
 @Component({
@@ -19,8 +20,14 @@ export class CustomerIndexComponent implements OnInit {
     }
 
     private initCustomers() {
-        this.custService.getCustomers().then(
+        this.custService.getAll().then(
             data =>this.data = data); //非同步 & delay for 2 sec
+    }
+
+    private deleteCustomer(item: Customer) {
+        //Remove item
+        var index = this.data.indexOf(item);
+        this.data.splice(index, 1);
     }
 }
 
