@@ -5,6 +5,7 @@ import {CustomerService} from './Customer.Service';
 import {CustomerDetailComponent} from './customer.detail.component';
 import {CustomerEditComponent} from './customer.edit.component';
 
+declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'customer-index',
@@ -12,7 +13,7 @@ import {CustomerEditComponent} from './customer.edit.component';
     //providers: [ROUTER_PROVIDERS, CustomerService],
     templateUrl: '/app/Basic/Customer/customer.index.component.html',
     styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
-    directives: [ROUTER_DIRECTIVES,CustomerDetailComponent]
+    directives: [ROUTER_DIRECTIVES, CustomerDetailComponent]
 })
 
 export class CustomerIndexComponent implements OnInit {
@@ -42,9 +43,23 @@ export class CustomerIndexComponent implements OnInit {
 
     //Remove customer
     private deleteCustomer(item: Customer) {
-        //Remove item
-        var index = this.data.indexOf(item);
-        this.data.splice(index, 1);
+        let customers = this.data;
+
+        swal({
+            title: 'Are you sure?',
+            text: "The customer : " + item.Name + ", will be deleted!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+            //Remove item
+            var index = customers.indexOf(item);
+            customers.splice(index, 1);
+        })
+
+
     }
 
     //Show details of the customer

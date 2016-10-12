@@ -17,12 +17,25 @@ export class CustomerService implements ICrudService {
     }
     public create(item: Customer) {
 
+        return new Promise(
+            resolve => {
+                //Save it to database
+                resolve();
+            });
     }
     public update(item: Customer) {
-
+        return new Promise(
+            resolve => {
+                //Save it to database
+                resolve();
+            });
     }
     public delete(item: Customer) {
-
+        return new Promise(
+            resolve => {
+                //Delete it from database
+                resolve();
+            });
     }
 
     

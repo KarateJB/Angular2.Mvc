@@ -31,10 +31,22 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     });
                 };
                 CustomerService.prototype.create = function (item) {
+                    return new Promise(function (resolve) {
+                        //Save it to database
+                        resolve();
+                    });
                 };
                 CustomerService.prototype.update = function (item) {
+                    return new Promise(function (resolve) {
+                        //Save it to database
+                        resolve();
+                    });
                 };
                 CustomerService.prototype.delete = function (item) {
+                    return new Promise(function (resolve) {
+                        //Delete it from database
+                        resolve();
+                    });
                 };
                 CustomerService = __decorate([
                     core_1.Injectable(), 

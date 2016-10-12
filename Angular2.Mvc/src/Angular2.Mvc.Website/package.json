@@ -18,6 +18,7 @@
     "gulp-cssmin": "0.1.7",
     "gulp-uglify": "1.2.0",
     "rimraf": "2.2.8",
+    "sweetalert2": "5.2.1",
     "typescript": "2.0.3",
     "typings": "1.4.0"
   }

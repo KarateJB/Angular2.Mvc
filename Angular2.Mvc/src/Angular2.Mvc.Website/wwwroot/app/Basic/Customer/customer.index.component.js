@@ -47,9 +47,22 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                 };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
-                    //Remove item
-                    var index = this.data.indexOf(item);
-                    this.data.splice(index, 1);
+                    var customers = this.data;
+                    swal({
+                        title: 'Are you sure?',
+                        text: "The customer : " + item.Name + ", will be deleted!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then(function () {
+                        //Remove item
+                        //var index = customers.indexOf(item);
+                        //customers.splice(index, 1);
+                        var index = this.data.indexOf(item);
+                        this.data.splice(index, 1);
+                    });
                 };
                 //Show details of the customer
                 CustomerIndexComponent.prototype.showDetail = function (cust) {
@@ -60,6 +73,7 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                     this.selectedCustomer = null;
                 };
                 CustomerIndexComponent = __decorate([
+                    //SweetAlert2 typings definition
                     core_1.Component({
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],

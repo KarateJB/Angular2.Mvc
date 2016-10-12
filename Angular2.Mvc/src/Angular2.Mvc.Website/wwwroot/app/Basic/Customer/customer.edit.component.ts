@@ -2,6 +2,7 @@
 import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
+declare var swal: any;
 
 @Component({
     selector: 'customer-edit',
@@ -31,20 +32,38 @@ export class CustomerEditComponent implements OnInit {
         //let custId = parseInt(custIdValue);
 
         this.custService.get(custId).then(
-                data => {
-                    console.log(data);
-                    this.customer = data
-                });
+            data => {
+                console.log(data);
+                this.customer = data
+            });
     }
+
+    //儲存資料
+    private save() {
+        this.custService.update(this.customer).then(
+            () => {
+                swal({
+                    title: 'Are you sure?',
+                    text: "The customer will be deleted",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then(function () {
+                    //swal(
+                    //    'Deleted!',
+                    //    'Your file has been deleted.',
+                    //    'success'
+                    //);
+                })
+            });
+    }
+
 
     //Back to list
-    private BackToList() {
-        this.router.navigate(['Index']);
-    }
-
-
-    //Back to list (Show list)
     private backToList() {
+        this.router.navigate(['Index']);
 
     }
 

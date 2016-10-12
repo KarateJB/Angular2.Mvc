@@ -46,12 +46,29 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                         _this.customer = data;
                     });
                 };
-                //Back to list
-                CustomerEditComponent.prototype.BackToList = function () {
-                    this.router.navigate(['Index']);
+                //儲存資料
+                CustomerEditComponent.prototype.save = function () {
+                    this.custService.update(this.customer).then(function () {
+                        swal({
+                            title: 'Are you sure?',
+                            text: "The customer will be deleted",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                        }).then(function () {
+                            //swal(
+                            //    'Deleted!',
+                            //    'Your file has been deleted.',
+                            //    'success'
+                            //);
+                        });
+                    });
                 };
-                //Back to list (Show list)
+                //Back to list
                 CustomerEditComponent.prototype.backToList = function () {
+                    this.router.navigate(['Index']);
                 };
                 CustomerEditComponent = __decorate([
                     core_1.Component({

@@ -14,7 +14,7 @@
                 <!--<td class="col-sm-1 text-center">{{sn+1}}</td>-->
                 <td class="col-sm-1 text-center">{{item.Id}}</td>
                 <td class="col-sm-2" >
-                    <a href="#" [innerHtml]="item.Name" (click)="showDetail(item)"></a>
+                    <a [innerHtml]="item.Name" (click)="showDetail(item)"></a>
                 </td>
                 <td class="col-sm-2">{{item.Phone}}</td>
                 <td class="col-sm-1">{{item.Age}}</td>
