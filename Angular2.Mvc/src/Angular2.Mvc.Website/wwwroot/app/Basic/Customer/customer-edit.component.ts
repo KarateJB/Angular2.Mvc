@@ -8,8 +8,8 @@ declare var swal: any;
     selector: 'customer-edit',
     providers: [CustomerService],
     directives: [ROUTER_DIRECTIVES],
-    templateUrl: '/app/Basic/Customer/customer.edit.component.html',
-    styleUrls: ['/app/Basic/Customer/customer.edit.component.css']
+    templateUrl: '/app/Basic/Customer/customer-edit.component.html',
+    styleUrls: ['/app/Basic/Customer/customer-edit.component.css']
 })
 
 export class CustomerEditComponent implements OnInit {

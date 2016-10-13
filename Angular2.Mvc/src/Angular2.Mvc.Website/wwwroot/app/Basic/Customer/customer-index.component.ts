@@ -2,9 +2,9 @@
 import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
-import {CustomerDetailComponent} from './customer.detail.component';
-import {CustomerCreateComponent} from './customer.create.component';
-import {CustomerEditComponent} from './customer.edit.component';
+import {CustomerDetailComponent} from './customer-detail.component';
+import {CustomerCreateComponent} from './customer-create.component';
+import {CustomerEditComponent} from './customer-edit.component';
 
 declare var swal: any; //SweetAlert2 typings definition
 
@@ -12,8 +12,8 @@ declare var swal: any; //SweetAlert2 typings definition
     selector: 'customer-index',
     providers: [CustomerService],
     //providers: [ROUTER_PROVIDERS, CustomerService],
-    templateUrl: '/app/Basic/Customer/customer.index.component.html',
-    styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
+    templateUrl: '/app/Basic/Customer/customer-index.component.html',
+    styleUrls: ['/app/Basic/Customer/customer-index.component.css'],
     directives: [ROUTER_DIRECTIVES, CustomerDetailComponent]
 })
 

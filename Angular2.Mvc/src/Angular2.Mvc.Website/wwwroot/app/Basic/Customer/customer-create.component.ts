@@ -9,8 +9,8 @@ declare var swal: any;
     selector: 'customer-create',
     providers: [CustomerService],
     directives: [ROUTER_DIRECTIVES],
-    templateUrl: '/app/Basic/Customer/customer.create.component.html',
-    styleUrls: ['/app/Basic/Customer/customer.create.component.css']
+    templateUrl: '/app/Basic/Customer/customer-create.component.html',
+    styleUrls: ['/app/Basic/Customer/customer-create.component.css']
 })
 
 export class CustomerCreateComponent implements OnInit {

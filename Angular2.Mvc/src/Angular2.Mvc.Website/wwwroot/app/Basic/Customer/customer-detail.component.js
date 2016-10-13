@@ -36,8 +36,8 @@ System.register(['angular2/core', './Customer'], function(exports_1, context_1) 
                 CustomerDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'customer-detail',
-                        templateUrl: '/app/Basic/Customer/customer.detail.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.detail.component.css']
+                        templateUrl: '/app/Basic/Customer/customer-detail.component.html',
+                        styleUrls: ['/app/Basic/Customer/customer-detail.component.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CustomerDetailComponent);
@@ -47,4 +47,4 @@ System.register(['angular2/core', './Customer'], function(exports_1, context_1) 
         }
     }
 });
-//# sourceMappingURL=customer.detail.component.js.map
+//# sourceMappingURL=customer-detail.component.js.map

@@ -1,4 +1,4 @@
-System.register(['./customer.index.component', './customer.create.component', './customer.edit.component'], function(exports_1, context_1) {
+System.register(['./customer-index.component', './customer-create.component', './customer-edit.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var customer_index_component_1, customer_create_component_1, customer_edit_component_1;

@@ -3,8 +3,8 @@ import {Customer} from './Customer';
 
 @Component({
     selector: 'customer-detail',
-    templateUrl: '/app/Basic/Customer/customer.detail.component.html',
-    styleUrls: ['/app/Basic/Customer/customer.detail.component.css']
+    templateUrl: '/app/Basic/Customer/customer-detail.component.html',
+    styleUrls: ['/app/Basic/Customer/customer-detail.component.css']
 })
 export class CustomerDetailComponent implements OnInit {
 

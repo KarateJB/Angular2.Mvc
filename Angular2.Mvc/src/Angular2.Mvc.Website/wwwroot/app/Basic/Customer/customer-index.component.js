@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './Customer.Service', './customer.detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './Customer.Service', './customer-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -79,8 +79,8 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],
                         //providers: [ROUTER_PROVIDERS, CustomerService],
-                        templateUrl: '/app/Basic/Customer/customer.index.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.index.component.css'],
+                        templateUrl: '/app/Basic/Customer/customer-index.component.html',
+                        styleUrls: ['/app/Basic/Customer/customer-index.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, customer_detail_component_1.CustomerDetailComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
@@ -91,4 +91,4 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
         }
     }
 });
-//# sourceMappingURL=customer.index.component.js.map
+//# sourceMappingURL=customer-index.component.js.map

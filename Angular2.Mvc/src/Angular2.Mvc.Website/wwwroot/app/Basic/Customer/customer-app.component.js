@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './customer.index.component', './customer.edit.component', './customer.Route'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './customer-index.component', './customer-edit.component', './customer.Route'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -39,7 +39,7 @@ System.register(['angular2/core', 'angular2/router', './customer.index.component
                     core_1.Component({
                         selector: 'customer-app',
                         providers: [router_1.ROUTER_PROVIDERS],
-                        templateUrl: '/app/Basic/Customer/customer.app.component.html',
+                        templateUrl: '/app/Basic/Customer/customer-app.component.html',
                         //directives: [ROUTER_DIRECTIVES],
                         directives: [
                             router_1.ROUTER_DIRECTIVES,
@@ -56,4 +56,4 @@ System.register(['angular2/core', 'angular2/router', './customer.index.component
         }
     }
 });
-//# sourceMappingURL=customer.app.component.js.map
+//# sourceMappingURL=customer-app.component.js.map

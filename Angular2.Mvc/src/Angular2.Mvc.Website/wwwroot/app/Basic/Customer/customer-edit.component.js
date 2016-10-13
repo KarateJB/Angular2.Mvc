@@ -60,8 +60,8 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                         selector: 'customer-edit',
                         providers: [Customer_Service_1.CustomerService],
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        templateUrl: '/app/Basic/Customer/customer.edit.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.edit.component.css']
+                        templateUrl: '/app/Basic/Customer/customer-edit.component.html',
+                        styleUrls: ['/app/Basic/Customer/customer-edit.component.css']
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, Customer_Service_1.CustomerService])
                 ], CustomerEditComponent);
@@ -71,4 +71,4 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
         }
     }
 });
-//# sourceMappingURL=customer.edit.component.js.map
+//# sourceMappingURL=customer-edit.component.js.map

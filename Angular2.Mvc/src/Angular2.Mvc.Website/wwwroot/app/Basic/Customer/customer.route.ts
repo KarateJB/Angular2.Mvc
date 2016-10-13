@@ -1,6 +1,6 @@
-﻿import {CustomerIndexComponent} from './customer.index.component';
-import {CustomerCreateComponent} from './customer.create.component';
-import {CustomerEditComponent} from './customer.edit.component';
+﻿import {CustomerIndexComponent} from './customer-index.component';
+import {CustomerCreateComponent} from './customer-create.component';
+import {CustomerEditComponent} from './customer-edit.component';
 
 
 export const CustomerRoutes = [

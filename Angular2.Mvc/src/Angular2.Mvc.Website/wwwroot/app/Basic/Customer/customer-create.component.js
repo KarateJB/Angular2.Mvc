@@ -38,7 +38,7 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                 };
                 //Save!
                 CustomerCreateComponent.prototype.save = function () {
-                    this.custService.update(this.customer).then(function () {
+                    this.custService.create(this.customer).then(function () {
                         swal('Success!', 'The data has been saved.', 'success').then(function () {
                             this.router.navigate(['Index']);
                         });
@@ -53,8 +53,8 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                         selector: 'customer-create',
                         providers: [Customer_Service_1.CustomerService],
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        templateUrl: '/app/Basic/Customer/customer.create.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.create.component.css']
+                        templateUrl: '/app/Basic/Customer/customer-create.component.html',
+                        styleUrls: ['/app/Basic/Customer/customer-create.component.css']
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
                 ], CustomerCreateComponent);
@@ -64,4 +64,4 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
         }
     }
 });
-//# sourceMappingURL=customer.create.component.js.map
+//# sourceMappingURL=customer-create.component.js.map
