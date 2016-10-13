@@ -29,7 +29,7 @@ export class CustomerCreateComponent implements OnInit {
 
     //Save!
     private save() {
-        this.custService.update(this.customer).then(
+        this.custService.create(this.customer).then(
             () => {
                 swal(
                     'Success!',
