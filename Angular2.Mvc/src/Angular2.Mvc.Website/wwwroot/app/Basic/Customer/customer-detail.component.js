@@ -1,4 +1,4 @@
-System.register(['angular2/core', './Customer'], function(exports_1, context_1) {
+System.register(['angular2/core', './Tcustomer', './TsysEvent'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,45 @@ System.register(['angular2/core', './Customer'], function(exports_1, context_1) 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Customer_1;
+    var core_1, Tcustomer_1, TsysEvent_1;
     var CustomerDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (Customer_1_1) {
-                Customer_1 = Customer_1_1;
+            function (Tcustomer_1_1) {
+                Tcustomer_1 = Tcustomer_1_1;
+            },
+            function (TsysEvent_1_1) {
+                TsysEvent_1 = TsysEvent_1_1;
             }],
         execute: function() {
             CustomerDetailComponent = (function () {
                 function CustomerDetailComponent() {
+                    this.emitEvents = new core_1.EventEmitter();
                     console.log("Initialize Customer detail");
                 }
                 CustomerDetailComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    setTimeout(function () { return console.log("已選擇=" + _this.customer.Name); }, 8000);
+                    //Emit event
+                    var evts = [
+                        new TsysEvent_1.SysEvent({
+                            Title: "Info",
+                            Msg: "is looking at " + this.customer.Name + "'s information.",
+                            CreateBy: "JB",
+                            CreateOn: new Date()
+                        })
+                    ];
+                    this.emitEvents.emit(evts);
                 };
                 __decorate([
                     core_1.Input('selectedCustomer'), 
-                    __metadata('design:type', Customer_1.Customer)
+                    __metadata('design:type', Tcustomer_1.Customer)
                 ], CustomerDetailComponent.prototype, "customer", void 0);
+                __decorate([
+                    core_1.Output('emit-events'), 
+                    __metadata('design:type', Object)
+                ], CustomerDetailComponent.prototype, "emitEvents", void 0);
                 CustomerDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'customer-detail',

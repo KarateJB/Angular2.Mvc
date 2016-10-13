@@ -1,5 +1,5 @@
 ﻿import {Injectable} from 'angular2/core';
-import {Customer} from './Customer';
+import {Customer} from './Tcustomer';
 import {ICrudService} from '../../Interface/ICrudService';
 
 @Injectable()

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './Customer', './Customer.Service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './Tcustomer', './Customer.Service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_1, Customer_Service_1;
+    var core_1, router_1, Tcustomer_1, Customer_Service_1;
     var CustomerCreateComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (Customer_1_1) {
-                Customer_1 = Customer_1_1;
+            function (Tcustomer_1_1) {
+                Tcustomer_1 = Tcustomer_1_1;
             },
             function (Customer_Service_1_1) {
                 Customer_Service_1 = Customer_Service_1_1;
@@ -32,15 +32,18 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                     this.router = router;
                     this.custService = custService;
                     this.title = "Customer - Create";
-                    this.customer = new Customer_1.Customer();
+                    this.customer = new Tcustomer_1.Customer();
                 }
                 CustomerCreateComponent.prototype.ngOnInit = function () {
                 };
                 //Save!
                 CustomerCreateComponent.prototype.save = function () {
+                    var _this = this;
                     this.custService.create(this.customer).then(function () {
+                        var rt = _this.router;
                         swal('Success!', 'The data has been saved.', 'success').then(function () {
-                            this.router.navigate(['Index']);
+                            //Return to Index
+                            rt.navigate(['Index']);
                         });
                     });
                 };

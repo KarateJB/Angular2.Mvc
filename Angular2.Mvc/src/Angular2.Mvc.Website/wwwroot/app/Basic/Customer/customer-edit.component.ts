@@ -1,6 +1,6 @@
 ﻿import {Component, OnInit} from 'angular2/core';
 import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Customer} from './Customer';
+import {Customer} from './Tcustomer';
 import {CustomerService} from './Customer.Service';
 declare var swal: any;
 

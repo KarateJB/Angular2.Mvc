@@ -3,6 +3,7 @@ import {RouteConfig, Router, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from 'angular2
 import {CustomerIndexComponent} from './customer-index.component';
 import {CustomerEditComponent} from './customer-edit.component';
 import {CustomerRoutes} from './customer.Route';
+import {SysEvent} from './TsysEvent';
 
 
 @Component({
@@ -18,16 +19,17 @@ import {CustomerRoutes} from './customer.Route';
 })
 
 @RouteConfig(CustomerRoutes)
-//@RouteConfig([
-//    { path: '/Basic/Customer/Index', name: 'Index', component: CustomerIndexComponent },
-//    { path: '/Basic/Customer/Edit:id', name: 'Edit', component: CustomerEditComponent }
-//])
 
 export class CustomerAppComponent {
+
+    events: SysEvent[];
+
     constructor(private router: Router) {
 
         this.router.navigate(['Index']);
 
     }
+
+    
 }
 

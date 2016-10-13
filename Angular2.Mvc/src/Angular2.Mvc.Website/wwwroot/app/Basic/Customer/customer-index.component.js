@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './Customer.Service', './customer-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2/common', './Customer.Service', './customer-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_Service_1, customer_detail_component_1;
-    var CustomerIndexComponent;
+    var core_1, router_1, common_1, Customer_Service_1, customer_detail_component_1;
+    var WrapEvent, CustomerIndexComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -20,6 +20,9 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
             function (router_1_1) {
                 router_1 = router_1_1;
             },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
             function (Customer_Service_1_1) {
                 Customer_Service_1 = Customer_Service_1_1;
             },
@@ -27,6 +30,30 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                 customer_detail_component_1 = customer_detail_component_1_1;
             }],
         execute: function() {
+            WrapEvent = (function () {
+                function WrapEvent() {
+                }
+                WrapEvent.prototype.transform = function (content) {
+                    //Remove html tags
+                    var msg = content.Msg;
+                    var rex = /(<([^>]+)>)/ig;
+                    msg = msg.replace(rex, "");
+                    //Convert date to string
+                    var datePipe = new common_1.DatePipe();
+                    var createOn = datePipe.transform(content.CreateOn, 'yyyy/MM/dd HH:mm');
+                    var title = content.Title;
+                    var createBy = content.CreateBy;
+                    return createOn.concat(' [', title, '] ', createBy, ' : ', msg);
+                };
+                WrapEvent = __decorate([
+                    //SweetAlert2 typings definition
+                    core_1.Pipe({
+                        name: 'wrapEvent'
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], WrapEvent);
+                return WrapEvent;
+            }());
             CustomerIndexComponent = (function () {
                 function CustomerIndexComponent(router, custService) {
                     this.router = router;
@@ -73,15 +100,20 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                 CustomerIndexComponent.prototype.backToList = function () {
                     this.selectedCustomer = null;
                 };
+                //Set the emit event data from chile component to local variable
+                CustomerIndexComponent.prototype.setSysEvents = function (data) {
+                    console.log(data);
+                    this.events = data;
+                };
                 CustomerIndexComponent = __decorate([
-                    //SweetAlert2 typings definition
                     core_1.Component({
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],
                         //providers: [ROUTER_PROVIDERS, CustomerService],
                         templateUrl: '/app/Basic/Customer/customer-index.component.html',
                         styleUrls: ['/app/Basic/Customer/customer-index.component.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES, customer_detail_component_1.CustomerDetailComponent]
+                        directives: [router_1.ROUTER_DIRECTIVES, customer_detail_component_1.CustomerDetailComponent],
+                        pipes: [WrapEvent]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
                 ], CustomerIndexComponent);

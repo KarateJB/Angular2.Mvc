@@ -1,6 +1,6 @@
 ﻿import {Component, OnInit} from 'angular2/core';
 import {Router, RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Customer} from './Customer';
+import {Customer} from './Tcustomer';
 import {CustomerService} from './Customer.Service';
 declare var swal: any;
 
@@ -16,6 +16,8 @@ declare var swal: any;
 export class CustomerCreateComponent implements OnInit {
     title: string;
     customer: Customer;
+    
+
     constructor(
         private router: Router,
         private custService: CustomerService) {
@@ -31,13 +33,18 @@ export class CustomerCreateComponent implements OnInit {
     private save() {
         this.custService.create(this.customer).then(
             () => {
+
+                var rt = this.router;
+
                 swal(
                     'Success!',
                     'The data has been saved.',
                     'success'
                 ).then(function () {
-                    this.router.navigate(['Index']);
+                    //Return to Index
+                    rt.navigate(['Index']);
                 });
+
             });
     }
 

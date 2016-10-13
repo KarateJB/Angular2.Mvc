@@ -1,5 +1,6 @@
-﻿import {Component, OnInit, Input} from 'angular2/core';
-import {Customer} from './Customer';
+﻿import {Component, OnInit, Input, Output, EventEmitter} from 'angular2/core';
+import {Customer} from './Tcustomer';
+import {SysEvent} from './TsysEvent';
 
 @Component({
     selector: 'customer-detail',
@@ -9,12 +10,24 @@ import {Customer} from './Customer';
 export class CustomerDetailComponent implements OnInit {
 
     @Input('selectedCustomer') customer: Customer; 
+    @Output('emit-events') emitEvents = new EventEmitter<SysEvent[]>();
 
     constructor() {
         console.log("Initialize Customer detail");
     }
 
     ngOnInit() {
-        setTimeout(() => console.log("已選擇=" + this.customer.Name), 8000)
+
+        //Emit event
+        let evts: SysEvent[] = [
+            new SysEvent({
+                Title: "Info",
+                Msg: "is looking at " + this.customer.Name + "'s information.",
+                CreateBy: "JB",
+                CreateOn: new Date()
+            })
+        ];
+        this.emitEvents.emit(evts);
+
     }
 }

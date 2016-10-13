@@ -33,9 +33,16 @@
     </table>
 
     <div *ngIf="selectedCustomer">
-        <customer-detail  [selectedCustomer]="selectedCustomer">
+        <customer-detail  [selectedCustomer]="selectedCustomer" (emit-events)="setSysEvents($event)">
         </customer-detail>
         <input type="button" class="btn btn-primary" value="Back" (click)="backToList()" />
     </div>
 
+</div>
+
+<hr />
+<div>
+    <div class="list-group" *ngFor="let evn of events; let sn=index">
+        <a href="#" class="disabled list-group-item">{{evn | wrapEvent}}</a>
+    </div>
 </div>
