@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, Customer_1, Customer_Service_1;
-    var CustomerEditComponent;
+    var CustomerCreateComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -27,48 +27,41 @@ System.register(['angular2/core', 'angular2/router', './Customer', './Customer.S
                 Customer_Service_1 = Customer_Service_1_1;
             }],
         execute: function() {
-            CustomerEditComponent = (function () {
-                function CustomerEditComponent(router, routeParam, custService) {
+            CustomerCreateComponent = (function () {
+                function CustomerCreateComponent(router, custService) {
                     this.router = router;
-                    this.routeParam = routeParam;
                     this.custService = custService;
-                    this.title = "Customers - Edit";
+                    this.title = "Customer - Create";
                     this.customer = new Customer_1.Customer();
                 }
-                CustomerEditComponent.prototype.ngOnInit = function () {
-                    var _this = this;
-                    var custIdValue = this.routeParam.get('id');
-                    var custId = +custIdValue; //Equales to parseInt
-                    //let custId = parseInt(custIdValue);
-                    this.custService.get(custId).then(function (data) {
-                        console.log(data);
-                        _this.customer = data;
-                    });
+                CustomerCreateComponent.prototype.ngOnInit = function () {
                 };
                 //Save!
-                CustomerEditComponent.prototype.save = function () {
+                CustomerCreateComponent.prototype.save = function () {
                     this.custService.update(this.customer).then(function () {
-                        swal('Success!', 'The data has been updated.', 'success');
+                        swal('Success!', 'The data has been saved.', 'success').then(function () {
+                            this.router.navigate(['Index']);
+                        });
                     });
                 };
                 //Back to list
-                CustomerEditComponent.prototype.backToList = function () {
+                CustomerCreateComponent.prototype.backToList = function () {
                     this.router.navigate(['Index']);
                 };
-                CustomerEditComponent = __decorate([
+                CustomerCreateComponent = __decorate([
                     core_1.Component({
-                        selector: 'customer-edit',
+                        selector: 'customer-create',
                         providers: [Customer_Service_1.CustomerService],
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        templateUrl: '/app/Basic/Customer/customer.edit.component.html',
-                        styleUrls: ['/app/Basic/Customer/customer.edit.component.css']
+                        templateUrl: '/app/Basic/Customer/customer.create.component.html',
+                        styleUrls: ['/app/Basic/Customer/customer.create.component.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams, Customer_Service_1.CustomerService])
-                ], CustomerEditComponent);
-                return CustomerEditComponent;
+                    __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
+                ], CustomerCreateComponent);
+                return CustomerCreateComponent;
             }());
-            exports_1("CustomerEditComponent", CustomerEditComponent);
+            exports_1("CustomerCreateComponent", CustomerCreateComponent);
         }
     }
 });
-//# sourceMappingURL=customer.edit.component.js.map
+//# sourceMappingURL=customer.create.component.js.map

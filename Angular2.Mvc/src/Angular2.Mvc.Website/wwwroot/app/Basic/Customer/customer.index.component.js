@@ -40,9 +40,12 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                     var _this = this;
                     this.custService.getAll().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
                 };
+                //Go to create page
+                CustomerIndexComponent.prototype.goToCreate = function () {
+                    this.router.navigate(['Create']);
+                };
                 //Get to edit page
                 CustomerIndexComponent.prototype.editCustomer = function (item) {
-                    console.log("Redirect to edit page with customer id :" + item.Id);
                     this.router.navigate(['Edit', { id: item.Id }]);
                 };
                 //Remove customer
@@ -58,10 +61,8 @@ System.register(['angular2/core', 'angular2/router', './Customer.Service', './cu
                         confirmButtonText: 'Yes, delete it!'
                     }).then(function () {
                         //Remove item
-                        //var index = customers.indexOf(item);
-                        //customers.splice(index, 1);
-                        var index = this.data.indexOf(item);
-                        this.data.splice(index, 1);
+                        var index = customers.indexOf(item);
+                        customers.splice(index, 1);
                     });
                 };
                 //Show details of the customer

@@ -3,6 +3,7 @@ import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Customer} from './Customer';
 import {CustomerService} from './Customer.Service';
 import {CustomerDetailComponent} from './customer.detail.component';
+import {CustomerCreateComponent} from './customer.create.component';
 import {CustomerEditComponent} from './customer.edit.component';
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -35,9 +36,13 @@ export class CustomerIndexComponent implements OnInit {
             data => this.data = data); //非同步 & delay for 2 sec
     }
 
+    //Go to create page
+    private goToCreate() {
+        this.router.navigate(['Create']);
+    }
+
     //Get to edit page
     private editCustomer(item: Customer) {
-        console.log("Redirect to edit page with customer id :" + item.Id);
         this.router.navigate(['Edit', { id: item.Id }]);
     }
 
