@@ -1,6 +1,17 @@
-﻿
+﻿<div>
+    <table style="max-width:150px">
+        <tr>
+            <td><span>Search</span></td>
+            <td>&nbsp;</td>
+            <td>
+                <input type="text" class="form-control" #searchKeyword (change)="search(searchKeyword.value)"/>
+            </td>
+        </tr>
+    </table>
+</div>
+<hr />
 <div>
-    <input type="button" class="btn btn-primary" value="Create New" (click)="goToCreate()"/>
+    <input type="button" class="btn btn-primary" value="Create New" (click)="goToCreate()" />
 </div>
 <br />
 <div>
@@ -15,25 +26,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of data; let sn=index">
+            <tr *ngFor="let item of customers; let sn=index">
                 <!--<td class="col-sm-1 text-center">{{sn+1}}</td>-->
                 <td class="col-sm-1 text-center">{{item.Id}}</td>
-                <td class="col-sm-2" >
+                <td class="col-sm-2">
                     <a [innerHtml]="item.Name" (click)="showDetail(item)"></a>
                 </td>
                 <td class="col-sm-2">{{item.Phone}}</td>
                 <td class="col-sm-1">{{item.Age}}</td>
                 <td class="col-sm-2">
-                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)"/>
+                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)" />
                     &nbsp;
-                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)"/>
-                 </td>
+                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)" />
+                </td>
             </tr>
         </tbody>
     </table>
 
     <div *ngIf="selectedCustomer">
-        <customer-detail  [selectedCustomer]="selectedCustomer" (emit-events)="setSysEvents($event)">
+        <customer-detail [selectedCustomer]="selectedCustomer" (emit-events)="setSysEvents($event)">
         </customer-detail>
         <input type="button" class="btn btn-primary" value="Back" (click)="backToList()" />
     </div>

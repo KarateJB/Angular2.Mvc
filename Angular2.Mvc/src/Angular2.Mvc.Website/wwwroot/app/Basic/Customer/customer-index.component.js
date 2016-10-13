@@ -65,7 +65,18 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './Custo
                 };
                 CustomerIndexComponent.prototype.initCustomers = function () {
                     var _this = this;
-                    this.custService.getAll().then(function (data) { return _this.data = data; }); //非同步 & delay for 2 sec
+                    this.custService.getAll().then(function (data) { return _this.customers = data; }); //非同步 & delay for 2 sec
+                };
+                //Search when [Enter] is keyup
+                CustomerIndexComponent.prototype.search = function (searchKeyword) {
+                    var _this = this;
+                    if (searchKeyword.length > 0) {
+                        var filteredCusts = this.custService.search(searchKeyword);
+                        this.customers = filteredCusts;
+                    }
+                    else {
+                        this.custService.getAll().then(function (data) { return _this.customers = data; }); //非同步 & delay for 2 sec
+                    }
                 };
                 //Go to create page
                 CustomerIndexComponent.prototype.goToCreate = function () {
@@ -77,7 +88,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/common', './Custo
                 };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
-                    var customers = this.data;
+                    var customers = this.customers;
                     swal({
                         title: 'Are you sure?',
                         text: "The customer : " + item.Name + ", will be deleted!",

@@ -44,7 +44,7 @@ class WrapEvent {
 
 export class CustomerIndexComponent implements OnInit {
     title: string;
-    data: any[];
+    customers: Customer[];
     events: SysEvent[];
     selectedCustomer: Customer;
     constructor(
@@ -59,8 +59,21 @@ export class CustomerIndexComponent implements OnInit {
 
     private initCustomers() {
         this.custService.getAll().then(
-            data => this.data = data); //非同步 & delay for 2 sec
+            data => this.customers = data); //非同步 & delay for 2 sec
     }
+
+    //Search when [Enter] is keyup
+    private search(searchKeyword: string) {
+        if (searchKeyword.length > 0) {
+            let filteredCusts = this.custService.search(searchKeyword);
+            this.customers = filteredCusts;
+        }
+        else {
+            this.custService.getAll().then(
+                data => this.customers = data); //非同步 & delay for 2 sec
+        }
+    }
+
 
     //Go to create page
     private goToCreate() {
@@ -74,7 +87,7 @@ export class CustomerIndexComponent implements OnInit {
 
     //Remove customer
     private deleteCustomer(item: Customer) {
-        let customers = this.data;
+        let customers = this.customers;
 
         swal({
             title: 'Are you sure?',

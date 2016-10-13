@@ -15,6 +15,18 @@ export class CustomerService implements ICrudService {
                 setTimeout(() => resolve(cust), 1000);
             });
     }
+    public search(keyword: string) {
+        let rtn: Customer[] = new Array<Customer>();
+        for (let i = 0; i < customers.length; i++) {
+            var cust = customers[i];
+            if (cust.Name.indexOf(keyword)>0) {
+                rtn.push(cust);
+            }
+        }
+        console.log(rtn);
+        //var custs = customers.find(x => x.Name.indexOf(keyword) > 0);
+        return rtn;
+    }
     public create(item: Customer) {
 
         return new Promise(

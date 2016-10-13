@@ -30,6 +30,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         setTimeout(function () { return resolve(cust); }, 1000);
                     });
                 };
+                CustomerService.prototype.search = function (keyword) {
+                    var rtn = new Array();
+                    for (var i = 0; i < customers.length; i++) {
+                        var cust = customers[i];
+                        if (cust.Name.indexOf(keyword) > 0) {
+                            rtn.push(cust);
+                        }
+                    }
+                    console.log(rtn);
+                    //var custs = customers.find(x => x.Name.indexOf(keyword) > 0);
+                    return rtn;
+                };
                 CustomerService.prototype.create = function (item) {
                     return new Promise(function (resolve) {
                         //Save it to database
