@@ -1,6 +1,6 @@
 ﻿System.config({
-    //transpiler: 'typescript',
-    //typescriptOptions: { emitDecoratorMetadata: true },
+    transpiler: 'typescript',
+    typescriptOptions: { emitDecoratorMetadata: true },
     map: {
         'rxjs': 'lib-npm/rxjs',
         'sweetalert2': 'lib-npm/sweetalert2',
@@ -15,6 +15,7 @@
     packages: {
         'rxjs': { main: 'Rx.js' },
         'sweetalert2': {main:'sweetalert2.js'},
+        '@angular/router': { main: 'router.umd.min.js'},
         '@angular/core': { main: 'core.umd.min.js' },
         '@angular/common': { main: 'common.umd.min.js' },
         '@angular/compiler': { main: 'compiler.umd.min.js' },

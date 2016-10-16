@@ -14,15 +14,15 @@
     <script>
         System.config({
             map: {
-                app: '/app'
+                app: 'app/Basic/Customer'
             },
             packages: {
-                'app': {
+                app: {
                     defaultExtension: 'js'
                 }
-            },
+            }
         });
-        //System.import('app/Basic/Customer/customer.main').then(null, console.error.bind(console));
+        System.import('app/customer.main.js').then(null, console.error.bind(console));
     </script>
 }
 
