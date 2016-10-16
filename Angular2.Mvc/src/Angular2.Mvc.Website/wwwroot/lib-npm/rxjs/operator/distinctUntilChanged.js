@@ -7,6 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var Subscriber_1 = require('../Subscriber');
 var tryCatch_1 = require('../util/tryCatch');
 var errorObject_1 = require('../util/errorObject');
+/* tslint:disable:max-line-length */
 function distinctUntilChanged(compare, keySelector) {
     return this.lift(new DistinctUntilChangedOperator(compare, keySelector));
 }
@@ -16,11 +17,16 @@ var DistinctUntilChangedOperator = (function () {
         this.compare = compare;
         this.keySelector = keySelector;
     }
-    DistinctUntilChangedOperator.prototype.call = function (subscriber) {
-        return new DistinctUntilChangedSubscriber(subscriber, this.compare, this.keySelector);
+    DistinctUntilChangedOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new DistinctUntilChangedSubscriber(subscriber, this.compare, this.keySelector));
     };
     return DistinctUntilChangedOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var DistinctUntilChangedSubscriber = (function (_super) {
     __extends(DistinctUntilChangedSubscriber, _super);
     function DistinctUntilChangedSubscriber(destination, compare, keySelector) {

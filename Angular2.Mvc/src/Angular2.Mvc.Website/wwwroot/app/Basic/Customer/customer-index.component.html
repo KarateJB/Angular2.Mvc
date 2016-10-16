@@ -56,7 +56,7 @@
 
 
 <hr />
-<div>
+<div *ngIf="events">
     <div class="list-group" *ngFor="let evn of events; let sn=index">
         <a href="#" class="disabled list-group-item">{{evn | wrapEvent}}</a>
     </div>

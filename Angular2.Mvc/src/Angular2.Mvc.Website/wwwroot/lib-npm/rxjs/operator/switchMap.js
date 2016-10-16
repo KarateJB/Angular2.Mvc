@@ -6,16 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-/**
- * Returns a new Observable by applying a function that you supply to each item emitted by the source Observable that
- * returns an Observable, and then emitting the items emitted by the most recently emitted of these Observables.
- *
- * <img src="./img/switchMap.png" width="100%">
- *
- * @param {Observable} a function that, when applied to an item emitted by the source Observable, returns an Observable.
- * @returns {Observable} an Observable that emits the items emitted by the Observable returned from applying func to
- * the most recently emitted item emitted by the source Observable.
- */
+/* tslint:disable:max-line-length */
 function switchMap(project, resultSelector) {
     return this.lift(new SwitchMapOperator(project, resultSelector));
 }
@@ -25,11 +16,16 @@ var SwitchMapOperator = (function () {
         this.project = project;
         this.resultSelector = resultSelector;
     }
-    SwitchMapOperator.prototype.call = function (subscriber) {
-        return new SwitchMapSubscriber(subscriber, this.project, this.resultSelector);
+    SwitchMapOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new SwitchMapSubscriber(subscriber, this.project, this.resultSelector));
     };
     return SwitchMapOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var SwitchMapSubscriber = (function (_super) {
     __extends(SwitchMapSubscriber, _super);
     function SwitchMapSubscriber(destination, project, resultSelector) {
@@ -59,7 +55,7 @@ var SwitchMapSubscriber = (function (_super) {
     };
     SwitchMapSubscriber.prototype._complete = function () {
         var innerSubscription = this.innerSubscription;
-        if (!innerSubscription || innerSubscription.isUnsubscribed) {
+        if (!innerSubscription || innerSubscription.closed) {
             _super.prototype._complete.call(this);
         }
     };

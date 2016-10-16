@@ -7,11 +7,13 @@ var reduce_1 = require('./reduce');
  * <img src="./img/min.png" width="100%">
  *
  * @param {Function} optional comparer function that it will use instead of its default to compare the value of two items.
- * @returns {Observable<R>} an Observable that emits item with the smallest number.
+ * @return {Observable<R>} an Observable that emits item with the smallest number.
+ * @method min
+ * @owner Observable
  */
 function min(comparer) {
     var min = (typeof comparer === 'function')
-        ? comparer
+        ? function (x, y) { return comparer(x, y) < 0 ? x : y; }
         : function (x, y) { return x < y ? x : y; };
     return this.lift(new reduce_1.ReduceOperator(min));
 }

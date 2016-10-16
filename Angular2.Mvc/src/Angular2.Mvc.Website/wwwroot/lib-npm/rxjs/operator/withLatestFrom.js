@@ -6,24 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-/**
- * @param {Observable} observables the observables to get the latest values from.
- * @param {Function} [project] optional projection function for merging values together. Receives all values in order
- *  of observables passed. (e.g. `a.withLatestFrom(b, c, (a1, b1, c1) => a1 + b1 + c1)`). If this is not passed, arrays
- *  will be returned.
- * @description merges each value from an observable with the latest values from the other passed observables.
- * All observables must emit at least one value before the resulting observable will emit
- *
- * #### example
- * ```
- * A.withLatestFrom(B, C)
- *
- *  A:     ----a-----------------b---------------c-----------|
- *  B:     ---d----------------e--------------f---------|
- *  C:     --x----------------y-------------z-------------|
- * result: ---([a,d,x])---------([b,e,y])--------([c,f,z])---|
- * ```
- */
+/* tslint:disable:max-line-length */
 function withLatestFrom() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -37,17 +20,21 @@ function withLatestFrom() {
     return this.lift(new WithLatestFromOperator(observables, project));
 }
 exports.withLatestFrom = withLatestFrom;
-/* tslint:enable:max-line-length */
 var WithLatestFromOperator = (function () {
     function WithLatestFromOperator(observables, project) {
         this.observables = observables;
         this.project = project;
     }
-    WithLatestFromOperator.prototype.call = function (subscriber) {
-        return new WithLatestFromSubscriber(subscriber, this.observables, this.project);
+    WithLatestFromOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new WithLatestFromSubscriber(subscriber, this.observables, this.project));
     };
     return WithLatestFromOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var WithLatestFromSubscriber = (function (_super) {
     __extends(WithLatestFromSubscriber, _super);
     function WithLatestFromSubscriber(destination, observables, project) {

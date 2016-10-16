@@ -6,13 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-/**
- * Returns an Observable that applies the given function to each item of the source Observable
- * to create a new Observable, which are then concatenated together to produce a new Observable.
- * @param {function} project function called for each item of the source to produce a new Observable.
- * @param {function} [resultSelector] optional function for then selecting on each inner Observable.
- * @returns {Observable} an Observable containing all the projected Observables of each item of the source concatenated together.
- */
+/* tslint:disable:max-line-length */
 function exhaustMap(project, resultSelector) {
     return this.lift(new SwitchFirstMapOperator(project, resultSelector));
 }
@@ -22,11 +16,16 @@ var SwitchFirstMapOperator = (function () {
         this.project = project;
         this.resultSelector = resultSelector;
     }
-    SwitchFirstMapOperator.prototype.call = function (subscriber) {
-        return new SwitchFirstMapSubscriber(subscriber, this.project, this.resultSelector);
+    SwitchFirstMapOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new SwitchFirstMapSubscriber(subscriber, this.project, this.resultSelector));
     };
     return SwitchFirstMapOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var SwitchFirstMapSubscriber = (function (_super) {
     __extends(SwitchFirstMapSubscriber, _super);
     function SwitchFirstMapSubscriber(destination, project, resultSelector) {
@@ -82,7 +81,8 @@ var SwitchFirstMapSubscriber = (function (_super) {
     SwitchFirstMapSubscriber.prototype.notifyError = function (err) {
         this.destination.error(err);
     };
-    SwitchFirstMapSubscriber.prototype.notifyComplete = function () {
+    SwitchFirstMapSubscriber.prototype.notifyComplete = function (innerSub) {
+        this.remove(innerSub);
         this.hasSubscription = false;
         if (this.hasCompleted) {
             this.destination.complete();

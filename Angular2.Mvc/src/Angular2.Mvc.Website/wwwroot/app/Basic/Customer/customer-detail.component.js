@@ -26,8 +26,7 @@ System.register(['@angular/core', './Tcustomer', './TsysEvent'], function(export
         execute: function() {
             CustomerDetailComponent = (function () {
                 function CustomerDetailComponent() {
-                    this.emitEvents = new core_1.EventEmitter();
-                    console.log("Initialize Customer detail");
+                    this.emitEvents = new core_1.EventEmitter(true); //Must set the EventEmitter to async
                 }
                 CustomerDetailComponent.prototype.ngOnInit = function () {
                     //Emit event

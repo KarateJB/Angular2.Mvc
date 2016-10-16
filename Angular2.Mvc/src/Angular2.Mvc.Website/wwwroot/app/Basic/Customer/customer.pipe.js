@@ -10,6 +10,9 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, common_1;
     var WrapEventPipe;
     return {
@@ -22,7 +25,8 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
             }],
         execute: function() {
             WrapEventPipe = (function () {
-                function WrapEventPipe() {
+                function WrapEventPipe(_locale) {
+                    this._locale = _locale;
                 }
                 WrapEventPipe.prototype.transform = function (content) {
                     //Remove html tags
@@ -30,7 +34,7 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                     var rex = /(<([^>]+)>)/ig;
                     msg = msg.replace(rex, "");
                     //Convert date to string
-                    var datePipe = new common_1.DatePipe("");
+                    var datePipe = new common_1.DatePipe(this._locale);
                     var createOn = datePipe.transform(content.CreateOn, 'yyyy/MM/dd HH:mm');
                     var title = content.Title;
                     var createBy = content.CreateBy;
@@ -39,8 +43,9 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                 WrapEventPipe = __decorate([
                     core_1.Pipe({
                         name: 'wrapEvent'
-                    }), 
-                    __metadata('design:paramtypes', [])
+                    }),
+                    __param(0, core_1.Inject(core_1.LOCALE_ID)), 
+                    __metadata('design:paramtypes', [String])
                 ], WrapEventPipe);
                 return WrapEventPipe;
             }());

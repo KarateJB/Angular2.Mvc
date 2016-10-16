@@ -89,6 +89,10 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
                 };
                 CustomerIndexComponent = __decorate([
                     //SweetAlert2 typings definition
+                    core_1.Pipe({
+                        name: 'wrapEvent',
+                        pure: true //Default is true
+                    }),
                     core_1.Component({
                         selector: 'customer-index',
                         providers: [Customer_Service_1.CustomerService],

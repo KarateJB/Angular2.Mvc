@@ -6,12 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Subscriber_1 = require('../Subscriber');
 var EmptyError_1 = require('../util/EmptyError');
-/**
- * Returns an Observable that emits the first item of the source Observable that matches the specified condition.
- * Throws an error if matching element is not found.
- * @param {function} predicate function called with each item to test for condition matching.
- * @returns {Observable} an Observable of the first item that matches the condition.
- */
+/* tslint:disable:max-line-length */
 function first(predicate, resultSelector, defaultValue) {
     return this.lift(new FirstOperator(predicate, resultSelector, defaultValue, this));
 }
@@ -23,11 +18,16 @@ var FirstOperator = (function () {
         this.defaultValue = defaultValue;
         this.source = source;
     }
-    FirstOperator.prototype.call = function (observer) {
-        return new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source);
+    FirstOperator.prototype.call = function (observer, source) {
+        return source._subscribe(new FirstSubscriber(observer, this.predicate, this.resultSelector, this.defaultValue, this.source));
     };
     return FirstOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var FirstSubscriber = (function (_super) {
     __extends(FirstSubscriber, _super);
     function FirstSubscriber(destination, predicate, resultSelector, defaultValue, source) {

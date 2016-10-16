@@ -5,12 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = require('../Subscriber');
-/**
- * Returns an Observable that searches for the first item in the source Observable that
- * matches the specified condition, and returns the first occurence in the source.
- * @param {function} predicate function called with each item to test for condition matching.
- * @returns {Observable} an Observable of the first item that matches the condition.
- */
+/* tslint:disable:max-line-length */
 function find(predicate, thisArg) {
     if (typeof predicate !== 'function') {
         throw new TypeError('predicate is not a function');
@@ -25,12 +20,17 @@ var FindValueOperator = (function () {
         this.yieldIndex = yieldIndex;
         this.thisArg = thisArg;
     }
-    FindValueOperator.prototype.call = function (observer) {
-        return new FindValueSubscriber(observer, this.predicate, this.source, this.yieldIndex, this.thisArg);
+    FindValueOperator.prototype.call = function (observer, source) {
+        return source._subscribe(new FindValueSubscriber(observer, this.predicate, this.source, this.yieldIndex, this.thisArg));
     };
     return FindValueOperator;
 }());
 exports.FindValueOperator = FindValueOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var FindValueSubscriber = (function (_super) {
     __extends(FindValueSubscriber, _super);
     function FindValueSubscriber(destination, predicate, source, yieldIndex, thisArg) {

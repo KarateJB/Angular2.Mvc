@@ -8,12 +8,7 @@ var isArray_1 = require('../util/isArray');
 var ArrayObservable_1 = require('../observable/ArrayObservable');
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-/**
- * Returns an Observable that mirrors the first source Observable to emit an item
- * from the combination of this Observable and supplied Observables
- * @param {...Observables} ...observables sources used to race for which Observable emits first.
- * @returns {Observable} an Observable that mirrors the output of the first Observable to emit an item.
- */
+/* tslint:disable:max-line-length */
 function race() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -24,15 +19,9 @@ function race() {
     if (observables.length === 1 && isArray_1.isArray(observables[0])) {
         observables = observables[0];
     }
-    observables.unshift(this);
-    return raceStatic.apply(this, observables);
+    return this.lift.call(raceStatic.apply(void 0, [this].concat(observables)));
 }
 exports.race = race;
-/**
- * Returns an Observable that mirrors the first source Observable to emit an item.
- * @param {...Observables} ...observables sources used to race for which Observable emits first.
- * @returns {Observable} an Observable that mirrors the output of the first Observable to emit an item.
- */
 function raceStatic() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -54,12 +43,17 @@ exports.raceStatic = raceStatic;
 var RaceOperator = (function () {
     function RaceOperator() {
     }
-    RaceOperator.prototype.call = function (subscriber) {
-        return new RaceSubscriber(subscriber);
+    RaceOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new RaceSubscriber(subscriber));
     };
     return RaceOperator;
 }());
 exports.RaceOperator = RaceOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var RaceSubscriber = (function (_super) {
     __extends(RaceSubscriber, _super);
     function RaceSubscriber(destination) {
@@ -81,8 +75,10 @@ var RaceSubscriber = (function (_super) {
             for (var i = 0; i < len; i++) {
                 var observable = observables[i];
                 var subscription = subscribeToResult_1.subscribeToResult(this, observable, observable, i);
-                this.subscriptions.push(subscription);
-                this.add(subscription);
+                if (this.subscriptions) {
+                    this.subscriptions.push(subscription);
+                    this.add(subscription);
+                }
             }
             this.observables = null;
         }

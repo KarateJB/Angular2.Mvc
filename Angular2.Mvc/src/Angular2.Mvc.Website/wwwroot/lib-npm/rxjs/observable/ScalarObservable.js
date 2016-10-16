@@ -5,6 +5,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = require('../Observable');
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
 var ScalarObservable = (function (_super) {
     __extends(ScalarObservable, _super);
     function ScalarObservable(value, scheduler) {
@@ -12,6 +17,9 @@ var ScalarObservable = (function (_super) {
         this.value = value;
         this.scheduler = scheduler;
         this._isScalar = true;
+        if (scheduler) {
+            this._isScalar = false;
+        }
     }
     ScalarObservable.create = function (value, scheduler) {
         return new ScalarObservable(value, scheduler);
@@ -23,7 +31,7 @@ var ScalarObservable = (function (_super) {
             return;
         }
         subscriber.next(value);
-        if (subscriber.isUnsubscribed) {
+        if (subscriber.closed) {
             return;
         }
         state.done = true;
@@ -39,7 +47,7 @@ var ScalarObservable = (function (_super) {
         }
         else {
             subscriber.next(value);
-            if (!subscriber.isUnsubscribed) {
+            if (!subscriber.closed) {
                 subscriber.complete();
             }
         }

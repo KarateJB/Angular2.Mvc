@@ -5,13 +5,13 @@
   "Dependencies": {
     "systemjs": "0.19.39",
     "es6-shim": "^0.33.3",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-rc.1",
     "sweetalert2": "5.2.1"
   },
   "devDependencies": {
     "systemjs": "0.19.39",
     "es6-shim": "^0.33.3",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-rc.1",
     "gulp": "3.8.11",
     "gulp-concat": "2.5.2",
     "gulp-cssmin": "0.1.7",
@@ -25,6 +25,7 @@
     "@angular/common": "^2.1.0",
     "@angular/compiler": "^2.1.0",
     "@angular/core": "^2.1.0",
+    "@angular/forms": "^2.1.0",
     "@angular/http": "^2.1.0",
     "@angular/platform-browser": "^2.1.0",
     "@angular/platform-browser-dynamic": "^2.1.0",

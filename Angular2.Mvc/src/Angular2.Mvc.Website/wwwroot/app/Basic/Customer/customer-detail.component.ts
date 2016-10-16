@@ -10,10 +10,9 @@ import {SysEvent} from './TsysEvent';
 export class CustomerDetailComponent implements OnInit {
 
     @Input('selectedCustomer') customer: Customer; 
-    @Output('emit-events') emitEvents = new EventEmitter<SysEvent[]>();
+    @Output('emit-events') emitEvents = new EventEmitter<SysEvent[]>(true); //Must set the EventEmitter to async
 
     constructor() {
-        console.log("Initialize Customer detail");
     }
 
     ngOnInit() {

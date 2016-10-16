@@ -5,17 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = require('../Subscriber');
-/**
- * Returns an Observable that applies a specified accumulator function to each item emitted by the source Observable.
- * If a seed value is specified, then that value will be used as the initial value for the accumulator.
- * If no seed value is specified, the first item of the source is used as the seed.
- * @param {function} accumulator The accumulator function called on each item.
- *
- * <img src="./img/scan.png" width="100%">
- *
- * @param {any} [seed] The initial accumulator value.
- * @returns {Obervable} An observable of the accumulated values.
- */
+/* tslint:disable:max-line-length */
 function scan(accumulator, seed) {
     return this.lift(new ScanOperator(accumulator, seed));
 }
@@ -25,19 +15,24 @@ var ScanOperator = (function () {
         this.accumulator = accumulator;
         this.seed = seed;
     }
-    ScanOperator.prototype.call = function (subscriber) {
-        return new ScanSubscriber(subscriber, this.accumulator, this.seed);
+    ScanOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new ScanSubscriber(subscriber, this.accumulator, this.seed));
     };
     return ScanOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var ScanSubscriber = (function (_super) {
     __extends(ScanSubscriber, _super);
     function ScanSubscriber(destination, accumulator, seed) {
         _super.call(this, destination);
         this.accumulator = accumulator;
+        this.index = 0;
         this.accumulatorSet = false;
         this.seed = seed;
-        this.accumulator = accumulator;
         this.accumulatorSet = typeof seed !== 'undefined';
     }
     Object.defineProperty(ScanSubscriber.prototype, "seed", {
@@ -61,9 +56,10 @@ var ScanSubscriber = (function (_super) {
         }
     };
     ScanSubscriber.prototype._tryNext = function (value) {
+        var index = this.index++;
         var result;
         try {
-            result = this.accumulator(this.seed, value);
+            result = this.accumulator(this.seed, value, index);
         }
         catch (err) {
             this.destination.error(err);

@@ -5,44 +5,41 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = require('../Subscriber');
-/**
- * Similar to the well-known `Array.prototype.filter` method, this operator filters values down to a set
- * allowed by a `select` function
- *
- * @param {Function} select a function that is used to select the resulting values
- *  if it returns `true`, the value is emitted, if `false` the value is not passed to the resulting observable
- * @param {any} [thisArg] an optional argument to determine the value of `this` in the `select` function
- * @returns {Observable} an observable of values allowed by the select function
- */
-function filter(select, thisArg) {
-    return this.lift(new FilterOperator(select, thisArg));
+/* tslint:disable:max-line-length */
+function filter(predicate, thisArg) {
+    return this.lift(new FilterOperator(predicate, thisArg));
 }
 exports.filter = filter;
 var FilterOperator = (function () {
-    function FilterOperator(select, thisArg) {
-        this.select = select;
+    function FilterOperator(predicate, thisArg) {
+        this.predicate = predicate;
         this.thisArg = thisArg;
     }
-    FilterOperator.prototype.call = function (subscriber) {
-        return new FilterSubscriber(subscriber, this.select, this.thisArg);
+    FilterOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
     };
     return FilterOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var FilterSubscriber = (function (_super) {
     __extends(FilterSubscriber, _super);
-    function FilterSubscriber(destination, select, thisArg) {
+    function FilterSubscriber(destination, predicate, thisArg) {
         _super.call(this, destination);
-        this.select = select;
+        this.predicate = predicate;
         this.thisArg = thisArg;
         this.count = 0;
-        this.select = select;
+        this.predicate = predicate;
     }
     // the try catch block below is left specifically for
     // optimization and perf reasons. a tryCatcher is not necessary here.
     FilterSubscriber.prototype._next = function (value) {
         var result;
         try {
-            result = this.select.call(this.thisArg, value, this.count++);
+            result = this.predicate.call(this.thisArg, value, this.count++);
         }
         catch (err) {
             this.destination.error(err);

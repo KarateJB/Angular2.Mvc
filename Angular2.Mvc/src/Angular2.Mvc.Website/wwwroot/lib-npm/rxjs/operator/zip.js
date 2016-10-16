@@ -9,17 +9,24 @@ var isArray_1 = require('../util/isArray');
 var Subscriber_1 = require('../Subscriber');
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-var SymbolShim_1 = require('../util/SymbolShim');
+var iterator_1 = require('../symbol/iterator');
+/* tslint:disable:max-line-length */
 function zipProto() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         observables[_i - 0] = arguments[_i];
     }
-    observables.unshift(this);
-    return zipStatic.apply(this, observables);
+    return this.lift.call(zipStatic.apply(void 0, [this].concat(observables)));
 }
 exports.zipProto = zipProto;
 /* tslint:enable:max-line-length */
+/**
+ * @param observables
+ * @return {Observable<R>}
+ * @static true
+ * @name zip
+ * @owner Observable
+ */
 function zipStatic() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -36,12 +43,17 @@ var ZipOperator = (function () {
     function ZipOperator(project) {
         this.project = project;
     }
-    ZipOperator.prototype.call = function (subscriber) {
-        return new ZipSubscriber(subscriber, this.project);
+    ZipOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new ZipSubscriber(subscriber, this.project));
     };
     return ZipOperator;
 }());
 exports.ZipOperator = ZipOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var ZipSubscriber = (function (_super) {
     __extends(ZipSubscriber, _super);
     function ZipSubscriber(destination, project, values) {
@@ -59,8 +71,8 @@ var ZipSubscriber = (function (_super) {
         if (isArray_1.isArray(value)) {
             iterators.push(new StaticArrayIterator(value));
         }
-        else if (typeof value[SymbolShim_1.SymbolShim.iterator] === 'function') {
-            iterators.push(new StaticIterator(value[SymbolShim_1.SymbolShim.iterator]()));
+        else if (typeof value[iterator_1.$$iterator] === 'function') {
+            iterators.push(new StaticIterator(value[iterator_1.$$iterator]()));
         }
         else {
             iterators.push(new ZipBufferIterator(this.destination, this, value, index));
@@ -163,13 +175,13 @@ var StaticArrayIterator = (function () {
         this.length = 0;
         this.length = array.length;
     }
-    StaticArrayIterator.prototype[SymbolShim_1.SymbolShim.iterator] = function () {
+    StaticArrayIterator.prototype[iterator_1.$$iterator] = function () {
         return this;
     };
     StaticArrayIterator.prototype.next = function (value) {
         var i = this.index++;
         var array = this.array;
-        return i < this.length ? { value: array[i], done: false } : { done: true };
+        return i < this.length ? { value: array[i], done: false } : { value: null, done: true };
     };
     StaticArrayIterator.prototype.hasValue = function () {
         return this.array.length > this.index;
@@ -179,6 +191,11 @@ var StaticArrayIterator = (function () {
     };
     return StaticArrayIterator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var ZipBufferIterator = (function (_super) {
     __extends(ZipBufferIterator, _super);
     function ZipBufferIterator(destination, parent, observable, index) {
@@ -190,7 +207,7 @@ var ZipBufferIterator = (function (_super) {
         this.buffer = [];
         this.isComplete = false;
     }
-    ZipBufferIterator.prototype[SymbolShim_1.SymbolShim.iterator] = function () {
+    ZipBufferIterator.prototype[iterator_1.$$iterator] = function () {
         return this;
     };
     // NOTE: there is actually a name collision here with Subscriber.next and Iterator.next
@@ -198,7 +215,7 @@ var ZipBufferIterator = (function (_super) {
     ZipBufferIterator.prototype.next = function () {
         var buffer = this.buffer;
         if (buffer.length === 0 && this.isComplete) {
-            return { done: true };
+            return { value: null, done: true };
         }
         else {
             return { value: buffer.shift(), done: false };

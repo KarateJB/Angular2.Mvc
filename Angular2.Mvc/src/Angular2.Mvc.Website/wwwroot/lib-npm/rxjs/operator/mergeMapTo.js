@@ -6,13 +6,18 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-function mergeMapTo(observable, resultSelector, concurrent) {
+/* tslint:disable:max-line-length */
+function mergeMapTo(innerObservable, resultSelector, concurrent) {
     if (concurrent === void 0) { concurrent = Number.POSITIVE_INFINITY; }
-    return this.lift(new MergeMapToOperator(observable, resultSelector, concurrent));
+    if (typeof resultSelector === 'number') {
+        concurrent = resultSelector;
+        resultSelector = null;
+    }
+    return this.lift(new MergeMapToOperator(innerObservable, resultSelector, concurrent));
 }
 exports.mergeMapTo = mergeMapTo;
-// TODO: Figure out correct signature here: an Operator<Observable<T>, R2>
-//       needs to implement call(observer: Subscriber<R2>): Subscriber<Observable<T>>
+// TODO: Figure out correct signature here: an Operator<Observable<T>, R>
+//       needs to implement call(observer: Subscriber<R>): Subscriber<Observable<T>>
 var MergeMapToOperator = (function () {
     function MergeMapToOperator(ish, resultSelector, concurrent) {
         if (concurrent === void 0) { concurrent = Number.POSITIVE_INFINITY; }
@@ -20,12 +25,17 @@ var MergeMapToOperator = (function () {
         this.resultSelector = resultSelector;
         this.concurrent = concurrent;
     }
-    MergeMapToOperator.prototype.call = function (observer) {
-        return new MergeMapToSubscriber(observer, this.ish, this.resultSelector, this.concurrent);
+    MergeMapToOperator.prototype.call = function (observer, source) {
+        return source._subscribe(new MergeMapToSubscriber(observer, this.ish, this.resultSelector, this.concurrent));
     };
     return MergeMapToOperator;
 }());
 exports.MergeMapToOperator = MergeMapToOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var MergeMapToSubscriber = (function (_super) {
     __extends(MergeMapToSubscriber, _super);
     function MergeMapToSubscriber(destination, ish, resultSelector, concurrent) {

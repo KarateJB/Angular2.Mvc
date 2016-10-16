@@ -1,20 +1,7 @@
 "use strict";
 var ConnectableObservable_1 = require('../observable/ConnectableObservable');
-/**
- * Returns an Observable that emits the results of invoking a specified selector on items
- * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
- *
- * <img src="./img/multicast.png" width="100%">
- *
- * @param {Function} selector - a function that can use the multicasted source stream
- * as many times as needed, without causing multiple subscriptions to the source stream.
- * Subscribers to the given source will receive all notifications of the source from the
- * time of the subscription forward.
- * @returns {Observable} an Observable that emits the results of invoking the selector
- * on the items emitted by a `ConnectableObservable` that shares a single subscription to
- * the underlying stream.
- */
-function multicast(subjectOrSubjectFactory) {
+/* tslint:disable:max-line-length */
+function multicast(subjectOrSubjectFactory, selector) {
     var subjectFactory;
     if (typeof subjectOrSubjectFactory === 'function') {
         subjectFactory = subjectOrSubjectFactory;
@@ -24,7 +11,28 @@ function multicast(subjectOrSubjectFactory) {
             return subjectOrSubjectFactory;
         };
     }
-    return new ConnectableObservable_1.ConnectableObservable(this, subjectFactory);
+    if (typeof selector === 'function') {
+        return this.lift(new MulticastOperator(subjectFactory, selector));
+    }
+    var connectable = Object.create(this, ConnectableObservable_1.connectableObservableDescriptor);
+    connectable.source = this;
+    connectable.subjectFactory = subjectFactory;
+    return connectable;
 }
 exports.multicast = multicast;
+var MulticastOperator = (function () {
+    function MulticastOperator(subjectFactory, selector) {
+        this.subjectFactory = subjectFactory;
+        this.selector = selector;
+    }
+    MulticastOperator.prototype.call = function (subscriber, self) {
+        var selector = this.selector;
+        var connectable = new ConnectableObservable_1.ConnectableObservable(self.source, this.subjectFactory);
+        var subscription = selector(connectable).subscribe(subscriber);
+        subscription.add(connectable.connect());
+        return subscription;
+    };
+    return MulticastOperator;
+}());
+exports.MulticastOperator = MulticastOperator;
 //# sourceMappingURL=multicast.js.map

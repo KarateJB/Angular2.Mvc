@@ -6,8 +6,9 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var OuterSubscriber_1 = require('../OuterSubscriber');
 var subscribeToResult_1 = require('../util/subscribeToResult');
-function switchMapTo(observable, resultSelector) {
-    return this.lift(new SwitchMapToOperator(observable, resultSelector));
+/* tslint:disable:max-line-length */
+function switchMapTo(innerObservable, resultSelector) {
+    return this.lift(new SwitchMapToOperator(innerObservable, resultSelector));
 }
 exports.switchMapTo = switchMapTo;
 var SwitchMapToOperator = (function () {
@@ -15,11 +16,16 @@ var SwitchMapToOperator = (function () {
         this.observable = observable;
         this.resultSelector = resultSelector;
     }
-    SwitchMapToOperator.prototype.call = function (subscriber) {
-        return new SwitchMapToSubscriber(subscriber, this.observable, this.resultSelector);
+    SwitchMapToOperator.prototype.call = function (subscriber, source) {
+        return source._subscribe(new SwitchMapToSubscriber(subscriber, this.observable, this.resultSelector));
     };
     return SwitchMapToOperator;
 }());
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
 var SwitchMapToSubscriber = (function (_super) {
     __extends(SwitchMapToSubscriber, _super);
     function SwitchMapToSubscriber(destination, inner, resultSelector) {
@@ -37,7 +43,7 @@ var SwitchMapToSubscriber = (function (_super) {
     };
     SwitchMapToSubscriber.prototype._complete = function () {
         var innerSubscription = this.innerSubscription;
-        if (!innerSubscription || innerSubscription.isUnsubscribed) {
+        if (!innerSubscription || innerSubscription.closed) {
             _super.prototype._complete.call(this);
         }
     };

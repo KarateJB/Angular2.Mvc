@@ -3,12 +3,13 @@ import {Router} from '@angular/router';
 import {Customer} from './Tcustomer';
 import {SysEvent} from './TsysEvent';
 import {CustomerService} from './Customer.Service';
-//import {CustomerDetailComponent} from './customer-detail.component';
-//import {CustomerCreateComponent} from './customer-create.component';
-//import {CustomerEditComponent} from './customer-edit.component';
 
 declare var swal: any; //SweetAlert2 typings definition
 
+@Pipe({
+    name: 'wrapEvent',
+    pure:true //Default is true
+})
 
 @Component({
     selector: 'customer-index',
