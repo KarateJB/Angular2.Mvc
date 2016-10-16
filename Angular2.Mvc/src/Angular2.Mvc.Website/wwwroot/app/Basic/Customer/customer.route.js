@@ -19,9 +19,9 @@ System.register(['./customer-index.component', './customer-create.component', '.
             }],
         execute: function() {
             appRoutes = [
-                { path: '/Basic/Customer/Index', component: customer_index_component_1.CustomerIndexComponent },
-                { path: '/Basic/Customer/Create', component: customer_create_component_1.CustomerCreateComponent },
-                { path: '/Basic/Customer/Edit/:id', component: customer_edit_component_1.CustomerEditComponent },
+                { path: 'Basic/Customer/Index', component: customer_index_component_1.CustomerIndexComponent },
+                { path: 'Basic/Customer/Create', component: customer_create_component_1.CustomerCreateComponent },
+                { path: 'Basic/Customer/Edit/:id', component: customer_edit_component_1.CustomerEditComponent },
                 { path: '', redirectTo: '/Basic/Customer/Index', pathMatch: 'full' }
             ];
             exports_1("appRoutingProviders", appRoutingProviders = []);

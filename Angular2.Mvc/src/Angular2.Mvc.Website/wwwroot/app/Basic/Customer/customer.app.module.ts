@@ -3,7 +3,7 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {CustomerAppComponent }  from './customer.app.component';
 import { RouterModule } from '@angular/router';
-import {CustomerRoutes, appRoutingProviders} from './customer.route';
+import {CustomerRoutes} from './customer.route';
 import {WrapEventPipe} from './customer.pipe';
 import {CustomerIndexComponent} from './customer-index.component';
 import {CustomerDetailComponent} from './customer-detail.component';
@@ -14,17 +14,17 @@ import {CustomerEditComponent} from './customer-edit.component';
     imports: [
         BrowserModule,
         FormsModule,
-        //CustomerRoutes
-        RouterModule.forRoot([
-            { path: 'Basic/Customer/Index', component: CustomerIndexComponent },
-            { path: 'Basic/Customer/Create', component: CustomerCreateComponent },
-            { path: 'Basic/Customer/Edit/:id', component: CustomerEditComponent },
-            { path: '', redirectTo: 'Basic/Customer/Index', pathMatch: 'full' }
-        ])
+        CustomerRoutes
+        //RouterModule.forRoot([
+        //    { path: 'Basic/Customer/Index', component: CustomerIndexComponent },
+        //    { path: 'Basic/Customer/Create', component: CustomerCreateComponent },
+        //    { path: 'Basic/Customer/Edit/:id', component: CustomerEditComponent },
+        //    { path: '', redirectTo: 'Basic/Customer/Index', pathMatch: 'full' }
+        //])
     ],
     declarations: [CustomerAppComponent, CustomerIndexComponent, CustomerDetailComponent, CustomerCreateComponent, CustomerEditComponent,WrapEventPipe],
     providers: [
-        appRoutingProviders,
+        //appRoutingProviders,
         { provide: LOCALE_ID, useValue: "en-US" }, //replace "en-US" with your locale
     ],
     bootstrap: [CustomerAppComponent]

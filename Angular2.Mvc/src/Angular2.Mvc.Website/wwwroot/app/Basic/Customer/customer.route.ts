@@ -5,9 +5,9 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-    { path: '/Basic/Customer/Index', component: CustomerIndexComponent },
-    { path: '/Basic/Customer/Create', component: CustomerCreateComponent },
-    { path: '/Basic/Customer/Edit/:id', component: CustomerEditComponent },
+    { path: 'Basic/Customer/Index', component: CustomerIndexComponent },
+    { path: 'Basic/Customer/Create', component: CustomerCreateComponent },
+    { path: 'Basic/Customer/Edit/:id', component: CustomerEditComponent },
     { path: '', redirectTo: '/Basic/Customer/Index', pathMatch: 'full' }
 ];
 
