@@ -51,11 +51,11 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
                 };
                 //Go to create page
                 CustomerIndexComponent.prototype.goToCreate = function () {
-                    this.router.navigate(['Create']);
+                    this.router.navigate(['/Basic/Customer/Create']);
                 };
                 //Get to edit page
                 CustomerIndexComponent.prototype.editCustomer = function (item) {
-                    this.router.navigate(['Edit', { id: item.Id }]);
+                    this.router.navigate(['/Basic/Customer/Edit', item.Id]);
                 };
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {

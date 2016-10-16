@@ -56,16 +56,17 @@ export class CustomerIndexComponent implements OnInit {
 
     //Go to create page
     private goToCreate() {
-        this.router.navigate(['Create']);
+        this.router.navigate(['/Basic/Customer/Create']);
     }
 
     //Get to edit page
     private editCustomer(item: Customer) {
-        this.router.navigate(['Edit', { id: item.Id }]);
+        this.router.navigate(['/Basic/Customer/Edit', item.Id]);
     }
 
     //Remove customer
     private deleteCustomer(item: Customer) {
+
         let customers = this.customers;
 
         swal({

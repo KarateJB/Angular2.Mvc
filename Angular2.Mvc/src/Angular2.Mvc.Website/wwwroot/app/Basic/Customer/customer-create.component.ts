@@ -41,7 +41,7 @@ export class CustomerCreateComponent implements OnInit {
                     'success'
                 ).then(function () {
                     //Return to Index
-                    rt.navigate(['Index']);
+                    rt.navigate(['/Basic/Customer/Index']);
                 });
 
             });
@@ -49,7 +49,7 @@ export class CustomerCreateComponent implements OnInit {
 
     //Back to list
     private backToList() {
-        this.router.navigate(['Index']);
+        this.router.navigate(['/Basic/Customer/Index']);
 
     }
 }

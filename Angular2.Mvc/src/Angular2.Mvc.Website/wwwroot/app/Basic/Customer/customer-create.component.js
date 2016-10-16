@@ -43,13 +43,13 @@ System.register(['@angular/core', '@angular/router', './Tcustomer', './Customer.
                         var rt = _this.router;
                         swal('Success!', 'The data has been saved.', 'success').then(function () {
                             //Return to Index
-                            rt.navigate(['Index']);
+                            rt.navigate(['/Basic/Customer/Index']);
                         });
                     });
                 };
                 //Back to list
                 CustomerCreateComponent.prototype.backToList = function () {
-                    this.router.navigate(['Index']);
+                    this.router.navigate(['/Basic/Customer/Index']);
                 };
                 CustomerCreateComponent = __decorate([
                     core_1.Component({
