@@ -1,5 +1,5 @@
 /**
- * @license @angular/router v3.0.0
+ * @license Angular v3.1.0
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -83,7 +83,7 @@
      * ```
      * beforeEach(() => {
      *   TestBed.configureTestModule({
-     *     modules: [
+     *     imports: [
      *       RouterTestingModule.withRoutes(
      *         [{path: '', component: BlankCmp}, {path: 'simple', component: SimpleCmp}])]
      *       )
@@ -119,7 +119,7 @@
                                     _angular_router.UrlSerializer, _angular_router.RouterOutletMap, _angular_common.Location, _angular_core.NgModuleFactoryLoader, _angular_core.Compiler, _angular_core.Injector, ROUTES
                                 ]
                             },
-                            _angular_router.provideRoutes([])
+                            { provide: _angular_router.PreloadingStrategy, useExisting: _angular_router.NoPreloading }, _angular_router.provideRoutes([])
                         ]
                     },] },
         ];

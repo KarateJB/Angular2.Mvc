@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'customer-app',
@@ -10,7 +11,7 @@ export class CustomerAppComponent implements OnInit {
 }  
 
 //import {Component, OnInit} from '@angular/core';
-//import {Router} from '@angular/router';
+//import {Router,RouterModule} from '@angular/router';
 //import {CustomerIndexComponent} from './customer-index.component';
 //import {CustomerEditComponent} from './customer-edit.component';
 //import {CustomerRoutes} from './customer.Route';

@@ -27,6 +27,8 @@ export class CustomerIndexComponent implements OnInit {
         private router: Router,
         private custService: CustomerService) {
         this.title = "Customers";
+
+        console.log("Enter Index!!!");
     }
 
     ngOnInit() {

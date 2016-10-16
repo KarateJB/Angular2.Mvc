@@ -37,7 +37,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     }
 });
 //import {Component, OnInit} from '@angular/core';
-//import {Router} from '@angular/router';
+//import {Router,RouterModule} from '@angular/router';
 //import {CustomerIndexComponent} from './customer-index.component';
 //import {CustomerEditComponent} from './customer-edit.component';
 //import {CustomerRoutes} from './customer.Route';

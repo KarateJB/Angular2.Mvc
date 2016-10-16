@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
                     this.router = router;
                     this.custService = custService;
                     this.title = "Customers";
+                    console.log("Enter Index!!!");
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
                     this.initCustomers();
