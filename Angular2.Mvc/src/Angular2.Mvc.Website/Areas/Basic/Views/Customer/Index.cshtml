@@ -17,12 +17,10 @@
                 app: 'app/Basic/Customer'
             },
             packages: {
-                app: {
-                    defaultExtension: 'js'
-                }
+                app: {main:'customer.main.js',defaultExtension: 'js'}
             }
         });
-        System.import('app/customer.main.js').then(null, console.error.bind(console));
+        System.import('app/customer.main').then(null, console.error.bind(console));
     </script>
 }
 
