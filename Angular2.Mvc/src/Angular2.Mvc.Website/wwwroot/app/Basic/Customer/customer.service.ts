@@ -1,12 +1,30 @@
 ﻿import {Injectable} from '@angular/core';
+import { Http } from '@angular/http';
 import {Customer} from './Tcustomer';
-import {ICrudService} from '../../Interface/ICrudService';
+import {ICrudService} from '../../interface/ICrudService';
+import {RestUriService} from '../../service/resturi.service';
 
 @Injectable()
 export class CustomerService implements ICrudService {
+
+    constructor(
+        private http: Http,
+        private resturiService: RestUriService
+    ) {
+        console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
+    }
+
+    //Get all customers
     public getAll() {
         return new Promise<Customer[]>(
-            resolve => setTimeout(() => resolve(customers), 1000));
+            resolve => {
+                //resolve();
+                this.http.get(this.resturiService.customerGetAllUri)
+                    .subscribe(value => {
+                        console.log(value);
+                        resolve(value.json());
+                    });
+            });
     }
     public get(id: number) {
         return new Promise<Customer>(

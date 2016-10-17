@@ -17,15 +17,16 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         public CustomerController()
         {
             string json = @"
-    [{ 'Id': 1, 'Name': '<b>JB</b>', 'Phone': '0933XXXXXX', 'Age': 35 },
-        { 'Id': 2,'Name': '<b>Lily</b>', 'Phone': '0910XXXXXX', 'Age': 18 },
-        { 'Id': 3,'Name': '<b>Leia</b>', 'Phone': 'N/A', 'Age': 3 },
-        { 'Id': 4,'Name': '<b>Darth vader</b>', 'Phone': '02-1234567', 'Age': 28 },
-        { 'Id': 5,'Name': '<b>Hachi</b>', 'Phone': 'N/A', 'Age': 6 },
-        { 'Id': 6,'Name': '<b>Luke Skywalker</b>', 'Phone': '02-5678901', 'Age': 10 },
-        { 'Id': 7,'Name': '<b>Anakin Skywalker</b>', 'Phone': '0988ZZZZZZ', 'Age': 13 },
-        { 'Id': 8,'Name': '<b>Obi wan</b>', 'Phone': '0912YYYYYY', 'Age': 65 }]";
+    [{ 'Id': 1,   'MyName': '<b>JB</b>', 'Phone': '0933XXXXXX', 'Age': 35 },
+        { 'Id': 2,'MyName': '<b>Lily</b>', 'Phone': '0910XXXXXX', 'Age': 18 },
+        { 'Id': 3,'MyName': '<b>Leia</b>', 'Phone': 'N/A', 'Age': 3 },
+        { 'Id': 4,'MyName': '<b>Darth vader</b>', 'Phone': '02-1234567', 'Age': 28 },
+        { 'Id': 5,'MyName': '<b>Hachi</b>', 'Phone': 'N/A', 'Age': 6 },
+        { 'Id': 6,'MyName': '<b>Luke Skywalker</b>', 'Phone': '02-5678901', 'Age': 10 },
+        { 'Id': 7,'MyName': '<b>Anakin Skywalker</b>', 'Phone': '0988ZZZZZZ', 'Age': 13 },
+        { 'Id': 8,'MyName': '<b>Obi wan</b>', 'Phone': '0912YYYYYY', 'Age': 65 }]";
 
+            
             this._customers = JsonConvert.DeserializeObject<List<Customer>>(json);
         }
 
@@ -35,7 +36,6 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         public IQueryable<Customer> GetAll()
         {
             return this._customers.AsQueryable();
-
         }
 
         // GET api/values/5

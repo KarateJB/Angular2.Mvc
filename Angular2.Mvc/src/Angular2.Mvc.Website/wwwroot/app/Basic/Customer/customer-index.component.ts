@@ -2,7 +2,8 @@
 import {Router} from '@angular/router';
 import {Customer} from './Tcustomer';
 import {SysEvent} from './TsysEvent';
-import {CustomerService} from './Customer.Service';
+import {CustomerService} from './customer.service';
+import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any; //SweetAlert2 typings definition
 
@@ -13,7 +14,7 @@ declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'customer-index',
-    providers: [CustomerService],
+    providers: [CustomerService, RestUriService],
     //providers: [ROUTER_PROVIDERS, CustomerService],
     templateUrl: '/app/Basic/Customer/customer-index.component.html',
     styleUrls: ['/app/Basic/Customer/customer-index.component.css']
@@ -28,8 +29,6 @@ export class CustomerIndexComponent implements OnInit {
         private router: Router,
         private custService: CustomerService) {
         this.title = "Customers";
-
-        console.log("Enter Index!!!");
     }
 
     ngOnInit() {
@@ -38,7 +37,12 @@ export class CustomerIndexComponent implements OnInit {
 
     private initCustomers() {
         this.custService.getAll().then(
-            data => this.customers = data); //非同步 & delay for 2 sec
+            data => {
+                for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].Name);
+                }
+                this.customers = data
+            }); //非同步 & delay for 2 sec
     }
 
     //Search when [Enter] is keyup

@@ -1,6 +1,7 @@
 ﻿import { NgModule,LOCALE_ID }      from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import {CustomerAppComponent }  from './customer.app.component';
 import { RouterModule } from '@angular/router';
 import {CustomerRoutes} from './customer.route';
@@ -13,7 +14,8 @@ import {CustomerEditComponent} from './customer-edit.component';
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
+        FormsModule, 
+        HttpModule,
         CustomerRoutes
         //RouterModule.forRoot([
         //    { path: 'Basic/Customer/Index', component: CustomerIndexComponent },

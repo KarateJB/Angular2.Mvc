@@ -1,9 +1,12 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+//import {CustomerService} from './customer.service';
+//import {RestUriService} from '../../Service/resturi.service';
 
 @Component({
     selector: 'customer-app',
     templateUrl: '/app/Basic/Customer/customer.app.component.html'
+    //providers: [CustomerService, RestUriService]
 })
 export class CustomerAppComponent implements OnInit {
     ngOnInit() {

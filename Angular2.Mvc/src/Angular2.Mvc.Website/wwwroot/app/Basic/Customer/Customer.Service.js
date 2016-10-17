@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', '../../service/resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,19 +10,37 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, http_1, resturi_service_1;
     var CustomerService, customers;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (resturi_service_1_1) {
+                resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
             CustomerService = (function () {
-                function CustomerService() {
+                function CustomerService(http, resturiService) {
+                    this.http = http;
+                    this.resturiService = resturiService;
+                    console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
                 }
+                //Get all customers
                 CustomerService.prototype.getAll = function () {
-                    return new Promise(function (resolve) { return setTimeout(function () { return resolve(customers); }, 1000); });
+                    var _this = this;
+                    return new Promise(function (resolve) {
+                        //resolve();
+                        _this.http.get(_this.resturiService.customerGetAllUri)
+                            .subscribe(function (value) {
+                            console.log(value);
+                            resolve(value.json());
+                        });
+                    });
                 };
                 CustomerService.prototype.get = function (id) {
                     return new Promise(function (resolve) {
@@ -62,7 +80,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 };
                 CustomerService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http, resturi_service_1.RestUriService])
                 ], CustomerService);
                 return CustomerService;
             }());

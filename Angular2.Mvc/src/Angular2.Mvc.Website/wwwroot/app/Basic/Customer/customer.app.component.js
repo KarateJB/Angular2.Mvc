@@ -18,6 +18,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            //import {CustomerService} from './customer.service';
+            //import {RestUriService} from '../../Service/resturi.service';
             CustomerAppComponent = (function () {
                 function CustomerAppComponent() {
                 }

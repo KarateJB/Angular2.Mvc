@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './Customer.Service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './customer.service', '../../service/resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_Service_1;
+    var core_1, router_1, customer_service_1, resturi_service_1;
     var CustomerIndexComponent;
     return {
         setters:[
@@ -20,8 +20,11 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (Customer_Service_1_1) {
-                Customer_Service_1 = Customer_Service_1_1;
+            function (customer_service_1_1) {
+                customer_service_1 = customer_service_1_1;
+            },
+            function (resturi_service_1_1) {
+                resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
@@ -29,14 +32,18 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
                     this.router = router;
                     this.custService = custService;
                     this.title = "Customers";
-                    console.log("Enter Index!!!");
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
                     this.initCustomers();
                 };
                 CustomerIndexComponent.prototype.initCustomers = function () {
                     var _this = this;
-                    this.custService.getAll().then(function (data) { return _this.customers = data; }); //非同步 & delay for 2 sec
+                    this.custService.getAll().then(function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(data[i].Name);
+                        }
+                        _this.customers = data;
+                    }); //非同步 & delay for 2 sec
                 };
                 //Search when [Enter] is keyup
                 CustomerIndexComponent.prototype.search = function (searchKeyword) {
@@ -95,12 +102,12 @@ System.register(['@angular/core', '@angular/router', './Customer.Service'], func
                     }),
                     core_1.Component({
                         selector: 'customer-index',
-                        providers: [Customer_Service_1.CustomerService],
+                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
                         //providers: [ROUTER_PROVIDERS, CustomerService],
                         templateUrl: '/app/Basic/Customer/customer-index.component.html',
                         styleUrls: ['/app/Basic/Customer/customer-index.component.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, Customer_Service_1.CustomerService])
+                    __metadata('design:paramtypes', [router_1.Router, customer_service_1.CustomerService])
                 ], CustomerIndexComponent);
                 return CustomerIndexComponent;
             }());

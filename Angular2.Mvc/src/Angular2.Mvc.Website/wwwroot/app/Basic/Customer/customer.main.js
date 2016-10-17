@@ -1,6 +1,3 @@
-//import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-//import {enableProdMode} from '@angular/core';
-//import {CustomerAppModule} from './customer.app.module';
 System.register(['@angular/platform-browser-dynamic', './customer.app.module'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;

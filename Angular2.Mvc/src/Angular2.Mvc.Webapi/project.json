@@ -15,6 +15,7 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Angular2.Mvc.Core": "1.0.0-*",
+    "Microsoft.AspNetCore.Cors": "1.0.0",
     "Newtonsoft.Json": "9.0.1"
   },
 

@@ -2,8 +2,11 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
+      <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer.app.component.ts</string>
+      <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer.main.ts</string>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\Basic\Customer\customer.service.ts</string>
       <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer.route.ts</string>
-      <string>src\Angular2.Mvc.Website\wwwroot\app\Basic\Customer\customer.app.module.ts</string>
+      <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer.app.module.ts</string>
     </extensions>
     <highlightIndex>4</highlightIndex>
   </TabHighlightState>
