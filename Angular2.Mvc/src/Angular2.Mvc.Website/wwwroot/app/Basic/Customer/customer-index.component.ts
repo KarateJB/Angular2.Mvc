@@ -38,9 +38,9 @@ export class CustomerIndexComponent implements OnInit {
     private initCustomers() {
         this.custService.getAll().then(
             data => {
-                for (let i = 0; i < data.length; i++) {
-                    console.log(data[i].Name);
-                }
+                //for (let i = 0; i < data.length; i++) {
+                //    console.log(data[i].Name);
+                //}
                 this.customers = data
             }); //非同步 & delay for 2 sec
     }

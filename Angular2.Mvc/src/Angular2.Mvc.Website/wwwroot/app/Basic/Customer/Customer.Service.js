@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, resturi_service_1;
-    var CustomerService, customers;
+    var CustomerService;
     return {
         setters:[
             function (core_1_1) {
@@ -29,6 +29,7 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                     this.http = http;
                     this.resturiService = resturiService;
                     console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
+                    this.customers = [];
                 }
                 //Get all customers
                 CustomerService.prototype.getAll = function () {
@@ -38,20 +39,29 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                         _this.http.get(_this.resturiService.customerGetAllUri)
                             .subscribe(function (value) {
                             console.log(value);
+                            Object.assign(_this.customers, value.json());
+                            console.log(_this.customers);
                             resolve(value.json());
                         });
                     });
                 };
                 CustomerService.prototype.get = function (id) {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        var cust = customers.find(function (x) { return x.Id == id; });
-                        setTimeout(function () { return resolve(cust); }, 1000);
+                        var custs = _this.customers;
+                        _this.getAll().then(function (data) {
+                            custs = data;
+                            var cust = custs.find(function (x) { return x.Id == id; });
+                            console.log("Find customer : ");
+                            console.log(cust);
+                            setTimeout(function () { return resolve(cust); }, 1000);
+                        });
                     });
                 };
                 CustomerService.prototype.search = function (keyword) {
                     var rtn = new Array();
-                    for (var i = 0; i < customers.length; i++) {
-                        var cust = customers[i];
+                    for (var i = 0; i < this.customers.length; i++) {
+                        var cust = this.customers[i];
                         if (cust.Name.indexOf(keyword) > 0) {
                             rtn.push(cust);
                         }
@@ -85,15 +95,16 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                 return CustomerService;
             }());
             exports_1("CustomerService", CustomerService);
-            customers = [{ "Id": 1, "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
-                { "Id": 2, "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
-                { "Id": 3, "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
-                { "Id": 4, "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
-                { "Id": 5, "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
-                { "Id": 6, "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
-                { "Id": 7, "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
-                { "Id": 8, "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
         }
     }
 });
+//const customers: Customer[] =
+//    [{ "Id": 1, "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
+//        { "Id": 2,"Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
+//        { "Id": 3,"Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
+//        { "Id": 4,"Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
+//        { "Id": 5,"Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
+//        { "Id": 6,"Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
+//        { "Id": 7,"Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
+//        { "Id": 8,"Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
 //# sourceMappingURL=Customer.Service.js.map

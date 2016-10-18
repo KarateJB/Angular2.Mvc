@@ -39,9 +39,9 @@ System.register(['@angular/core', '@angular/router', './customer.service', '../.
                 CustomerIndexComponent.prototype.initCustomers = function () {
                     var _this = this;
                     this.custService.getAll().then(function (data) {
-                        for (var i = 0; i < data.length; i++) {
-                            console.log(data[i].Name);
-                        }
+                        //for (let i = 0; i < data.length; i++) {
+                        //    console.log(data[i].Name);
+                        //}
                         _this.customers = data;
                     }); //非同步 & delay for 2 sec
                 };
