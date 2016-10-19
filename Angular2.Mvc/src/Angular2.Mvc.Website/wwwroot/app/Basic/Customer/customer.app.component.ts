@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'customer-app',
-    templateUrl: '/app/Basic/Customer/customer.app.component.html'
+    template: '<router-outlet></router-outlet>'
     //providers: [CustomerService, RestUriService]
 })
 export class CustomerAppComponent implements OnInit {

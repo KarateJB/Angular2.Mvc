@@ -28,7 +28,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 CustomerAppComponent = __decorate([
                     core_1.Component({
                         selector: 'customer-app',
-                        templateUrl: '/app/Basic/Customer/customer.app.component.html'
+                        template: '<router-outlet></router-outlet>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CustomerAppComponent);

@@ -57,7 +57,7 @@ export class CustomerEditComponent implements OnInit {
 
     //Back to list
     private backToList() {
-        this.router.navigate(['/Basic/Customer/Index']);
+        this.router.navigate(['Basic/Customer/Index']);
     }
 
 

@@ -1,13 +1,14 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer} from './Tcustomer';
-import {CustomerService} from './Customer.Service';
+import {CustomerService} from './customer.service';
+import {RestUriService} from '../../service/resturi.service';
 declare var swal: any;
 
 
 @Component({
     selector: 'customer-create',
-    providers: [CustomerService],
+    providers: [CustomerService, RestUriService],
     templateUrl: '/app/Basic/Customer/customer-create.component.html',
     styleUrls: ['/app/Basic/Customer/customer-create.component.css']
 })
@@ -41,7 +42,7 @@ export class CustomerCreateComponent implements OnInit {
                     'success'
                 ).then(function () {
                     //Return to Index
-                    rt.navigate(['/Basic/Customer/Index']);
+                    rt.navigate(['Basic/Customer/Index']);
                 });
 
             });
@@ -49,7 +50,7 @@ export class CustomerCreateComponent implements OnInit {
 
     //Back to list
     private backToList() {
-        this.router.navigate(['/Basic/Customer/Index']);
+        this.router.navigate(['Basic/Customer/Index']);
 
     }
 }

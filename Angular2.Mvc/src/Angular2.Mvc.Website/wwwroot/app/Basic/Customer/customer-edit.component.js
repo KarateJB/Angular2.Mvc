@@ -60,7 +60,7 @@ System.register(['@angular/core', '@angular/router', './Tcustomer', './customer.
                 };
                 //Back to list
                 CustomerEditComponent.prototype.backToList = function () {
-                    this.router.navigate(['/Basic/Customer/Index']);
+                    this.router.navigate(['Basic/Customer/Index']);
                 };
                 CustomerEditComponent = __decorate([
                     core_1.Component({
