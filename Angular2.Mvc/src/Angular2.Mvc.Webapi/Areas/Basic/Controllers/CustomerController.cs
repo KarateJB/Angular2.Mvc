@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using Angular2.Mvc.Core.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NLog;
 
 namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 {
     [Route("api/Basic/[controller]")]
     public class CustomerController : Controller
     {
+        protected static Logger _logger = LogManager.GetCurrentClassLogger();
+
+
         private List<Customer> _customers = null;
         public CustomerController()
         {
@@ -35,6 +39,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [HttpGet("GetAll")]
         public IQueryable<Customer> GetAll()
         {
+            _logger.Debug($"The log from WebAPI!");
             return this._customers.AsQueryable();
         }
 

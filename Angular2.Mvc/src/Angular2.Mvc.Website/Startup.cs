@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
 namespace Angular2.Mvc.Website
 {
@@ -20,9 +21,26 @@ namespace Angular2.Mvc.Website
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(
+            IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
+            #region NLog
+            //add NLog to ASP.NET Core
+            loggerFactory.AddNLog();
+
+            //loggerFactory.WithFilter(new FilterLoggerSettings{
+            //        { "Microsoft", LogLevel.Warning },
+            //        { "System", LogLevel.None },
+            //        { "Default", LogLevel.Debug }
+            //}).AddNLog();
+
+
+            //needed for non-NETSTANDARD platforms: configure nlog.config in your project root
+            env.ConfigureNLog("NLog.config");
+
+            #endregion
 
             if (env.IsDevelopment())
             {
@@ -32,15 +50,16 @@ namespace Angular2.Mvc.Website
             // Add static files to the request pipeline.
             app.UseStaticFiles();
 
-            
-            app.UseMvc(routes => {
+
+            app.UseMvc(routes =>
+            {
 
                 routes.MapRoute(
                    name: "areaRoute",
                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
-                    name: "default", 
+                    name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }

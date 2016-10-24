@@ -1,4 +1,4 @@
-﻿{
+{
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.0",
@@ -7,11 +7,17 @@
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0",
+    "Microsoft.Extensions.Logging.Filter": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "es6-shim.TypeScript.DefinitelyTyped": "0.8.1"
+    "es6-shim.TypeScript.DefinitelyTyped": "0.8.1",
+    "NLog.Extensions.Logging": "1.0.0-rtm-alpha4",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "System.Data.SqlClient": "4.1.0"
   },
 
   "tools": {
@@ -44,7 +50,8 @@
       "Views",
       "Areas/**/Views",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "Nlog.config"
     ]
   },
 

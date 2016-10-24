@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
 namespace Angular2.Mvc.Webapi
 {
@@ -53,8 +54,18 @@ namespace Angular2.Mvc.Webapi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
+
+            #region NLog
+            //add NLog to ASP.NET Core
+            loggerFactory.AddNLog();
+            //needed for non-NETSTANDARD platforms: configure nlog.config in your project root
+            env.ConfigureNLog("NLog.config");
+            //LogLevel.None;
+            loggerFactory.AddDebug(LogLevel.None);
+
+            #endregion
 
             app.UseMvc();
 
