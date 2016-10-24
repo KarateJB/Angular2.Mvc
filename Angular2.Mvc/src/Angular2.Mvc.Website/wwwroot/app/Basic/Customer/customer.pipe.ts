@@ -1,7 +1,7 @@
 ﻿import { Pipe, PipeTransform,Inject, LOCALE_ID } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Customer } from './Tcustomer';
-import { SysEvent } from './TsysEvent';
+import {Customer} from '../../class/Customer';
+import {SysEvent} from '../../class/SysEvent';
 
 
 @Pipe({

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './Tcustomer', './customer.service', '../../service/resturi.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../class/Customer', './customer.service', '../../service/resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './Tcustomer', './customer.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Tcustomer_1, customer_service_1, resturi_service_1;
+    var core_1, router_1, Customer_1, customer_service_1, resturi_service_1;
     var CustomerCreateComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['@angular/core', '@angular/router', './Tcustomer', './customer.
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (Tcustomer_1_1) {
-                Tcustomer_1 = Tcustomer_1_1;
+            function (Customer_1_1) {
+                Customer_1 = Customer_1_1;
             },
             function (customer_service_1_1) {
                 customer_service_1 = customer_service_1_1;
@@ -35,7 +35,7 @@ System.register(['@angular/core', '@angular/router', './Tcustomer', './customer.
                     this.router = router;
                     this.custService = custService;
                     this.title = "Customer - Create";
-                    this.customer = new Tcustomer_1.Customer();
+                    this.customer = new Customer_1.Customer();
                 }
                 CustomerCreateComponent.prototype.ngOnInit = function () {
                 };

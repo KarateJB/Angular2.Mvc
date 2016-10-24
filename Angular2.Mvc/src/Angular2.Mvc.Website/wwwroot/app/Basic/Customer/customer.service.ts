@@ -1,6 +1,6 @@
 ﻿import {Injectable} from '@angular/core';
 import { Http } from '@angular/http';
-import {Customer} from './Tcustomer';
+import {Customer} from '../../class/Customer';
 import {ICrudService} from '../../interface/ICrudService';
 import {RestUriService} from '../../service/resturi.service';
 

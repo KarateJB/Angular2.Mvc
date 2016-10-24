@@ -1,7 +1,7 @@
 ﻿import {Component,Pipe,PipeTransform, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Customer} from './Tcustomer';
-import {SysEvent} from './TsysEvent';
+import {Customer} from '../../class/Customer';
+import {SysEvent} from '../../class/SysEvent';
 import {CustomerService} from './customer.service';
 import {RestUriService} from '../../service/resturi.service';
 

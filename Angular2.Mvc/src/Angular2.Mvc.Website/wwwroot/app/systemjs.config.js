@@ -4,11 +4,13 @@
     map: {
         'rxjs': 'lib-npm/rxjs',
         '@angular': 'lib-npm/angular2',
-        'resturi':'app/service'
+        'service': 'app/service',
+        'class': 'app/class'
     },
-    //paths: {
-    //    'lib-npm/angular2/*': 'lib-npm/angular2/*'
-    //},
+    paths: {
+        "service:*": "app/service/*.js",
+        "class:*": "app/class/*.js"
+    },
     //meta: {
     //    '@angular/*': { 'format': 'cjs' }
     //},
@@ -22,7 +24,7 @@
         '@angular/http': { main: 'http.umd.js' },
         '@angular/platform-browser': { main: 'platform-browser.umd.min.js' },
         '@angular/platform-browser-dynamic': { main: 'platform-browser-dynamic.umd.min.js' },
-        'resturi': {main:'resturi.service.js'}
-
+        'service': { main: '*.js', defaultExtension: 'js' },
+        'class': { main: '*.js', defaultExtension:'js'}
     }
 });

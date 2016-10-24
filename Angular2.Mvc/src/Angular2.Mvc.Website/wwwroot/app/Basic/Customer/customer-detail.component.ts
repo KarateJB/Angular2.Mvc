@@ -1,6 +1,6 @@
 ﻿import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Customer} from './Tcustomer';
-import {SysEvent} from './TsysEvent';
+import {Customer} from '../../class/Customer';
+import {SysEvent} from '../../class/SysEvent';
 
 @Component({
     selector: 'customer-detail',

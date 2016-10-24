@@ -1,6 +1,6 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {Customer} from './Tcustomer';
+import {Customer} from '../../class/Customer';
 import {CustomerService} from './customer.service';
 import {RestUriService} from '../../service/resturi.service';
 declare var swal: any;
