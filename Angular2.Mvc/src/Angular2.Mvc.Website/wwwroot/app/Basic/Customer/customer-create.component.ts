@@ -1,10 +1,11 @@
-﻿import {Component, OnInit} from '@angular/core';
+﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer} from '../../class/Customer';
 import {CustomerService} from './customer.service';
 import {RestUriService} from '../../service/resturi.service';
-declare var swal: any;
 
+declare var swal: any;
 
 @Component({
     selector: 'customer-create',
@@ -31,11 +32,13 @@ export class CustomerCreateComponent implements OnInit {
 
     //Save!
     private save() {
+
+        JL("myLogger").debug("Saving a customer!");
+
         this.custService.create(this.customer).then(
             () => {
 
                 var rt = this.router;
-
                 swal(
                     'Success!',
                     'The data has been saved.',

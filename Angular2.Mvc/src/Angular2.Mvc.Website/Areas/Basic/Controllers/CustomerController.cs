@@ -24,8 +24,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
         [Route("[action]")]
         public IActionResult Index()
         {
-            Debug.WriteLine("Areas:Basic,Controller:Customer,Action:Index");
-
             base._logger.Debug($"Areas:Basic,Controller:Customer,Action:Index");
             base._logger.Error($"Areas:Basic,Controller:Customer,Action:Index");
 

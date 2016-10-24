@@ -95,6 +95,12 @@ gulp.task('copy-sweetalert2', function () {
         base: root_path.nmSrc + '/sweetalert2/dist/'
     }).pipe(gulp.dest(root_path.package_lib + '/sweetalert2/'));
 });
+//jsnlog
+gulp.task('copy-jsnlog', function () {
+    return gulp.src(root_path.nmSrc + "/jsnlog/jsnlog*.js", {
+        base: root_path.nmSrc + '/jsnlog/'
+    }).pipe(gulp.dest(root_path.package_lib + '/jsnlog/'));
+});
 
 gulp.task("copy-all", [
     "copy-rxjs",
@@ -110,4 +116,6 @@ gulp.task("copy-all", [
     "copy-ng2-platform-browser-dynamic",
     "copy-systemjs",
     "copy-es6-shim",
-    "copy-sweetalert2"])
+    "copy-sweetalert2",
+    "copy-jsnlog"
+])

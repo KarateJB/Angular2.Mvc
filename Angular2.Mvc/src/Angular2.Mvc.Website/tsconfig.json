@@ -11,5 +11,10 @@
     "module": "system",
     "moduleResolution": "node"
   },
+  //"files": [
+  //  "./lib-npm/typings/es6-shim.d.ts",
+  //  "./lib-npm/typings/jsnlog.d.ts",
+  //  "./lib-npm/typings/sweetalert.d.ts"
+  //],
   "exclude": [ "node_modules", "wwwroot/lib" ]
 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JSNLog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
@@ -28,18 +31,24 @@ namespace Angular2.Mvc.Website
         {
             #region NLog
             //add NLog to ASP.NET Core
-            loggerFactory.AddNLog();
+            //loggerFactory.AddNLog();
 
-            //loggerFactory.WithFilter(new FilterLoggerSettings{
-            //        { "Microsoft", LogLevel.Warning },
-            //        { "System", LogLevel.None },
-            //        { "Default", LogLevel.Debug }
-            //}).AddNLog();
+            loggerFactory.WithFilter(new FilterLoggerSettings{
+                    { "Microsoft", LogLevel.Warning },
+                    { "System", LogLevel.None },
+                    { "Default", LogLevel.Debug }
+            }).AddNLog();
 
 
             //needed for non-NETSTANDARD platforms: configure nlog.config in your project root
             env.ConfigureNLog("NLog.config");
 
+            #endregion
+
+            #region JSNLog
+            // Configure JSNLog
+            var jsnlogConfiguration = new JsnlogConfiguration(); // See jsnlog.com/Documentation/Configuration
+            app.UseJSNLog(new LoggingAdapter(loggerFactory), jsnlogConfiguration);
             #endregion
 
             if (env.IsDevelopment())

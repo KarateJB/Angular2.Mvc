@@ -30,6 +30,7 @@ System.register(['@angular/core', '@angular/router', '../../class/Customer', './
                 resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
+            //declare var JL: any;
             CustomerCreateComponent = (function () {
                 function CustomerCreateComponent(router, custService) {
                     this.router = router;
@@ -42,6 +43,7 @@ System.register(['@angular/core', '@angular/router', '../../class/Customer', './
                 //Save!
                 CustomerCreateComponent.prototype.save = function () {
                     var _this = this;
+                    JL("myLogger").debug("Fuck me!!!!!!!!!");
                     this.custService.create(this.customer).then(function () {
                         var rt = _this.router;
                         swal('Success!', 'The data has been saved.', 'success').then(function () {
