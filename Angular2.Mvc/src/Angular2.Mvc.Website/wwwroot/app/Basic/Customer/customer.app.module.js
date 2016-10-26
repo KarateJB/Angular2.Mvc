@@ -62,7 +62,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
                         declarations: [customer_app_component_1.CustomerAppComponent, customer_index_component_1.CustomerIndexComponent, customer_detail_component_1.CustomerDetailComponent, customer_create_component_1.CustomerCreateComponent, customer_edit_component_1.CustomerEditComponent, customer_pipe_1.WrapEventPipe],
                         providers: [
                             //appRoutingProviders,
-                            { provide: core_1.LOCALE_ID, useValue: "en-US" },
+                            { provide: core_1.LOCALE_ID, useValue: "zh-TW" },
                         ],
                         bootstrap: [customer_app_component_1.CustomerAppComponent]
                     }), 

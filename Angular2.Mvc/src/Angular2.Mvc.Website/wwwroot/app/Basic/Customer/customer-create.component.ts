@@ -33,7 +33,7 @@ export class CustomerCreateComponent implements OnInit {
     //Save!
     private save() {
 
-        JL("myLogger").debug("Saving a customer!");
+        JL("Angular2").debug("Saving a customer!");
 
         this.custService.create(this.customer).then(
             () => {

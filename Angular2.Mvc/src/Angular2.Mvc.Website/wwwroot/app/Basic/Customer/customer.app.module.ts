@@ -27,7 +27,7 @@ import {CustomerEditComponent} from './customer-edit.component';
     declarations: [CustomerAppComponent, CustomerIndexComponent, CustomerDetailComponent, CustomerCreateComponent, CustomerEditComponent,WrapEventPipe],
     providers: [
         //appRoutingProviders,
-        { provide: LOCALE_ID, useValue: "en-US" }, //replace "en-US" with your locale
+        { provide: LOCALE_ID, useValue: "zh-TW" }, //replace "en-US" with your locale
     ],
     bootstrap: [CustomerAppComponent]
 })
