@@ -5,7 +5,22 @@
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\appsettings.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\project.json</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\project.json</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\startup.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\project.json</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Models\DAO\Customer.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\DbContext\NgDbContext.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Program.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
