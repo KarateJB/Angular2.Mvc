@@ -19,7 +19,11 @@ namespace Angular2.Mvc.DAL.Models.DAO
         [Required]
         public string Name { get; set; }
         [StringLength(100)]
+        public string NameEn { get; set; }
+        [StringLength(100)]
         public string Phone { get; set; }
         public int Age { get; set; }
+        [StringLength(200)]
+        public string  Description { get; set; }
     }
 }

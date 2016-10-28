@@ -8,9 +8,10 @@ using Angular2.Mvc.DAL;
 namespace Angular2.Mvc.DAL.Migrations
 {
     [DbContext(typeof(NgDbContext))]
-    partial class NgDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161028083237_AddDesc")]
+    partial class AddDesc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -28,9 +29,6 @@ namespace Angular2.Mvc.DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasAnnotation("MaxLength", 100);
-
-                    b.Property<string>("NameEn")
                         .HasAnnotation("MaxLength", 100);
 
                     b.Property<string>("Phone")
