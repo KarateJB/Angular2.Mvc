@@ -8,9 +8,10 @@ using Angular2.Mvc.DAL;
 namespace Angular2.Mvc.DAL.Migrations
 {
     [DbContext(typeof(NgDbContext))]
-    partial class NgDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161028143537_RemoveNameEn")]
+    partial class RemoveNameEn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
