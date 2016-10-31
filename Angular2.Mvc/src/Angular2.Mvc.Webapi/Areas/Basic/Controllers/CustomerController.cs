@@ -9,6 +9,7 @@ using Angular2.Mvc.DAL.Factory;
 using Angular2.Mvc.DAL.Service;
 using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Webapi.Controllers;
+using Angular2.Mvc.Webapi.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NLog;
@@ -41,18 +42,21 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 
         // GET: api/values
         [HttpGet("GetAll")]
+        [CustomExceptionFilter]
         public IQueryable<Customer> GetAll()
         {
             var rtn = new List<Customer>();
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var custDaos = custService.GetAll().ToList();
-                    foreach (var custDao in custDaos)
+                foreach (var custDao in custDaos)
                 {
                     rtn.Add(DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(custDao));
                 }
             }
-                return rtn.AsQueryable();
+            return rtn.AsQueryable();
+
+            //return this._customers.AsQueryable();
         }
 
         // GET api/values/5

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Angular2.Mvc.DAL.Factory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -69,6 +70,12 @@ namespace Angular2.Mvc.Webapi
             //LogLevel.None;
             loggerFactory.AddDebug(LogLevel.None);
 
+            #endregion
+
+
+            #region Set database connection 
+            var connStr = Configuration["Data:DefaultConnection:ConnectionString"];
+            DbContextFactory.SetConnectionString(connStr);
             #endregion
 
             app.UseMvc();
