@@ -19,12 +19,13 @@ namespace Angular2.Mvc.DAL.Service
             }
         }
 
-        public IEnumerable<Customer> GetAll()
+        public IQueryable<Customer> GetAll()
         {
             //var dbContext = new DefaultDbContext();
             return this._dbContext.Customers;
         }
-        public IEnumerable<Customer> Get(Expression<Func<Customer, bool>> filter)
+
+        public IQueryable<Customer> Get(Expression<Func<Customer, bool>> filter)
         {
             //var dbContext = new DefaultDbContext();
             return this._dbContext.Customers.Where(filter);

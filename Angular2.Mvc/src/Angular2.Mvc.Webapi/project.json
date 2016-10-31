@@ -22,7 +22,8 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "Angular2.Mvc.DAL": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
-    "Microsoft.Extensions.Logging.Filter": "1.1.0-preview1-final"
+    "Microsoft.Extensions.Logging.Filter": "1.1.0-preview1-final",
+    "Angular2.Mvc.Service": "1.0.0-*"
   },
 
   "tools": {

@@ -5,6 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Angular2.Mvc.Core.Models.DTO;
+using Angular2.Mvc.DAL.Factory;
+using Angular2.Mvc.DAL.Service;
+using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Webapi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -40,8 +43,16 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [HttpGet("GetAll")]
         public IQueryable<Customer> GetAll()
         {
-            _logger.Debug($"The log from WebAPI!");
-            return this._customers.AsQueryable();
+            var rtn = new List<Customer>();
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var custDaos = custService.GetAll().ToList();
+                    foreach (var custDao in custDaos)
+                {
+                    rtn.Add(DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(custDao));
+                }
+            }
+                return rtn.AsQueryable();
         }
 
         // GET api/values/5
