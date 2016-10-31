@@ -59,7 +59,11 @@ namespace Angular2.Mvc.Webapi
 
             #region NLog
             //add NLog to ASP.NET Core
-            loggerFactory.AddNLog();
+            loggerFactory.WithFilter(new FilterLoggerSettings{
+                    { "Microsoft", LogLevel.Warning },
+                    { "System", LogLevel.None },
+                    { "Default", LogLevel.Debug }
+            }).AddNLog();
             //needed for non-NETSTANDARD platforms: configure nlog.config in your project root
             env.ConfigureNLog("NLog.config");
             //LogLevel.None;

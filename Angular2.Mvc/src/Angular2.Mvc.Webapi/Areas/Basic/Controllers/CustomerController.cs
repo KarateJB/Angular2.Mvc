@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Angular2.Mvc.Core.Models.DTO;
+using Angular2.Mvc.Webapi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NLog;
@@ -12,7 +13,7 @@ using NLog;
 namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 {
     [Route("api/Basic/[controller]")]
-    public class CustomerController : Controller
+    public class CustomerController : BaseController
     {
         protected static Logger _logger = LogManager.GetCurrentClassLogger();
 

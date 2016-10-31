@@ -6,6 +6,10 @@
   },
 
   "frameworks": {
+    "net452": {
+      "dependencies": {
+      }
+    },
     "netstandard1.6": {
       "imports": "dnxcore50"
     }
