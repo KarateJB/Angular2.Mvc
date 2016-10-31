@@ -5,7 +5,7 @@
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\appsettings.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\project.json</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\project.json</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\startup.cs</string>
@@ -23,7 +23,34 @@
       <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Controllers\HomeController.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>起始頁</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\MigrationFactory.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Migrations\Configuration.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Basic\Controllers\CustomerController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Basic\Views\Customer\Index.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\NLog.config</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\NLog.config</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Migrations\20161028085510_AddNameEn.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Migrations\20161028143537_RemoveNameEn.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Webapi\project.json</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.DAL\Migrations\20161028083237_AddDesc.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
