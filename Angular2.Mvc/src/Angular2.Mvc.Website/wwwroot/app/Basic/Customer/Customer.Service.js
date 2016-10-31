@@ -30,6 +30,8 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                     this.resturiService = resturiService;
                     console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
                     this.customers = [];
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    this.httpOptions = new http_1.RequestOptions({ headers: headers });
                 }
                 //Get all customers
                 CustomerService.prototype.getAll = function () {
@@ -38,9 +40,7 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                         //resolve(CUSTOMERS);
                         _this.http.get(_this.resturiService.customerGetAllUri)
                             .subscribe(function (value) {
-                            console.log(value);
                             Object.assign(_this.customers, value.json());
-                            console.log(_this.customers);
                             resolve(value.json());
                         });
                     });
@@ -48,10 +48,10 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                 CustomerService.prototype.get = function (id) {
                     var _this = this;
                     return new Promise(function (resolve) {
-                        _this.getAll().then(function (data) {
-                            var cust = data.find(function (x) { return x.Id == id; });
-                            resolve(cust);
-                            //setTimeout(() => resolve(cust), 1000);
+                        _this.http.get(_this.resturiService.customerGetUri.concat(id.toString()))
+                            .subscribe(function (value) {
+                            console.log(value);
+                            resolve(value.json());
                         });
                     });
                 };
@@ -68,21 +68,31 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                     return rtn;
                 };
                 CustomerService.prototype.create = function (item) {
+                    var _this = this;
+                    var entity = JSON.stringify(item);
                     return new Promise(function (resolve) {
-                        //Save it to database
-                        resolve();
+                        _this.http.post(_this.resturiService.customerCreateUri, entity, _this.httpOptions)
+                            .subscribe(function () {
+                            resolve();
+                        });
                     });
                 };
                 CustomerService.prototype.update = function (item) {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        //Save it to database
-                        resolve();
+                        _this.http.put(_this.resturiService.customerUpdateUri, item, _this.httpOptions)
+                            .subscribe(function (value) {
+                            resolve();
+                        });
                     });
                 };
-                CustomerService.prototype.delete = function (item) {
+                CustomerService.prototype.remove = function (item) {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        //Delete it from database
-                        resolve();
+                        _this.http.delete(_this.resturiService.customerRemoveUri.concat(item.Id.toString()))
+                            .subscribe(function (value) {
+                            resolve();
+                        });
                     });
                 };
                 CustomerService = __decorate([

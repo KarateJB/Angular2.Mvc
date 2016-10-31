@@ -67,6 +67,7 @@ System.register(['@angular/core', '@angular/router', './customer.service', '../.
                 //Remove customer
                 CustomerIndexComponent.prototype.deleteCustomer = function (item) {
                     var customers = this.customers;
+                    var service = this.custService;
                     swal({
                         title: 'Are you sure?',
                         text: "The customer : " + item.Name + ", will be deleted!",
@@ -76,9 +77,12 @@ System.register(['@angular/core', '@angular/router', './customer.service', '../.
                         cancelButtonColor: '#d33',
                         confirmButtonText: 'Yes, delete it!'
                     }).then(function () {
-                        //Remove item
-                        var index = customers.indexOf(item);
-                        customers.splice(index, 1);
+                        JL("Angular2").debug("Removing!");
+                        service.remove(item).then(function () {
+                            //Remove item in Front-end
+                            var index = customers.indexOf(item);
+                            customers.splice(index, 1);
+                        });
                     });
                 };
                 //Show details of the customer

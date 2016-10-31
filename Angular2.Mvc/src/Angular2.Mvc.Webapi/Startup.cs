@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using NLog.Extensions.Logging;
 
 namespace Angular2.Mvc.Webapi
@@ -36,7 +37,9 @@ namespace Angular2.Mvc.Webapi
             services.AddMvc().AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+                //options.SerializerSettings.Formatting = Formatting.Indented;
             });
+
 
             //Enable CORS
             services.AddCors(options =>

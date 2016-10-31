@@ -72,6 +72,7 @@ export class CustomerIndexComponent implements OnInit {
     private deleteCustomer(item: Customer) {
 
         let customers = this.customers;
+        let service = this.custService;
 
         swal({
             title: 'Are you sure?',
@@ -82,9 +83,14 @@ export class CustomerIndexComponent implements OnInit {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
         }).then(function () {
-            //Remove item
-            var index = customers.indexOf(item);
-            customers.splice(index, 1);
+
+            service.remove(item).then(
+                () => {
+                    //Remove item in Front-end
+                    var index = customers.indexOf(item);
+                    customers.splice(index, 1);
+                });
+
         })
 
 

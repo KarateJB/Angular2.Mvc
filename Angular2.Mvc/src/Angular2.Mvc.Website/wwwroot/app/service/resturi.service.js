@@ -22,6 +22,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 function RestUriService() {
                     this.REST_ROOT_URL = "http://localhost:7856/";
                     this.customerGetAllUri = this.REST_ROOT_URL.concat("api/Basic/Customer/GetAll/");
+                    this.customerGetUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Get/");
+                    this.customerCreateUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Create/");
+                    this.customerUpdateUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Update/");
+                    this.customerRemoveUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Remove/");
                 }
                 RestUriService = __decorate([
                     core_1.Injectable(), 

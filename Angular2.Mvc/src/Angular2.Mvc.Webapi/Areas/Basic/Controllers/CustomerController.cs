@@ -10,12 +10,15 @@ using Angular2.Mvc.DAL.Service;
 using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Webapi.Controllers;
 using Angular2.Mvc.Webapi.Utility;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NLog;
 
 namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 {
+    //[EnableCors("AllowSpecificOrigin")]
     [Route("api/Basic/[controller]")]
     public class CustomerController : BaseController
     {
@@ -62,9 +65,23 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 
         // GET api/values/5
         [HttpGet("Get/{id}")]
+        [CustomExceptionFilter]
         public Customer Get(int id)
         {
-            return this._customers.Where(x => x.Id.Equals(id)).FirstOrDefault();
+            Angular2.Mvc.Core.Models.DTO.Customer rtn = null;
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var cust = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();
+                if (cust != null)
+                {
+                    return DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(cust);
+                }
+                else
+                {
+                    throw new HttpRequestException($"The customer with Id:{id.ToString()} is not exist!");
+                }
+
+            }
         }
 
         /// <summary>
@@ -73,8 +90,10 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         /// <param name="cust"></param>
         /// <returns></returns>
         [HttpPost("Create")]
-        public async Task<HttpResponseMessage> Create(Customer cust)
+        [CustomExceptionFilter]
+        public async Task<HttpResponseMessage> Create([FromBody]Customer cust)
         {
+            _logger.Debug("Web api : creating customer!");
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var entity = DaoFactory.Create<Angular2.Mvc.Core.Models.DTO.Customer, Angular2.Mvc.DAL.Models.DAO.Customer>(cust);
@@ -90,8 +109,9 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         /// </summary>
         /// <param name="cust"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public async Task<HttpResponseMessage> Put(Customer cust)
+        [HttpPut("Update")]
+        [CustomExceptionFilter]
+        public async Task<HttpResponseMessage> Update([FromBody]Customer cust)
         {
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
@@ -102,7 +122,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
                     entity.Age = cust.Age;
                     entity.Phone = cust.Phone;
                     entity.Description = cust.Description;
-                    return new HttpResponseMessage(HttpStatusCode.OK);
+                    custService.Update(entity);
                 }
                 else
                 {
@@ -119,12 +139,13 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         /// </summary>
         /// <param name="cust"></param>
         /// <returns></returns>
-        [HttpDelete("Delete")]
-        public async Task<HttpResponseMessage> Delete(Customer cust)
+        [HttpDelete("Remove/{id}")]
+        [CustomExceptionFilter]
+        public async Task<HttpResponseMessage> Remove(int id)
         {
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
-                var entity = custService.Get(x => x.Id.Equals(cust.Id)).FirstOrDefault();
+                var entity = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();
                 if (entity != null)
                 {
                     custService.Remove(entity);
