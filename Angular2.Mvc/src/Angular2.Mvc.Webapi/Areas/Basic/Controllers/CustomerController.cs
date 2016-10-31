@@ -25,6 +25,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         private List<Customer> _customers = null;
         public CustomerController()
         {
+            /*
             string json = @"
     [{ 'Id': 1,   'Name': '<b>JB</b>', 'Phone': '0933XXXXXX', 'Age': 35 },
         { 'Id': 2,'Name': '<b>Lily</b>', 'Phone': '0910XXXXXX', 'Age': 18 },
@@ -37,6 +38,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
 
 
             this._customers = JsonConvert.DeserializeObject<List<Customer>>(json);
+            */
         }
 
 
@@ -56,7 +58,6 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
             }
             return rtn.AsQueryable();
 
-            //return this._customers.AsQueryable();
         }
 
         // GET api/values/5
@@ -74,7 +75,12 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [HttpPost("Create")]
         public async Task<HttpResponseMessage> Create(Customer cust)
         {
-            this._customers.Add(cust);
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var entity = DaoFactory.Create<Angular2.Mvc.Core.Models.DTO.Customer, Angular2.Mvc.DAL.Models.DAO.Customer>(cust);
+                custService.Add(entity);
+            }
+
             return new HttpResponseMessage(HttpStatusCode.Created);
 
         }
@@ -87,18 +93,24 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [HttpPut("{id}")]
         public async Task<HttpResponseMessage> Put(Customer cust)
         {
-            var entity = this._customers.Where(x => x.Id.Equals(cust.Id)).FirstOrDefault();
-            if (entity != null)
+            using (var custService = new CustomerService(DbContextFactory.Create()))
             {
-                entity.Name = cust.Name;
-                entity.Age = cust.Age;
-                entity.Phone = cust.Phone;
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                var entity = custService.Get(x => x.Id.Equals(cust.Id)).FirstOrDefault();
+                if (entity != null)
+                {
+                    entity.Name = cust.Name;
+                    entity.Age = cust.Age;
+                    entity.Phone = cust.Phone;
+                    entity.Description = cust.Description;
+                    return new HttpResponseMessage(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                }
             }
-            else
-            {
-                return new HttpResponseMessage(HttpStatusCode.Accepted);
-            }
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
 
@@ -110,16 +122,21 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [HttpDelete("Delete")]
         public async Task<HttpResponseMessage> Delete(Customer cust)
         {
-            var entity = this._customers.Where(x => x.Id.Equals(cust.Id)).FirstOrDefault();
-            if (entity != null)
+            using (var custService = new CustomerService(DbContextFactory.Create()))
             {
-                this._customers.Remove(entity);
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                var entity = custService.Get(x => x.Id.Equals(cust.Id)).FirstOrDefault();
+                if (entity != null)
+                {
+                    custService.Remove(entity);
+                }
+                else
+                {
+                    return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                }
             }
-            else
-            {
-                return new HttpResponseMessage(HttpStatusCode.BadRequest);
-            }
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+
         }
     }
 }
