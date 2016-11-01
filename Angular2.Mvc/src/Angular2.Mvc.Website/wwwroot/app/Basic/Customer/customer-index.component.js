@@ -77,7 +77,6 @@ System.register(['@angular/core', '@angular/router', './customer.service', '../.
                         cancelButtonColor: '#d33',
                         confirmButtonText: 'Yes, delete it!'
                     }).then(function () {
-                        JL("Angular2").debug("Removing!");
                         service.remove(item).then(function () {
                             //Remove item in Front-end
                             var index = customers.indexOf(item);
