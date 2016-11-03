@@ -37,7 +37,7 @@ namespace Angular2.Mvc.Webapi
             services.AddMvc().AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
-                //options.SerializerSettings.Formatting = Formatting.Indented;
+                options.SerializerSettings.Formatting = Formatting.None; //or Formatting.Indented for readability;
             });
 
 
@@ -45,7 +45,10 @@ namespace Angular2.Mvc.Webapi
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("http://localhost:4240"));
+                    builder => 
+                    builder.WithOrigins("http://localhost:4240") //Or AllowAnyOrigin()
+                    .WithMethods("HEAD", "GET", "POST", "PUT", "DELETE") //Or AllowAnyMethod()
+                    );
             });
 
             //Enable CORS for every MVC actions

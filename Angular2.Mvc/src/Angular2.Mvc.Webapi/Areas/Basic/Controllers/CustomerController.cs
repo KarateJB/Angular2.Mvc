@@ -114,7 +114,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         public async Task<HttpResponseMessage> Update([FromBody]Customer cust)
         {
             using (var custService = new CustomerService(DbContextFactory.Create()))
-            {
+            { 
                 var entity = custService.Get(x => x.Id.Equals(cust.Id)).FirstOrDefault();
                 if (entity != null)
                 {
@@ -143,6 +143,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [CustomExceptionFilter]
         public async Task<HttpResponseMessage> Remove(int id)
         {
+            throw new NotImplementedException();
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var entity = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();
