@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, resturi_service_1;
-    var CustomerService, CUSTOMERS;
+    var CustomerService;
     return {
         setters:[
             function (core_1_1) {
@@ -102,15 +102,16 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                 return CustomerService;
             }());
             exports_1("CustomerService", CustomerService);
-            CUSTOMERS = [{ "Id": 1, "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
-                { "Id": 2, "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
-                { "Id": 3, "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
-                { "Id": 4, "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
-                { "Id": 5, "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
-                { "Id": 6, "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
-                { "Id": 7, "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
-                { "Id": 8, "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
         }
     }
 });
+//const CUSTOMERS: Customer[] =
+//    [{ "Id": 1, "Name": "<b>JB</b>", "Phone": "0933XXXXXX", "Age": 35 },
+//        { "Id": 2, "Name": "<b>Lily</b>", "Phone": "0910XXXXXX", "Age": 18 },
+//        { "Id": 3, "Name": "<b>Leia</b>", "Phone": "N/A", "Age": 3 },
+//        { "Id": 4, "Name": "<b>Darth vader</b>", "Phone": "02-1234567", "Age": 28 },
+//        { "Id": 5, "Name": "<b>Hachi</b>", "Phone": "N/A", "Age": 6 },
+//        { "Id": 6, "Name": "<b>Luke Skywalker</b>", "Phone": "02-5678901", "Age": 10 },
+//        { "Id": 7, "Name": "<b>Anakin Skywalker</b>", "Phone": "0988ZZZZZZ", "Age": 13 },
+//        { "Id": 8, "Name": "<b>Obi wan</b>", "Phone": "0912YYYYYY", "Age": 65 }];
 //# sourceMappingURL=customer.service.js.map
