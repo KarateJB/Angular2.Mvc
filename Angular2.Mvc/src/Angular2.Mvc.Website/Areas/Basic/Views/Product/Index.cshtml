@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<product-app>
+    <div>
+        <p><img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    </div>
+</product-app>
+
+@section Scripts {
+    <script>
+        System.config({
+            map: {
+                app: 'app/Basic/Product'
+            },
+            packages: {
+                app: {main:'product.main.js',defaultExtension: 'js'}
+            }
+        });
+        System.import('app/product.main').then(null, console.error.bind(console));
+    </script>
+}
+
+
+

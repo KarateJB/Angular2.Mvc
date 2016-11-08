@@ -25,6 +25,7 @@ export class WrapEventPipe implements PipeTransform {
         var datePipe = new DatePipe(this._locale);
         let createOn = datePipe.transform(content.CreateOn, 'yyyy/MM/dd HH:mm');
 
+
         let title = content.Title;
         let createBy = content.CreateBy;
 
