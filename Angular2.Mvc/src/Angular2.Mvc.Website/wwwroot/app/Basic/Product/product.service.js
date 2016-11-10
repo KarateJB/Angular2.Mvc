@@ -11,7 +11,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var CustomerService, PRODUCTS;
+    var ProductService, PRODUCTS;
     return {
         setters:[
             function (core_1_1) {
@@ -19,38 +19,38 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             //import {RestUriService} from '../../service/resturi.service';
-            CustomerService = (function () {
-                function CustomerService() {
+            ProductService = (function () {
+                function ProductService() {
                     this.products = [];
                 }
                 //Get books
-                CustomerService.prototype.getBooks = function () {
+                ProductService.prototype.getBooks = function () {
                     return new Promise(function (resolve) {
                         var books = PRODUCTS.filter(function (x) { return x.Type == "Book"; });
                         resolve(books);
                     });
                 };
                 //Get toys
-                CustomerService.prototype.getToys = function () {
+                ProductService.prototype.getToys = function () {
                     return new Promise(function (resolve) {
                         var toys = PRODUCTS.filter(function (x) { return x.Type == "Toy"; });
                         resolve(toys);
                     });
                 };
                 //Get toys
-                CustomerService.prototype.getMusic = function () {
+                ProductService.prototype.getMusic = function () {
                     return new Promise(function (resolve) {
                         var musices = PRODUCTS.filter(function (x) { return x.Type == "Music"; });
                         resolve(musices);
                     });
                 };
-                CustomerService = __decorate([
+                ProductService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], CustomerService);
-                return CustomerService;
+                ], ProductService);
+                return ProductService;
             }());
-            exports_1("CustomerService", CustomerService);
+            exports_1("ProductService", ProductService);
             PRODUCTS = [{ "Id": 1, "Type": "Book", "Title": "Book 1", "Price": 400 },
                 { "Id": 2, "Type": "Book", "Title": "Book 2", "Price": 250 },
                 { "Id": 3, "Type": "Book", "Title": "Book 3", "Price": 650 },

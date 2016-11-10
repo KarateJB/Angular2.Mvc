@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { ProductRoutes} from './product.route';
 import {ProductAppComponent} from './product.app.component';
 import {ProductIndexComponent} from './product-index.component';
-//import {BooksComponent} from './books.component';
-//import {ToysComponent} from './toys.component';
-//import {MusicComponent} from './music.component';
+import {ProductSubComponent} from './product-sub.component';
+import {ProductBooksComponent} from './product-books.component';
+import {ProductToysComponent} from './product-toys.component';
+import {ProductMusicComponent} from './product-music.component';
 
 @NgModule({
     imports: [
@@ -19,8 +20,11 @@ import {ProductIndexComponent} from './product-index.component';
     ],
     declarations: [
         ProductAppComponent,
-        ProductIndexComponent
-        //BooksComponent,
+        ProductIndexComponent,
+        ProductSubComponent,
+        ProductBooksComponent,
+        ProductToysComponent,
+        ProductMusicComponent
         //ToysComponent,
         //MusicComponent
     ],

@@ -4,7 +4,7 @@ import {Product} from '../../class/Product';
 //import {RestUriService} from '../../service/resturi.service';
 
 @Injectable()
-export class CustomerService {
+export class ProductService {
 
     private products: Product[];
     private httpOptions: RequestOptions;

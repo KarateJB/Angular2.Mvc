@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1;
-    var ProductIndexComponent;
+    var ProductSubComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,30 +21,39 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                 router_1 = router_1_1;
             }],
         execute: function() {
-            ProductIndexComponent = (function () {
-                function ProductIndexComponent(router) {
+            ProductSubComponent = (function () {
+                function ProductSubComponent(router) {
                     this.router = router;
-                    this.title = "Products";
                 }
-                ProductIndexComponent.prototype.ngOnInit = function () {
-                };
-                ProductIndexComponent.prototype.goToBooks = function () {
+                ProductSubComponent.prototype.goToBooks = function () {
                     JL("Angular2").debug("Go to books!");
                     this.router.navigate(['Basic/Product/Sub', 'Books']);
                 };
-                ProductIndexComponent = __decorate([
-                    //SweetAlert2 typings definition
+                ProductSubComponent.prototype.goToToys = function () {
+                    JL("Angular2").debug("Go to toys!");
+                    this.router.navigate(['Basic/Product/Sub', 'Toys']);
+                };
+                ProductSubComponent.prototype.goToMusic = function () {
+                    JL("Angular2").debug("Go to music!");
+                    this.router.navigate(['Basic/Product/Sub', 'Music']);
+                };
+                ProductSubComponent = __decorate([
                     core_1.Component({
-                        selector: 'product-index',
+                        selector: 'product-sub',
                         providers: [],
-                        templateUrl: '/app/Basic/Product/Product-index.component.html'
+                        template: '<div class="btn-group" role= "group" aria-label="Basic example">' +
+                            '<button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>' +
+                            '<button type="button" class="btn btn-secondary" (click)="goToToys()">Toys</button>' +
+                            '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>' +
+                            '</div>' +
+                            '<router-outlet></router-outlet>'
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
-                ], ProductIndexComponent);
-                return ProductIndexComponent;
+                ], ProductSubComponent);
+                return ProductSubComponent;
             }());
-            exports_1("ProductIndexComponent", ProductIndexComponent);
+            exports_1("ProductSubComponent", ProductSubComponent);
         }
     }
 });
-//# sourceMappingURL=product-index.component.js.map
+//# sourceMappingURL=product-sub.component.js.map

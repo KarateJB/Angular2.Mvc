@@ -1,4 +1,5 @@
-﻿import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
+﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
+import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -18,7 +19,12 @@ export class ProductIndexComponent implements OnInit {
     }
 
     ngOnInit() {
+
     }
 
+    private goToBooks() {
+        JL("Angular2").debug("Go to books!");
+        this.router.navigate(['Basic/Product/Sub', 'Books']);
+    }
 }
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './product.route', './product.app.component', './product-index.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './product.route', './product.app.component', './product-index.component', './product-sub.component', './product-books.component', './product-toys.component', './product-music.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, http_1, product_route_1, product_app_component_1, product_index_component_1;
+    var core_1, forms_1, platform_browser_1, http_1, product_route_1, product_app_component_1, product_index_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1;
     var ProductAppModule;
     return {
         setters:[
@@ -34,11 +34,20 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             },
             function (product_index_component_1_1) {
                 product_index_component_1 = product_index_component_1_1;
+            },
+            function (product_sub_component_1_1) {
+                product_sub_component_1 = product_sub_component_1_1;
+            },
+            function (product_books_component_1_1) {
+                product_books_component_1 = product_books_component_1_1;
+            },
+            function (product_toys_component_1_1) {
+                product_toys_component_1 = product_toys_component_1_1;
+            },
+            function (product_music_component_1_1) {
+                product_music_component_1 = product_music_component_1_1;
             }],
         execute: function() {
-            //import {BooksComponent} from './books.component';
-            //import {ToysComponent} from './toys.component';
-            //import {MusicComponent} from './music.component';
             ProductAppModule = (function () {
                 function ProductAppModule() {
                 }
@@ -52,7 +61,11 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
                         ],
                         declarations: [
                             product_app_component_1.ProductAppComponent,
-                            product_index_component_1.ProductIndexComponent
+                            product_index_component_1.ProductIndexComponent,
+                            product_sub_component_1.ProductSubComponent,
+                            product_books_component_1.ProductBooksComponent,
+                            product_toys_component_1.ProductToysComponent,
+                            product_music_component_1.ProductMusicComponent
                         ],
                         bootstrap: [product_app_component_1.ProductAppComponent]
                     }), 

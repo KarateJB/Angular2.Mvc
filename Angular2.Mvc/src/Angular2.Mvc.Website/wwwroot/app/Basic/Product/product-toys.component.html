@@ -1,0 +1,17 @@
+﻿<br /><br /><br />
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Price</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let prod of toys">
+            <td>{{prod.Id}}</td>
+            <td>{{prod.Title}}</td>
+            <td>{{prod.Price}}</td>
+        </tr>
+    </table>
+</div>
