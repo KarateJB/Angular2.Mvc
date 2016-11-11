@@ -1,6 +1,7 @@
 ﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductIndexComponent} from './product-index.component';
+import { ProductCreateComponent} from './product-create.component';
 import { ProductSubComponent} from './product-sub.component';
 import { ProductBooksComponent} from './product-books.component';
 import { ProductToysComponent} from './product-toys.component';
@@ -10,6 +11,7 @@ import { ProductMusicComponent} from './product-music.component';
 
 const appRoutes: Routes = [
     { path: 'Basic/Product/Index', component: ProductIndexComponent },
+    { path: 'Basic/Product/Create', component: ProductCreateComponent },
     {
         path: 'Basic/Product/Sub',
         component: ProductSubComponent,

@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1;
-    var ProductIndexComponent;
+    var ProductCreateComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,30 +21,30 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                 router_1 = router_1_1;
             }],
         execute: function() {
-            ProductIndexComponent = (function () {
-                function ProductIndexComponent(router) {
+            ProductCreateComponent = (function () {
+                function ProductCreateComponent(router) {
                     this.router = router;
-                    this.title = "Products";
+                    this.title = "Products - Create";
                 }
-                ProductIndexComponent.prototype.ngOnInit = function () {
+                ProductCreateComponent.prototype.ngOnInit = function () {
                 };
-                ProductIndexComponent.prototype.goToCreate = function () {
-                    //JL("Angular2").debug("Redirect to create page");
-                    this.router.navigate(['Basic/Product/Create']);
+                //Back to list (Show list)
+                ProductCreateComponent.prototype.backToList = function () {
+                    this.router.navigate(['Basic/Product/Index']);
                 };
-                ProductIndexComponent = __decorate([
+                ProductCreateComponent = __decorate([
                     //SweetAlert2 typings definition
                     core_1.Component({
-                        selector: 'product-index',
+                        selector: 'product-create',
                         providers: [],
-                        templateUrl: '/app/Basic/Product/product-index.component.html'
+                        templateUrl: '/app/Basic/Product/product-create.component.html'
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
-                ], ProductIndexComponent);
-                return ProductIndexComponent;
+                ], ProductCreateComponent);
+                return ProductCreateComponent;
             }());
-            exports_1("ProductIndexComponent", ProductIndexComponent);
+            exports_1("ProductCreateComponent", ProductCreateComponent);
         }
     }
 });
-//# sourceMappingURL=product-index.component.js.map
+//# sourceMappingURL=product-create.component.js.map

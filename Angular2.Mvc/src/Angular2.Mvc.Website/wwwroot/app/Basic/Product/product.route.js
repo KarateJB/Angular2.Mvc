@@ -1,7 +1,7 @@
-System.register(['@angular/router', './product-index.component', './product-sub.component', './product-books.component', './product-toys.component', './product-music.component'], function(exports_1, context_1) {
+System.register(['@angular/router', './product-index.component', './product-create.component', './product-sub.component', './product-books.component', './product-toys.component', './product-music.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, product_index_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1;
+    var router_1, product_index_component_1, product_create_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1;
     var appRoutes, ProductRoutes;
     return {
         setters:[
@@ -10,6 +10,9 @@ System.register(['@angular/router', './product-index.component', './product-sub.
             },
             function (product_index_component_1_1) {
                 product_index_component_1 = product_index_component_1_1;
+            },
+            function (product_create_component_1_1) {
+                product_create_component_1 = product_create_component_1_1;
             },
             function (product_sub_component_1_1) {
                 product_sub_component_1 = product_sub_component_1_1;
@@ -26,6 +29,7 @@ System.register(['@angular/router', './product-index.component', './product-sub.
         execute: function() {
             appRoutes = [
                 { path: 'Basic/Product/Index', component: product_index_component_1.ProductIndexComponent },
+                { path: 'Basic/Product/Create', component: product_create_component_1.ProductCreateComponent },
                 {
                     path: 'Basic/Product/Sub',
                     component: product_sub_component_1.ProductSubComponent,

@@ -7,7 +7,7 @@ declare var swal: any; //SweetAlert2 typings definition
 @Component({
     selector: 'product-index',
     providers: [],
-    templateUrl: '/app/Basic/Product/Product-index.component.html'
+    templateUrl: '/app/Basic/Product/product-index.component.html'
     //styleUrls: ['/app/Basic/Product/Product-index.component.css']
 })
 
@@ -22,9 +22,9 @@ export class ProductIndexComponent implements OnInit {
 
     }
 
-    private goToBooks() {
-        JL("Angular2").debug("Go to books!");
-        this.router.navigate(['Basic/Product/Sub', 'Books']);
+    private goToCreate() {
+        //JL("Angular2").debug("Redirect to create page");
+        this.router.navigate(['Basic/Product/Create']);
     }
 }
 
