@@ -11,6 +11,14 @@
     "module": "system",
     "moduleResolution": "node"
   },
+  "typeRoots": [
+    "./node_modules/@types"
+  ],
+  "types": [
+    "firebase",
+    "angularfire2"
+  ],
+  "Run": null,
   //"files": [
   //  "./lib-npm/typings/es6-shim.d.ts",
   //  "./lib-npm/typings/jsnlog.d.ts",

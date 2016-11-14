@@ -1,6 +1,7 @@
 ﻿import {Injectable} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import {Product} from '../../class/Product';
+
 //import {RestUriService} from '../../service/resturi.service';
 
 @Injectable()
@@ -9,8 +10,11 @@ export class ProductService {
     private products: Product[];
     private httpOptions: RequestOptions;
 
+    
+
     constructor() {
         this.products = [];
+
     }
 
     //Get books

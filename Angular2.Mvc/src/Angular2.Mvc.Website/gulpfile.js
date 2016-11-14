@@ -101,6 +101,24 @@ gulp.task('copy-jsnlog', function () {
         base: root_path.nmSrc + '/jsnlog/'
     }).pipe(gulp.dest(root_path.package_lib + '/jsnlog/'));
 });
+//angularfire2
+gulp.task('copy-angularfire2', function () {
+    return gulp.src(root_path.nmSrc + "/angularfire2/bundles/angularfire2.umd.js", {
+        base: root_path.nmSrc + '/angularfire2/bundles/'
+    }).pipe(gulp.dest(root_path.package_lib + '/angularfire2/'));
+});
+//firebase
+gulp.task('copy-firebase', function () {
+    return gulp.src(root_path.nmSrc + "/firebase/*.js", {
+        base: root_path.nmSrc + '/firebase/'
+    }).pipe(gulp.dest(root_path.package_lib + '/firebase/'));
+});
+//traceur
+gulp.task('copy-traceur', function () {
+    return gulp.src(root_path.nmSrc + "/traceur/dist/commonjs/traceur.js", {
+        base: root_path.nmSrc + '/traceur/dist/commonjs/'
+    }).pipe(gulp.dest(root_path.package_lib + '/traceur/'));
+});
 
 gulp.task("copy-all", [
     "copy-rxjs",
@@ -117,5 +135,8 @@ gulp.task("copy-all", [
     "copy-systemjs",
     "copy-es6-shim",
     "copy-sweetalert2",
-    "copy-jsnlog"
+    "copy-jsnlog",
+    "copy-angularfire2",
+    "copy-firebase",
+    "copy-traceur"
 ])

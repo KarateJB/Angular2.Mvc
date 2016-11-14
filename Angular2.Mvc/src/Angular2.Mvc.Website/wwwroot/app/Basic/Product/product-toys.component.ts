@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Product} from '../../class/Product';
 import {ProductService} from './product.service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 declare var swal: any; //SweetAlert2 typings definition
 

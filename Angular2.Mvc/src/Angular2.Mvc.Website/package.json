@@ -30,8 +30,11 @@
     "@angular/platform-browser": "^2.1.0",
     "@angular/platform-browser-dynamic": "^2.1.0",
     "@angular/router": "3.1.0",
+    "angularfire2": "^2.0.0-beta.6",
+    "firebase": "3.4.0",
     "jsnlog": "^2.20.1",
     "reflect-metadata": "^0.1.8",
+    "traceur": "0.0.111",
     "zone.js": "^0.6.25"
   }
 }
