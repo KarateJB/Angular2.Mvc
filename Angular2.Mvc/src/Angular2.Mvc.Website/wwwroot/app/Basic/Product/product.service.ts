@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import {Product} from '../../class/Product';
+import { Utility} from '../../class/Utility';
 
 //import {RestUriService} from '../../service/resturi.service';
 
@@ -66,16 +67,29 @@ export class ProductService {
             });
     }
 
+    //Create new product
+    public create(prod: Product) {
+        //Set UUID to id
+        prod.Id = Utility.generateUUID();
+
+        return new Promise(
+            resolve => {
+                let itemObservable = this.af.database.object('/Demo/products');
+                itemObservable.set(prod);
+                resolve();
+            });
+    }
+
 
 }
 
 
 const PRODUCTS: Product[] =
-    [{ "Id": 1, "Type": "Book", "Title": "Book 1", "Price": 400 },
-        { "Id": 2, "Type": "Book", "Title": "Book 2", "Price": 250 },
-        { "Id": 3, "Type": "Book", "Title": "Book 3", "Price": 650 },
-        { "Id": 4, "Type": "Toy", "Title": "Doll", "Price": 1000 },
-        { "Id": 5, "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
-        { "Id": 6, "Type": "Toy", "Title": "LEGO", "Price": 3000 },
-        { "Id": 7, "Type": "Music", "Title": "Speed Metal", "Price": 600 },
-        { "Id": 8, "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
+       [{ "Id": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
+        { "Id": "2", "Type": "Book", "Title": "Book 2", "Price": 250 },
+        { "Id": "3", "Type": "Book", "Title": "Book 3", "Price": 650 },
+        { "Id": "4", "Type": "Toy", "Title": "Doll", "Price": 1000 },
+        { "Id": "5", "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
+        { "Id": "6", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
+        { "Id": "7", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
+        { "Id": "8", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];

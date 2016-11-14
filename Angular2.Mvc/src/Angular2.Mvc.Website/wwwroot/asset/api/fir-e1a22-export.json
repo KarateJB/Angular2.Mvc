@@ -1,0 +1,64 @@
+{
+  "Demo" : {
+    "customers" : [ {
+      "Age" : 35,
+      "Description" : "JB is a good programmer.",
+      "Id" : 1,
+      "Name" : "<b>JB</b>",
+      "Phone" : "0933XXXXXX"
+    }, {
+      "Age" : 18,
+      "Description" : "Lily is a mother.",
+      "Id" : 2,
+      "Name" : "<b>Lily</b>",
+      "Phone" : "0910XXXXXX"
+    }, {
+      "Age" : 3,
+      "Description" : "Leia is cute kid.",
+      "Id" : 3,
+      "Name" : "<b>Leia</b>",
+      "Phone" : "N/A"
+    } ],
+    "products" : [ {
+      "Id" : 1,
+      "Price" : 400,
+      "Title" : "Book 1",
+      "Type" : "Book"
+    }, {
+      "Id" : 2,
+      "Price" : 250,
+      "Title" : "Book 2",
+      "Type" : "Book"
+    }, {
+      "Id" : 3,
+      "Price" : 650,
+      "Title" : "Book 3",
+      "Type" : "Book"
+    }, {
+      "Id" : 4,
+      "Price" : 1000,
+      "Title" : "Doll",
+      "Type" : "Toy"
+    }, {
+      "Id" : 5,
+      "Price" : 2200,
+      "Title" : "Toy Train",
+      "Type" : "Toy"
+    }, {
+      "Id" : 6,
+      "Price" : 3000,
+      "Title" : "LEGO",
+      "Type" : "Toy"
+    }, {
+      "Id" : 7,
+      "Price" : 600,
+      "Title" : "Speed Metal",
+      "Type" : "Music"
+    }, {
+      "Id" : 8,
+      "Price" : 450,
+      "Title" : "Theater Metal",
+      "Type" : "Music"
+    } ]
+  }
+}
