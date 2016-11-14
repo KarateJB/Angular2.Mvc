@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ProductRoutes} from './product.route';
+import { AngularFireModule } from 'angularfire2';
+
+import {FirebaseConfig} from '../../class/FirebaseConfig';
 import {ProductAppComponent} from './product.app.component';
 import {ProductIndexComponent} from './product-index.component';
 import {ProductCreateComponent} from './product-create.component';
@@ -12,13 +15,13 @@ import {ProductBooksComponent} from './product-books.component';
 import {ProductToysComponent} from './product-toys.component';
 import {ProductMusicComponent} from './product-music.component';
 
-
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        ProductRoutes
+        ProductRoutes,
+        AngularFireModule.initializeApp(FirebaseConfig.Get())
     ],
     declarations: [
         ProductAppComponent,
@@ -28,8 +31,6 @@ import {ProductMusicComponent} from './product-music.component';
         ProductBooksComponent,
         ProductToysComponent,
         ProductMusicComponent
-        //ToysComponent,
-        //MusicComponent
     ],
     bootstrap: [ProductAppComponent]
 })

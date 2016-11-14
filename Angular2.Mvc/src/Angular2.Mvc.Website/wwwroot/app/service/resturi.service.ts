@@ -9,6 +9,4 @@ export class RestUriService {
     public customerCreateUri: string = this.REST_ROOT_URL.concat("api/Basic/Customer/Create/");
     public customerUpdateUri: string = this.REST_ROOT_URL.concat("api/Basic/Customer/Update/");
     public customerRemoveUri: string = this.REST_ROOT_URL.concat("api/Basic/Customer/Remove/");
-
-
 }

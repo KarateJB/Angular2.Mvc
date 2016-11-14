@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,31 +10,16 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angularfire2_1;
+    var core_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (angularfire2_1_1) {
-                angularfire2_1 = angularfire2_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(af) {
-                    this.af = af;
-                    console.log("Start reading from Firebase!");
-                    af.database.list('/Demo').subscribe(function (val) {
-                        console.log(val);
-                    });
-                    //console.log(this.items);
-                    //af.database.list("/demo").subscribe(
-                    //    val => {
-                    //        this.items = val;
-                    //        console.log("Print item....");
-                    //        console.log(this.items);
-                    //    });
+                function AppComponent() {
                 }
                 AppComponent.prototype.ngOnInit = function () {
                 };
@@ -43,7 +28,7 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
                         selector: 'core-app',
                         template: '<h3>Hello world!</h3>'
                     }), 
-                    __metadata('design:paramtypes', [angularfire2_1.AngularFire])
+                    __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());

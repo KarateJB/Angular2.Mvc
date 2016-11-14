@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,43 +10,77 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, angularfire2_1;
     var ProductService, PRODUCTS;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (angularfire2_1_1) {
+                angularfire2_1 = angularfire2_1_1;
             }],
         execute: function() {
             //import {RestUriService} from '../../service/resturi.service';
             ProductService = (function () {
-                function ProductService() {
-                    this.products = [];
+                function ProductService(af) {
+                    //Use the local const array
+                    //this.products = PRODUCTS; 
+                    this.af = af;
                 }
+                //Query data from firebase
+                ProductService.prototype.queryProducts = function () {
+                    var observable = this.af.database.object('/Demo/products');
+                    return observable;
+                };
                 //Get books
                 ProductService.prototype.getBooks = function () {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        var books = PRODUCTS.filter(function (x) { return x.Type == "Book"; });
-                        resolve(books);
+                        //Use local const data
+                        //let books = PRODUCTS.filter(x => x.Type == "Book");
+                        //From Firebase
+                        JL("Angular2").debug("Querying books!");
+                        _this.queryProducts().subscribe(function (data) {
+                            JL("Angular2").debug(data);
+                            var books = data.filter(function (x) { return x.Type == "Book"; });
+                            resolve(books);
+                        });
                     });
                 };
                 //Get toys
                 ProductService.prototype.getToys = function () {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        var toys = PRODUCTS.filter(function (x) { return x.Type == "Toy"; });
-                        resolve(toys);
+                        //let toys = PRODUCTS.filter(x => x.Type == "Toy");
+                        //resolve(toys);
+                        //From Firebase
+                        JL("Angular2").debug("Querying toys!");
+                        _this.queryProducts().subscribe(function (data) {
+                            JL("Angular2").debug(data);
+                            var toys = data.filter(function (x) { return x.Type == "Toy"; });
+                            resolve(toys);
+                        });
                     });
                 };
                 //Get toys
                 ProductService.prototype.getMusic = function () {
+                    var _this = this;
                     return new Promise(function (resolve) {
-                        var musices = PRODUCTS.filter(function (x) { return x.Type == "Music"; });
-                        resolve(musices);
+                        //let musices = PRODUCTS.filter(x => x.Type == "Music");
+                        //resolve(musices);
+                        //From Firebase
+                        JL("Angular2").debug("Querying music!");
+                        _this.queryProducts().subscribe(function (data) {
+                            JL("Angular2").debug(data);
+                            var musices = data.filter(function (x) { return x.Type == "Music"; });
+                            resolve(musices);
+                        });
                     });
                 };
                 ProductService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [angularfire2_1.AngularFire])
                 ], ProductService);
                 return ProductService;
             }());
