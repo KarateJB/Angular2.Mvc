@@ -77,11 +77,19 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility'], functi
                     var _this = this;
                     //Set UUID to id
                     prod.Id = Utility_1.Utility.generateUUID();
-                    return new Promise(function (resolve) {
-                        var itemObservable = _this.af.database.object('/item');
-                        itemObservable.set(prod);
-                        resolve();
+                    var getPromise = new Promise(function (resolve) {
+                        var itemObservable = _this.queryProducts();
+                        var current = null;
+                        itemObservable.subscribe(function (value) {
+                            current = value;
+                            current.push(prod);
+                            resolve(current);
+                        });
+                    }).then(function (newValue) {
+                        var itemObservable = _this.queryProducts();
+                        itemObservable.update(newValue);
                     });
+                    return getPromise;
                 };
                 ProductService = __decorate([
                     core_1.Injectable(), 

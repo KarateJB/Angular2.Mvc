@@ -72,12 +72,22 @@ export class ProductService {
         //Set UUID to id
         prod.Id = Utility.generateUUID();
 
-        return new Promise(
+        var getPromise = new Promise(
             resolve => {
-                let itemObservable = this.af.database.object('/Demo/products');
-                itemObservable.set(prod);
-                resolve();
+                let itemObservable = this.queryProducts();
+                let current = null;
+                itemObservable.subscribe(value => {
+                    current = value;
+                    current.push(prod);
+                    resolve(current);
+                })
+            }).then((newValue) => {
+                let itemObservable = this.queryProducts();
+                itemObservable.update(newValue);
             });
+
+        return getPromise;
+
     }
 
 
@@ -85,7 +95,7 @@ export class ProductService {
 
 
 const PRODUCTS: Product[] =
-       [{ "Id": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
+    [{ "Id": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
         { "Id": "2", "Type": "Book", "Title": "Book 2", "Price": 250 },
         { "Id": "3", "Type": "Book", "Title": "Book 3", "Price": 650 },
         { "Id": "4", "Type": "Toy", "Title": "Doll", "Price": 1000 },
