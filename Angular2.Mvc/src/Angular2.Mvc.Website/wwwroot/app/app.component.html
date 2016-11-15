@@ -1,0 +1,53 @@
+﻿<div class="card">
+    <div class="card-block">
+        <div class="card-text" [ngSwitch]="isAuth">
+            <div *ngSwitchCase="false">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <button class="btn btn-toolbar" (click)="login('google')">
+                                <img width="30" src="../asset/images/logo/google-logo.png" />
+                                Use Google Account
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-toolbar" (click)="login('facebook')">
+                                <img width="30" src="../asset/images/logo/facebook-logo.png" />
+                                Use Facebook Account
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn btn-toolbar" (click)="login('twitter')">
+                                <img width="30" src="../asset/images/logo/twitter-logo.png" />Use My Twitter Account
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-toolbar" (click)="login('github')">
+                                <img width="30" src="../asset/images/logo/github-logo.png" />
+                                Use Github Account
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div *ngSwitchCase="true">
+                <table>
+                    <tr>
+                        <td>
+                            <span>{{user.name}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>{{user.email || '(no email)'}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <input type="button" class="btn btn-warning" (click)="logout()" value="Logout" />
+    </div>
+</div>
+
