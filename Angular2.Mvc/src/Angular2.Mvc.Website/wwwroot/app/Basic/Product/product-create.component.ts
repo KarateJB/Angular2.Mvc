@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ProductService} from './product.service';
 import {Product} from '../../class/Product';
 import {ProductType} from '../../class/ProductType';
+import {ProductTypeEnum} from '../../enum/ProductTypeEnum';
 
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -17,6 +18,7 @@ declare var swal: any; //SweetAlert2 typings definition
 export class ProductCreateComponent implements OnInit {
     title: string;
     private prod: Product;
+    private prodHint: string;
     private selectedProdType: ProductType;
     private prodTypes: ProductType[];
 
@@ -25,6 +27,7 @@ export class ProductCreateComponent implements OnInit {
         private prodService: ProductService
     ) {
         this.title = "Products - Create";
+        this.prodHint = "";
         this.prod = new Product();
         this.prodTypes = this.prodService.getProductTypes();
     }
@@ -34,8 +37,26 @@ export class ProductCreateComponent implements OnInit {
     }
     //Change Selected Product type callback
     private changeSelectedType(event: any) {
+
         console.log(event); //Show the selected option 
-        console.log(this.selectedProdType);
+        console.log(ProductTypeEnum.Book);
+        console.log(ProductTypeEnum.Music);
+
+        switch (event.id)
+        {
+            case ProductTypeEnum.Book.toString():
+                this.prodHint="Enter a book's title.."
+                break;
+            case ProductTypeEnum.Toy.toString():
+                this.prodHint = "Enter a toy's name.."
+                break;
+            case ProductTypeEnum.Music.toString():
+                this.prodHint = "Enter music.."
+                break;
+            default:
+                this.prodHint = "";
+                break;
+        }
     }
 
     //Save!

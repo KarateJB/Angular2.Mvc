@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './product.service', '../../class/Product'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './product.service', '../../class/Product', '../../enum/ProductTypeEnum'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, product_service_1, Product_1;
+    var core_1, router_1, product_service_1, Product_1, ProductTypeEnum_1;
     var ProductCreateComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
             },
             function (Product_1_1) {
                 Product_1 = Product_1_1;
+            },
+            function (ProductTypeEnum_1_1) {
+                ProductTypeEnum_1 = ProductTypeEnum_1_1;
             }],
         execute: function() {
             ProductCreateComponent = (function () {
@@ -32,6 +35,7 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                     this.router = router;
                     this.prodService = prodService;
                     this.title = "Products - Create";
+                    this.prodHint = "";
                     this.prod = new Product_1.Product();
                     this.prodTypes = this.prodService.getProductTypes();
                 }
@@ -40,7 +44,22 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                 //Change Selected Product type callback
                 ProductCreateComponent.prototype.changeSelectedType = function (event) {
                     console.log(event); //Show the selected option 
-                    console.log(this.selectedProdType);
+                    console.log(ProductTypeEnum_1.ProductTypeEnum.Book);
+                    console.log(ProductTypeEnum_1.ProductTypeEnum.Music);
+                    switch (event.id) {
+                        case ProductTypeEnum_1.ProductTypeEnum.Book.toString():
+                            this.prodHint = "Enter a book's title..";
+                            break;
+                        case ProductTypeEnum_1.ProductTypeEnum.Toy.toString():
+                            this.prodHint = "Enter a toy's name..";
+                            break;
+                        case ProductTypeEnum_1.ProductTypeEnum.Music.toString():
+                            this.prodHint = "Enter music..";
+                            break;
+                        default:
+                            this.prodHint = "";
+                            break;
+                    }
                 };
                 //Save!
                 ProductCreateComponent.prototype.save = function () {
