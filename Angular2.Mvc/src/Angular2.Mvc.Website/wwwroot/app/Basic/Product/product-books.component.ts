@@ -66,8 +66,6 @@ export class ProductBooksComponent implements OnInit {
                 });
 
             })
-
-        
     }
 
 }

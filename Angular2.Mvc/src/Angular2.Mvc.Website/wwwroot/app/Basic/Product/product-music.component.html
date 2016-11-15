@@ -6,12 +6,18 @@
                 <th class="text-center">ID</th>
                 <th class="text-center">Title</th>
                 <th class="text-center">Price</th>
+                <th></th>
             </tr>
         </thead>
         <tr *ngFor="let prod of music">
             <td>{{prod.Id}}</td>
             <td>{{prod.Title}}</td>
             <td>{{prod.Price}}</td>
+            <td>
+                <input type="button" value="Edit" class="btn btn-info" (click)="edit(prod)" />
+                &nbsp;
+                <input type="button" value="Remove" class="btn btn-danger" (click)="remove(prod)" />
+            </td>
         </tr>
     </table>
 </div>

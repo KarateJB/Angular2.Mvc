@@ -41,6 +41,30 @@ System.register(['@angular/core', '@angular/router', './product.service'], funct
                         _this.toys = data;
                     });
                 };
+                //Go to edit page
+                ProductToysComponent.prototype.edit = function (prod) {
+                    this.router.navigate(['Basic/Product/Edit', prod.Id]);
+                };
+                //Remove the product
+                ProductToysComponent.prototype.remove = function (prod) {
+                    var service = this.productService;
+                    var toys = this.toys;
+                    swal({
+                        title: 'Are you sure?',
+                        text: "The product : " + prod.Title + ", will be deleted!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then(function () {
+                        service.remove(prod).then(function () {
+                            //Remove item in Front-end
+                            var index = toys.indexOf(prod);
+                            toys.splice(index, 1);
+                        });
+                    });
+                };
                 ProductToysComponent = __decorate([
                     //SweetAlert2 typings definition
                     core_1.Component({

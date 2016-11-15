@@ -36,5 +36,38 @@ export class ProductToysComponent implements OnInit {
         })
     }
 
+    //Go to edit page
+    private edit(prod: Product) {
+        this.router.navigate(['Basic/Product/Edit', prod.Id]);
+    }
+
+    //Remove the product
+    private remove(prod: Product) {
+
+        let service = this.productService;
+        let toys = this.toys;
+
+        swal({
+            title: 'Are you sure?',
+            text: "The product : " + prod.Title + ", will be deleted!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+
+            service.remove(prod).then(
+                () => {
+                    //Remove item in Front-end
+                    var index = toys.indexOf(prod);
+                    toys.splice(index, 1);
+                });
+
+        })
+
+
+    }
+
 }
 
