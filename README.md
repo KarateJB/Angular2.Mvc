@@ -3,11 +3,12 @@ ASP.NET Core MVC with Angular2
 
 
 ## Tutorials
-[Angular2] Build SPA with MVC and NG2 in .NET Core (1) – Hello world!
-[Angular2] Build SPA with MVC and NG2 in .NET Core (2) – Routing
-[Angular2] Build SPA with MVC and NG2 in .NET Core (3) – Sub component (input & emit)
-[Angular2] Build SPA with MVC and NG2 in .NET Core (4) – Pipes
-[Angular2] Build SPA with MVC and NG2 in .NET Core (5) – NLog and JSNLog
+* [Build SPA with MVC and NG2 in .NET Core (1) – Hello world!](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc6-and-ng2-in.html)
+* [Build SPA with MVC and NG2 in .NET Core (2) – Routing](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc6-and-ng2-in_19.html)
+* [Build SPA with MVC and NG2 in .NET Core (3) – Sub component (input & emit)](http://karatejb.blogspot.com/2016/10/angular2-build-spa-with-mvc-and-ng2-in.html)
+* [Build SPA with MVC and NG2 in .NET Core (4) – Pipes](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc-and-ng2-in_25.html)
+* [Build SPA with MVC and NG2 in .NET Core (5) – NLog and JSNLog](http://karatejb.blogspot.com/2016/10/angular2-build-spa-with-mvc-and-ng2-in_26.html)
+* [Build SPA with MVC and NG2 in ASP.NET Core (6) – Http Module](http://karatejb.blogspot.tw/2016/11/angular2-build-spa-with-mvc-and-ng2-in.html)
 
 
 
