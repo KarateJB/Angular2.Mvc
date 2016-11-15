@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     //Login
     private login(provider: string) {
         this.af.auth.login({
-            provider: this.getProvider(provider), method: AuthMethods.Popup
+            provider: this.getProvider(provider),
+            method: AuthMethods.Popup
         });
     }
 

@@ -34,7 +34,8 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
                 //Login
                 AppComponent.prototype.login = function (provider) {
                     this.af.auth.login({
-                        provider: this.getProvider(provider), method: angularfire2_1.AuthMethods.Popup
+                        provider: this.getProvider(provider),
+                        method: angularfire2_1.AuthMethods.Popup
                     });
                 };
                 //Logout

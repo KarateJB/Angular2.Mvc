@@ -1,7 +1,7 @@
 ﻿<div class="card">
     <div class="card-block">
         <div class="card-text" [ngSwitch]="isAuth">
-            <div *ngSwitchCase="false">
+            <div *ngSwitchCase="false" class="text-center">
                 <table class="table">
                     <tr>
                         <td>
@@ -32,22 +32,25 @@
                     </tr>
                 </table>
             </div>
-            <div *ngSwitchCase="true">
-                <table>
+            <div *ngSwitchCase="true" class="text-center">
+                <table class="table">
                     <tr>
-                        <td>
-                            <span>{{user.name}}</span>
+                        <td class="text-center">
+                            <label class="control-label">{{user.name}}</label>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <span>{{user.email || '(no email)'}}</span>
+                        <td class="text-center">
+                            <label class="control-label">{{user.email || '(no email)'}}</label>
                         </td>
                     </tr>
                 </table>
+                <div>
+                    <input type="button" class="btn btn-warning" (click)="logout()" value="Logout" />
+                </div>
             </div>
         </div>
-        <input type="button" class="btn btn-warning" (click)="logout()" value="Logout" />
+
     </div>
 </div>
 
