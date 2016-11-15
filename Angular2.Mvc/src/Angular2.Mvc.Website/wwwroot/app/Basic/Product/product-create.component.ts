@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProductService} from './product.service';
 import {Product} from '../../class/Product';
+import {ProductType} from '../../class/ProductType';
 
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -16,6 +17,8 @@ declare var swal: any; //SweetAlert2 typings definition
 export class ProductCreateComponent implements OnInit {
     title: string;
     private prod: Product;
+    private selectedProdType: ProductType;
+    private prodTypes: ProductType[];
 
     constructor(
         private router: Router,
@@ -23,14 +26,24 @@ export class ProductCreateComponent implements OnInit {
     ) {
         this.title = "Products - Create";
         this.prod = new Product();
+        this.prodTypes = this.prodService.getProductTypes();
     }
 
     ngOnInit() {
 
     }
+    //Change Selected Product type callback
+    private changeSelectedType(event: any) {
+        console.log(event); //Show the selected option 
+        console.log(this.selectedProdType);
+    }
 
     //Save!
     private save() {
+
+        this.prod.TypeId = this.selectedProdType.id;
+        this.prod.Type = this.selectedProdType.name;
+
         this.prodService.create(this.prod).then(
             () => {
 

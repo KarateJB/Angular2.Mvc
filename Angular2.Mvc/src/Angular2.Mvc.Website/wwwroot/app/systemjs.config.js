@@ -7,12 +7,13 @@
         'angularfire2': 'lib-npm/angularfire2',
         'firebase': 'lib-npm/firebase',
         'service': 'app/service',
-        'class': 'app/class'
+        'class': 'app/class',
+        'enum': 'app/enum'
     },
     paths: {
-
         "service:*": "app/service/*.js",
-        "class:*": "app/class/*.js"
+        "class:*": "app/class/*.js",
+        "enum:*": "app/enum/*.js"
     },
     //meta: {
     //    '@angular/*': { 'format': 'cjs' }
@@ -30,6 +31,7 @@
         'angularfire2': { main: 'angularfire2.umd.js' },
         'firebase': { main: 'firebase.js' },
         'service': { main: '*.js', defaultExtension: 'js' },
-        'class': { main: '*.js', defaultExtension:'js'}
+        'class': { main: '*.js', defaultExtension: 'js' },
+        'enum': { main: '*.js', defaultExtension: 'js' }
     }
 });

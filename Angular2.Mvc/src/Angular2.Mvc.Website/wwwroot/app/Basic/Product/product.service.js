@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'angularfire2', '../../class/Utility'], function(exports_1, context_1) {
+System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../class/EnumEx', '../../enum/ProductTypeEnum'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angularfire2_1, Utility_1;
+    var core_1, angularfire2_1, Utility_1, EnumEx_1, ProductTypeEnum_1;
     var ProductService, PRODUCTS;
     return {
         setters:[
@@ -22,9 +22,14 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility'], functi
             },
             function (Utility_1_1) {
                 Utility_1 = Utility_1_1;
+            },
+            function (EnumEx_1_1) {
+                EnumEx_1 = EnumEx_1_1;
+            },
+            function (ProductTypeEnum_1_1) {
+                ProductTypeEnum_1 = ProductTypeEnum_1_1;
             }],
         execute: function() {
-            //import {RestUriService} from '../../service/resturi.service';
             ProductService = (function () {
                 function ProductService(af) {
                     this.af = af;
@@ -32,6 +37,19 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility'], functi
                 //Query data from firebase
                 ProductService.prototype.queryProducts = function () {
                     return this.af.database.object('/Demo/products');
+                };
+                //Get Product types list
+                ProductService.prototype.getProductTypes = function () {
+                    var prodTypes = [];
+                    //Get name-value pairs from ProductTypeEnum
+                    var prodTypeEnumList = EnumEx_1.EnumEx.getNamesAndValues(ProductTypeEnum_1.ProductTypeEnum);
+                    //Convert name-value pairs to ProductType[]
+                    prodTypeEnumList.forEach(function (pair) {
+                        var prodType = { 'id': pair.value.toString(), 'name': pair.name };
+                        prodTypes.push(prodType);
+                    });
+                    return prodTypes;
+                    //return PRODUCT_TYPES;
                 };
                 //Get books
                 ProductService.prototype.getBooks = function () {
@@ -98,15 +116,17 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility'], functi
                 return ProductService;
             }());
             exports_1("ProductService", ProductService);
-            PRODUCTS = [{ "Id": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
-                { "Id": "2", "Type": "Book", "Title": "Book 2", "Price": 250 },
-                { "Id": "3", "Type": "Book", "Title": "Book 3", "Price": 650 },
-                { "Id": "4", "Type": "Toy", "Title": "Doll", "Price": 1000 },
-                { "Id": "5", "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
-                { "Id": "6", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
-                { "Id": "7", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
-                { "Id": "8", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
+            PRODUCTS = [{ "Id": "1", "TypeId": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
+                { "Id": "2", "TypeId": "1", "Type": "Book", "Title": "Book 2", "Price": 250 },
+                { "Id": "3", "TypeId": "1", "Type": "Book", "Title": "Book 3", "Price": 650 },
+                { "Id": "4", "TypeId": "2", "Type": "Toy", "Title": "Doll", "Price": 1000 },
+                { "Id": "5", "TypeId": "2", "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
+                { "Id": "6", "TypeId": "2", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
+                { "Id": "7", "TypeId": "3", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
+                { "Id": "8", "TypeId": "3", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
         }
     }
 });
+//const PRODUCT_TYPES: ProductType[] =
+//    [{ "id": "1", "name": "Book" }, { "id": "2", "name": "Toy" }, { "id": "3", "name": "Music" }];
 //# sourceMappingURL=product.service.js.map

@@ -33,12 +33,20 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                     this.prodService = prodService;
                     this.title = "Products - Create";
                     this.prod = new Product_1.Product();
+                    this.prodTypes = this.prodService.getProductTypes();
                 }
                 ProductCreateComponent.prototype.ngOnInit = function () {
+                };
+                //Change Selected Product type callback
+                ProductCreateComponent.prototype.changeSelectedType = function (event) {
+                    console.log(event); //Show the selected option 
+                    console.log(this.selectedProdType);
                 };
                 //Save!
                 ProductCreateComponent.prototype.save = function () {
                     var _this = this;
+                    this.prod.TypeId = this.selectedProdType.id;
+                    this.prod.Type = this.selectedProdType.name;
                     this.prodService.create(this.prod).then(function () {
                         var rt = _this.router;
                         swal('Success!', 'The data has been saved.', 'success').then(function () {
