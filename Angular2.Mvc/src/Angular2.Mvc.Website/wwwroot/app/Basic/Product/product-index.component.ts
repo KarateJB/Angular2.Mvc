@@ -14,7 +14,8 @@ declare var swal: any; //SweetAlert2 typings definition
 export class ProductIndexComponent implements OnInit {
     title: string;
     constructor(
-        private router: Router) {
+        private router: Router
+    ) {
         this.title = "Products";
     }
 

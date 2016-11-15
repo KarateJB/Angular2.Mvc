@@ -51,6 +51,21 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     return prodTypes;
                     //return PRODUCT_TYPES;
                 };
+                ProductService.prototype.get = function (id) {
+                    var _this = this;
+                    return new Promise(function (resolve) {
+                        //From Firebase
+                        _this.queryProducts().subscribe(function (data) {
+                            if (data) {
+                                var prod = data.find(function (x) { return x.Id == id; });
+                                resolve(prod);
+                            }
+                            else {
+                                resolve(null);
+                            }
+                        });
+                    });
+                };
                 //Get books
                 ProductService.prototype.getBooks = function () {
                     var _this = this;
@@ -59,8 +74,13 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //let books = PRODUCTS.filter(x => x.Type == "Book");
                         //From Firebase
                         _this.queryProducts().subscribe(function (data) {
-                            var books = data.filter(function (x) { return x.Type == "Book"; });
-                            resolve(books);
+                            if (data) {
+                                var books = data.filter(function (x) { return x.Type == "Book"; });
+                                resolve(books);
+                            }
+                            else {
+                                resolve([]);
+                            }
                         });
                     });
                 };
@@ -72,8 +92,13 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //resolve(toys);
                         //From Firebase
                         _this.queryProducts().subscribe(function (data) {
-                            var toys = data.filter(function (x) { return x.Type == "Toy"; });
-                            resolve(toys);
+                            if (data) {
+                                var toys = data.filter(function (x) { return x.Type == "Toy"; });
+                                resolve(toys);
+                            }
+                            else {
+                                resolve([]);
+                            }
                         });
                     });
                 };
@@ -85,8 +110,13 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //resolve(musices);
                         //From Firebase
                         _this.queryProducts().subscribe(function (data) {
-                            var musices = data.filter(function (x) { return x.Type == "Music"; });
-                            resolve(musices);
+                            if (data) {
+                                var musices = data.filter(function (x) { return x.Type == "Music"; });
+                                resolve(musices);
+                            }
+                            else {
+                                resolve([]);
+                            }
                         });
                     });
                 };
@@ -108,6 +138,68 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         itemObservable.update(newValue);
                     });
                     return getPromise;
+                };
+                //Update a product
+                ProductService.prototype.update = function (prod) {
+                    var _this = this;
+                    var getPromise = new Promise(function (resolve) {
+                        var itemObservable = _this.queryProducts();
+                        var current = [];
+                        itemObservable.subscribe(function (value) {
+                            current = value;
+                            for (var i = 0; i < current.length; i++) {
+                                var item = current[i];
+                                if (item.Id == prod.Id) {
+                                    item.Price = prod.Price;
+                                    item.Title = prod.Title;
+                                    item.TypeId = prod.TypeId;
+                                    item.Type = prod.Type;
+                                }
+                            }
+                            resolve(current);
+                        });
+                    }).then(function (newValue) {
+                        var itemObservable = _this.queryProducts();
+                        itemObservable.update(newValue);
+                    });
+                    return getPromise;
+                };
+                //Remove all products
+                ProductService.prototype.removeAll = function () {
+                    var _this = this;
+                    var getPromise = new Promise(function (resolve) {
+                        var itemObservable = _this.queryProducts();
+                        itemObservable.remove();
+                    });
+                    return getPromise;
+                };
+                //Remove a product
+                ProductService.prototype.remove = function (prod) {
+                    var _this = this;
+                    var promise = new Promise(function (resolve) {
+                        var itemObservable = _this.queryProducts();
+                        var current = [];
+                        itemObservable.subscribe(function (value) {
+                            current = value;
+                            //Remove item
+                            for (var i = 0; i < current.length; i++) {
+                                var item = current[i];
+                                if (item.Id == prod.Id) {
+                                    var index = current.indexOf(item);
+                                    current.splice(index, 1);
+                                }
+                            }
+                            resolve(current);
+                        });
+                    }).then(function (newValue) {
+                        var itemObservable = _this.queryProducts();
+                        var prods = [];
+                        newValue.forEach(function (item) {
+                            prods.push(item);
+                        });
+                        itemObservable.set(prods); //PS. Cannot use update() here.
+                    });
+                    return promise;
                 };
                 ProductService = __decorate([
                     core_1.Injectable(), 

@@ -1,3 +1,4 @@
+/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
 System.register(['@angular/core', '@angular/router', './product.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -40,6 +41,30 @@ System.register(['@angular/core', '@angular/router', './product.service'], funct
                     var _this = this;
                     this.productService.getBooks().then(function (data) {
                         _this.books = data;
+                    });
+                };
+                //Go to edit page
+                ProductBooksComponent.prototype.edit = function (prod) {
+                    this.router.navigate(['Basic/Product/Edit', prod.Id]);
+                };
+                //Remove the product
+                ProductBooksComponent.prototype.remove = function (prod) {
+                    var service = this.productService;
+                    var books = this.books;
+                    swal({
+                        title: 'Are you sure?',
+                        text: "The product : " + prod.Title + ", will be deleted!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then(function () {
+                        service.remove(prod).then(function () {
+                            //Remove item in Front-end
+                            var index = books.indexOf(prod);
+                            books.splice(index, 1);
+                        });
                     });
                 };
                 ProductBooksComponent = __decorate([

@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
+
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Product} from '../../class/Product';
@@ -34,6 +35,39 @@ export class ProductBooksComponent implements OnInit {
         this.productService.getBooks().then(data => {
             this.books = data;
         })
+    }
+
+    //Go to edit page
+    private edit(prod: Product) {
+        this.router.navigate(['Basic/Product/Edit', prod.Id]);
+    }
+
+    //Remove the product
+    private remove(prod: Product) {
+
+        let service = this.productService;
+        let books = this.books;
+
+        swal({
+            title: 'Are you sure?',
+            text: "The product : " + prod.Title + ", will be deleted!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+
+            service.remove(prod).then(
+                () => {
+                    //Remove item in Front-end
+                    var index = books.indexOf(prod);
+                    books.splice(index, 1);
+                });
+
+            })
+
+        
     }
 
 }
