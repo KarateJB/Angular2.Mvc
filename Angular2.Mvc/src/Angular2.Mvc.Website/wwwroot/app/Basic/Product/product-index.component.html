@@ -1,24 +1,2 @@
-﻿<!--<product-index>
-    <div>
-        <p><img src="~/images/gif/ajax-loader.gif" /> Please wait ...</p>
-    </div>
-</product-index>-->
-
-<!--<div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>
-    <button type="button" class="btn btn-secondary">Toys</button>
-    <button type="button" class="btn btn-secondary">Music</button>
-</div>-->
-
-<table>
-    <tr>
-        <td>
-            <input type="button" value="Create" class="btn btn-info" (click)="goToCreate()" />
-        </td>
-    </tr>
-</table>
-
-<hr />
-
-
-<product-sub></product-sub>
+﻿<h2>{{title}}</h2>
+<a href="#" [routerLink]="['/Basic/Product/Create']" >Create</a>

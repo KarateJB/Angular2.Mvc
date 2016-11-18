@@ -29,11 +29,9 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                 ProductIndexComponent.prototype.ngOnInit = function () {
                 };
                 ProductIndexComponent.prototype.goToCreate = function () {
-                    //JL("Angular2").debug("Redirect to create page");
                     this.router.navigate(['Basic/Product/Create']);
                 };
                 ProductIndexComponent = __decorate([
-                    //SweetAlert2 typings definition
                     core_1.Component({
                         selector: 'product-index',
                         providers: [],
