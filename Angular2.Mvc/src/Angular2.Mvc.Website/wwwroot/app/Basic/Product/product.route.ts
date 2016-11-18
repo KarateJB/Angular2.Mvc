@@ -23,8 +23,6 @@ const appRoutes: Routes = [
             { path: 'Music', component: ProductMusicComponent }
         ]
     },
-    //{ path: 'Basic/Product/Toys', component: ProductIndexComponent },
-    //{ path: 'Basic/Product/Music', component: ProductIndexComponent },
     { path: '', redirectTo: '/Basic/Product/Index', pathMatch: 'full' }
 ];
 

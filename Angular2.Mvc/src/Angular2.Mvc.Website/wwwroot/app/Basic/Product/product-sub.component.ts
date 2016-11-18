@@ -13,6 +13,8 @@ import {Router} from '@angular/router';
               '<router-outlet></router-outlet>'
 })
 
+
+//...
 export class ProductSubComponent {
     constructor(private router: Router) {
     }
