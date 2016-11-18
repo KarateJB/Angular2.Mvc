@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './product.service', '../../class/Product'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './product.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, product_service_1, Product_1;
-    var ProductCreateComponent;
+    var core_1, router_1, product_service_1;
+    var ProductToysComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -22,41 +22,38 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
-            },
-            function (Product_1_1) {
-                Product_1 = Product_1_1;
             }],
         execute: function() {
-            ProductCreateComponent = (function () {
-                function ProductCreateComponent(router, prodService) {
+            ProductToysComponent = (function () {
+                function ProductToysComponent(router, productService) {
                     this.router = router;
-                    this.prodService = prodService;
-                    this.title = "Products - Create";
-                    this.prodHint = "";
-                    this.prod = new Product_1.Product();
+                    this.productService = productService;
+                    this.title = "Toys";
+                    this.productService = productService;
                 }
-                ProductCreateComponent.prototype.ngOnInit = function () {
+                ProductToysComponent.prototype.ngOnInit = function () {
+                    this.initToys();
                 };
-                //Save!
-                ProductCreateComponent.prototype.save = function () {
+                //Initialize books
+                ProductToysComponent.prototype.initToys = function () {
+                    var _this = this;
+                    this.productService.getToys().then(function (data) {
+                        _this.toys = data;
+                    });
                 };
-                //Back to list (Show list)
-                ProductCreateComponent.prototype.backToList = function () {
-                    this.router.navigate(['Basic/Product/Index']);
-                };
-                ProductCreateComponent = __decorate([
+                ProductToysComponent = __decorate([
                     //SweetAlert2 typings definition
                     core_1.Component({
-                        selector: 'product-create',
+                        selector: 'product-toys',
                         providers: [product_service_1.ProductService],
-                        templateUrl: '/app/Basic/Product/product-create.component.html'
+                        templateUrl: '/app/Basic/Product/product-toys.component.html'
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, product_service_1.ProductService])
-                ], ProductCreateComponent);
-                return ProductCreateComponent;
+                ], ProductToysComponent);
+                return ProductToysComponent;
             }());
-            exports_1("ProductCreateComponent", ProductCreateComponent);
+            exports_1("ProductToysComponent", ProductToysComponent);
         }
     }
 });
-//# sourceMappingURL=product-create.component.js.map
+//# sourceMappingURL=product-toys.component.js.map

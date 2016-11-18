@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './product.service', '../../class/Product'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
+    var core_1, router_1, product_service_1, Product_1;
     var ProductEditComponent;
     return {
         setters:[
@@ -19,13 +19,21 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (product_service_1_1) {
+                product_service_1 = product_service_1_1;
+            },
+            function (Product_1_1) {
+                Product_1 = Product_1_1;
             }],
         execute: function() {
             ProductEditComponent = (function () {
-                function ProductEditComponent(router, route) {
+                function ProductEditComponent(router, route, prodService) {
                     this.router = router;
                     this.route = route;
+                    this.prodService = prodService;
                     this.title = "Products - Edit";
+                    this.prod = new Product_1.Product();
                 }
                 ProductEditComponent.prototype.ngOnInit = function () {
                     this.route.params.subscribe(function (params) {
@@ -40,11 +48,13 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                     this.router.navigate(['Basic/Product/Index']);
                 };
                 ProductEditComponent = __decorate([
+                    //SweetAlert2 typings definition
                     core_1.Component({
                         selector: 'product-edit',
+                        providers: [product_service_1.ProductService],
                         templateUrl: '/app/Basic/Product/product-edit.component.html'
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, product_service_1.ProductService])
                 ], ProductEditComponent);
                 return ProductEditComponent;
             }());

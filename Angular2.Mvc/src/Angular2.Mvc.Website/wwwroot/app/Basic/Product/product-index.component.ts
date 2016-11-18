@@ -2,6 +2,7 @@
 import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
+declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'product-index',
@@ -15,7 +16,7 @@ export class ProductIndexComponent implements OnInit {
     constructor(
         private router: Router
     ) {
-        this.title = "Products - index";
+        this.title = "Products";
     }
 
     ngOnInit() {
@@ -23,6 +24,7 @@ export class ProductIndexComponent implements OnInit {
     }
 
     private goToCreate() {
+        //JL("Angular2").debug("Redirect to create page");
         this.router.navigate(['Basic/Product/Create']);
     }
 }
