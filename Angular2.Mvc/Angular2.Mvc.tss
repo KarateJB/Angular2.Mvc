@@ -2,27 +2,59 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\app.component.html</string>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\app.component.ts</string>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\app.module.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\app.component.html</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\app.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\app.module.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product.service.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product.app.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\product\product.service.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Properties\launchSettings.json</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\properties\launchsettings.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\main.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\main.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Views\Home\Index.cshtml</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\views\home\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\package.json</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\package.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\class\FirebaseConfig.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\class\firebaseconfig.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\product\product-create.component.html</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\product\product-create.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\enum\producttypeenum.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\class\enumex.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.webapi\startup.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\controllers\basecontroller.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Webapi\Utility\CustomExceptionFilterAttribute.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.webapi\areas\basic\controllers\customercontroller.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product-sub.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product-books.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Customer\customer.pipe.ts</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

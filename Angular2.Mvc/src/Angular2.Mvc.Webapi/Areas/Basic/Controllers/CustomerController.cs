@@ -48,8 +48,11 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         // GET: api/values
         [HttpGet("GetAll")]
         [CustomExceptionFilter]
-        public IQueryable<Customer> GetAll()
+        public IQueryable<Customer> GetAll(string desc)
         {
+            if (string.IsNullOrEmpty(desc))
+                throw new ArgumentNullException("Desc");
+
             var rtn = new List<Customer>();
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
@@ -78,7 +81,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
                 }
                 else
                 {
-                    throw new HttpRequestException($"The customer with Id:{id.ToString()} is not exist!");
+                    throw new Exception($"The customers with Id:{id.ToString()} is not exist!");
                 }
 
             }

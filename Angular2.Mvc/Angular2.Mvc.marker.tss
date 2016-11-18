@@ -3,7 +3,7 @@
   <TabHighlightState>
     <extensions>
       <string>src\angular2.mvc.website\wwwroot\app\app.component.ts</string>
-      <string>src\Angular2.Mvc.Website\wwwroot\app\app.component.html</string>
+      <string>src\angular2.mvc.website\wwwroot\app\app.component.html</string>
       <string>src\angular2.mvc.website\wwwroot\app\app.module.ts</string>
     </extensions>
     <highlightIndex>1</highlightIndex>

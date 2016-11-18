@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
-import {Injectable} from '@angular/core';
+import {Injectable,Inject} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseApp  } from 'angularfire2';
 import {Product} from '../../class/Product';
 import {ProductType} from '../../class/ProductType';
 import { Utility} from '../../class/Utility';
@@ -13,9 +13,9 @@ import { ProductTypeEnum } from '../../enum/ProductTypeEnum';
 export class ProductService {
 
     private httpOptions: RequestOptions;
-
-
-    constructor(private af: AngularFire) {
+    constructor(
+        //@Inject(FirebaseApp) private firebaseApp: any,
+        private af: AngularFire) {
 
     }
 

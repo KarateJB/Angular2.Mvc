@@ -10,6 +10,9 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, angularfire2_1, Utility_1, EnumEx_1, ProductTypeEnum_1;
     var ProductService, PRODUCTS;
     return {
@@ -31,7 +34,8 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
             }],
         execute: function() {
             ProductService = (function () {
-                function ProductService(af) {
+                function ProductService(firebaseApp, af) {
+                    this.firebaseApp = firebaseApp;
                     this.af = af;
                 }
                 //Query data from firebase
@@ -202,8 +206,9 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     return promise;
                 };
                 ProductService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [angularfire2_1.AngularFire])
+                    core_1.Injectable(),
+                    __param(0, core_1.Inject(angularfire2_1.FirebaseApp)), 
+                    __metadata('design:paramtypes', [Object, angularfire2_1.AngularFire])
                 ], ProductService);
                 return ProductService;
             }());
