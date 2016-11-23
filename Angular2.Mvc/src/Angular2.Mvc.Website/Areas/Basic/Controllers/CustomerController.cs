@@ -45,6 +45,11 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
         [HttpPost]
         public IActionResult Create([FromForm]VmCustomer viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var entity = DaoFactory.Create<VmCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>(viewModel);
