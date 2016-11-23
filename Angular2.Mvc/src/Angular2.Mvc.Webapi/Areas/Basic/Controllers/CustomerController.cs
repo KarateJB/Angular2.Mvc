@@ -48,11 +48,9 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         // GET: api/values
         [HttpGet("GetAll")]
         [CustomExceptionFilter]
-        public IQueryable<Customer> GetAll(string desc)
+        public IQueryable<Customer> GetAll()
         {
-            if (string.IsNullOrEmpty(desc))
-                throw new ArgumentNullException("Desc");
-
+            
             var rtn = new List<Customer>();
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {

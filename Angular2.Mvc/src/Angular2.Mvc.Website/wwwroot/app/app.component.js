@@ -27,7 +27,7 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
                     this.af = af;
                     this.isAuth = false;
                     this.user = {};
-                    this.af.auth.subscribe(function (user) { return _this._changeState(user); }, function (error) { return console.trace(error); });
+                    this.af.auth.subscribe(function (user) { return _this.changeState(user); }, function (error) { return console.trace(error); });
                 }
                 AppComponent.prototype.ngOnInit = function () {
                 };
@@ -42,7 +42,7 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
                 AppComponent.prototype.logout = function () {
                     this.af.auth.logout();
                 };
-                AppComponent.prototype._changeState = function (user) {
+                AppComponent.prototype.changeState = function (user) {
                     if (user === void 0) { user = null; }
                     if (user) {
                         this.isAuth = true;
@@ -58,6 +58,7 @@ System.register(['@angular/core', 'angularfire2'], function(exports_1, context_1
                         return {};
                     }
                     var data = user.auth.providerData[0];
+                    console.log(data);
                     return {
                         name: data.displayName,
                         avatar: data.photoURL,

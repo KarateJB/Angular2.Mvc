@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
     constructor(private af: AngularFire) {
         this.af.auth.subscribe(
-            user => this._changeState(user),
+            user => this.changeState(user),
             error => console.trace(error)
         );
     }
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         this.af.auth.logout();
     }
 
-    private _changeState(user: any = null) {
+    private changeState(user: any = null) {
         if (user) {
             this.isAuth = true;
             this.user = this.getUserInfo(user)
@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
             return {};
         }
         let data = user.auth.providerData[0];
+        console.log(data);
         return {
             name: data.displayName,
             avatar: data.photoURL,
