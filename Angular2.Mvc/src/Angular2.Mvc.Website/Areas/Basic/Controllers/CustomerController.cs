@@ -34,31 +34,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
             return View();
         }
 
-        [Route("[action]")]
-        public IActionResult Create()
-        {
-            var viewModel = new VmCustomer();
-            return View(viewModel);
-        }
-
-        [Route("[action]")]
-        [HttpPost]
-        public IActionResult Create([FromForm]VmCustomer viewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(viewModel);
-            }
-
-            using (var custService = new CustomerService(DbContextFactory.Create()))
-            {
-                var entity = DaoFactory.Create<VmCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>(viewModel);
-                custService.Add(entity);
-            }
-            return RedirectToAction("Index");
-            
-        }
-
 
         [Route("[action]")]
         public IActionResult Edit()

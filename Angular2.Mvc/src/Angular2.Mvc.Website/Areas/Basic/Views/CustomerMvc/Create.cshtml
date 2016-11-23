@@ -1,0 +1,29 @@
+﻿@model Angular2.Mvc.Core.Models.ViewModel.VmCustomer
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<customer-createmvc>
+    <div>
+        <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    </div>
+</customer-createmvc>
+
+@section Scripts {
+    <script>
+        System.config({
+            map: {
+                app: 'app/Basic/CustomerMvc/create'
+            },
+            packages: {
+                app: { main: 'customermvc-create.main.js', defaultExtension: 'js' }
+            }
+        });
+        System.import('app/customermvc-create.main').then(null, console.error.bind(console));
+    </script>
+}
+
+
