@@ -9,17 +9,14 @@ namespace Angular2.Mvc.Service.Factory
     /// <summary>
     /// Automapping to DTO factory
     /// </summary>
-    public static class DaoFactory
+    public static class ViewModelFactory
     {
         private  static MapperConfiguration _mapCfg = null;
         private static IMapper _mapper = null;
-        static DaoFactory()
+        static ViewModelFactory()
         {
              _mapCfg = new MapperConfiguration(cfg => {
-                 cfg.CreateMap<Angular2.Mvc.Core.Models.DTO.Customer,Angular2.Mvc.DAL.Models.DAO.Customer>();
-                 //.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
-
-                 cfg.CreateMap<Angular2.Mvc.Core.Models.ViewModel.VmCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>();
+                 cfg.CreateMap<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.ViewModel.VmCustomer>();
 
              });
 
