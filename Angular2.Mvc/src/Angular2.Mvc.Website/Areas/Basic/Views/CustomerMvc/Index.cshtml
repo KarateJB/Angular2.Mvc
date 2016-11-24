@@ -6,23 +6,23 @@
 
 
 
-<customermvc-create>
+<customermvc-index>
     <div>
         <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
     </div>
-</customermvc-create>
+</customermvc-index>
 
 @section Scripts {
     <script>
         System.config({
             map: {
-                app: 'app/Basic/CustomerMvc/create'
+                app: 'app/Basic/CustomerMvc/index'
             },
             packages: {
-                app: { main: 'customermvc-create.main.js', defaultExtension: 'js' }
+                app: { main: 'customermvc-index.main.js', defaultExtension: 'js' }
             }
         });
-        System.import('app/customermvc-create.main').then(null, console.error.bind(console));
+        System.import('app/customermvc-index.main').then(null, console.error.bind(console));
     </script>
 }
 

@@ -9,13 +9,15 @@
         'service': 'app/service',
         'class': 'app/class',
         'enum': 'app/enum',
-        'pipe': 'app/pipe'
+        'pipe': 'app/pipe',
+        'directive': 'app/directive'
     },
     paths: {
         "service:*": "app/service/*.js",
         "class:*": "app/class/*.js",
         "enum:*": "app/enum/*.js",
-        "pipe:*": "app/pipe/*.js"
+        "pipe:*": "app/pipe/*.js",
+        "directive:*": "app/directive/*.js"
     },
     //meta: {
     //    '@angular/*': { 'format': 'cjs' }
@@ -35,6 +37,8 @@
         'service': { main: '*.js', defaultExtension: 'js' },
         'class': { main: '*.js', defaultExtension: 'js' },
         'enum': { main: '*.js', defaultExtension: 'js' },
-        'pipe': { main: '*.js', defaultExtension: 'js' }
+        'pipe': { main: '*.js', defaultExtension: 'js' },
+        'directive': { main: '*.js', defaultExtension: 'js' }
+
     }
 });

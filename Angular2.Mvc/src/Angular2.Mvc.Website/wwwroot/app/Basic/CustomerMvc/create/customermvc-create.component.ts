@@ -6,7 +6,7 @@ import {RestUriService} from '../../../service/resturi.service';
 declare var swal: any;
 
 @Component({
-    selector: 'customer-createmvc',
+    selector: 'customermvc-create',
     providers: [CustomerMvcService, RestUriService],
     templateUrl: '/app/Basic/CustomerMvc/create/customermvc-create.component.html'
 })

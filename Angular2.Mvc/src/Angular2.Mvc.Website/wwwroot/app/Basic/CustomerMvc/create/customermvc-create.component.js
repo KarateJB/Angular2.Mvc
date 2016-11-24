@@ -58,7 +58,7 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
                 };
                 CustomerMvcCreateComponent = __decorate([
                     core_1.Component({
-                        selector: 'customer-createmvc',
+                        selector: 'customermvc-create',
                         providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
                         templateUrl: '/app/Basic/CustomerMvc/create/customermvc-create.component.html'
                     }), 

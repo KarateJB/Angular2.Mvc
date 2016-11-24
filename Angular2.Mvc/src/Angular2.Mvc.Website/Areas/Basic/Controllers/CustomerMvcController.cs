@@ -24,6 +24,14 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
 
         }
 
+
+        [Route("[action]")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+
         [Route("[action]")]
         public IActionResult Create()
         {
