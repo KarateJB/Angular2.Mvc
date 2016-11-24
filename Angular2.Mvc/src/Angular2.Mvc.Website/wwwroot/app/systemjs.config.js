@@ -8,12 +8,14 @@
         'firebase': 'lib-npm/firebase',
         'service': 'app/service',
         'class': 'app/class',
-        'enum': 'app/enum'
+        'enum': 'app/enum',
+        'pipe': 'app/pipe'
     },
     paths: {
         "service:*": "app/service/*.js",
         "class:*": "app/class/*.js",
-        "enum:*": "app/enum/*.js"
+        "enum:*": "app/enum/*.js",
+        "pipe:*": "app/pipe/*.js"
     },
     //meta: {
     //    '@angular/*': { 'format': 'cjs' }
@@ -32,6 +34,7 @@
         'firebase': { main: 'firebase.js' },
         'service': { main: '*.js', defaultExtension: 'js' },
         'class': { main: '*.js', defaultExtension: 'js' },
-        'enum': { main: '*.js', defaultExtension: 'js' }
+        'enum': { main: '*.js', defaultExtension: 'js' },
+        'pipe': { main: '*.js', defaultExtension: 'js' }
     }
 });

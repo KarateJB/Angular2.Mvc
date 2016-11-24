@@ -48,5 +48,13 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
             return RedirectToAction("Index", controllerName: "Customer");
 
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        public ActionResult QueryCreateView()
+        {
+            var viewModel = new VmCustomer();
+            return PartialView("~/Areas/Basic/Views/CustomerMvc/_CreateView.cshtml", viewModel);
+        }
     }
 }

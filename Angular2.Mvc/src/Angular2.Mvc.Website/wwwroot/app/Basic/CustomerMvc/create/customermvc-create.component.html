@@ -1,45 +1,10 @@
-﻿<form action="/Basic/CustomerMvc/Create" id="createForm" method="post">
-    <div class="form-horizontal">
-        <hr />
-        <div class="validation-summary-errors text-danger">
-            <ul>
-                <li style="display:none"></li>
-            </ul>
-        </div>
-
-        <div class="form-group required">
-            <label class="control-label col-md-2" for="Name">Name</label>
-            <div class="col-md-10">
-                <input class="input-validation-error form-control text-box single-line" data-val="true" data-val-length="&#x6B04;&#x4F4D; Name &#x5FC5;&#x9808;&#x662F;&#x6700;&#x5927;&#x9577;&#x5EA6;&#x70BA; 100 &#x7684;&#x5B57;&#x4E32;&#x3002;" data-val-length-max="100" data-val-required="Name &#x6B04;&#x4F4D;&#x662F;&#x5FC5;&#x8981;&#x9805;&#x3002;" id="Name" name="Name" type="text" value="" />
-            </div>
-        </div>
-
-        <div class="form-group required">
-            <label class="control-label col-md-2" for="Phone">Phone</label>
-            <div class="col-md-10">
-                <input class="input-validation-error form-control text-box single-line" data-val="true" data-val-required="Phone &#x6B04;&#x4F4D;&#x662F;&#x5FC5;&#x8981;&#x9805;&#x3002;" id="Phone" name="Phone" type="text" value="" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Age">Age</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" data-val="true" data-val-required="Age &#x6B04;&#x4F4D;&#x662F;&#x5FC5;&#x8981;&#x9805;&#x3002;" id="Age" name="Age" type="number" value="0" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Description">Description</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" id="Description" name="Description" type="text" value="" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" (click)="save()"/> &nbsp;
-                <input type="button" value="Back" onclick="location.href='/Basic/Customer/Index'" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-</form>
+﻿<table>
+    <tr>
+        <td>
+            <h3>{{title}}</h3>
+        </td>
+        <img id='tipImg' style='width: 30px; height: 30px;' src='https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />
+        <td></td>
+    </tr>
+</table>
+<div id="masterDiv" [innerHtml]="viewHtml | sanitizeHtml"></div>

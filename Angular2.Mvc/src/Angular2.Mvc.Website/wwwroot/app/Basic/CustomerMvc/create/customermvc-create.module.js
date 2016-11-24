@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './customermvc-create.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './customermvc-create.component', '../../../pipe/sanitizeHtml.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, http_1, customermvc_create_component_1;
+    var core_1, forms_1, platform_browser_1, http_1, customermvc_create_component_1, sanitizeHtml_pipe_1;
     var CustomerMvcCreateModule;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             },
             function (customermvc_create_component_1_1) {
                 customermvc_create_component_1 = customermvc_create_component_1_1;
+            },
+            function (sanitizeHtml_pipe_1_1) {
+                sanitizeHtml_pipe_1 = sanitizeHtml_pipe_1_1;
             }],
         execute: function() {
             CustomerMvcCreateModule = (function () {
@@ -40,7 +43,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
                             forms_1.FormsModule,
                             http_1.HttpModule,
                         ],
-                        declarations: [customermvc_create_component_1.CustomerMvcCreateComponent],
+                        declarations: [customermvc_create_component_1.CustomerMvcCreateComponent, sanitizeHtml_pipe_1.SanitizeHtml],
                         providers: [],
                         bootstrap: [customermvc_create_component_1.CustomerMvcCreateComponent]
                     }), 

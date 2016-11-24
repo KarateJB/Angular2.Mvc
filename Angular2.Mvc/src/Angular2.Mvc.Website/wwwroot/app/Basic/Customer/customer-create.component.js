@@ -56,6 +56,10 @@ System.register(['@angular/core', '@angular/router', '../../class/Customer', './
                     this.router.navigate(['Basic/Customer/Index']);
                 };
                 CustomerCreateComponent = __decorate([
+                    core_1.Pipe({
+                        name: 'sanitizeHtml',
+                        pure: true //Default is true
+                    }),
                     core_1.Component({
                         selector: 'customer-create',
                         providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],

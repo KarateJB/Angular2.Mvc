@@ -1,11 +1,17 @@
 ﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer} from '../../class/Customer';
 import {CustomerService} from './customer.service';
 import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any;
+
+@Pipe({
+    name: 'sanitizeHtml',
+    pure: true //Default is true
+})
+
 
 @Component({
     selector: 'customer-create',

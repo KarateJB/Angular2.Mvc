@@ -3,6 +3,8 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CustomerMvcCreateComponent } from './customermvc-create.component';
+import { SanitizeHtml } from '../../../pipe/sanitizeHtml.pipe';
+
 
 
 @NgModule({
@@ -11,8 +13,9 @@ import { CustomerMvcCreateComponent } from './customermvc-create.component';
         FormsModule, 
         HttpModule,
     ],
-    declarations: [CustomerMvcCreateComponent],
+    declarations: [CustomerMvcCreateComponent, SanitizeHtml],
     providers: [
+        
     ],
     bootstrap: [CustomerMvcCreateComponent]
 })
