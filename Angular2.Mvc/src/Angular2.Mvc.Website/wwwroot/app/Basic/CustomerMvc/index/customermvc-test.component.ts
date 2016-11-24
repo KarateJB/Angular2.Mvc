@@ -1,7 +1,6 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit} from '@angular/core';
 
-declare var swal: any;
 
 @Component({
     selector: 'customermvc-test',
@@ -11,7 +10,6 @@ declare var swal: any;
 export class CustomerMvcTestComponent implements OnInit {
 
     constructor() {
-
     }
 
 
@@ -19,4 +17,7 @@ export class CustomerMvcTestComponent implements OnInit {
 
     }
 
+    private showMsg() {
+        alert("Test!");
+    }
 }

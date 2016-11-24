@@ -11,7 +11,7 @@ System.register(['@angular/core', '../../../service/resturi.service'], function(
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, resturi_service_1;
-    var CustomerMvcIndexComponent;
+    var MyTestComponent, CustomerMvcIndexComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,6 +21,19 @@ System.register(['@angular/core', '../../../service/resturi.service'], function(
                 resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
+            MyTestComponent = (function () {
+                function MyTestComponent() {
+                }
+                MyTestComponent = __decorate([
+                    core_1.Component({
+                        selector: 'my-test',
+                        template: '<div>Test page</div>'
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], MyTestComponent);
+                return MyTestComponent;
+            }());
+            exports_1("MyTestComponent", MyTestComponent);
             CustomerMvcIndexComponent = (function () {
                 function CustomerMvcIndexComponent(
                     //@Inject(ElementRef) _elementRef: ElementRef,
@@ -28,7 +41,9 @@ System.register(['@angular/core', '../../../service/resturi.service'], function(
                     this.elementRef = elementRef;
                     this.self = this;
                     this.title = "Customer - Index";
-                    this.template = "<div><p>Dynamic Component</p></div>\n                         <div><input type=\"button\" value=\"Click\" class=\"btn btn-default\" (click)=\"showMsg()\"/></div>\n\n       ";
+                    // this.template = `<div><p>Dynamic Component</p></div>
+                    //                  <div><input type="button" value="Click" class="btn btn-default" (click)="showMsg()"/></div>
+                    //`;
                 }
                 CustomerMvcIndexComponent.prototype.ngOnInit = function () {
                 };
@@ -40,7 +55,8 @@ System.register(['@angular/core', '../../../service/resturi.service'], function(
                         selector: 'customermvc-index',
                         providers: [resturi_service_1.RestUriService],
                         //templateUrl: '/app/Basic/CustomerMvc/index/customermvc-index.component.html'
-                        template: "<div *componentOutlet=\"template; context: self; selector:'dynamicOutlet'\"></div>",
+                        //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
+                        template: "\n    <div>\n      <div component-load-factory selector=\"customermvc-test\"></div>\n    </div>\n  ",
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef])
                 ], CustomerMvcIndexComponent);

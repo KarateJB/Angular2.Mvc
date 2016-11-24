@@ -23,6 +23,9 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 }
                 CustomerMvcTestComponent.prototype.ngOnInit = function () {
                 };
+                CustomerMvcTestComponent.prototype.showMsg = function () {
+                    alert("Test!");
+                };
                 CustomerMvcTestComponent = __decorate([
                     core_1.Component({
                         selector: 'customermvc-test',

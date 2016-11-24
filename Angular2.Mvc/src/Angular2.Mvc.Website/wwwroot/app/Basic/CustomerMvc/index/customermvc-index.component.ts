@@ -1,16 +1,34 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit, Inject, ElementRef} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser'
 import {CustomerMvcCreateComponent} from '../create/customermvc-create.component';
+import { CustomerMvcTestComponent } from './customermvc-test.component';
 import { ComponentOutlet } from '../../../directive/component-oulet.directive';
+import { ComponentLoadFactory } from '../../../directive/component-load-factory.directive';
 import {RestUriService} from '../../../service/resturi.service';
 
 declare var swal: any;
 
 @Component({
+    selector: 'my-test',
+    template: '<div>Test page</div>'
+})
+
+export class MyTestComponent {
+}
+
+
+
+@Component({
     selector: 'customermvc-index',
     providers: [ RestUriService],
     //templateUrl: '/app/Basic/CustomerMvc/index/customermvc-index.component.html'
-    template: `<div *componentOutlet="template; context: self; selector:'dynamicOutlet'"></div>`,
+    //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
+    template: `
+    <div>
+      <div component-load-factory selector="customermvc-test"></div>
+    </div>
+  `,
 })
 
 export class CustomerMvcIndexComponent implements OnInit {
@@ -23,10 +41,10 @@ export class CustomerMvcIndexComponent implements OnInit {
         private elementRef: ElementRef) {
 
         this.title = "Customer - Index";
-        this.template = `<div><p>Dynamic Component</p></div>
-                         <div><input type="button" value="Click" class="btn btn-default" (click)="showMsg()"/></div>
+       // this.template = `<div><p>Dynamic Component</p></div>
+       //                  <div><input type="button" value="Click" class="btn btn-default" (click)="showMsg()"/></div>
 
-       `;
+       //`;
     }
 
 
