@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', '../../service/resturi.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', './resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -28,7 +28,6 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                 function CustomerService(http, resturiService) {
                     this.http = http;
                     this.resturiService = resturiService;
-                    console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
                     this.customers = [];
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     this.httpOptions = new http_1.RequestOptions({ headers: headers });

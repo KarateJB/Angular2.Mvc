@@ -1,8 +1,8 @@
 ﻿import {Injectable} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
-import {Customer} from '../../class/Customer';
-import {ICrudService} from '../../interface/ICrudService';
-import {RestUriService} from '../../service/resturi.service';
+import {Customer} from '../class/Customer';
+import {ICrudService} from '../interface/ICrudService';
+import {RestUriService} from './resturi.service';
 
 @Injectable()
 export class CustomerService implements ICrudService {
@@ -14,7 +14,6 @@ export class CustomerService implements ICrudService {
         private http: Http,
         private resturiService: RestUriService
     ) {
-        console.log("Get customer uri = " + this.resturiService.customerGetAllUri);
         this.customers = [];
 
         let headers = new Headers({ 'Content-Type': 'application/json' });

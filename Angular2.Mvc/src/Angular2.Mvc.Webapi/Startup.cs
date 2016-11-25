@@ -46,7 +46,7 @@ namespace Angular2.Mvc.Webapi
             {
                 options.AddPolicy("AllowSpecificOrigin",
                     builder => 
-                    builder.WithOrigins("http://localhost:4240") //Or AllowAnyOrigin()
+                     builder.WithOrigins("http://localhost:4240") //or builder.AllowAnyOrigin()
                     .WithMethods("HEAD", "GET", "POST", "PUT", "DELETE") //Or AllowAnyMethod()
                     );
             });

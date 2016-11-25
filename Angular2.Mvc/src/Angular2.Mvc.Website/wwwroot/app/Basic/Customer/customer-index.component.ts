@@ -2,7 +2,7 @@
 import {Router} from '@angular/router';
 import {Customer} from '../../class/Customer';
 import {SysEvent} from '../../class/SysEvent';
-import {CustomerService} from './customer.service';
+import {CustomerService} from '../../service/customer.service';
 import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any; //SweetAlert2 typings definition
