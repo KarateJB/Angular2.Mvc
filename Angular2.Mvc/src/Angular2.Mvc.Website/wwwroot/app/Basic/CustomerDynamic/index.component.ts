@@ -15,25 +15,20 @@ declare var swal: any;
     //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
     template: `
     <div>
-      <div component-outlet selector="customerdynamic-list"></div>
+      <div component-outlet selector="{{component}}"></div>
     </div>
   `,
 })
 
 export class CustomerDynamicIndexComponent implements OnInit {
     private title: string;
-    private template: string;
+    private component: string;
     private self = this;
 
-    constructor(
-        //@Inject(ElementRef) _elementRef: ElementRef,
-        private elementRef: ElementRef) {
+    constructor() {
 
         this.title = "Customer - Index";
-       // this.template = `<div><p>Dynamic Component</p></div>
-       //                  <div><input type="button" value="Click" class="btn btn-default" (click)="showMsg()"/></div>
-
-       //`;
+        this.component = "customerdynamic-card"; //or "customerdynamic-list"
     }
 
 

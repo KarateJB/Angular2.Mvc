@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './index.component', './list.component', '../../pipe/sanitizeHtml.pipe', '../../directive/component-outlet.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './index.component', './list.component', './card.component', '../../directive/component-outlet.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, http_1, index_component_1, list_component_1, sanitizeHtml_pipe_1, component_outlet_directive_1;
+    var core_1, forms_1, platform_browser_1, http_1, index_component_1, list_component_1, card_component_1, component_outlet_directive_1;
     var CustomerDynamicIndexModule;
     return {
         setters:[
@@ -32,8 +32,8 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             function (list_component_1_1) {
                 list_component_1 = list_component_1_1;
             },
-            function (sanitizeHtml_pipe_1_1) {
-                sanitizeHtml_pipe_1 = sanitizeHtml_pipe_1_1;
+            function (card_component_1_1) {
+                card_component_1 = card_component_1_1;
             },
             function (component_outlet_directive_1_1) {
                 component_outlet_directive_1 = component_outlet_directive_1_1;
@@ -49,9 +49,9 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
                             forms_1.FormsModule,
                             http_1.HttpModule,
                         ],
-                        declarations: [index_component_1.CustomerDynamicIndexComponent, list_component_1.CustomerDynamicListComponent, sanitizeHtml_pipe_1.SanitizeHtml, component_outlet_directive_1.ComponentOutlet],
+                        declarations: [index_component_1.CustomerDynamicIndexComponent, list_component_1.CustomerDynamicListComponent, card_component_1.CustomerDynamicCardComponent, component_outlet_directive_1.ComponentOutlet],
                         providers: [],
-                        entryComponents: [list_component_1.CustomerDynamicListComponent],
+                        entryComponents: [list_component_1.CustomerDynamicListComponent, card_component_1.CustomerDynamicCardComponent],
                         bootstrap: [index_component_1.CustomerDynamicIndexComponent]
                     }), 
                     __metadata('design:paramtypes', [])

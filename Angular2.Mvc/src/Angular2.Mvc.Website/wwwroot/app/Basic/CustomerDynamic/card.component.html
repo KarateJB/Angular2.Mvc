@@ -1,0 +1,8 @@
+﻿<div class="text-center">
+    <div style="border:dashed 1px;" class="card card-block" *ngFor="let item of customers; let sn=index">
+        <h4 class="card-title" [innerHtml]="item.Name"></h4>
+        <p class="card-text">{{item.Description}}</p>
+        <a href="#" class="card-link">Phone/{{item.Phone}}</a>
+        <a href="#" class="card-link">Age/{{item.Age}}</a>
+    </div>
+</div>

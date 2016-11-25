@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CustomerDynamicIndexComponent } from './index.component';
 import { CustomerDynamicListComponent } from './list.component';
-import { SanitizeHtml } from '../../pipe/sanitizeHtml.pipe';
+import { CustomerDynamicCardComponent } from './card.component';
 import { ComponentOutlet } from '../../directive/component-outlet.directive';
 
 
@@ -15,11 +15,11 @@ import { ComponentOutlet } from '../../directive/component-outlet.directive';
         FormsModule, 
         HttpModule,
     ],
-    declarations: [CustomerDynamicIndexComponent, CustomerDynamicListComponent, SanitizeHtml, ComponentOutlet],
+    declarations: [CustomerDynamicIndexComponent, CustomerDynamicListComponent, CustomerDynamicCardComponent, ComponentOutlet],
     providers: [
         
     ],
-    entryComponents: [CustomerDynamicListComponent],
+    entryComponents: [CustomerDynamicListComponent, CustomerDynamicCardComponent],
     bootstrap: [CustomerDynamicIndexComponent]
 })
 export class CustomerDynamicIndexModule { }

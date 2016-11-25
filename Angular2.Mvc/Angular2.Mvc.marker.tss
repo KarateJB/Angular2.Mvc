@@ -2,17 +2,9 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
-      <string>src\angular2.mvc.website\wwwroot\app\basic\customerdynamic\list.component.ts</string>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\Basic\CustomerDynamic\list.component.ts</string>
       <string>src\angular2.mvc.website\wwwroot\app\basic\customerdynamic\list.component.html</string>
     </extensions>
     <highlightIndex>1</highlightIndex>
-  </TabHighlightState>
-  <TabHighlightState>
-    <extensions>
-      <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer-index.component.ts</string>
-      <string>src\Angular2.Mvc.Website\wwwroot\app\Basic\Customer\customer-index.component.html</string>
-      <string>src\angular2.mvc.website\wwwroot\app\basic\customer\customer-index.component.ts</string>
-    </extensions>
-    <highlightIndex>3</highlightIndex>
   </TabHighlightState>
 </ArrayOfTabHighlightState>

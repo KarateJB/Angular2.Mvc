@@ -22,15 +22,10 @@ System.register(['@angular/core', '../../service/resturi.service'], function(exp
             }],
         execute: function() {
             CustomerDynamicIndexComponent = (function () {
-                function CustomerDynamicIndexComponent(
-                    //@Inject(ElementRef) _elementRef: ElementRef,
-                    elementRef) {
-                    this.elementRef = elementRef;
+                function CustomerDynamicIndexComponent() {
                     this.self = this;
                     this.title = "Customer - Index";
-                    // this.template = `<div><p>Dynamic Component</p></div>
-                    //                  <div><input type="button" value="Click" class="btn btn-default" (click)="showMsg()"/></div>
-                    //`;
+                    this.component = "customerdynamic-card";
                 }
                 CustomerDynamicIndexComponent.prototype.ngOnInit = function () {
                 };
@@ -43,9 +38,9 @@ System.register(['@angular/core', '../../service/resturi.service'], function(exp
                         providers: [resturi_service_1.RestUriService],
                         //templateUrl: '/app/Basic/CustomerMvc/index/customermvc-index.component.html'
                         //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
-                        template: "\n    <div>\n      <div component-outlet selector=\"customerdynamic-list\"></div>\n    </div>\n  ",
+                        template: "\n    <div>\n      <div component-outlet selector=\"{{component}}\"></div>\n    </div>\n  ",
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [])
                 ], CustomerDynamicIndexComponent);
                 return CustomerDynamicIndexComponent;
             }());
