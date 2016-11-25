@@ -3,20 +3,10 @@ import {Component, OnInit, Inject, ElementRef} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser'
 import {CustomerMvcCreateComponent} from '../create/customermvc-create.component';
 import { CustomerMvcTestComponent } from './customermvc-test.component';
-import { ComponentOutlet } from '../../../directive/component-oulet.directive';
-import { ComponentLoadFactory } from '../../../directive/component-load-factory.directive';
+import { ComponentOutlet } from '../../../directive/component-outlet.directive';
 import {RestUriService} from '../../../service/resturi.service';
 
 declare var swal: any;
-
-@Component({
-    selector: 'my-test',
-    template: '<div>Test page</div>'
-})
-
-export class MyTestComponent {
-}
-
 
 
 @Component({
@@ -26,7 +16,7 @@ export class MyTestComponent {
     //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
     template: `
     <div>
-      <div component-load-factory selector="customermvc-test"></div>
+      <div component-outlet selector="customermvc-test"></div>
     </div>
   `,
 })

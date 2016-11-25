@@ -1,13 +1,12 @@
 ﻿import {  Directive, Component, ComponentFactory, OnChanges, Input, ViewContainerRef, Compiler, ComponentFactoryResolver } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomerMvcTestComponent } from '../Basic/CustomerMvc/index/customermvc-test.component';
 
 
 
 @Directive({
-    selector: '[component-load-factory]'
+    selector: '[component-outlet]'
 })
-export class ComponentLoadFactory implements OnChanges {
+export class ComponentOutlet implements OnChanges {
     @Input() selector: string;
     componentRef;
     init = false;

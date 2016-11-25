@@ -4,11 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CustomerMvcIndexComponent } from './customermvc-index.component';
 import { CustomerMvcTestComponent } from './customermvc-test.component';
-import { MyTestComponent } from './customermvc-index.component';
-
 import { SanitizeHtml } from '../../../pipe/sanitizeHtml.pipe';
-import { ComponentOutlet } from '../../../directive/component-oulet.directive';
-import { ComponentLoadFactory } from '../../../directive/component-load-factory.directive';
+import { ComponentOutlet } from '../../../directive/component-outlet.directive';
 
 
 
@@ -18,7 +15,7 @@ import { ComponentLoadFactory } from '../../../directive/component-load-factory.
         FormsModule, 
         HttpModule,
     ],
-    declarations: [CustomerMvcIndexComponent, CustomerMvcTestComponent, MyTestComponent, SanitizeHtml, ComponentOutlet, ComponentLoadFactory],
+    declarations: [CustomerMvcIndexComponent, CustomerMvcTestComponent, SanitizeHtml, ComponentOutlet],
     providers: [
         
     ],

@@ -11,20 +11,20 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var ComponentLoadFactory;
+    var ComponentOutlet;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ComponentLoadFactory = (function () {
-                function ComponentLoadFactory(vcRef, resolver) {
+            ComponentOutlet = (function () {
+                function ComponentOutlet(vcRef, resolver) {
                     this.vcRef = vcRef;
                     this.resolver = resolver;
                     this.init = false;
                 }
-                ComponentLoadFactory.prototype.ngOnChanges = function () {
+                ComponentOutlet.prototype.ngOnChanges = function () {
                     var _this = this;
                     console.log("this.selector=" + this.selector);
                     if (!this.selector || this.init)
@@ -43,7 +43,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     this.componentRef = compRef;
                     this.init = true;
                 };
-                ComponentLoadFactory.prototype.ngOnDestroy = function () {
+                ComponentOutlet.prototype.ngOnDestroy = function () {
                     if (this.componentRef) {
                         this.componentRef.destroy();
                         this.componentRef = null;
@@ -52,17 +52,17 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', String)
-                ], ComponentLoadFactory.prototype, "selector", void 0);
-                ComponentLoadFactory = __decorate([
+                ], ComponentOutlet.prototype, "selector", void 0);
+                ComponentOutlet = __decorate([
                     core_1.Directive({
-                        selector: '[component-load-factory]'
+                        selector: '[component-outlet]'
                     }), 
                     __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.ComponentFactoryResolver])
-                ], ComponentLoadFactory);
-                return ComponentLoadFactory;
+                ], ComponentOutlet);
+                return ComponentOutlet;
             }());
-            exports_1("ComponentLoadFactory", ComponentLoadFactory);
+            exports_1("ComponentOutlet", ComponentOutlet);
         }
     }
 });
-//# sourceMappingURL=component-load-factory.directive.js.map
+//# sourceMappingURL=component-outlet.directive.js.map

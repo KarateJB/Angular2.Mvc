@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './customermvc-index.component', './customermvc-test.component', '../../../pipe/sanitizeHtml.pipe', '../../../directive/component-oulet.directive', '../../../directive/component-load-factory.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './customermvc-index.component', './customermvc-test.component', '../../../pipe/sanitizeHtml.pipe', '../../../directive/component-outlet.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, http_1, customermvc_index_component_1, customermvc_test_component_1, customermvc_index_component_2, sanitizeHtml_pipe_1, component_oulet_directive_1, component_load_factory_directive_1;
+    var core_1, forms_1, platform_browser_1, http_1, customermvc_index_component_1, customermvc_test_component_1, sanitizeHtml_pipe_1, component_outlet_directive_1;
     var CustomerMvcIndexModule;
     return {
         setters:[
@@ -28,7 +28,6 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             },
             function (customermvc_index_component_1_1) {
                 customermvc_index_component_1 = customermvc_index_component_1_1;
-                customermvc_index_component_2 = customermvc_index_component_1_1;
             },
             function (customermvc_test_component_1_1) {
                 customermvc_test_component_1 = customermvc_test_component_1_1;
@@ -36,11 +35,8 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             function (sanitizeHtml_pipe_1_1) {
                 sanitizeHtml_pipe_1 = sanitizeHtml_pipe_1_1;
             },
-            function (component_oulet_directive_1_1) {
-                component_oulet_directive_1 = component_oulet_directive_1_1;
-            },
-            function (component_load_factory_directive_1_1) {
-                component_load_factory_directive_1 = component_load_factory_directive_1_1;
+            function (component_outlet_directive_1_1) {
+                component_outlet_directive_1 = component_outlet_directive_1_1;
             }],
         execute: function() {
             CustomerMvcIndexModule = (function () {
@@ -53,7 +49,7 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
                             forms_1.FormsModule,
                             http_1.HttpModule,
                         ],
-                        declarations: [customermvc_index_component_1.CustomerMvcIndexComponent, customermvc_test_component_1.CustomerMvcTestComponent, customermvc_index_component_2.MyTestComponent, sanitizeHtml_pipe_1.SanitizeHtml, component_oulet_directive_1.ComponentOutlet, component_load_factory_directive_1.ComponentLoadFactory],
+                        declarations: [customermvc_index_component_1.CustomerMvcIndexComponent, customermvc_test_component_1.CustomerMvcTestComponent, sanitizeHtml_pipe_1.SanitizeHtml, component_outlet_directive_1.ComponentOutlet],
                         providers: [],
                         entryComponents: [customermvc_test_component_1.CustomerMvcTestComponent],
                         bootstrap: [customermvc_index_component_1.CustomerMvcIndexComponent]
