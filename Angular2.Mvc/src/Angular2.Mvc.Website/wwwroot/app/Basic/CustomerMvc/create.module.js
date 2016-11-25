@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './customermvc-index.component', './customermvc-test.component', '../../../pipe/sanitizeHtml.pipe', '../../../directive/component-outlet.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', '@angular/platform-browser', '@angular/http', './create.component', '../../pipe/sanitizeHtml.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1, platform_browser_1, http_1, customermvc_index_component_1, customermvc_test_component_1, sanitizeHtml_pipe_1, component_outlet_directive_1;
-    var CustomerMvcIndexModule;
+    var core_1, forms_1, platform_browser_1, http_1, create_component_1, sanitizeHtml_pipe_1;
+    var CustomerMvcCreateModule;
     return {
         setters:[
             function (core_1_1) {
@@ -26,40 +26,33 @@ System.register(['@angular/core', '@angular/forms', '@angular/platform-browser',
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (customermvc_index_component_1_1) {
-                customermvc_index_component_1 = customermvc_index_component_1_1;
-            },
-            function (customermvc_test_component_1_1) {
-                customermvc_test_component_1 = customermvc_test_component_1_1;
+            function (create_component_1_1) {
+                create_component_1 = create_component_1_1;
             },
             function (sanitizeHtml_pipe_1_1) {
                 sanitizeHtml_pipe_1 = sanitizeHtml_pipe_1_1;
-            },
-            function (component_outlet_directive_1_1) {
-                component_outlet_directive_1 = component_outlet_directive_1_1;
             }],
         execute: function() {
-            CustomerMvcIndexModule = (function () {
-                function CustomerMvcIndexModule() {
+            CustomerMvcCreateModule = (function () {
+                function CustomerMvcCreateModule() {
                 }
-                CustomerMvcIndexModule = __decorate([
+                CustomerMvcCreateModule = __decorate([
                     core_1.NgModule({
                         imports: [
                             platform_browser_1.BrowserModule,
                             forms_1.FormsModule,
                             http_1.HttpModule,
                         ],
-                        declarations: [customermvc_index_component_1.CustomerMvcIndexComponent, customermvc_test_component_1.CustomerMvcTestComponent, sanitizeHtml_pipe_1.SanitizeHtml, component_outlet_directive_1.ComponentOutlet],
+                        declarations: [create_component_1.CustomerMvcCreateComponent, sanitizeHtml_pipe_1.SanitizeHtml],
                         providers: [],
-                        entryComponents: [customermvc_test_component_1.CustomerMvcTestComponent],
-                        bootstrap: [customermvc_index_component_1.CustomerMvcIndexComponent]
+                        bootstrap: [create_component_1.CustomerMvcCreateComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], CustomerMvcIndexModule);
-                return CustomerMvcIndexModule;
+                ], CustomerMvcCreateModule);
+                return CustomerMvcCreateModule;
             }());
-            exports_1("CustomerMvcIndexModule", CustomerMvcIndexModule);
+            exports_1("CustomerMvcCreateModule", CustomerMvcCreateModule);
         }
     }
 });
-//# sourceMappingURL=customermvc-index.module.js.map
+//# sourceMappingURL=create.module.js.map

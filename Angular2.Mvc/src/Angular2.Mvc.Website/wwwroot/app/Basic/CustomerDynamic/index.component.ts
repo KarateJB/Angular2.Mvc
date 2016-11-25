@@ -1,10 +1,9 @@
-﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
+﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit, Inject, ElementRef} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser'
-import {CustomerMvcCreateComponent} from '../create/customermvc-create.component';
-import { CustomerMvcTestComponent } from './customermvc-test.component';
-import { ComponentOutlet } from '../../../directive/component-outlet.directive';
-import {RestUriService} from '../../../service/resturi.service';
+import { CustomerDynamicListComponent } from './list.component';
+import { ComponentOutlet } from '../../directive/component-outlet.directive';
+import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any;
 
@@ -16,12 +15,12 @@ declare var swal: any;
     //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
     template: `
     <div>
-      <div component-outlet selector="customermvc-test"></div>
+      <div component-outlet selector="customerdynamic-list"></div>
     </div>
   `,
 })
 
-export class CustomerMvcIndexComponent implements OnInit {
+export class CustomerDynamicIndexComponent implements OnInit {
     private title: string;
     private template: string;
     private self = this;

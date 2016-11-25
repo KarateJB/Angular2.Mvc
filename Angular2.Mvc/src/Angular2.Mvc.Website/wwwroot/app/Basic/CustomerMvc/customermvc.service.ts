@@ -1,7 +1,7 @@
-﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
+﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
 import {Injectable} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
-import {RestUriService} from '../../../service/resturi.service';
+import {RestUriService} from '../../service/resturi.service';
 
 @Injectable()
 export class CustomerMvcService {

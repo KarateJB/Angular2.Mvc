@@ -1,14 +1,14 @@
-﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
+﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit, Inject, ElementRef} from '@angular/core';
 import { CustomerMvcService } from './customermvc.service';
-import {RestUriService} from '../../../service/resturi.service';
+import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any;
 
 @Component({
     selector: 'customermvc-create',
     providers: [CustomerMvcService, RestUriService],
-    templateUrl: '/app/Basic/CustomerMvc/create/customermvc-create.component.html'
+    templateUrl: '/app/Basic/CustomerMvc/create.component.html'
 })
 
 export class CustomerMvcCreateComponent implements OnInit {
@@ -58,8 +58,4 @@ export class CustomerMvcCreateComponent implements OnInit {
         });
     }
 
-    //Save!
-    //private save() {
-    //    (<HTMLFormElement>document.getElementById("CreateForm")).submit();
-    //}
 }

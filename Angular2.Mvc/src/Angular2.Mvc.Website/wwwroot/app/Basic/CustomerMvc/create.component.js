@@ -1,4 +1,4 @@
-System.register(['@angular/core', './customermvc.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './customermvc.service', '../../service/resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60,7 +60,7 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
                     core_1.Component({
                         selector: 'customermvc-create',
                         providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
-                        templateUrl: '/app/Basic/CustomerMvc/create/customermvc-create.component.html'
+                        templateUrl: '/app/Basic/CustomerMvc/create.component.html'
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef, customermvc_service_1.CustomerMvcService])
                 ], CustomerMvcCreateComponent);
@@ -70,4 +70,4 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
         }
     }
 });
-//# sourceMappingURL=customermvc-create.component.js.map
+//# sourceMappingURL=create.component.js.map

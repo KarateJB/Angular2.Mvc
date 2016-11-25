@@ -11,32 +11,32 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var CustomerMvcTestComponent;
+    var CustomerDynamicListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            CustomerMvcTestComponent = (function () {
-                function CustomerMvcTestComponent() {
+            CustomerDynamicListComponent = (function () {
+                function CustomerDynamicListComponent() {
                 }
-                CustomerMvcTestComponent.prototype.ngOnInit = function () {
+                CustomerDynamicListComponent.prototype.ngOnInit = function () {
                 };
-                CustomerMvcTestComponent.prototype.showMsg = function () {
+                CustomerDynamicListComponent.prototype.showMsg = function () {
                     alert("Test!");
                 };
-                CustomerMvcTestComponent = __decorate([
+                CustomerDynamicListComponent = __decorate([
                     core_1.Component({
-                        selector: 'customermvc-test',
-                        templateUrl: '/app/Basic/CustomerMvc/index/customermvc-test.component.html'
+                        selector: 'customerdynamic-list',
+                        templateUrl: '/app/Basic/CustomerMvc/index/list.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], CustomerMvcTestComponent);
-                return CustomerMvcTestComponent;
+                ], CustomerDynamicListComponent);
+                return CustomerDynamicListComponent;
             }());
-            exports_1("CustomerMvcTestComponent", CustomerMvcTestComponent);
+            exports_1("CustomerDynamicListComponent", CustomerDynamicListComponent);
         }
     }
 });
-//# sourceMappingURL=customermvc-test.component.js.map
+//# sourceMappingURL=list.component.js.map

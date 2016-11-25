@@ -2,8 +2,8 @@
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { CustomerMvcCreateComponent } from './customermvc-create.component';
-import { SanitizeHtml } from '../../../pipe/sanitizeHtml.pipe';
+import { CustomerMvcCreateComponent } from './create.component';
+import { SanitizeHtml } from '../../pipe/sanitizeHtml.pipe';
 
 
 
