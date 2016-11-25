@@ -29,7 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 CustomerDynamicListComponent = __decorate([
                     core_1.Component({
                         selector: 'customerdynamic-list',
-                        templateUrl: '/app/Basic/CustomerMvc/index/list.component.html'
+                        templateUrl: '/app/Basic/CustomerDynamic/list.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CustomerDynamicListComponent);

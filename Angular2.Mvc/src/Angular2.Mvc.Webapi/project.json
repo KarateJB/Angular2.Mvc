@@ -33,6 +33,7 @@
   "frameworks": {
     "net452": {
       "dependencies": {
+        "Microsoft.AspNet.Identity.Core": "2.2.1"
       }
     },
     "netcoreapp1.0": {

@@ -1,6 +1,4 @@
-﻿@model Angular2.Mvc.Core.Models.ViewModel.VmCustomer
-
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,13 +14,13 @@
     <script>
         System.config({
             map: {
-                app: 'app/Basic/CustomerMvc/index'
+                app: 'app/Basic/CustomerDynamic'
             },
             packages: {
-                app: { main: 'customermvc-index.main.js', defaultExtension: 'js' }
+                app: { main: 'index.main.js', defaultExtension: 'js' }
             }
         });
-        System.import('app/customermvc-index.main').then(null, console.error.bind(console));
+        System.import('app/index.main').then(null, console.error.bind(console));
     </script>
 }
 

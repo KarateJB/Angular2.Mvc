@@ -4,7 +4,7 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'customerdynamic-list',
-    templateUrl: '/app/Basic/CustomerMvc/index/list.component.html'
+    templateUrl: '/app/Basic/CustomerDynamic/list.component.html'
 })
 
 export class CustomerDynamicListComponent implements OnInit {

@@ -10,8 +10,6 @@ using Angular2.Mvc.DAL.Service;
 using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Webapi.Controllers;
 using Angular2.Mvc.Webapi.Utility;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NLog;
