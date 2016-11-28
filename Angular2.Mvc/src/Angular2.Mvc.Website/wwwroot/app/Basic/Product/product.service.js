@@ -129,8 +129,10 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     prod.Id = Utility_1.Utility.generateUUID();
                     var getPromise = new Promise(function (resolve) {
                         var itemObservable = _this.queryProducts();
+                        console.log(itemObservable);
                         var current = null;
                         itemObservable.subscribe(function (value) {
+                            console.log(value);
                             current = value;
                             current.push(prod);
                             resolve(current);
@@ -139,6 +141,13 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         var itemObservable = _this.queryProducts();
                         itemObservable.update(newValue);
                     });
+                    //Could also use the following codes to append a new object to database with specified key!
+                    //var getPromise = new Promise(
+                    //    resolve => {
+                    //        let itemObservable = this.af.database.object('/Demo/products/' + prod.Id);
+                    //        itemObservable.set(prod);
+                    //        resolve();
+                    //    });
                     return getPromise;
                 };
                 //Update a product

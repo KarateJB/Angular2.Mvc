@@ -25,7 +25,7 @@ System.register(['@angular/core', '../../service/resturi.service'], function(exp
                 function CustomerDynamicIndexComponent() {
                     this.self = this;
                     this.title = "Customer - Index";
-                    this.component = "customerdynamic-card";
+                    this.component = "customerdynamic-card"; //or "customerdynamic-list"
                 }
                 CustomerDynamicIndexComponent.prototype.ngOnInit = function () {
                 };

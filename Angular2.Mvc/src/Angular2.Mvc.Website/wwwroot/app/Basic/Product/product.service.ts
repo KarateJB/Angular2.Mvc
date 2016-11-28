@@ -1,5 +1,5 @@
 ﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
-import {Injectable,Inject} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 import { AngularFire, FirebaseListObservable, FirebaseApp  } from 'angularfire2';
 import {Product} from '../../class/Product';
@@ -126,11 +126,14 @@ export class ProductService {
         //Set UUID to id
         prod.Id = Utility.generateUUID();
 
+       
         var getPromise = new Promise(
             resolve => {
                 let itemObservable = this.queryProducts();
+                console.log(itemObservable);
                 let current = null;
                 itemObservable.subscribe(value => {
+                    console.log(value);
                     current = value;
                     current.push(prod);
                     resolve(current);
@@ -139,6 +142,14 @@ export class ProductService {
                 let itemObservable = this.queryProducts();
                 itemObservable.update(newValue);
             });
+
+        //Could also use the following codes to append a new object to database with specified key!
+        //var getPromise = new Promise(
+        //    resolve => {
+        //        let itemObservable = this.af.database.object('/Demo/products/' + prod.Id);
+        //        itemObservable.set(prod);
+        //        resolve();
+        //    });
 
         return getPromise;
     }
@@ -149,7 +160,7 @@ export class ProductService {
         var getPromise = new Promise(
             resolve => {
                 let itemObservable = this.queryProducts();
-                let current:Product[] = [];
+                let current: Product[] = [];
                 itemObservable.subscribe(value => {
                     current = value;
                     for (let i = 0; i < current.length; i++) {
@@ -187,7 +198,7 @@ export class ProductService {
         var promise = new Promise(
             resolve => {
                 let itemObservable = this.queryProducts();
-                let current:Product[] = [];
+                let current: Product[] = [];
                 itemObservable.subscribe(value => {
                     current = value;
 
@@ -221,14 +232,14 @@ export class ProductService {
 
 
 const PRODUCTS: Product[] =
-       [{ "Id": "1", "TypeId":"1", "Type": "Book", "Title": "Book 1", "Price": 400 },
-        { "Id": "2", "TypeId":"1", "Type": "Book", "Title": "Book 2", "Price": 250 },
-        { "Id": "3", "TypeId":"1", "Type": "Book", "Title": "Book 3", "Price": 650 },
-        { "Id": "4", "TypeId":"2", "Type": "Toy", "Title": "Doll", "Price": 1000 },
-        { "Id": "5", "TypeId":"2", "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
-        { "Id": "6", "TypeId":"2", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
-        { "Id": "7", "TypeId":"3", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
-        { "Id": "8", "TypeId":"3", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
+    [{ "Id": "1", "TypeId": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
+        { "Id": "2", "TypeId": "1", "Type": "Book", "Title": "Book 2", "Price": 250 },
+        { "Id": "3", "TypeId": "1", "Type": "Book", "Title": "Book 3", "Price": 650 },
+        { "Id": "4", "TypeId": "2", "Type": "Toy", "Title": "Doll", "Price": 1000 },
+        { "Id": "5", "TypeId": "2", "Type": "Toy", "Title": "Toy Train", "Price": 2200 },
+        { "Id": "6", "TypeId": "2", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
+        { "Id": "7", "TypeId": "3", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
+        { "Id": "8", "TypeId": "3", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
 
 //const PRODUCT_TYPES: ProductType[] =
 //    [{ "id": "1", "name": "Book" }, { "id": "2", "name": "Toy" }, { "id": "3", "name": "Music" }];
