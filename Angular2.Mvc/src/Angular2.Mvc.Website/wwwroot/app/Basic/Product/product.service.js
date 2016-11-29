@@ -37,7 +37,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     this.af = af;
                 }
                 //Query data from firebase
-                ProductService.prototype.queryProducts = function () {
+                ProductService.prototype._queryProducts = function () {
                     return this.af.database.object('/Demo/products');
                 };
                 //Get Product types list
@@ -53,11 +53,19 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     return prodTypes;
                     //return PRODUCT_TYPES;
                 };
+                ProductService.prototype.getByKey = function (key) {
+                    var _this = this;
+                    return new Promise(function (resolve) {
+                        _this.af.database.object('/Demo/products/' + key).subscribe(function (data) {
+                            resolve(data);
+                        });
+                    });
+                };
                 ProductService.prototype.get = function (id) {
                     var _this = this;
                     return new Promise(function (resolve) {
                         //From Firebase
-                        _this.queryProducts().subscribe(function (data) {
+                        _this._queryProducts().subscribe(function (data) {
                             if (data) {
                                 var prod = data.find(function (x) { return x.Id == id; });
                                 resolve(prod);
@@ -75,7 +83,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //Use local const data
                         //let books = PRODUCTS.filter(x => x.Type == "Book");
                         //From Firebase
-                        _this.queryProducts().subscribe(function (data) {
+                        _this._queryProducts().subscribe(function (data) {
                             if (data) {
                                 var books = data.filter(function (x) { return x.Type == "Book"; });
                                 resolve(books);
@@ -93,7 +101,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //let toys = PRODUCTS.filter(x => x.Type == "Toy");
                         //resolve(toys);
                         //From Firebase
-                        _this.queryProducts().subscribe(function (data) {
+                        _this._queryProducts().subscribe(function (data) {
                             if (data) {
                                 var toys = data.filter(function (x) { return x.Type == "Toy"; });
                                 resolve(toys);
@@ -111,7 +119,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                         //let musices = PRODUCTS.filter(x => x.Type == "Music");
                         //resolve(musices);
                         //From Firebase
-                        _this.queryProducts().subscribe(function (data) {
+                        _this._queryProducts().subscribe(function (data) {
                             if (data) {
                                 var musices = data.filter(function (x) { return x.Type == "Music"; });
                                 resolve(musices);
@@ -128,17 +136,16 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                     //Set UUID to id
                     prod.Id = Utility_1.Utility.generateUUID();
                     var getPromise = new Promise(function (resolve) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         console.log(itemObservable);
                         var current = null;
                         itemObservable.subscribe(function (value) {
-                            console.log(value);
                             current = value;
                             current.push(prod);
                             resolve(current);
                         });
                     }).then(function (newValue) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         itemObservable.update(newValue);
                     });
                     //Could also use the following codes to append a new object to database with specified key!
@@ -154,7 +161,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                 ProductService.prototype.update = function (prod) {
                     var _this = this;
                     var getPromise = new Promise(function (resolve) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         var current = [];
                         itemObservable.subscribe(function (value) {
                             current = value;
@@ -170,7 +177,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                             resolve(current);
                         });
                     }).then(function (newValue) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         itemObservable.update(newValue);
                     });
                     return getPromise;
@@ -179,7 +186,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                 ProductService.prototype.removeAll = function () {
                     var _this = this;
                     var getPromise = new Promise(function (resolve) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         itemObservable.remove();
                     });
                     return getPromise;
@@ -188,7 +195,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                 ProductService.prototype.remove = function (prod) {
                     var _this = this;
                     var promise = new Promise(function (resolve) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         var current = [];
                         itemObservable.subscribe(function (value) {
                             current = value;
@@ -203,7 +210,7 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                             resolve(current);
                         });
                     }).then(function (newValue) {
-                        var itemObservable = _this.queryProducts();
+                        var itemObservable = _this._queryProducts();
                         var prods = [];
                         newValue.forEach(function (item) {
                             prods.push(item);

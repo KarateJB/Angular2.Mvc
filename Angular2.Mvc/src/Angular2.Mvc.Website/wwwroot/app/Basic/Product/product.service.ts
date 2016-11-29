@@ -20,7 +20,7 @@ export class ProductService {
     }
 
     //Query data from firebase
-    private queryProducts() {
+    private _queryProducts() {
         return this.af.database.object('/Demo/products');
     }
 
@@ -42,11 +42,25 @@ export class ProductService {
         //return PRODUCT_TYPES;
     }
 
+
+    
+
+
+    public getByKey(key: string) {
+
+        return new Promise<Product>(
+            resolve => {
+                this.af.database.object('/Demo/products/' + key).subscribe(data => {
+                    resolve(data);
+                })
+            });
+    }
+
     public get(id: string) {
         return new Promise<Product>(
             resolve => {
                 //From Firebase
-                this.queryProducts().subscribe(data => {
+                this._queryProducts().subscribe(data => {
                     if (data) {
                         let prod = data.find(x => x.Id == id);
                         resolve(prod);
@@ -69,7 +83,7 @@ export class ProductService {
                 //let books = PRODUCTS.filter(x => x.Type == "Book");
 
                 //From Firebase
-                this.queryProducts().subscribe(data => {
+                this._queryProducts().subscribe(data => {
                     if (data) {
                         let books = data.filter(x => x.Type == "Book");
                         resolve(books);
@@ -90,7 +104,7 @@ export class ProductService {
                 //resolve(toys);
 
                 //From Firebase
-                this.queryProducts().subscribe(data => {
+                this._queryProducts().subscribe(data => {
                     if (data) {
                         let toys = data.filter(x => x.Type == "Toy");
                         resolve(toys);
@@ -109,7 +123,7 @@ export class ProductService {
                 //resolve(musices);
 
                 //From Firebase
-                this.queryProducts().subscribe(data => {
+                this._queryProducts().subscribe(data => {
                     if (data) {
                         let musices = data.filter(x => x.Type == "Music");
                         resolve(musices);
@@ -126,20 +140,18 @@ export class ProductService {
         //Set UUID to id
         prod.Id = Utility.generateUUID();
 
-       
         var getPromise = new Promise(
             resolve => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 console.log(itemObservable);
                 let current = null;
                 itemObservable.subscribe(value => {
-                    console.log(value);
                     current = value;
                     current.push(prod);
                     resolve(current);
                 })
             }).then((newValue) => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 itemObservable.update(newValue);
             });
 
@@ -159,7 +171,7 @@ export class ProductService {
 
         var getPromise = new Promise(
             resolve => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 let current: Product[] = [];
                 itemObservable.subscribe(value => {
                     current = value;
@@ -176,7 +188,7 @@ export class ProductService {
                     resolve(current);
                 })
             }).then((newValue) => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 itemObservable.update(newValue);
             });
 
@@ -187,7 +199,7 @@ export class ProductService {
     public removeAll() {
         var getPromise = new Promise(
             resolve => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 itemObservable.remove();
             })
         return getPromise;
@@ -197,7 +209,7 @@ export class ProductService {
     public remove(prod: Product) {
         var promise = new Promise(
             resolve => {
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 let current: Product[] = [];
                 itemObservable.subscribe(value => {
                     current = value;
@@ -215,7 +227,7 @@ export class ProductService {
                 })
             }).then((newValue: Product[]) => {
 
-                let itemObservable = this.queryProducts();
+                let itemObservable = this._queryProducts();
                 let prods: Product[] = [];
                 newValue.forEach(item => {
                     prods.push(item);
