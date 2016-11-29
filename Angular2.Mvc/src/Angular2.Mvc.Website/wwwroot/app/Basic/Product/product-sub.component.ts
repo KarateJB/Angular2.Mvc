@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
     template: '<div class="btn-group" role= "group" aria-label="Basic example">'+
               '<button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>'+
               '<button type="button" class="btn btn-secondary" (click)="goToToys()">Toys</button>' +
-              '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>'+
+              '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>' +
               '</div>' +
               '<router-outlet></router-outlet>'
 })
