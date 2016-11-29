@@ -21,6 +21,16 @@ export class ProductService {
 
     //Query data from firebase
     private _queryProducts() {
+
+        this.af.auth.subscribe(
+            user => {
+                if (!user) {
+                    swal("Error", "Please login ... ", "error");
+                }
+            },
+            error => JL("Angular2").error(error)
+        );
+
         return this.af.database.object('/Demo/products');
     }
 

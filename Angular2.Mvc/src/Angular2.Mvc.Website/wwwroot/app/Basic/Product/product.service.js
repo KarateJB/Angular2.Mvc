@@ -38,6 +38,11 @@ System.register(['@angular/core', 'angularfire2', '../../class/Utility', '../../
                 }
                 //Query data from firebase
                 ProductService.prototype._queryProducts = function () {
+                    this.af.auth.subscribe(function (user) {
+                        if (!user) {
+                            swal("Error", "Please login ... ", "error");
+                        }
+                    }, function (error) { return JL("Angular2").error(error); });
                     return this.af.database.object('/Demo/products');
                 };
                 //Get Product types list
