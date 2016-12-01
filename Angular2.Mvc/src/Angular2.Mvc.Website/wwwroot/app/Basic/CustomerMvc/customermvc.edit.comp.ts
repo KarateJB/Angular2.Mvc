@@ -6,12 +6,13 @@ import {RestUriService} from '../../service/resturi.service';
 declare var swal: any;
 
 @Component({
-    selector: 'customermvc-create',
+    selector: 'customermvc-edit',
     providers: [CustomerMvcService, RestUriService],
-    templateUrl: '/app/Basic/CustomerMvc/create.component.html'
+    //templateUrl: '/app/Basic/CustomerMvc/create.component.html'
+    templateUrl: '/Basic/CustomerMvc/Create'
 })
 
-export class CustomerMvcCreateComponent implements OnInit {
+export class CustomerMvcEditComp implements OnInit {
     private title: string;
     private tipHtml: string;
     private viewHtml: string;

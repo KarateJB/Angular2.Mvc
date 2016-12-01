@@ -85,6 +85,15 @@ System.register(['@angular/core', '@angular/http', './resturi.service'], functio
                         });
                     });
                 };
+                CustomerService.prototype.removeById = function (id) {
+                    var _this = this;
+                    return new Promise(function (resolve) {
+                        _this.http.delete(_this.resturiService.customerRemoveUri.concat(id.toString()))
+                            .subscribe(function (value) {
+                            resolve();
+                        });
+                    });
+                };
                 CustomerService.prototype.remove = function (item) {
                     var _this = this;
                     return new Promise(function (resolve) {

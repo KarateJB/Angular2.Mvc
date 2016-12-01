@@ -1,29 +1,60 @@
 ﻿@model Angular2.Mvc.Core.Models.ViewModel.VmCustomer
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<table>
+    <tr>
+        <td><h3>@ViewBag.Title</h3></td>
+        <td>
+            <img id='tipImg' style='width: 30px; height: 30px;' src='https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />
+        </td>
+    </tr>
+</table>
 
 
+@using (Html.BeginForm("Create", "CustomerMvc", FormMethod.Post, new { @id = "CreateForm", autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
 
-<customermvc-create>
-    <div>
-        <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group required">
+            <label asp-for="Name" class="control-label col-md-2"></label>
+            <div class="col-md-3">
+                <input type="text" asp-for="Name" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group required">
+            <label asp-for="Phone" class="control-label col-md-2"></label>
+            <div class="col-md-3">
+                <input type="text" asp-for="Phone" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Age" class="control-label col-md-2"></label>
+            <div class="col-md-3">
+                <input type="text" asp-for="Age" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="control-label col-md-2"></label>
+            <div class="col-md-3">
+                <input type="text" asp-for="Description" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" /> &nbsp;
+                <input type="button" value="Back" onclick="location.href='@Url.Action("Index","Customer")'" class="btn btn-default" />
+            </div>
+        </div>
     </div>
-</customermvc-create>
-
-@section Scripts {
-    <script>
-        System.config({
-            map: {
-                app: 'app/Basic/CustomerMvc'
-            },
-            packages: {
-                app: { main: 'create.main.js', defaultExtension: 'js' }
-            }
-        });
-        System.import('app/create.main').then(null, console.error.bind(console));
-    </script>
 }
-
-

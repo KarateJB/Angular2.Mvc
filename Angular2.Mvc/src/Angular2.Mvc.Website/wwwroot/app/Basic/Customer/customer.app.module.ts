@@ -2,10 +2,10 @@
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import {CustomerAppComponent }  from './customer.app.component';
 import { RouterModule } from '@angular/router';
 import {CustomerRoutes} from './customer.route';
 import {WrapEventPipe} from './customer.pipe';
+import {CustomerAppComponent }  from './customer.app.component';
 import {CustomerIndexComponent} from './customer-index.component';
 import {CustomerDetailComponent} from './customer-detail.component';
 import {CustomerCreateComponent} from './customer-create.component';

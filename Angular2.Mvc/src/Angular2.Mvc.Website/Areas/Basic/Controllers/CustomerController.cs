@@ -30,7 +30,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
         {
             base._logger.Debug($"Areas:Basic,Controller:Customer,Action:Index");
             base._logger.Error($"Areas:Basic,Controller:Customer,Action:Index");
-
+            
             return View();
         }
 

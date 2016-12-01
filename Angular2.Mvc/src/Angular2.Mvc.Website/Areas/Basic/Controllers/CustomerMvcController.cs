@@ -26,8 +26,33 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
         }
 
         [Route("[action]")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("[action]")]
+        public IActionResult List()
+        {
+            var viewModel = new List<VmCustomer>();
+
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var custs = custService.GetAll().ToList();
+                foreach (var cust in custs)
+                {
+                    var custVm = ViewModelFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, VmCustomer>(cust);
+                    viewModel.Add(custVm);
+                }
+            }
+            return View(viewModel);
+        }
+
+
+        [Route("[action]")]
         public IActionResult Create()
         {
+            ViewBag.Title = "Customer - Create";
             var viewModel = new VmCustomer();
             return View(viewModel);
         }
@@ -36,6 +61,8 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
         [HttpPost]
         public IActionResult Create([FromForm]VmCustomer viewModel)
         {
+            ViewBag.Title = "Customer - Create";
+
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
@@ -50,12 +77,15 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
 
         }
 
+
+
         [HttpGet]
         [Route("[action]")]
         public ActionResult QueryCreateView()
         {
             var viewModel = new VmCustomer();
             return PartialView("~/Areas/Basic/Views/CustomerMvc/_CreateView.cshtml", viewModel);
+            //return PartialView("~/Areas/Basic/Views/CustomerMvc/_CreateViewTh.cshtml", viewModel); //Use Tag helper page
         }
     }
 }

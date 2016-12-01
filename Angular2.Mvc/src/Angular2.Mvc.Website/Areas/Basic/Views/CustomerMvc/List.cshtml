@@ -1,0 +1,53 @@
+﻿@model List<Angular2.Mvc.Core.Models.ViewModel.VmCustomer>
+
+<div>
+    <input type="button" class="btn btn-primary" value="Create New" (click)="goToCreate()" />
+</div>
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+            <tr>
+                <td class="col-sm-2">
+                    @(new Microsoft.AspNetCore.Html.HtmlString(item.Name))
+                </td>
+                <td class="col-sm-2">
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td class="col-sm-1">
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td class="col-sm-2">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="col-sm-2">
+                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)" />
+                    &nbsp;
+                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)" />
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

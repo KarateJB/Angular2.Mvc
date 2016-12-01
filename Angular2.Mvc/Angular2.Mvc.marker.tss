@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <TabHighlightState>
-    <extensions>
-      <string>src\Angular2.Mvc.Website\Views\_ViewImports.cshtml</string>
-    </extensions>
-    <highlightIndex>2</highlightIndex>
-  </TabHighlightState>
-</ArrayOfTabHighlightState>

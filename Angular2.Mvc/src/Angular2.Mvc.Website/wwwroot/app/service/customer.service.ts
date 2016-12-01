@@ -79,6 +79,16 @@ export class CustomerService implements ICrudService {
             });
     }
 
+    public removeById(id: number) {
+        return new Promise(
+            resolve => {
+                this.http.delete(this.resturiService.customerRemoveUri.concat(id.toString()))
+                    .subscribe(value => {
+                        resolve();
+                    });
+            });
+    }
+
     public remove(item: Customer) {
         return new Promise(
             resolve => {

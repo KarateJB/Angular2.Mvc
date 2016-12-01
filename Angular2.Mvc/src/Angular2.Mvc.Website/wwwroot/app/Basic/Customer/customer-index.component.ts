@@ -92,8 +92,6 @@ export class CustomerIndexComponent implements OnInit {
                 });
 
         })
-
-
     }
 
     //Show details of the customer

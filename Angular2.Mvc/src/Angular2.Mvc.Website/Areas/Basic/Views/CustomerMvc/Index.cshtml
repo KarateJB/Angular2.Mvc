@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<customermvc-app>
+    <div>
+        <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
+    </div>
+</customermvc-app>
+
+@section Scripts {
+    <script>
+        System.config({
+            map: {
+                app: 'app/Basic/CustomerMvc'
+            },
+            packages: {
+                app: { main: 'customermvc.main.js', defaultExtension: 'js' }
+            }
+        });
+        System.import('app/customermvc.main').then(null, console.error.bind(console));
+    </script>
+}
+
+

@@ -11,7 +11,7 @@ System.register(['@angular/core', './customermvc.service', '../../service/restur
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, customermvc_service_1, resturi_service_1;
-    var CustomerMvcCreateComponent;
+    var CustomerMvcCreateComp;
     return {
         setters:[
             function (core_1_1) {
@@ -24,27 +24,18 @@ System.register(['@angular/core', './customermvc.service', '../../service/restur
                 resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
-            CustomerMvcCreateComponent = (function () {
-                function CustomerMvcCreateComponent(
+            CustomerMvcCreateComp = (function () {
+                function CustomerMvcCreateComp(
                     //@Inject(ElementRef) _elementRef: ElementRef,
                     elementRef, _custmvcService) {
                     this.elementRef = elementRef;
                     this._custmvcService = _custmvcService;
-                    this.title = "Customer - Create";
-                    this.tipHtml = "<img id='tipImg' style= 'width: 30px; height: 30px;' src= 'https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />";
-                    //Dynamic Html from partial view
-                    this.viewHtml = "<p><img src='/asset/images/gif/ajax-loader.gif'/>Please wait ...</p>";
                 }
-                CustomerMvcCreateComponent.prototype.ngOnInit = function () {
-                    var _this = this;
+                CustomerMvcCreateComp.prototype.ngOnInit = function () {
                     //Add event listner to dom
                     this.addEventListner();
-                    //Get partialview from server side
-                    this._custmvcService.queryCustomerView().then(function (value) {
-                        _this.viewHtml = value;
-                    });
                 };
-                CustomerMvcCreateComponent.prototype.addEventListner = function () {
+                CustomerMvcCreateComp.prototype.addEventListner = function () {
                     var _this = this;
                     var el = this.elementRef.nativeElement.querySelector("#tipImg");
                     el.addEventListener('click', function (e) {
@@ -52,22 +43,23 @@ System.register(['@angular/core', './customermvc.service', '../../service/restur
                         _this.showTip();
                     });
                 };
-                CustomerMvcCreateComponent.prototype.showTip = function () {
+                CustomerMvcCreateComp.prototype.showTip = function () {
                     swal('Tip', 'Required information : Name, Phone.').then(function () {
                     });
                 };
-                CustomerMvcCreateComponent = __decorate([
+                CustomerMvcCreateComp = __decorate([
                     core_1.Component({
                         selector: 'customermvc-create',
                         providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
-                        templateUrl: '/app/Basic/CustomerMvc/create.component.html'
+                        //templateUrl: '/app/Basic/CustomerMvc/create.component.html'
+                        templateUrl: '/Basic/CustomerMvc/Create'
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef, customermvc_service_1.CustomerMvcService])
-                ], CustomerMvcCreateComponent);
-                return CustomerMvcCreateComponent;
+                ], CustomerMvcCreateComp);
+                return CustomerMvcCreateComp;
             }());
-            exports_1("CustomerMvcCreateComponent", CustomerMvcCreateComponent);
+            exports_1("CustomerMvcCreateComp", CustomerMvcCreateComp);
         }
     }
 });
-//# sourceMappingURL=create.component.js.map
+//# sourceMappingURL=customermvc.create.comp.js.map

@@ -37,7 +37,6 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                     return new Promise(function (resolve) {
                         _this.http.get(_this.resturiService.customerMvcCreateUri)
                             .subscribe(function (value) {
-                            JL("Angular2").debug(value.text());
                             resolve(value.text());
                         });
                     });

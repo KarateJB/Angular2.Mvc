@@ -24,7 +24,6 @@ export class CustomerMvcService {
                 this.http.get(this.resturiService.customerMvcCreateUri)
                     .subscribe(value => {
 
-                        JL("Angular2").debug(value.text());
                         resolve(value.text());
                     });
             });
