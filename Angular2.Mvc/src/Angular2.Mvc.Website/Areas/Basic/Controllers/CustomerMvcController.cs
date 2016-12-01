@@ -9,6 +9,7 @@ using Angular2.Mvc.DAL.Service;
 using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Website.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NLog;
 
@@ -23,7 +24,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
         {
 
         }
-
 
         [Route("[action]")]
         public IActionResult Create()
