@@ -50,8 +50,9 @@ System.register(['@angular/core', '@angular/router', '../../service/customer.ser
                     this.router.navigate(['Basic/CustomerMvc/Create']);
                 };
                 //Get to edit page
-                CustomerMvcListComp.prototype.editCustomer = function (item) {
-                    this.router.navigate(['Basic/CustomerMvc/Edit', item.Id]);
+                CustomerMvcListComp.prototype.editCustomer = function (id) {
+                    this.router.navigate(['Basic/CustomerMvc/Edit', id]);
+                    //this.router.navigate(['Basic/CustomerMvc/Edit', { 'id': id }]); //Use for more url parameter
                 };
                 //Remove customer
                 CustomerMvcListComp.prototype.deleteCustomer = function (id) {
@@ -67,7 +68,9 @@ System.register(['@angular/core', '@angular/router', '../../service/customer.ser
                         confirmButtonText: 'Yes, delete it!'
                     }).then(function () {
                         service.removeById(id).then(function () {
-                            router.navigate(['']);
+                            console.log("Redirect to Basic/CustomerMvc/Index");
+                            //Refresh or just hide the front end removed-data
+                            document.location.href = "Basic/CustomerMvc/Index";
                         });
                     });
                 };

@@ -80,6 +80,7 @@ export class CustomerService implements ICrudService {
     }
 
     public removeById(id: number) {
+        console.log("Removing : " + id);
         return new Promise(
             resolve => {
                 this.http.delete(this.resturiService.customerRemoveUri.concat(id.toString()))

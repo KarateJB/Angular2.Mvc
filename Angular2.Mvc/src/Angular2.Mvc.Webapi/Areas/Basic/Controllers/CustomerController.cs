@@ -142,7 +142,6 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         [CustomExceptionFilter]
         public async Task<HttpResponseMessage> Remove(int id)
         {
-            throw new NotImplementedException();
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var entity = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();

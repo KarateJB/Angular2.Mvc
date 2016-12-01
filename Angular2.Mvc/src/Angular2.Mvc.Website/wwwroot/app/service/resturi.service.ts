@@ -14,6 +14,6 @@ export class RestUriService {
     public customerRemoveUri: string = this.REST_ROOT_URL.concat("api/Basic/Customer/Remove/");
 
     //CustomerMvc
-    public customerMvcCreateUri: string = this.WEB_ROOT_URL.concat("Basic/CustomerMvc/QueryCreateView/");
+    public customerMvcEditPvUri: string = this.WEB_ROOT_URL.concat("Basic/CustomerMvc/Edit/");
 
 }

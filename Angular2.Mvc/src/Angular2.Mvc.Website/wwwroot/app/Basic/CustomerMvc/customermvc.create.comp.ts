@@ -13,8 +13,6 @@ declare var swal: any;
 })
 
 export class CustomerMvcCreateComp implements OnInit {
-    private tipHtml: string;
-    private viewHtml: string;
 
     constructor(
         //@Inject(ElementRef) _elementRef: ElementRef,
@@ -25,16 +23,17 @@ export class CustomerMvcCreateComp implements OnInit {
 
     ngOnInit() {
 
-        //Add event listner to dom
         this.addEventListner();
     }
 
     private addEventListner() {
         let el = this.elementRef.nativeElement.querySelector("#tipImg");
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            this.showTip();
-        });
+        if (el) {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                this.showTip();
+            });
+        }
     }
 
     private showTip() {
@@ -43,6 +42,11 @@ export class CustomerMvcCreateComp implements OnInit {
             'Required information : Name, Phone.'
         ).then(function () {
         });
+    }
+
+    //Submit
+    private submit() {
+        (<HTMLFormElement>document.getElementById("CreateForm")).submit();
     }
 
 }

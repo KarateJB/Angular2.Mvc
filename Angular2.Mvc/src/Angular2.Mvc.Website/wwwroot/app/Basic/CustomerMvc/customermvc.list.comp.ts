@@ -47,8 +47,9 @@ export class CustomerMvcListComp implements OnInit {
     }
 
     //Get to edit page
-    private editCustomer(item: Customer) {
-        this.router.navigate(['Basic/CustomerMvc/Edit', item.Id]);
+    private editCustomer(id: number) {
+        this.router.navigate(['Basic/CustomerMvc/Edit', id]);
+        //this.router.navigate(['Basic/CustomerMvc/Edit', { 'id': id }]); //Use for more url parameter
     }
 
     //Remove customer
@@ -69,7 +70,9 @@ export class CustomerMvcListComp implements OnInit {
 
             service.removeById(id).then(
                 () => {
-                    router.navigate(['']);
+                    console.log("Redirect to Basic/CustomerMvc/Index");
+                    //Refresh or just hide the front end removed-data
+                    document.location.href = "Basic/CustomerMvc/Index";
                 });
 
         })

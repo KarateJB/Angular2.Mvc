@@ -1,4 +1,4 @@
-System.register(['@angular/core', './customermvc.service', '../../service/resturi.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../service/customer.service', '../../service/resturi.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,60 +10,73 @@ System.register(['@angular/core', './customermvc.service', '../../service/restur
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, customermvc_service_1, resturi_service_1;
+    var core_1, router_1, customer_service_1, resturi_service_1;
     var CustomerMvcEditComp;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (customermvc_service_1_1) {
-                customermvc_service_1 = customermvc_service_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (customer_service_1_1) {
+                customer_service_1 = customer_service_1_1;
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
             }],
         execute: function() {
             CustomerMvcEditComp = (function () {
-                function CustomerMvcEditComp(
-                    //@Inject(ElementRef) _elementRef: ElementRef,
-                    elementRef, _custmvcService) {
+                function CustomerMvcEditComp(elementRef, route, custService) {
                     this.elementRef = elementRef;
-                    this._custmvcService = _custmvcService;
-                    this.title = "Customer - Create";
-                    this.tipHtml = "<img id='tipImg' style= 'width: 30px; height: 30px;' src= 'https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />";
-                    //Dynamic Html from partial view
-                    this.viewHtml = "<p><img src='/asset/images/gif/ajax-loader.gif'/>Please wait ...</p>";
+                    this.route = route;
+                    this.custService = custService;
                 }
                 CustomerMvcEditComp.prototype.ngOnInit = function () {
                     var _this = this;
                     //Add event listner to dom
                     this.addEventListner();
-                    //Get partialview from server side
-                    this._custmvcService.queryCustomerView().then(function (value) {
-                        _this.viewHtml = value;
+                    //Get route parameter
+                    this.route.params.subscribe(function (params) {
+                        var custIdValue = params['id'];
+                        var custId = +custIdValue; //Equales to parseInt
+                        console.log("query id = " + +custIdValue);
+                        _this.custService.get(custId).then(function (cust) {
+                            _this.id = cust.Id;
+                            _this.name = cust.Name;
+                            _this.age = cust.Age;
+                            _this.phone = cust.Phone;
+                            _this.description = cust.Description;
+                        });
                     });
                 };
                 CustomerMvcEditComp.prototype.addEventListner = function () {
                     var _this = this;
                     var el = this.elementRef.nativeElement.querySelector("#tipImg");
-                    el.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        _this.showTip();
-                    });
+                    if (el) {
+                        el.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            _this.showTip();
+                        });
+                    }
                 };
                 CustomerMvcEditComp.prototype.showTip = function () {
                     swal('Tip', 'Required information : Name, Phone.').then(function () {
                     });
                 };
+                //Submit
+                CustomerMvcEditComp.prototype.submit = function () {
+                    document.getElementById("EditForm").submit();
+                };
                 CustomerMvcEditComp = __decorate([
                     core_1.Component({
                         selector: 'customermvc-edit',
-                        providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
+                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
                         //templateUrl: '/app/Basic/CustomerMvc/create.component.html'
-                        templateUrl: '/Basic/CustomerMvc/Create'
+                        templateUrl: '/Basic/CustomerMvc/Edit'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, customermvc_service_1.CustomerMvcService])
+                    __metadata('design:paramtypes', [core_1.ElementRef, router_1.ActivatedRoute, customer_service_1.CustomerService])
                 ], CustomerMvcEditComp);
                 return CustomerMvcEditComp;
             }());

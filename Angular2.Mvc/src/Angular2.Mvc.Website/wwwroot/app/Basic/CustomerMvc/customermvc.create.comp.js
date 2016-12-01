@@ -32,20 +32,25 @@ System.register(['@angular/core', './customermvc.service', '../../service/restur
                     this._custmvcService = _custmvcService;
                 }
                 CustomerMvcCreateComp.prototype.ngOnInit = function () {
-                    //Add event listner to dom
                     this.addEventListner();
                 };
                 CustomerMvcCreateComp.prototype.addEventListner = function () {
                     var _this = this;
                     var el = this.elementRef.nativeElement.querySelector("#tipImg");
-                    el.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        _this.showTip();
-                    });
+                    if (el) {
+                        el.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            _this.showTip();
+                        });
+                    }
                 };
                 CustomerMvcCreateComp.prototype.showTip = function () {
                     swal('Tip', 'Required information : Name, Phone.').then(function () {
                     });
+                };
+                //Submit
+                CustomerMvcCreateComp.prototype.submit = function () {
+                    document.getElementById("CreateForm").submit();
                 };
                 CustomerMvcCreateComp = __decorate([
                     core_1.Component({

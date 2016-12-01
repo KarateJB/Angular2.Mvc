@@ -42,9 +42,9 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td class="col-sm-2">
-                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(item)" />
+                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(@item.Id)" />
                     &nbsp;
-                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(item)" />
+                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(@item.Id)" />
                 </td>
             </tr>
             }

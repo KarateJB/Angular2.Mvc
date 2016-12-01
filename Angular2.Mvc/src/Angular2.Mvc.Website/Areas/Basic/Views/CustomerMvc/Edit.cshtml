@@ -1,0 +1,66 @@
+﻿@model Angular2.Mvc.Core.Models.ViewModel.VmCustomer
+
+<div id="templateDiv">
+
+    <table>
+        <tr>
+            <td><h3>@ViewBag.Title</h3></td>
+            <td>
+                <img id='tipImg' style='width: 30px; height: 30px;' src='https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />
+            </td>
+        </tr>
+    </table>
+
+
+    @using (Html.BeginForm("Edit", "CustomerMvc", FormMethod.Post, new { @id = "EditForm", autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <input type="hidden" asp-for="Id" [(ngModel)]="id" class="form-control" />
+
+            <div class="form-group required">
+                <label asp-for="Name" class="control-label col-md-2"></label>
+                <div class="col-md-3">
+                    <input type="text" asp-for="Name" [(ngModel)]="name" class="form-control"/>
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label asp-for="Phone" class="control-label col-md-2"></label>
+                <div class="col-md-3">
+                    <input type="text" asp-for="Phone" [(ngModel)]="phone" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Age" class="control-label col-md-2"></label>
+                <div class="col-md-3">
+                    <input type="text" asp-for="Age" [(ngModel)]="age" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label col-md-2"></label>
+                <div class="col-md-3">
+                    <input type="text" asp-for="Description" [(ngModel)]="description" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Save" (click)="submit()" class="btn btn-success" /> &nbsp;
+                    <input type="button" value="Back" onclick="location.href='@Url.Action("Index","CustomerMvc")'" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

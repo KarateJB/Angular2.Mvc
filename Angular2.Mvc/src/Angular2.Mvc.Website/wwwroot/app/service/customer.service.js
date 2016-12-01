@@ -87,6 +87,7 @@ System.register(['@angular/core', '@angular/http', './resturi.service'], functio
                 };
                 CustomerService.prototype.removeById = function (id) {
                     var _this = this;
+                    console.log("Removing : " + id);
                     return new Promise(function (resolve) {
                         _this.http.delete(_this.resturiService.customerRemoveUri.concat(id.toString()))
                             .subscribe(function (value) {

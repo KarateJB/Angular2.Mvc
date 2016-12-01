@@ -1,33 +1,31 @@
 ﻿/// <reference path="../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit, Inject, ElementRef} from '@angular/core';
-import { CustomerMvcService } from './customermvc.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import { CustomerService } from '../../service/customer.service';
 import {RestUriService} from '../../service/resturi.service';
 
 declare var swal: any;
 
 @Component({
     selector: 'customermvc-edit',
-    providers: [CustomerMvcService, RestUriService],
+    providers: [CustomerService, RestUriService],
     //templateUrl: '/app/Basic/CustomerMvc/create.component.html'
-    templateUrl: '/Basic/CustomerMvc/Create'
+    templateUrl: '/Basic/CustomerMvc/Edit'
 })
 
 export class CustomerMvcEditComp implements OnInit {
-    private title: string;
-    private tipHtml: string;
-    private viewHtml: string;
+
+    private id: number;
+    private name: string;
+    private phone: string;
+    private age: number;
+    private description: string;
 
     constructor(
-        //@Inject(ElementRef) _elementRef: ElementRef,
         private elementRef: ElementRef,
-        private _custmvcService: CustomerMvcService) {
+        private route: ActivatedRoute,
+        private custService: CustomerService) {
 
-        this.title = "Customer - Create";
-
-
-        this.tipHtml = "<img id='tipImg' style= 'width: 30px; height: 30px;' src= 'https://watson-qa-demo.mybluemix.net/images/question-and-answer.svg' />";
-        //Dynamic Html from partial view
-        this.viewHtml = "<p><img src='/asset/images/gif/ajax-loader.gif'/>Please wait ...</p>";
     }
 
 
@@ -36,19 +34,31 @@ export class CustomerMvcEditComp implements OnInit {
         //Add event listner to dom
         this.addEventListner();
 
-        //Get partialview from server side
-        this._custmvcService.queryCustomerView().then(
-            value => {
-                this.viewHtml = value;
-            });
+        //Get route parameter
+        this.route.params.subscribe(params => {
+            let custIdValue = params['id'];
+            let custId = +custIdValue; //Equales to parseInt
+            console.log("query id = " + +custIdValue);
+
+            this.custService.get(custId).then(cust => {
+                this.id = cust.Id;
+                this.name = cust.Name;
+                this.age = cust.Age;
+                this.phone = cust.Phone;
+                this.description = cust.Description;
+            })
+        });
+
     }
 
     private addEventListner() {
         let el = this.elementRef.nativeElement.querySelector("#tipImg");
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            this.showTip();
-        });
+        if (el) {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                this.showTip();
+            });
+        }
     }
 
     private showTip() {
@@ -57,6 +67,11 @@ export class CustomerMvcEditComp implements OnInit {
             'Required information : Name, Phone.'
         ).then(function () {
         });
+    }
+
+    //Submit
+    private submit() {
+        (<HTMLFormElement>document.getElementById("EditForm")).submit();
     }
 
 }

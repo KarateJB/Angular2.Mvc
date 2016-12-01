@@ -73,7 +73,59 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
                 var entity = DaoFactory.Create<VmCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>(viewModel);
                 custService.Add(entity);
             }
-            return RedirectToAction("Index", controllerName: "Customer");
+            return RedirectToAction("Index", controllerName: "CustomerMvc");
+
+        }
+
+        [Route("[action]/{id?}")]
+        public IActionResult Edit([FromRoute]int? id)
+        {
+            base._logger.Debug($"Edit Id = {id.ToString()}");
+
+            ViewBag.Title = "Customer - Edit";
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var entity = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();
+                if (entity != null)
+                {
+                    var viewModel = ViewModelFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, VmCustomer>(entity);
+                    return View(viewModel);
+                }
+                else
+                {
+                    return View(new VmCustomer());
+                    //return RedirectToAction("Index", controllerName: "CustomerMvc");
+                }
+            }
+        }
+
+        [Route("[action]")]
+        [HttpPost]
+        public IActionResult Edit([FromForm]VmCustomer viewModel)
+        {
+            ViewBag.Title = "Customer - Create";
+
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            using (var custService = new CustomerService(DbContextFactory.Create()))
+            {
+                var entity = custService.Get(x => x.Id.Equals(viewModel.Id)).FirstOrDefault();
+                if (entity != null)
+                {
+                    entity.Name = viewModel.Name;
+                    entity.Phone = viewModel.Phone;
+                    entity.Description = viewModel.Description;
+                    custService.Update(entity);
+                }
+                else {
+                    throw new Exception($"The customer (id: {viewModel.Id}) is not exist!");
+                }
+            }
+
+            return RedirectToAction("Index", controllerName: "CustomerMvc");
 
         }
 

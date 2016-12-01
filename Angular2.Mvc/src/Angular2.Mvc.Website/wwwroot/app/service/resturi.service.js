@@ -29,7 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     this.customerUpdateUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Update/");
                     this.customerRemoveUri = this.REST_ROOT_URL.concat("api/Basic/Customer/Remove/");
                     //CustomerMvc
-                    this.customerMvcCreateUri = this.WEB_ROOT_URL.concat("Basic/CustomerMvc/QueryCreateView/");
+                    this.customerMvcEditPvUri = this.WEB_ROOT_URL.concat("Basic/CustomerMvc/Edit/");
                 }
                 RestUriService = __decorate([
                     core_1.Injectable(), 

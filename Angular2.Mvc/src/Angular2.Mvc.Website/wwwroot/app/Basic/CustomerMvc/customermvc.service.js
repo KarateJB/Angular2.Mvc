@@ -32,10 +32,10 @@ System.register(['@angular/core', '@angular/http', '../../service/resturi.servic
                     this.httpOptions = new http_1.RequestOptions({ headers: headers });
                 }
                 //Get all customers
-                CustomerMvcService.prototype.queryCustomerView = function () {
+                CustomerMvcService.prototype.queryEditView = function (id) {
                     var _this = this;
                     return new Promise(function (resolve) {
-                        _this.http.get(_this.resturiService.customerMvcCreateUri)
+                        _this.http.get(_this.resturiService.customerMvcEditPvUri.concat(id.toString()))
                             .subscribe(function (value) {
                             resolve(value.text());
                         });

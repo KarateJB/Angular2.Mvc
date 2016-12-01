@@ -18,12 +18,11 @@ export class CustomerMvcService {
     }
 
     //Get all customers
-    public queryCustomerView() {
+    public queryEditView(id:number) {
         return new Promise<string>(
             resolve => {
-                this.http.get(this.resturiService.customerMvcCreateUri)
+                this.http.get(this.resturiService.customerMvcEditPvUri.concat(id.toString()))
                     .subscribe(value => {
-
                         resolve(value.text());
                     });
             });
