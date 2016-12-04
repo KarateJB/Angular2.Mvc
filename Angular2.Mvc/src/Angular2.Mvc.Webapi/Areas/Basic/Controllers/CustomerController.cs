@@ -23,7 +23,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         protected static Logger _logger = LogManager.GetCurrentClassLogger();
 
 
-        private List<Customer> _customers = null;
+        private List<DtoCustomer> _customers = null;
         public CustomerController()
         {
             /*
@@ -46,34 +46,56 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         // GET: api/values
         [HttpGet("GetAll")]
         [CustomExceptionFilter]
-        public IQueryable<Customer> GetAll()
+        [ProducesResponseType(typeof(DtoError), 500)] //Define the extra HttpStatusCode for Swagger
+        public IQueryable<DtoCustomer> GetAll()
         {
             
-            var rtn = new List<Customer>();
-            using (var custService = new CustomerService(DbContextFactory.Create()))
+            var rtn = new List<DtoCustomer>();
+            
+            try
             {
-                var custDaos = custService.GetAll().ToList();
-                foreach (var custDao in custDaos)
+                //throw new Exception("Test");
+                using (var custService = new CustomerService(DbContextFactory.Create()))
                 {
-                    rtn.Add(DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(custDao));
+                    var custDaos = custService.GetAll().ToList();
+                    foreach (var custDao in custDaos)
+                    {
+                        rtn.Add(DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.DtoCustomer>(custDao));
+                    }
                 }
+                return rtn.AsQueryable();
             }
-            return rtn.AsQueryable();
+            catch (Exception ex)
+            {
+                var err = new DtoError
+                {
+                    StatusCode = 500,
+                    ServerError = ex.Message,
+                    ClientMsg = "Please try again..."
+                };
+
+                var errJson = JsonConvert.SerializeObject(err);
+                byte[] data = System.Text.Encoding.UTF8.GetBytes(errJson);
+                Response.ContentType = "application/json";
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                Response.Body.WriteAsync(data, 0, data.Length);
+                throw;
+            }
 
         }
-
+  
         // GET api/values/5
         [HttpGet("Get/{id}")]
         [CustomExceptionFilter]
-        public Customer Get(int id)
+        public DtoCustomer Get(int id)
         {
-            Angular2.Mvc.Core.Models.DTO.Customer rtn = null;
+            Angular2.Mvc.Core.Models.DTO.DtoCustomer rtn = null;
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
                 var cust = custService.Get(x => x.Id.Equals(id)).FirstOrDefault();
                 if (cust != null)
                 {
-                    return DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(cust);
+                    return DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.DtoCustomer>(cust);
                 }
                 else
                 {
@@ -90,12 +112,12 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         /// <returns></returns>
         [HttpPost("Create")]
         [CustomExceptionFilter]
-        public async Task<HttpResponseMessage> Create([FromBody]Customer cust)
+        public async Task<HttpResponseMessage> Create([FromBody]DtoCustomer cust)
         {
             _logger.Debug("Web api : creating customer!");
             using (var custService = new CustomerService(DbContextFactory.Create()))
             {
-                var entity = DaoFactory.Create<Angular2.Mvc.Core.Models.DTO.Customer, Angular2.Mvc.DAL.Models.DAO.Customer>(cust);
+                var entity = DaoFactory.Create<Angular2.Mvc.Core.Models.DTO.DtoCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>(cust);
                 custService.Add(entity);
             }
 
@@ -110,7 +132,7 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         /// <returns></returns>
         [HttpPut("Update")]
         [CustomExceptionFilter]
-        public async Task<HttpResponseMessage> Update([FromBody]Customer cust)
+        public async Task<HttpResponseMessage> Update([FromBody]DtoCustomer cust)
         {
             using (var custService = new CustomerService(DbContextFactory.Create()))
             { 

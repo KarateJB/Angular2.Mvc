@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Angular2.Mvc.DAL.Factory;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using NLog.Extensions.Logging;
 
@@ -32,21 +35,27 @@ namespace Angular2.Mvc.Webapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             // Add framework services.
+           
+            #region MVC
+
             //services.AddMvc();
             services.AddMvc().AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
                 options.SerializerSettings.Formatting = Formatting.None; //or Formatting.Indented for readability;
             });
+            #endregion
 
+            #region CORS
 
             //Enable CORS
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
                     builder => 
-                     builder.WithOrigins("http://localhost:4240") //or builder.AllowAnyOrigin()
+                     builder.WithOrigins("http://localhost:4240", "http://editor.swagger.io") //or builder.AllowAnyOrigin()
                     .WithMethods("HEAD", "GET", "POST", "PUT", "DELETE") //Or AllowAnyMethod()
                     );
             });
@@ -56,6 +65,29 @@ namespace Angular2.Mvc.Webapi
             {
                 options.Filters.Add(new CorsAuthorizationFilterFactory("AllowSpecificOrigin"));
             });
+
+            #endregion
+
+            #region Swagger
+            var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+            var xmlPath = Path.Combine(basePath, "Angular2.Mvc.Webapi.xml");
+            //var xmlPath = Configuration["Swagger:XmlPath"];
+
+            services.AddSwaggerGen();
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Swashbuckle.Swagger.Model.Info
+                {
+                    Version = "v1",
+                    Title = "Angular2.Mvc WebApi",
+                    Description = "Angular2.Mvc WebApi samples",
+                    TermsOfService = "None"
+                });
+                options.IncludeXmlComments(xmlPath);
+                options.DescribeAllEnumsAsStrings();
+            });
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,8 +117,10 @@ namespace Angular2.Mvc.Webapi
             #endregion
 
             app.UseMvc();
-
             app.UseCors("AllowSpecificOrigin");
+
+            app.UseSwagger();
+            app.UseSwaggerUi();
         }
     }
 }

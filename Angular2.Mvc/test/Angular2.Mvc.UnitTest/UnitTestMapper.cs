@@ -21,7 +21,7 @@ namespace Angular2.Mvc.UnitTest
                 Name = "JB",
                 Phone = "0933XXXXXXX"
             };
-            var actual = DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.Customer>(cust);
+            var actual = DtoFactory.Create<Angular2.Mvc.DAL.Models.DAO.Customer, Angular2.Mvc.Core.Models.DTO.DtoCustomer>(cust);
 
             Assert.True(cust.Id.Equals(actual.Id), $"Expected:{cust.Id}, Actual:{actual.Id}");
             Assert.True(cust.Name.Equals(actual.Name), $"Expected:{cust.Name}, Actual:{actual.Name}");

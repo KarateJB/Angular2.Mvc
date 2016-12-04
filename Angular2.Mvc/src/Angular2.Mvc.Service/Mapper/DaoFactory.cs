@@ -16,7 +16,7 @@ namespace Angular2.Mvc.Service.Factory
         static DaoFactory()
         {
              _mapCfg = new MapperConfiguration(cfg => {
-                 cfg.CreateMap<Angular2.Mvc.Core.Models.DTO.Customer,Angular2.Mvc.DAL.Models.DAO.Customer>();
+                 cfg.CreateMap<Angular2.Mvc.Core.Models.DTO.DtoCustomer,Angular2.Mvc.DAL.Models.DAO.Customer>();
                  //.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
                  cfg.CreateMap<Angular2.Mvc.Core.Models.ViewModel.VmCustomer, Angular2.Mvc.DAL.Models.DAO.Customer>();
