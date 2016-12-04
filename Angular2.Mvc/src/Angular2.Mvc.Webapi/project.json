@@ -14,8 +14,8 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "Angular2.Mvc.Core": "1.0.0-*",
     "Microsoft.AspNetCore.Cors": "1.0.0",
+    "Microsoft.Net.Http": "2.2.28",
     "Newtonsoft.Json": "9.0.1",
     "NLog.Extensions.Logging": "1.0.0-rtm-alpha4",
     "System.Data.SqlClient": "4.3.0-preview1-24530-04",
@@ -23,6 +23,7 @@
     "Angular2.Mvc.DAL": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
     "Microsoft.Extensions.Logging.Filter": "1.1.0-preview1-final",
+    "Angular2.Mvc.Core": "1.0.0-*",
     "Angular2.Mvc.Service": "1.0.0-*"
   },
 
@@ -33,6 +34,10 @@
   "frameworks": {
     "net452": {
       "dependencies": {
+        "System.Net.Http": "4.0.0",
+        "Microsoft.AspNet.WebApi.Core": "5.2.3",
+        "Microsoft.AspNet.WebApi.Client": "5.2.3",
+        "Swashbuckle.Core": "5.2.3",
         "Microsoft.AspNet.Identity.Core": "2.2.1"
       }
     },
@@ -40,7 +45,7 @@
       "imports": [
         "dotnet5.6",
         "dnxcore50",
-        "portable-net45+win8"
+        "portable-net45+win8",
       ],
       "dependencies": {
         "Microsoft.NETCore.App": {
