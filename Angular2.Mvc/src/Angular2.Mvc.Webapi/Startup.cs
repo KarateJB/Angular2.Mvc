@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,15 +38,22 @@ namespace Angular2.Mvc.Webapi
         {
 
             // Add framework services.
-           
+
             #region MVC
 
             //services.AddMvc();
-            services.AddMvc().AddJsonOptions(options =>
+            services.AddMvc(options =>
             {
-                options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
-                options.SerializerSettings.Formatting = Formatting.None; //or Formatting.Indented for readability;
-            });
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
+            })
+            .AddXmlSerializerFormatters()
+            .AddXmlDataContractSerializerFormatters()
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+                    options.SerializerSettings.Formatting = Formatting.None; //or Formatting.Indented for readability;
+                });
+
             #endregion
 
             #region CORS
@@ -54,7 +62,7 @@ namespace Angular2.Mvc.Webapi
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    builder => 
+                    builder =>
                      builder.WithOrigins("http://localhost:4240", "http://editor.swagger.io") //or builder.AllowAnyOrigin()
                     .WithMethods("HEAD", "GET", "POST", "PUT", "DELETE") //Or AllowAnyMethod()
                     );

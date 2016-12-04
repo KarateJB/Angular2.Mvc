@@ -85,7 +85,8 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
         }
   
         // GET api/values/5
-        [HttpGet("Get/{id}")]
+        [HttpGet("Get/{id}.{format?}")]
+        [FormatFilter]
         [CustomExceptionFilter]
         public DtoCustomer Get(int id)
         {
