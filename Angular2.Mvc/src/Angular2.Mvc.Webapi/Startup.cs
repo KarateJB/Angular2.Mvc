@@ -47,7 +47,6 @@ namespace Angular2.Mvc.Webapi
                 options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
             })
             .AddXmlSerializerFormatters()
-            .AddXmlDataContractSerializerFormatters()
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
