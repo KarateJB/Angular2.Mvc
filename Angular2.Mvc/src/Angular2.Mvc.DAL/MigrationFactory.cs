@@ -8,9 +8,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Angular2.Mvc.DAL
 {
-    /// <summary>
-    /// DbContext factory
-    /// </summary>
+
     public class MigrationFactory : IDbContextFactory<NgDbContext>
     {
         public NgDbContext Create()
