@@ -48,7 +48,7 @@ export class CustomerService implements ICrudService {
 
         for (let i = 0; i < this.customers.length; i++) {
             var cust = this.customers[i];
-            if (cust.Name.indexOf(keyword) > 0) {
+            if (cust.Name.indexOf(keyword) >= 0) {
                 rtn.push(cust);
             }
         }

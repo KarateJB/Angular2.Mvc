@@ -58,7 +58,7 @@ System.register(['@angular/core', '@angular/http', './resturi.service'], functio
                     var rtn = new Array();
                     for (var i = 0; i < this.customers.length; i++) {
                         var cust = this.customers[i];
-                        if (cust.Name.indexOf(keyword) > 0) {
+                        if (cust.Name.indexOf(keyword) >= 0) {
                             rtn.push(cust);
                         }
                     }

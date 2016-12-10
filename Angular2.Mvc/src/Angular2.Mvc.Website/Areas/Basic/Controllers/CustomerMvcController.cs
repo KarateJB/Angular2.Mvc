@@ -103,6 +103,10 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
         [HttpPost]
         public IActionResult Edit([FromForm]VmCustomer viewModel)
         {
+
+            base._logger.Debug($"Post edit! {viewModel.Name}({viewModel.Id})");
+
+
             ViewBag.Title = "Customer - Create";
 
             if (!ModelState.IsValid)
