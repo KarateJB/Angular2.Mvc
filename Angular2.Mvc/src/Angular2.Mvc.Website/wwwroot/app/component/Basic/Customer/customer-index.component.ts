@@ -1,4 +1,4 @@
-﻿import {Component,Pipe,PipeTransform, OnInit} from '@angular/core';
+﻿import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer} from '../../../class/Customer';
 import {SysEvent} from '../../../class/SysEvent';
@@ -11,7 +11,7 @@ declare var swal: any; //SweetAlert2 typings definition
 
 @Pipe({
     name: 'wrapEvent',
-    pure:true //Default is true
+    pure: true //Default is true
 })
 
 @Component({
@@ -46,6 +46,8 @@ export class CustomerIndexComponent implements OnInit {
                 //    console.log(data[i].Name);
                 //}
                 this.customers = data
+
+                this.blockUI.stop();
             }); //非同步 & delay for 2 sec
     }
 

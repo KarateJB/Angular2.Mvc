@@ -48,6 +48,7 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
                         //    console.log(data[i].Name);
                         //}
                         _this.customers = data;
+                        _this.blockUI.stop();
                     }); //非同步 & delay for 2 sec
                 };
                 //Search when [Enter] is keyup

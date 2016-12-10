@@ -13,21 +13,17 @@ export class BlockUIService {
         private componentFactoryResolver: ComponentFactoryResolver) { }
 
     public start() {
-        let elementRef: ElementRef = this.appRef['_rootComponents'][0].location;
 
-        return this.startInside(elementRef, null);
-    }
-
-    public startInside(elementRef: ElementRef, anchorName: string) {
-
+        //let rootRef: ElementRef = this.appRef['_rootComponents'][0].location;
         let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
         let factory = this.componentFactoryResolver.resolveComponentFactory(BlockUIComponent);
         this.blockUI = viewContainerRef.createComponent(factory);
     }
 
+
     public stop() {
         if (this.blockUI) {
-            this.blockUI = null;
+            this.blockUI.destroy();
         }
     }
 }

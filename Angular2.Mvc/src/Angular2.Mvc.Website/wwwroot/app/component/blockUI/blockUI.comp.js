@@ -20,15 +20,17 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         execute: function() {
             BlockUIComponent = (function () {
                 function BlockUIComponent() {
-                    this.state = {
-                        message: 'Please wait...'
-                    };
+                    this.state = { message: 'Loading...' };
                 }
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], BlockUIComponent.prototype, "blockuiMessageClass", void 0);
                 BlockUIComponent = __decorate([
                     core_1.Component({
                         selector: 'block-ui',
-                        styleUrls: ['/app/component/blockUI/blockUI.comp.css'],
-                        template: "<div class=\"in modal-backdrop blockui-overlay\"></div>\n     <div class=\"blockui-message-container\" aria-live=\"assertive\" aria-atomic=\"true\">\n        <div class=\"blockui-message\" [ngClass]=\"blockuiMessageClass\">{{ state.message }}</div>\n    </div>"
+                        template: "<div class=\"in modal-backdrop blockui-overlay\"></div>\n    <div class=\"blockui-message-container\">\n    <div class=\"blockui-message\" [ngClass]=\"blockuiMessageClass\">{{state.message}}</div>\n    </div>",
+                        styleUrls: ['/app/component/blockUI/blockUI.comp.css']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BlockUIComponent);

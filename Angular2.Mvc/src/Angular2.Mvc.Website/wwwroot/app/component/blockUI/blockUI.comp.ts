@@ -1,16 +1,23 @@
-﻿import {Component} from '@angular/core';
+﻿import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'block-ui',
-    styleUrls: ['/app/component/blockUI/blockUI.comp.css'],
-    template:
+    template: 
     `<div class="in modal-backdrop blockui-overlay"></div>
-     <div class="blockui-message-container" aria-live="assertive" aria-atomic="true">
-        <div class="blockui-message" [ngClass]="blockuiMessageClass">{{ state.message }}</div>
-    </div>`
+    <div class="blockui-message-container">
+    <div class="blockui-message" [ngClass]="blockuiMessageClass">{{state.message}}</div>
+    </div>`,
+    styleUrls: ['/app/component/blockUI/blockUI.comp.css']
 })
+
+
 export class BlockUIComponent {
-    state = {
-        message: 'Please wait...'
-    };
+    @Input() private blockuiMessageClass; 
+    private state: any;
+
+    constructor() {
+        this.state = {message: 'Loading...'};
+    }
+
+    
 }

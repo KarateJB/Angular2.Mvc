@@ -2,32 +2,52 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\customer\customer-create.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerMvc\customermvc.edit.comp.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerMvc\customermvc.list.comp.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerMvc\customermvc.route.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\customer\customer-edit.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Basic\Controllers\CustomerMvcController.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\basic\customer\customer-index.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Basic\Views\CustomerMvc\List.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\service\customer.service.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\service\customer.service.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.service\mapper\daofactory.cs</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.css</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.service.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Service\Mapper\DtoFactory.cs</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\directive\component-outlet.directive.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product.app.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\Customer\customer.app.module.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product-index.component.html</string>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product-index.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\systemjs.config.js</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\Basic\Product\product-music.component.html</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Basic\Views\Customer\Index.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Properties\launchSettings.json</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerDynamic\index.component.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerDynamic\index.main.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerDynamic\index.module.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerDynamic\list.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\Customer\customer-index.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Views\Shared\_Layout.cshtml</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

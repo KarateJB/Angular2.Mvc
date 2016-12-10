@@ -29,17 +29,14 @@ System.register(['@angular/core', './blockUI.comp'], function(exports_1, context
                     this.componentFactoryResolver = componentFactoryResolver;
                 }
                 BlockUIService.prototype.start = function () {
-                    var elementRef = this.appRef['_rootComponents'][0].location;
-                    return this.startInside(elementRef, null);
-                };
-                BlockUIService.prototype.startInside = function (elementRef, anchorName) {
+                    //let rootRef: ElementRef = this.appRef['_rootComponents'][0].location;
                     var viewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
                     var factory = this.componentFactoryResolver.resolveComponentFactory(blockUI_comp_1.BlockUIComponent);
                     this.blockUI = viewContainerRef.createComponent(factory);
                 };
                 BlockUIService.prototype.stop = function () {
                     if (this.blockUI) {
-                        this.blockUI = null;
+                        this.blockUI.destroy();
                     }
                 };
                 BlockUIService = __decorate([
