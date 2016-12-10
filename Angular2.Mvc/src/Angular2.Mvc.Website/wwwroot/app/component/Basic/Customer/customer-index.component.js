@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../../../service/customer.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../../../service/customer.service', '../../../service/resturi.service', '../../blockUI/blockUI.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, customer_service_1, resturi_service_1;
+    var core_1, router_1, customer_service_1, resturi_service_1, blockUI_service_1;
     var CustomerIndexComponent;
     return {
         setters:[
@@ -25,15 +25,20 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
+            },
+            function (blockUI_service_1_1) {
+                blockUI_service_1 = blockUI_service_1_1;
             }],
         execute: function() {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent(router, custService) {
+                function CustomerIndexComponent(router, blockUI, custService) {
                     this.router = router;
+                    this.blockUI = blockUI;
                     this.custService = custService;
                     this.title = "Customers";
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
+                    this.blockUI.start();
                     this.initCustomers();
                 };
                 CustomerIndexComponent.prototype.initCustomers = function () {
@@ -105,12 +110,12 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
                     }),
                     core_1.Component({
                         selector: 'customer-index',
-                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
+                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService, blockUI_service_1.BlockUIService],
                         //providers: [ROUTER_PROVIDERS, CustomerService],
                         templateUrl: '/app/component/Basic/Customer/customer-index.component.html',
                         styleUrls: ['/app/component/Basic/Customer/customer-index.component.css']
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router, customer_service_1.CustomerService])
+                    __metadata('design:paramtypes', [router_1.Router, blockUI_service_1.BlockUIService, customer_service_1.CustomerService])
                 ], CustomerIndexComponent);
                 return CustomerIndexComponent;
             }());

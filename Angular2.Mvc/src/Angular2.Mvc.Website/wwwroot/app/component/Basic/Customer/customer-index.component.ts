@@ -4,6 +4,8 @@ import {Customer} from '../../../class/Customer';
 import {SysEvent} from '../../../class/SysEvent';
 import {CustomerService} from '../../../service/customer.service';
 import {RestUriService} from '../../../service/resturi.service';
+import { BlockUIService } from '../../blockUI/blockUI.service';
+
 
 declare var swal: any; //SweetAlert2 typings definition
 
@@ -14,7 +16,7 @@ declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'customer-index',
-    providers: [CustomerService, RestUriService],
+    providers: [CustomerService, RestUriService, BlockUIService],
     //providers: [ROUTER_PROVIDERS, CustomerService],
     templateUrl: '/app/component/Basic/Customer/customer-index.component.html',
     styleUrls: ['/app/component/Basic/Customer/customer-index.component.css']
@@ -27,11 +29,13 @@ export class CustomerIndexComponent implements OnInit {
     selectedCustomer: Customer;
     constructor(
         private router: Router,
+        private blockUI: BlockUIService,
         private custService: CustomerService) {
         this.title = "Customers";
     }
 
     ngOnInit() {
+        this.blockUI.start();
         this.initCustomers();
     }
 

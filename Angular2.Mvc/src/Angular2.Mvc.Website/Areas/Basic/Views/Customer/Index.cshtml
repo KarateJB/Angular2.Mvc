@@ -14,13 +14,15 @@
     <script>
         System.config({
             map: {
-                app: 'app/component/Basic/Customer'
+                app: 'app/component/Basic/Customer',
+                blockui: 'app/component/blockUI'
             },
             packages: {
-                app: {main:'customer.main.js',defaultExtension: 'js'}
+                app: { main: 'customer.main.js', defaultExtension: 'js' },
+                blockui: { main: 'blockUI.comp.js', defaultExtension: 'js' }
             }
         });
-        System.import('app/customer.main').then(null, console.error.bind(console));
+        System.import('app/customer.main','blockui/blockUI.comp').then(null, console.error.bind(console));
     </script>
 }
 

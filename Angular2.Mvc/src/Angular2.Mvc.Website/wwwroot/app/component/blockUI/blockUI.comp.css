@@ -1,0 +1,27 @@
+﻿.blockui-overlay {
+  background-color: white;
+  cursor: wait;
+}
+
+.blockui-message-container {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 0;
+  text-align: center;
+  z-index: 10001;
+  cursor: wait;
+}
+
+.blockui-message {
+  display: inline-block;
+  text-align: left;
+  background-color: #333;
+  color: #f5f5f5;
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  filter: alpha(opacity=100);
+}
