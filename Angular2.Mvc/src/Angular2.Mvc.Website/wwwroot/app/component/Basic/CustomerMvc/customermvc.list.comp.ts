@@ -22,7 +22,6 @@ export class CustomerMvcListComp implements OnInit {
         private router: Router,
         private elementRef: ElementRef,
         private custService: CustomerService) {
-        JL("Angular2").debug("Come to list page!");
     }
 
 

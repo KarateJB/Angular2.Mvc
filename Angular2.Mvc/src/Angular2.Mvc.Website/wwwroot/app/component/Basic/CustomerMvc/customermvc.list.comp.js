@@ -32,7 +32,6 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
                     this.router = router;
                     this.elementRef = elementRef;
                     this.custService = custService;
-                    JL("Angular2").debug("Come to list page!");
                 }
                 CustomerMvcListComp.prototype.ngOnInit = function () {
                     //Add event listner to dom

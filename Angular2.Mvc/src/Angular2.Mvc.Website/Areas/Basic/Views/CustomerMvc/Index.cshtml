@@ -2,8 +2,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{ 
+    string err = string.Empty;
+    if (TempData["Error"] != null)
+    {
+        err = TempData["Error"].ToString();
+    }
 
-<customermvc-app>
+}
+
+
+<customermvc-app error="@err">
     <div>
         <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
     </div>

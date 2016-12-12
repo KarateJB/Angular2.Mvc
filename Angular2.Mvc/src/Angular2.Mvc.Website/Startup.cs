@@ -32,6 +32,13 @@ namespace Angular2.Mvc.Website
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Adds a default in-memory implementation of IDistributedCache
+            services.AddDistributedMemoryCache();
+            services.AddSession(o =>
+            {
+                o.IdleTimeout = TimeSpan.FromSeconds(10);
+            });
+
             services.AddMvc();
         }
 
@@ -73,6 +80,11 @@ namespace Angular2.Mvc.Website
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            #region Enable session
+            app.UseSession();
+            #endregion
+
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();

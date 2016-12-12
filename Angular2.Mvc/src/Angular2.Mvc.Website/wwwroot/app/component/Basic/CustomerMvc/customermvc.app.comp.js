@@ -19,16 +19,23 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             CustomerMvcAppComp = (function () {
-                function CustomerMvcAppComp() {
+                function CustomerMvcAppComp(elementRef) {
+                    this.elementRef = elementRef;
                 }
                 CustomerMvcAppComp.prototype.ngOnInit = function () {
+                    this._error = this.elementRef.nativeElement.getAttribute('error');
+                    if (this._error) {
+                        var err = this._error;
+                        swal('Error', err, 'error').then(function () {
+                        });
+                    }
                 };
                 CustomerMvcAppComp = __decorate([
                     core_1.Component({
                         selector: 'customermvc-app',
                         template: '<router-outlet></router-outlet>'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [core_1.ElementRef])
                 ], CustomerMvcAppComp);
                 return CustomerMvcAppComp;
             }());

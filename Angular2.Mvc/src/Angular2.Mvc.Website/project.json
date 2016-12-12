@@ -31,7 +31,8 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "Angular2.Mvc.DAL": "1.0.0-*",
     "Angular2.Mvc.Core": "1.0.0-*",
-    "Angular2.Mvc.Service": "1.0.0-*"
+    "Angular2.Mvc.Service": "1.0.0-*",
+    "Microsoft.AspNetCore.Session": "1.1.0"
   },
 
   "tools": {
