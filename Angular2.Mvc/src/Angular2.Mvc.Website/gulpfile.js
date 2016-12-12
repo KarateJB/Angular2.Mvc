@@ -120,6 +120,20 @@ gulp.task('copy-traceur', function () {
     }).pipe(gulp.dest(root_path.package_lib + '/traceur/'));
 });
 
+//font-awesome
+gulp.task('copy-fa-css', function () {
+    return gulp.src(root_path.nmSrc + "/font-awesome/fonts/*", {
+        base: root_path.nmSrc + '/font-awesome/fonts/'
+    }).pipe(gulp.dest(root_path.package_lib + '/font-awesome/fonts/'));
+});
+
+gulp.task('copy-fa-fonts', function () {
+    return gulp.src(root_path.nmSrc + "/font-awesome/css/font-awesome.min.css", {
+        base: root_path.nmSrc + '/font-awesome/css/'
+    }).pipe(gulp.dest(root_path.package_lib + '/font-awesome/css/'));
+});
+
+
 gulp.task("copy-all", [
     "copy-rxjs",
     "copy-reflect-metadata",
@@ -138,5 +152,7 @@ gulp.task("copy-all", [
     "copy-jsnlog",
     "copy-angularfire2",
     "copy-firebase",
-    "copy-traceur"
+    "copy-traceur",
+    "copy-fa-css",
+    "copy-fa-fonts"
 ])

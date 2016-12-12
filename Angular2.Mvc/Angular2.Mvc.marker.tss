@@ -2,7 +2,7 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
-      <string>src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.css</string>
+      <string>src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.comp.css</string>
       <string>src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.service.ts</string>
       <string>src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.comp.ts</string>
     </extensions>

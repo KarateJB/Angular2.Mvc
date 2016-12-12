@@ -5,7 +5,9 @@
     template: 
     `<div class="in modal-backdrop blockui-overlay"></div>
     <div class="blockui-message-container">
-    <div class="blockui-message" [ngClass]="blockuiMessageClass">{{state.message}}</div>
+    <div class="blockui-message" [ngClass]="blockuiMessageClass">
+      {{state.message}} <i class="fa fa-cog fa-spin"></i>
+    </div>
     </div>`,
     styleUrls: ['/app/component/blockUI/blockUI.comp.css']
 })

@@ -29,7 +29,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 BlockUIComponent = __decorate([
                     core_1.Component({
                         selector: 'block-ui',
-                        template: "<div class=\"in modal-backdrop blockui-overlay\"></div>\n    <div class=\"blockui-message-container\">\n    <div class=\"blockui-message\" [ngClass]=\"blockuiMessageClass\">{{state.message}}</div>\n    </div>",
+                        template: "<div class=\"in modal-backdrop blockui-overlay\"></div>\n    <div class=\"blockui-message-container\">\n    <div class=\"blockui-message\" [ngClass]=\"blockuiMessageClass\">\n      {{state.message}} <i class=\"fa fa-cog fa-spin\"></i>\n    </div>\n    </div>",
                         styleUrls: ['/app/component/blockUI/blockUI.comp.css']
                     }), 
                     __metadata('design:paramtypes', [])
