@@ -9,7 +9,6 @@ export class BlockUIService {
 
     constructor(
         private appRef: ApplicationRef,
-        //private vcRef: ViewContainerRef,
         private componentFactoryResolver: ComponentFactoryResolver) { }
 
     public start() {

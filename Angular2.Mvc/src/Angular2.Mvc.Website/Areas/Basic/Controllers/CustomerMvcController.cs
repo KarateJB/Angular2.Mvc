@@ -34,6 +34,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
         [Route("[action]")]
         public IActionResult List()
         {
+            ViewBag.Description = "This page is render from MVC view!";
             var viewModel = new List<VmCustomer>();
 
             using (var custService = new CustomerService(DbContextFactory.Create()))

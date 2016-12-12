@@ -28,26 +28,33 @@
         {
             foreach (var item in Model)
             {
-            <tr>
-                <td class="col-sm-2">
-                    @(new Microsoft.AspNetCore.Html.HtmlString(item.Name))
-                </td>
-                <td class="col-sm-2">
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td class="col-sm-1">
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td class="col-sm-2">
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td class="col-sm-2">
-                    <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(@item.Id)" />
-                    &nbsp;
-                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(@item.Id)" />
-                </td>
-            </tr>
+                <tr>
+                    <td class="col-sm-2">
+                        @(new Microsoft.AspNetCore.Html.HtmlString(item.Name))
+                    </td>
+                    <td class="col-sm-2">
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td class="col-sm-1">
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td class="col-sm-2">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="col-sm-2">
+                        <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(@item.Id)" />
+                        &nbsp;
+                        <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(@item.Id)" />
+                    </td>
+                </tr>
             }
         }
     </tbody>
 </table>
+
+<div class="alert alert-info" role="alert">
+    @{
+        var title = "Hi, " + ViewBag.Description;
+    }
+    @title
+</div>

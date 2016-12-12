@@ -22,9 +22,7 @@ System.register(['@angular/core', './blockUI.comp'], function(exports_1, context
             }],
         execute: function() {
             BlockUIService = (function () {
-                function BlockUIService(appRef, 
-                    //private vcRef: ViewContainerRef,
-                    componentFactoryResolver) {
+                function BlockUIService(appRef, componentFactoryResolver) {
                     this.appRef = appRef;
                     this.componentFactoryResolver = componentFactoryResolver;
                 }
