@@ -66,7 +66,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
 
             if (!ModelState.IsValid)
             {
-                //Model validation fail
                 TempData["Error"] = "Model validation fail";
                 return RedirectToAction("Index", controllerName: "CustomerMvc");
             }
@@ -114,7 +113,8 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers {
 
             if (!ModelState.IsValid)
             {
-                return View(viewModel);
+                TempData["Error"] = "Model validation fail";
+                return RedirectToAction("Index", controllerName: "CustomerMvc");
             }
 
             using (var custService = new CustomerService(DbContextFactory.Create()))
