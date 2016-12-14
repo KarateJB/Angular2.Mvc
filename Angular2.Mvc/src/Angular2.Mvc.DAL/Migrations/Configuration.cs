@@ -15,7 +15,7 @@ namespace Angular2.Mvc.DAL.Migrations
     public class Configuration
     {
         //Connection string for code first
-        public static string DEFAULT_CONNECT_STR = "Server=.;Database=JB;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public static string DEFAULT_CONNECT_STR = "Server=.;Database=Demo;Trusted_Connection=True;MultipleActiveResultSets=true";
 
         public void Seed()
         {
