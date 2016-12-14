@@ -16,13 +16,18 @@ import {ProductBooksComponent} from './product-books.component';
 import {ProductToysComponent} from './product-toys.component';
 import {ProductMusicComponent} from './product-music.component';
 
+
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from '../../../service/counter.action';
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         ProductRoutes,
-        AngularFireModule.initializeApp(FirebaseConfig.Get())
+        AngularFireModule.initializeApp(FirebaseConfig.Get()),
+        StoreModule.provideStore({ counter: counterReducer })
     ],
     declarations: [
         ProductAppComponent,

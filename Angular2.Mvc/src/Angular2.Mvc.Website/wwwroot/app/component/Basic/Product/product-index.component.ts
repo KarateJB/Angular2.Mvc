@@ -1,8 +1,17 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import { INCREMENT, DECREMENT, RESET } from '../../../service/counter.action';
 
 declare var swal: any; //SweetAlert2 typings definition
+
+
+interface AppState {
+    counter: number;
+}
+
 
 @Component({
     selector: 'product-index',
@@ -12,14 +21,23 @@ declare var swal: any; //SweetAlert2 typings definition
 })
 
 export class ProductIndexComponent implements OnInit {
-    title: string;
+    private title: string;
+    private counter: Observable<number>;
+
     constructor(
-        private router: Router
+        private router: Router,
+        private store: Store<AppState>
     ) {
         this.title = "Products";
+        this.counter = store.select("counter");
     }
 
     ngOnInit() {
+        this.increment();
+    }
+
+    private increment() {
+        this.store.dispatch({ type: INCREMENT });
 
     }
 

@@ -123,11 +123,11 @@ gulp.task('copy-traceur', function () {
 //ngrx
 gulp.task('copy-ngrx-core', function () {
     return gulp.src(root_path.nmSrc + "/@ngrx/core/bundles/core.min.umd.js")
-        .pipe(gulp.dest(root_path.package_lib + '/ngrx/'));
+        .pipe(gulp.dest(root_path.package_lib + '/ngrx/core/'));
 });
 gulp.task('copy-ngrx-store', function () {
     return gulp.src(root_path.nmSrc + "/@ngrx/store/bundles/store.min.umd.js")
-        .pipe(gulp.dest(root_path.package_lib + '/ngrx/'));
+        .pipe(gulp.dest(root_path.package_lib + '/ngrx/store/'));
 });
 
 //font-awesome
