@@ -120,6 +120,16 @@ gulp.task('copy-traceur', function () {
     }).pipe(gulp.dest(root_path.package_lib + '/traceur/'));
 });
 
+//ngrx
+gulp.task('copy-ngrx-core', function () {
+    return gulp.src(root_path.nmSrc + "/@ngrx/core/bundles/core.min.umd.js")
+        .pipe(gulp.dest(root_path.package_lib + '/ngrx/'));
+});
+gulp.task('copy-ngrx-store', function () {
+    return gulp.src(root_path.nmSrc + "/@ngrx/store/bundles/store.min.umd.js")
+        .pipe(gulp.dest(root_path.package_lib + '/ngrx/'));
+});
+
 //font-awesome
 gulp.task('copy-fa-css', function () {
     return gulp.src(root_path.nmSrc + "/font-awesome/fonts/*", {
@@ -154,5 +164,7 @@ gulp.task("copy-all", [
     "copy-firebase",
     "copy-traceur",
     "copy-fa-css",
-    "copy-fa-fonts"
+    "copy-fa-fonts",
+    "copy-ngrx-core",
+    "copy-ngrx-store",
 ])
