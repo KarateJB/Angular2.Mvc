@@ -40,8 +40,9 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
                     //Get route parameter
                     this.route.params.subscribe(function (params) {
                         var custIdValue = params['id'];
+                        var centerValue = params['center'];
+                        JL("Angular").debug('Center = ' + centerValue);
                         var custId = +custIdValue; //Equales to parseInt
-                        console.log("query id = " + +custIdValue);
                         _this.custService.get(custId).then(function (cust) {
                             _this.id = cust.Id;
                             _this.name = cust.Name;

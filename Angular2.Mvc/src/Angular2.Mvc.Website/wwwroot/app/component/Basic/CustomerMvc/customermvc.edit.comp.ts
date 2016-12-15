@@ -37,8 +37,10 @@ export class CustomerMvcEditComp implements OnInit {
         //Get route parameter
         this.route.params.subscribe(params => {
             let custIdValue = params['id'];
+            //let centerValue = params['center'];
+            //JL("Angular").debug('Center = ' + centerValue);
+
             let custId = +custIdValue; //Equales to parseInt
-            console.log("query id = " + +custIdValue);
 
             this.custService.get(custId).then(cust => {
                 this.id = cust.Id;

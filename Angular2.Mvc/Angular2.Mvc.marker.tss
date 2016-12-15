@@ -14,4 +14,11 @@
     </extensions>
     <highlightIndex>4</highlightIndex>
   </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerMvc\customermvc.list.comp.ts</string>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\component\Basic\CustomerMvc\customermvc.edit.comp.ts</string>
+    </extensions>
+    <highlightIndex>2</highlightIndex>
+  </TabHighlightState>
 </ArrayOfTabHighlightState>

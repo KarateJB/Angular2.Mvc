@@ -27,6 +27,7 @@ export class CustomerEditComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             let custIdValue = params['id'];
+            
             let custId = +custIdValue; //Equales to parseInt
             console.log("query id = " + +custIdValue);
 

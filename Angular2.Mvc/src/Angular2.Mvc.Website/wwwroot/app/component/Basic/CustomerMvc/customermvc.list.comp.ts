@@ -48,7 +48,7 @@ export class CustomerMvcListComp implements OnInit {
     //Get to edit page
     private editCustomer(id: number) {
         this.router.navigate(['Basic/CustomerMvc/Edit', id]);
-        //this.router.navigate(['Basic/CustomerMvc/Edit', { 'id': id }]); //Use for more url parameter
+        //this.router.navigate(['Basic/CustomerMvc/Edit', id, { 'center': 'taiwan'  }]); //Use for more url parameter
     }
 
     //Remove customer
