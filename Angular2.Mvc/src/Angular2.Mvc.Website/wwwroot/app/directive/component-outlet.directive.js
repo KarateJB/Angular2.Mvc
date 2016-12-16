@@ -1,6 +1,5 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(["@angular/core"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,14 +9,15 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var ComponentOutlet;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, ComponentOutlet;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ComponentOutlet = (function () {
                 function ComponentOutlet(vcRef, resolver) {
                     this.vcRef = vcRef;
@@ -49,20 +49,21 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         this.componentRef = null;
                     }
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], ComponentOutlet.prototype, "selector", void 0);
-                ComponentOutlet = __decorate([
-                    core_1.Directive({
-                        selector: '[component-outlet]'
-                    }), 
-                    __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.ComponentFactoryResolver])
-                ], ComponentOutlet);
                 return ComponentOutlet;
             }());
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", String)
+            ], ComponentOutlet.prototype, "selector", void 0);
+            ComponentOutlet = __decorate([
+                core_1.Directive({
+                    selector: '[component-outlet]'
+                }),
+                __metadata("design:paramtypes", [core_1.ViewContainerRef,
+                    core_1.ComponentFactoryResolver])
+            ], ComponentOutlet);
             exports_1("ComponentOutlet", ComponentOutlet);
         }
-    }
+    };
 });
 //# sourceMappingURL=component-outlet.directive.js.map

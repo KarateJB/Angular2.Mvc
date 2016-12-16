@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', './product.service', '../../../class/Product', '../../../enum/ProductTypeEnum'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service", "../../../class/Product", "../../../enum/ProductTypeEnum"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, product_service_1, Product_1, ProductTypeEnum_1;
-    var ProductCreateComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, product_service_1, Product_1, ProductTypeEnum_1, ProductCreateComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -28,8 +27,9 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
             },
             function (ProductTypeEnum_1_1) {
                 ProductTypeEnum_1 = ProductTypeEnum_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ProductCreateComponent = (function () {
                 function ProductCreateComponent(router, prodService) {
                     this.router = router;
@@ -44,8 +44,6 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                 //Change Selected Product type callback
                 ProductCreateComponent.prototype.changeSelectedType = function (event) {
                     console.log(event); //Show the selected option 
-                    console.log(ProductTypeEnum_1.ProductTypeEnum.Book);
-                    console.log(ProductTypeEnum_1.ProductTypeEnum.Music);
                     switch (event.id) {
                         case ProductTypeEnum_1.ProductTypeEnum.Book.toString():
                             this.prodHint = "Enter a book's title..";
@@ -78,19 +76,19 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                 ProductCreateComponent.prototype.backToList = function () {
                     this.router.navigate(['Basic/Product/Index']);
                 };
-                ProductCreateComponent = __decorate([
-                    //SweetAlert2 typings definition
-                    core_1.Component({
-                        selector: 'product-create',
-                        providers: [product_service_1.ProductService],
-                        templateUrl: '/app/component/Basic/Product/product-create.component.html'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, product_service_1.ProductService])
-                ], ProductCreateComponent);
                 return ProductCreateComponent;
             }());
+            ProductCreateComponent = __decorate([
+                core_1.Component({
+                    selector: 'product-create',
+                    providers: [product_service_1.ProductService],
+                    templateUrl: '/app/component/Basic/Product/product-create.component.html'
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    product_service_1.ProductService])
+            ], ProductCreateComponent);
             exports_1("ProductCreateComponent", ProductCreateComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=product-create.component.js.map

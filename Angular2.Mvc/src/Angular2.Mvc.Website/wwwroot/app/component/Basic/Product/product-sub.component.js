@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,17 +9,18 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var ProductSubComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, ProductSubComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ProductSubComponent = (function () {
                 function ProductSubComponent(router) {
                     this.router = router;
@@ -37,23 +37,23 @@ System.register(['@angular/core', '@angular/router'], function(exports_1, contex
                     JL("Angular2").debug("Go to music!");
                     this.router.navigate(['Basic/Product/Sub', 'Music']);
                 };
-                ProductSubComponent = __decorate([
-                    core_1.Component({
-                        selector: 'product-sub',
-                        providers: [],
-                        template: '<div class="btn-group" role= "group" aria-label="Basic example">' +
-                            '<button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>' +
-                            '<button type="button" class="btn btn-secondary" (click)="goToToys()">Toys</button>' +
-                            '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>' +
-                            '</div>' +
-                            '<router-outlet></router-outlet>'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router])
-                ], ProductSubComponent);
                 return ProductSubComponent;
             }());
+            ProductSubComponent = __decorate([
+                core_1.Component({
+                    selector: 'product-sub',
+                    providers: [],
+                    template: '<div class="btn-group" role= "group" aria-label="Basic example">' +
+                        '<button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>' +
+                        '<button type="button" class="btn btn-secondary" (click)="goToToys()">Toys</button>' +
+                        '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>' +
+                        '</div>' +
+                        '<router-outlet></router-outlet>'
+                }),
+                __metadata("design:paramtypes", [router_1.Router])
+            ], ProductSubComponent);
             exports_1("ProductSubComponent", ProductSubComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=product-sub.component.js.map

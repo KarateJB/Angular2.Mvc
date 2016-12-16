@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', './product.service', '../../../class/Product'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service", "../../../class/Product"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, product_service_1, Product_1;
-    var ProductEditComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, product_service_1, Product_1, ProductEditComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -25,8 +24,9 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
             },
             function (Product_1_1) {
                 Product_1 = Product_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ProductEditComponent = (function () {
                 function ProductEditComponent(router, route, prodService) {
                     this.router = router;
@@ -66,19 +66,20 @@ System.register(['@angular/core', '@angular/router', './product.service', '../..
                 ProductEditComponent.prototype.backToList = function () {
                     this.router.navigate(['Basic/Product/Index']);
                 };
-                ProductEditComponent = __decorate([
-                    //SweetAlert2 typings definition
-                    core_1.Component({
-                        selector: 'product-edit',
-                        providers: [product_service_1.ProductService],
-                        templateUrl: '/app/component/Basic/Product/product-edit.component.html'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, product_service_1.ProductService])
-                ], ProductEditComponent);
                 return ProductEditComponent;
             }());
+            ProductEditComponent = __decorate([
+                core_1.Component({
+                    selector: 'product-edit',
+                    providers: [product_service_1.ProductService],
+                    templateUrl: '/app/component/Basic/Product/product-edit.component.html'
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    router_1.ActivatedRoute,
+                    product_service_1.ProductService])
+            ], ProductEditComponent);
             exports_1("ProductEditComponent", ProductEditComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=product-edit.component.js.map

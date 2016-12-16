@@ -11,7 +11,7 @@ import { ProductTypeEnum } from '../../../enum/ProductTypeEnum';
 
 @Injectable()
 export class ProductService {
-
+    6
     private httpOptions: RequestOptions;
     constructor(
         //@Inject(FirebaseApp) private firebaseApp: any,

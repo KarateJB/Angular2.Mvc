@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', '../../../class/Customer', '../../../service/customer.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../../../class/Customer", "../../../service/customer.service", "../../../service/resturi.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_1, customer_service_1, resturi_service_1;
-    var CustomerCreateComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, Customer_1, customer_service_1, resturi_service_1, CustomerCreateComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -28,8 +27,9 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerCreateComponent = (function () {
                 function CustomerCreateComponent(router, custService) {
                     this.router = router;
@@ -55,23 +55,24 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
                 CustomerCreateComponent.prototype.backToList = function () {
                     this.router.navigate(['Basic/Customer/Index']);
                 };
-                CustomerCreateComponent = __decorate([
-                    core_1.Pipe({
-                        name: 'sanitizeHtml',
-                        pure: true //Default is true
-                    }),
-                    core_1.Component({
-                        selector: 'customer-create',
-                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
-                        templateUrl: '/app/component/Basic/Customer/customer-create.component.html',
-                        styleUrls: ['/app/component/Basic/Customer/customer-create.component.css']
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, customer_service_1.CustomerService])
-                ], CustomerCreateComponent);
                 return CustomerCreateComponent;
             }());
+            CustomerCreateComponent = __decorate([
+                core_1.Pipe({
+                    name: 'sanitizeHtml',
+                    pure: true //Default is true
+                }),
+                core_1.Component({
+                    selector: 'customer-create',
+                    providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
+                    templateUrl: '/app/component/Basic/Customer/customer-create.component.html',
+                    styleUrls: ['/app/component/Basic/Customer/customer-create.component.css']
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    customer_service_1.CustomerService])
+            ], CustomerCreateComponent);
             exports_1("CustomerCreateComponent", CustomerCreateComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=customer-create.component.js.map

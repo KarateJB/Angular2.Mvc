@@ -1,6 +1,5 @@
-System.register(['@angular/core', './customermvc.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "./customermvc.service", "../../../service/resturi.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, customermvc_service_1, resturi_service_1;
-    var CustomerMvcCreateComp;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, customermvc_service_1, resturi_service_1, CustomerMvcCreateComp;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,8 +21,9 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerMvcCreateComp = (function () {
                 function CustomerMvcCreateComp(
                     //@Inject(ElementRef) _elementRef: ElementRef,
@@ -52,19 +52,20 @@ System.register(['@angular/core', './customermvc.service', '../../../service/res
                 CustomerMvcCreateComp.prototype.submit = function () {
                     document.getElementById("CreateForm").submit();
                 };
-                CustomerMvcCreateComp = __decorate([
-                    core_1.Component({
-                        selector: 'customermvc-create',
-                        providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
-                        //templateUrl: '/app/component/Basic/CustomerMvc/create.component.html'
-                        templateUrl: '/Basic/CustomerMvc/Create'
-                    }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, customermvc_service_1.CustomerMvcService])
-                ], CustomerMvcCreateComp);
                 return CustomerMvcCreateComp;
             }());
+            CustomerMvcCreateComp = __decorate([
+                core_1.Component({
+                    selector: 'customermvc-create',
+                    providers: [customermvc_service_1.CustomerMvcService, resturi_service_1.RestUriService],
+                    //templateUrl: '/app/component/Basic/CustomerMvc/create.component.html'
+                    templateUrl: '/Basic/CustomerMvc/Create'
+                }),
+                __metadata("design:paramtypes", [core_1.ElementRef,
+                    customermvc_service_1.CustomerMvcService])
+            ], CustomerMvcCreateComp);
             exports_1("CustomerMvcCreateComp", CustomerMvcCreateComp);
         }
-    }
+    };
 });
 //# sourceMappingURL=customermvc.create.comp.js.map

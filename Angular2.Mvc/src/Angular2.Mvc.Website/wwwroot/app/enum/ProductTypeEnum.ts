@@ -4,6 +4,3 @@
     Music
 }
 
-//Usage
-//let a = ProductTypeEnum.Book;
-//let name = ProductTypeEnum[ProductTypeEnum.Book]; // "Book"

@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var EnumEx;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             //Enum extensions (Reference: http://stackoverflow.com/a/21294925/7045253)
             EnumEx = (function () {
                 function EnumEx() {
@@ -25,6 +25,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("EnumEx", EnumEx);
         }
-    }
+    };
 });
 //# sourceMappingURL=EnumEx.js.map

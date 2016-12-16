@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', '../../../class/Customer', '../../../service/customer.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../../../class/Customer", "../../../service/customer.service", "../../../service/resturi.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Customer_1, customer_service_1, resturi_service_1;
-    var CustomerEditComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, Customer_1, customer_service_1, resturi_service_1, CustomerEditComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -28,8 +27,9 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerEditComponent = (function () {
                 function CustomerEditComponent(router, route, custService) {
                     this.router = router;
@@ -62,19 +62,21 @@ System.register(['@angular/core', '@angular/router', '../../../class/Customer', 
                 CustomerEditComponent.prototype.backToList = function () {
                     this.router.navigate(['Basic/Customer/Index']);
                 };
-                CustomerEditComponent = __decorate([
-                    core_1.Component({
-                        selector: 'customer-edit',
-                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
-                        templateUrl: '/app/component/Basic/Customer/customer-edit.component.html',
-                        styleUrls: ['/app/component/Basic/Customer/customer-edit.component.css']
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, customer_service_1.CustomerService])
-                ], CustomerEditComponent);
                 return CustomerEditComponent;
             }());
+            CustomerEditComponent = __decorate([
+                core_1.Component({
+                    selector: 'customer-edit',
+                    providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
+                    templateUrl: '/app/component/Basic/Customer/customer-edit.component.html',
+                    styleUrls: ['/app/component/Basic/Customer/customer-edit.component.css']
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    router_1.ActivatedRoute,
+                    customer_service_1.CustomerService])
+            ], CustomerEditComponent);
             exports_1("CustomerEditComponent", CustomerEditComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=customer-edit.component.js.map

@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var FirebaseConfig;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             (function (FirebaseConfig) {
                 var config;
                 function Get() {
@@ -18,9 +18,9 @@ System.register([], function(exports_1, context_1) {
                     return config;
                 }
                 FirebaseConfig.Get = Get;
-            })(FirebaseConfig = FirebaseConfig || (FirebaseConfig = {}));
+            })(FirebaseConfig || (FirebaseConfig = {}));
             exports_1("FirebaseConfig", FirebaseConfig);
         }
-    }
+    };
 });
 //# sourceMappingURL=FirebaseConfig.js.map

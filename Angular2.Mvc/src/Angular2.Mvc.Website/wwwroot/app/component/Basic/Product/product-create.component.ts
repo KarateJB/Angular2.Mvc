@@ -1,10 +1,11 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
+/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProductService} from './product.service';
 import {Product} from '../../../class/Product';
 import {ProductType} from '../../../class/ProductType';
-import {ProductTypeEnum} from '../../../enum/ProductTypeEnum';
+import { ProductTypeEnum } from '../../../enum/ProductTypeEnum';
 
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -39,8 +40,6 @@ export class ProductCreateComponent implements OnInit {
     private changeSelectedType(event: any) {
 
         console.log(event); //Show the selected option 
-        console.log(ProductTypeEnum.Book);
-        console.log(ProductTypeEnum.Music);
 
         switch (event.id)
         {

@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var INCREMENT, DECREMENT, RESET, counterReducer;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             exports_1("INCREMENT", INCREMENT = 'INCREMENT');
             exports_1("DECREMENT", DECREMENT = 'DECREMENT');
             exports_1("RESET", RESET = 'RESET');
@@ -22,6 +22,6 @@ System.register([], function(exports_1, context_1) {
                 }
             });
         }
-    }
+    };
 });
 //# sourceMappingURL=counter.action.js.map

@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var Customer;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             Customer = (function () {
                 function Customer() {
                 }
@@ -12,6 +12,6 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("Customer", Customer);
         }
-    }
+    };
 });
 //# sourceMappingURL=Customer.js.map

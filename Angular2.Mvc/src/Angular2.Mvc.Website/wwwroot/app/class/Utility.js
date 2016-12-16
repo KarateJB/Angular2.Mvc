@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var Utility;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             (function (Utility) {
                 //取得UUID
                 function generateUUID() {
@@ -20,9 +20,9 @@ System.register([], function(exports_1, context_1) {
                     return uuid;
                 }
                 Utility.generateUUID = generateUUID;
-            })(Utility = Utility || (Utility = {}));
+            })(Utility || (Utility = {}));
             exports_1("Utility", Utility);
         }
-    }
+    };
 });
 //# sourceMappingURL=Utility.js.map

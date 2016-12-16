@@ -1,10 +1,9 @@
-System.register(['./customermvc.list.comp', './customermvc.create.comp', './customermvc.edit.comp', '@angular/router'], function(exports_1, context_1) {
+System.register(["./customermvc.list.comp", "./customermvc.create.comp", "./customermvc.edit.comp", "@angular/router"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var customermvc_list_comp_1, customermvc_create_comp_1, customermvc_edit_comp_1, router_1;
-    var appRoutes, appRoutingProviders, CustomerMvcRoutes;
+    var customermvc_list_comp_1, customermvc_create_comp_1, customermvc_edit_comp_1, router_1, appRoutes, appRoutingProviders, CustomerMvcRoutes;
     return {
-        setters:[
+        setters: [
             function (customermvc_list_comp_1_1) {
                 customermvc_list_comp_1 = customermvc_list_comp_1_1;
             },
@@ -16,8 +15,9 @@ System.register(['./customermvc.list.comp', './customermvc.create.comp', './cust
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             appRoutes = [
                 { path: 'Basic/CustomerMvc/Index', component: customermvc_list_comp_1.CustomerMvcListComp },
                 { path: 'Basic/CustomerMvc/Create', component: customermvc_create_comp_1.CustomerMvcCreateComp },
@@ -27,6 +27,6 @@ System.register(['./customermvc.list.comp', './customermvc.create.comp', './cust
             exports_1("appRoutingProviders", appRoutingProviders = []);
             exports_1("CustomerMvcRoutes", CustomerMvcRoutes = router_1.RouterModule.forRoot(appRoutes));
         }
-    }
+    };
 });
 //# sourceMappingURL=customermvc.route.js.map

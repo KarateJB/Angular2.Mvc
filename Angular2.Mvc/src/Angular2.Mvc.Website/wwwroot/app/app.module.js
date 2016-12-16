@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/platform-browser', 'angularfire2', './class/FirebaseConfig', './app.component'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "angularfire2", "./class/FirebaseConfig", "./app.component"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/platform-browser', 'angularfire2', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, angularfire2_1, FirebaseConfig_1, app_component_1;
-    var AppModule;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, platform_browser_1, angularfire2_1, FirebaseConfig_1, app_component_1, AppModule;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -28,27 +27,28 @@ System.register(['@angular/core', '@angular/platform-browser', 'angularfire2', '
             },
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             AppModule = (function () {
                 function AppModule() {
                 }
-                AppModule = __decorate([
-                    core_1.NgModule({
-                        imports: [
-                            platform_browser_1.BrowserModule,
-                            angularfire2_1.AngularFireModule.initializeApp(FirebaseConfig_1.FirebaseConfig.Get())
-                        ],
-                        declarations: [app_component_1.AppComponent],
-                        //providers: [FIREBASE_PROVIDERS],
-                        bootstrap: [app_component_1.AppComponent]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], AppModule);
                 return AppModule;
             }());
+            AppModule = __decorate([
+                core_1.NgModule({
+                    imports: [
+                        platform_browser_1.BrowserModule,
+                        angularfire2_1.AngularFireModule.initializeApp(FirebaseConfig_1.FirebaseConfig.Get())
+                    ],
+                    declarations: [app_component_1.AppComponent],
+                    //providers: [FIREBASE_PROVIDERS],
+                    bootstrap: [app_component_1.AppComponent]
+                }),
+                __metadata("design:paramtypes", [])
+            ], AppModule);
             exports_1("AppModule", AppModule);
         }
-    }
+    };
 });
 //# sourceMappingURL=app.module.js.map

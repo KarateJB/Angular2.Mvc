@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', '../../../service/customer.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../../../service/customer.service", "../../../service/resturi.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, customer_service_1, resturi_service_1;
-    var CustomerMvcListComp;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, customer_service_1, resturi_service_1, CustomerMvcListComp;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -25,8 +24,9 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerMvcListComp = (function () {
                 function CustomerMvcListComp(router, elementRef, custService) {
                     this.router = router;
@@ -73,18 +73,20 @@ System.register(['@angular/core', '@angular/router', '../../../service/customer.
                         });
                     });
                 };
-                CustomerMvcListComp = __decorate([
-                    core_1.Component({
-                        selector: 'customermvc-list',
-                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
-                        templateUrl: '/Basic/CustomerMvc/List'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, core_1.ElementRef, customer_service_1.CustomerService])
-                ], CustomerMvcListComp);
                 return CustomerMvcListComp;
             }());
+            CustomerMvcListComp = __decorate([
+                core_1.Component({
+                    selector: 'customermvc-list',
+                    providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
+                    templateUrl: '/Basic/CustomerMvc/List'
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    core_1.ElementRef,
+                    customer_service_1.CustomerService])
+            ], CustomerMvcListComp);
             exports_1("CustomerMvcListComp", CustomerMvcListComp);
         }
-    }
+    };
 });
 //# sourceMappingURL=customermvc.list.comp.js.map

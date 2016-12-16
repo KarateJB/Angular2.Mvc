@@ -1,6 +1,5 @@
-System.register(['@angular/core', '../../../service/customer.service', '../../../service/resturi.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../service/customer.service", "../../../service/resturi.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '../../../service/customer.service', '../../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, customer_service_1, resturi_service_1;
-    var CustomerDynamicListComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, customer_service_1, resturi_service_1, CustomerDynamicListComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,8 +21,9 @@ System.register(['@angular/core', '../../../service/customer.service', '../../..
             },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerDynamicListComponent = (function () {
                 function CustomerDynamicListComponent(custService) {
                     this.custService = custService;
@@ -37,18 +37,18 @@ System.register(['@angular/core', '../../../service/customer.service', '../../..
                         _this.customers = data;
                     });
                 };
-                CustomerDynamicListComponent = __decorate([
-                    core_1.Component({
-                        selector: 'customerdynamic-list',
-                        providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
-                        templateUrl: '/app/component/Basic/CustomerDynamic/list.component.html'
-                    }), 
-                    __metadata('design:paramtypes', [customer_service_1.CustomerService])
-                ], CustomerDynamicListComponent);
                 return CustomerDynamicListComponent;
             }());
+            CustomerDynamicListComponent = __decorate([
+                core_1.Component({
+                    selector: 'customerdynamic-list',
+                    providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService],
+                    templateUrl: '/app/component/Basic/CustomerDynamic/list.component.html'
+                }),
+                __metadata("design:paramtypes", [customer_service_1.CustomerService])
+            ], CustomerDynamicListComponent);
             exports_1("CustomerDynamicListComponent", CustomerDynamicListComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=list.component.js.map

@@ -1,6 +1,5 @@
-System.register(['@angular/core', '../../../class/Customer', '../../../class/SysEvent'], function(exports_1, context_1) {
+System.register(["@angular/core", "../../../class/Customer", "../../../class/SysEvent"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '../../../class/Customer', '../../../class/Sys
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, Customer_1, SysEvent_1;
-    var CustomerDetailComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, Customer_1, SysEvent_1, CustomerDetailComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,8 +21,9 @@ System.register(['@angular/core', '../../../class/Customer', '../../../class/Sys
             },
             function (SysEvent_1_1) {
                 SysEvent_1 = SysEvent_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             CustomerDetailComponent = (function () {
                 function CustomerDetailComponent() {
                     this.emitEvents = new core_1.EventEmitter(true); //Must set the EventEmitter to async
@@ -40,26 +40,26 @@ System.register(['@angular/core', '../../../class/Customer', '../../../class/Sys
                     ];
                     this.emitEvents.emit(evts);
                 };
-                __decorate([
-                    core_1.Input('selectedCustomer'), 
-                    __metadata('design:type', Customer_1.Customer)
-                ], CustomerDetailComponent.prototype, "customer", void 0);
-                __decorate([
-                    core_1.Output('emit-events'), 
-                    __metadata('design:type', Object)
-                ], CustomerDetailComponent.prototype, "emitEvents", void 0);
-                CustomerDetailComponent = __decorate([
-                    core_1.Component({
-                        selector: 'customer-detail',
-                        templateUrl: '/app/component/Basic/Customer/customer-detail.component.html',
-                        styleUrls: ['/app/component/Basic/Customer/customer-detail.component.css']
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], CustomerDetailComponent);
                 return CustomerDetailComponent;
             }());
+            __decorate([
+                core_1.Input('selectedCustomer'),
+                __metadata("design:type", Customer_1.Customer)
+            ], CustomerDetailComponent.prototype, "customer", void 0);
+            __decorate([
+                core_1.Output('emit-events'),
+                __metadata("design:type", Object)
+            ], CustomerDetailComponent.prototype, "emitEvents", void 0);
+            CustomerDetailComponent = __decorate([
+                core_1.Component({
+                    selector: 'customer-detail',
+                    templateUrl: '/app/component/Basic/Customer/customer-detail.component.html',
+                    styleUrls: ['/app/component/Basic/Customer/customer-detail.component.css']
+                }),
+                __metadata("design:paramtypes", [])
+            ], CustomerDetailComponent);
             exports_1("CustomerDetailComponent", CustomerDetailComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=customer-detail.component.js.map

@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/common"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13,17 +12,18 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, common_1;
-    var WrapEventPipe;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, common_1, WrapEventPipe;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (common_1_1) {
                 common_1 = common_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             WrapEventPipe = (function () {
                 function WrapEventPipe(_locale) {
                     this._locale = _locale;
@@ -40,17 +40,17 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                     var createBy = content.CreateBy;
                     return createOn.concat(' [', title, '] ', createBy, ' : ', msg);
                 };
-                WrapEventPipe = __decorate([
-                    core_1.Pipe({
-                        name: 'wrapEvent'
-                    }),
-                    __param(0, core_1.Inject(core_1.LOCALE_ID)), 
-                    __metadata('design:paramtypes', [String])
-                ], WrapEventPipe);
                 return WrapEventPipe;
             }());
+            WrapEventPipe = __decorate([
+                core_1.Pipe({
+                    name: 'wrapEvent'
+                }),
+                __param(0, core_1.Inject(core_1.LOCALE_ID)),
+                __metadata("design:paramtypes", [String])
+            ], WrapEventPipe);
             exports_1("WrapEventPipe", WrapEventPipe);
         }
-    }
+    };
 });
 //# sourceMappingURL=customer.pipe.js.map

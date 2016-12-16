@@ -7,16 +7,16 @@
         'angularfire2': 'lib-npm/angularfire2',
         'firebase': 'lib-npm/firebase',
         '@ngrx': 'lib-npm/ngrx',
+        'enums': 'app/enum',
         'service': 'app/service',
         'class': 'app/class',
-        'enum': 'app/enum',
         'pipe': 'app/pipe',
         'directive': 'app/directive'
     },
     paths: {
+        "enums:*": "app/enum/*.js",
         "service:*": "app/service/*.js",
         "class:*": "app/class/*.js",
-        "enum:*": "app/enum/*.js",
         "pipe:*": "app/pipe/*.js",
         "directive:*": "app/directive/*.js"
     },
@@ -39,9 +39,8 @@
         'firebase': { main: 'firebase.js' },
         'service': { main: '*.js', defaultExtension: 'js' },
         'class': { main: '*.js', defaultExtension: 'js' },
-        'enum': { main: '*.js', defaultExtension: 'js' },
         'pipe': { main: '*.js', defaultExtension: 'js' },
-        'directive': { main: '*.js', defaultExtension: 'js' }
-
+        'directive': { main: '*.js', defaultExtension: 'js' },
+        'enums': { main: '*.js', defaultExtension: 'js' }
     }
 });

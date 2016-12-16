@@ -1,7 +1,6 @@
 /// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
-System.register(['@angular/core', '@angular/router', './product.service'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,10 +10,10 @@ System.register(['@angular/core', '@angular/router', './product.service'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, product_service_1;
-    var ProductBooksComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, product_service_1, ProductBooksComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -23,8 +22,9 @@ System.register(['@angular/core', '@angular/router', './product.service'], funct
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
             ProductBooksComponent = (function () {
                 function ProductBooksComponent(router, productService) {
                     this.router = router;
@@ -67,19 +67,19 @@ System.register(['@angular/core', '@angular/router', './product.service'], funct
                         });
                     });
                 };
-                ProductBooksComponent = __decorate([
-                    //SweetAlert2 typings definition
-                    core_1.Component({
-                        selector: 'product-books',
-                        providers: [product_service_1.ProductService],
-                        templateUrl: '/app/component/Basic/Product/product-books.component.html'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, product_service_1.ProductService])
-                ], ProductBooksComponent);
                 return ProductBooksComponent;
             }());
+            ProductBooksComponent = __decorate([
+                core_1.Component({
+                    selector: 'product-books',
+                    providers: [product_service_1.ProductService],
+                    templateUrl: '/app/component/Basic/Product/product-books.component.html'
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    product_service_1.ProductService])
+            ], ProductBooksComponent);
             exports_1("ProductBooksComponent", ProductBooksComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=product-books.component.js.map

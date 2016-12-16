@@ -1,6 +1,5 @@
-System.register(['@angular/core', 'angularfire2', '../../../class/Utility', '../../../class/EnumEx', '../../../enum/ProductTypeEnum'], function(exports_1, context_1) {
+System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../../../class/EnumEx", "../../../enum/ProductTypeEnum"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', 'angularfire2', '../../../class/Utility', '../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angularfire2_1, Utility_1, EnumEx_1, ProductTypeEnum_1;
-    var ProductService, PRODUCTS;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, angularfire2_1, Utility_1, EnumEx_1, ProductTypeEnum_1, ProductService, PRODUCTS;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -28,8 +27,9 @@ System.register(['@angular/core', 'angularfire2', '../../../class/Utility', '../
             },
             function (ProductTypeEnum_1_1) {
                 ProductTypeEnum_1 = ProductTypeEnum_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ProductService = (function () {
                 function ProductService(
                     //@Inject(FirebaseApp) private firebaseApp: any,
@@ -224,12 +224,12 @@ System.register(['@angular/core', 'angularfire2', '../../../class/Utility', '../
                     });
                     return promise;
                 };
-                ProductService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [angularfire2_1.AngularFire])
-                ], ProductService);
                 return ProductService;
             }());
+            ProductService = __decorate([
+                core_1.Injectable(),
+                __metadata("design:paramtypes", [angularfire2_1.AngularFire])
+            ], ProductService);
             exports_1("ProductService", ProductService);
             PRODUCTS = [{ "Id": "1", "TypeId": "1", "Type": "Book", "Title": "Book 1", "Price": 400 },
                 { "Id": "2", "TypeId": "1", "Type": "Book", "Title": "Book 2", "Price": 250 },
@@ -239,8 +239,10 @@ System.register(['@angular/core', 'angularfire2', '../../../class/Utility', '../
                 { "Id": "6", "TypeId": "2", "Type": "Toy", "Title": "LEGO", "Price": 3000 },
                 { "Id": "7", "TypeId": "3", "Type": "Music", "Title": "Speed Metal", "Price": 600 },
                 { "Id": "8", "TypeId": "3", "Type": "Music", "Title": "Theater Metal", "Price": 450 }];
+            //const PRODUCT_TYPES: ProductType[] =
+            //    [{ "id": "1", "name": "Book" }, { "id": "2", "name": "Toy" }, { "id": "3", "name": "Music" }];
         }
-    }
+    };
 });
 //const PRODUCT_TYPES: ProductType[] =
 //    [{ "id": "1", "name": "Book" }, { "id": "2", "name": "Toy" }, { "id": "3", "name": "Music" }];

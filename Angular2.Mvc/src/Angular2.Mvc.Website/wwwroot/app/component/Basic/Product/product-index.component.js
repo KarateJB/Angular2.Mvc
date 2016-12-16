@@ -1,6 +1,5 @@
-System.register(['@angular/core', '@angular/router', '@ngrx/store', '../../../service/counter.action'], function(exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../service/counter.action"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(['@angular/core', '@angular/router', '@ngrx/store', '../../../se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, store_1, counter_action_1;
-    var ProductIndexComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, router_1, store_1, counter_action_1, ProductIndexComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -25,8 +24,9 @@ System.register(['@angular/core', '@angular/router', '@ngrx/store', '../../../se
             },
             function (counter_action_1_1) {
                 counter_action_1 = counter_action_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             ProductIndexComponent = (function () {
                 function ProductIndexComponent(router, store) {
                     this.router = router;
@@ -44,18 +44,19 @@ System.register(['@angular/core', '@angular/router', '@ngrx/store', '../../../se
                     //JL("Angular2").debug("Redirect to create page");
                     this.router.navigate(['Basic/Product/Create']);
                 };
-                ProductIndexComponent = __decorate([
-                    core_1.Component({
-                        selector: 'product-index',
-                        providers: [],
-                        templateUrl: '/app/component/Basic/Product/product-index.component.html'
-                    }), 
-                    __metadata('design:paramtypes', [router_1.Router, store_1.Store])
-                ], ProductIndexComponent);
                 return ProductIndexComponent;
             }());
+            ProductIndexComponent = __decorate([
+                core_1.Component({
+                    selector: 'product-index',
+                    providers: [],
+                    templateUrl: '/app/component/Basic/Product/product-index.component.html'
+                }),
+                __metadata("design:paramtypes", [router_1.Router,
+                    store_1.Store])
+            ], ProductIndexComponent);
             exports_1("ProductIndexComponent", ProductIndexComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=product-index.component.js.map
