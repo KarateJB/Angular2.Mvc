@@ -2,65 +2,22 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
+      <string>即時運算視窗</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.comp.css</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.comp.ts</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.ts</string>
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.service.ts</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\areas\basic\views\customermvc\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\class\customer.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customer\customer.app.module.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customer\customer-index.component.css</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customer\customer-index.component.html</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customer\customer-index.component.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.html</string>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\Product\product-index.component.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\project.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\typings.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\package.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\program.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\systemjs.config.js</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\component\Basic\Product\product.app.module.ts</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product.service.ts</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product.service.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\tsconfig.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Properties\launchSettings.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\global.json</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\service\counter.action.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\node_modules\rxjs\BehaviorSubject.d.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\gulpfile.js</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customermvc\customermvc.edit.comp.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customermvc\customermvc.list.comp.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customermvc\customermvc.route.ts</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
