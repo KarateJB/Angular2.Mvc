@@ -5,7 +5,8 @@
     "Angular2.Mvc.Core": "1.0.0-*",
     "Angular2.Mvc.DAL": "1.0.0-*",
     "AutoMapper": "5.1.1",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.0",
+    "MailKit": "1.10.1"
   },
 
   "frameworks": {

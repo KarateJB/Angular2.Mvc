@@ -20,11 +20,6 @@ namespace Angular2.Mvc.Website.Controllers
         //protected ILogger<BaseController> _logger;
         protected Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public BaseController(ILogger<BaseController> logger)
-        {
-            //this._logger = logger;
-        }
-
         protected bool validateModel(object model)
         {
             var context = new ValidationContext(model, serviceProvider: null, items: null);

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Angular2.Mvc.DAL;
 using Angular2.Mvc.DAL.Factory;
+using Angular2.Mvc.DAL.Models.DAO;
+using Angular2.Mvc.Service.Service;
 using JSNLog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +42,16 @@ namespace Angular2.Mvc.Website
             {
                 o.IdleTimeout = TimeSpan.FromSeconds(10);
             });
+
+
+            #region Authentication service
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<NgDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();
+            #endregion
 
             services.AddMvc();
         }
@@ -88,6 +102,9 @@ namespace Angular2.Mvc.Website
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
+
+            //Identity support
+            app.UseIdentity();
 
 
             app.UseMvc(routes =>

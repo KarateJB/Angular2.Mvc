@@ -15,10 +15,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
 
     public class CustomerDynamicController : BaseController
     {
-        public CustomerDynamicController(ILogger<BaseController> logger) : base(logger)
-        {
-
-        }
 
 
         [Route("[action]")]

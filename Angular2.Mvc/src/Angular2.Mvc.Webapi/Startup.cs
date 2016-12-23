@@ -4,9 +4,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Angular2.Mvc.DAL;
 using Angular2.Mvc.DAL.Factory;
+using Angular2.Mvc.DAL.Models.DAO;
+using Angular2.Mvc.Service.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -95,6 +99,15 @@ namespace Angular2.Mvc.Webapi
             });
 
             #endregion
+
+            #region Authentication
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<NgDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddTransient<ISmsSender, AuthMessageSender>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -123,11 +136,20 @@ namespace Angular2.Mvc.Webapi
             DbContextFactory.SetConnectionString(connStr);
             #endregion
 
-            app.UseMvc();
+            #region CORS
             app.UseCors("AllowSpecificOrigin");
+            #endregion
 
+            #region Swagger
             app.UseSwagger();
             app.UseSwaggerUi();
+            #endregion
+
+            #region Identity support
+            app.UseIdentity();
+            #endregion
+
+            app.UseMvc();
         }
     }
 }

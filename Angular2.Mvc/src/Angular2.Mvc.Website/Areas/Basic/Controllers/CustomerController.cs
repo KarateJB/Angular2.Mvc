@@ -20,10 +20,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
 
     public class CustomerController : BaseController
     {
-        public CustomerController(ILogger<BaseController> logger) : base(logger)
-        {
-
-        }
 
         [Route("[action]")]
         public IActionResult Index()
