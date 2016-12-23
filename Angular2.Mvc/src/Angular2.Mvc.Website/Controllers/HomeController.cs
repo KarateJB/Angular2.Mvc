@@ -8,7 +8,7 @@ using NLog;
 
 namespace Angular2.Mvc.Website.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
 
         public IActionResult Index()
