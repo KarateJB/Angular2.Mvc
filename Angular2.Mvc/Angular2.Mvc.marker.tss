@@ -2,13 +2,6 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
-      <string>src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.service.ts</string>
-      <string>src\angular2.mvc.website\wwwroot\app\component\blockui\blockui.comp.ts</string>
-    </extensions>
-    <highlightIndex>4</highlightIndex>
-  </TabHighlightState>
-  <TabHighlightState>
-    <extensions>
       <string>src\angular2.mvc.website\areas\basic\views\customermvc\index.cshtml</string>
     </extensions>
     <highlightIndex>2</highlightIndex>
@@ -28,6 +21,14 @@
   <TabHighlightState>
     <extensions>
       <string>src\angular2.mvc.core\models\dto\dtoregister.cs</string>
+    </extensions>
+    <highlightIndex>4</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.ts</string>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.comp.css</string>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\component\blockUI\blockUI.service.ts</string>
     </extensions>
     <highlightIndex>4</highlightIndex>
   </TabHighlightState>

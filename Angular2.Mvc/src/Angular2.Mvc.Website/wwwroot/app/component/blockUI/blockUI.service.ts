@@ -1,4 +1,4 @@
-﻿import {Injectable, ApplicationRef, ElementRef, ComponentRef, ViewContainerRef, ComponentFactory,ComponentFactoryResolver } from '@angular/core';
+﻿import {Injectable, ApplicationRef, ComponentRef, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import {BlockUIComponent} from './blockUI.comp';
 
 @Injectable()
@@ -24,5 +24,9 @@ export class BlockUIService {
         if (this.blockUI) {
             this.blockUI.destroy();
         }
+
+        //Or use remove
+        //let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
+        //viewContainerRef.remove(); //Remove the last View
     }
 }
