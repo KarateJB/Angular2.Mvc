@@ -34,11 +34,23 @@ System.register(["@angular/core", "../../../service/customer.service", "../../..
                 CustomerDynamicListComponent.prototype.initCustomers = function () {
                     var _this = this;
                     this.custService.getAll().then(function (data) {
-                        _this.customers = data;
+                        _this.customers = [];
+                        if (!_this.inputValue) {
+                            _this.customers = data;
+                        }
+                        else {
+                            for (var i = 0; i < _this.inputValue; i++) {
+                                _this.customers.push(data[i]);
+                            }
+                        }
                     });
                 };
                 return CustomerDynamicListComponent;
             }());
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Number)
+            ], CustomerDynamicListComponent.prototype, "inputValue", void 0);
             CustomerDynamicListComponent = __decorate([
                 core_1.Component({
                     selector: 'customerdynamic-list',

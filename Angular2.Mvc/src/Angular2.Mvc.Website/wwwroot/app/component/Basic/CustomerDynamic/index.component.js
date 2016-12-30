@@ -25,7 +25,7 @@ System.register(["@angular/core", "../../../service/resturi.service"], function 
                 function CustomerDynamicIndexComponent() {
                     this.self = this;
                     this.title = "Customer - Index";
-                    this.component = "customerdynamic-card"; //or "customerdynamic-list"
+                    this.component = "customerdynamic-list"; //or "customerdynamic-card"
                 }
                 CustomerDynamicIndexComponent.prototype.ngOnInit = function () {
                 };
@@ -43,7 +43,7 @@ System.register(["@angular/core", "../../../service/resturi.service"], function 
                     providers: [resturi_service_1.RestUriService],
                     //templateUrl: '/app/component/Basic/CustomerMvc/index/customermvc-index.component.html'
                     //template: `<div *componentOutlet="template; context: self; selector:'my-test'"></div>`,
-                    template: "\n    <div class=\"form-group row\" style=\"max-width:70%\">\n        <div class=\"col-sm-3\"><input type=\"text\" class=\"form-control\" value=\"\" /></div>\n        <div class=\"col-sm-3\"><button class=\"btn btn-default\" (click)=\"showLists()\"><i class=\"fa fa-list\"></i>&nbsp;Show Lists</button></div>\n        <div class=\"col-sm-3\"><button class=\"btn btn-default\" (click)=\"showCards()\"><i class=\"fa fa-vcard\"></i>&nbsp;Show Cards</button></div>\n    </div>\n    <hr />\n    <div>\n      <div component-outlet [(selector)]=\"component\"></div>\n    </div>\n  ",
+                    template: "\n    <div class=\"form-group row\" style=\"max-width:70%\">\n        <div class=\"col-sm-3\"><input type=\"text\" class=\"form-control\" [(ngModel)]=\"maxDisplayNum\" value=\"\" /></div>\n        <div class=\"col-sm-3\"><button class=\"btn btn-default\" (click)=\"showLists()\"><i class=\"fa fa-list\"></i>&nbsp;Show Lists</button></div>\n        <div class=\"col-sm-3\"><button class=\"btn btn-default\" (click)=\"showCards()\"><i class=\"fa fa-vcard\"></i>&nbsp;Show Cards</button></div>\n    </div>\n    <hr />\n    <div>\n      <div component-outlet [(selector)]=\"component\" [(inputValue)]=\"maxDisplayNum\"></div>\n    </div>\n  ",
                 }),
                 __metadata("design:paramtypes", [])
             ], CustomerDynamicIndexComponent);
