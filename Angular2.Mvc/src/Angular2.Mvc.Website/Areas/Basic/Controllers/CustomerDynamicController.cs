@@ -22,6 +22,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
         {
             return View();
         }
+        
 
     }
 }

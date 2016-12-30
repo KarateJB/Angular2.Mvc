@@ -21,7 +21,7 @@ export class ComponentOutlet implements OnChanges {
     ngOnChanges() {
 
         console.log("this.selector=" + this.selector);
-        if (!this.selector || this.init) return;
+        if (!this.selector) return;
 
         const factories = Array.from(this.resolver['_factories'].values());
         const factory: any = factories.find((x: any) => x.selector === this.selector);
