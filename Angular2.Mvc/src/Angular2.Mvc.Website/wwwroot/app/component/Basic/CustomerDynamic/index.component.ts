@@ -20,19 +20,15 @@ declare var swal: any;
     </div>
     <hr />
     <div>
-      <div component-outlet [(selector)]="component" [(inputValue)]="maxDisplayNum"></div>
+      <div component-outlet [selector]="component" [inputValue]="maxDisplayNum"></div>
     </div>
   `,
 })
 
 export class CustomerDynamicIndexComponent implements OnInit {
-    private title: string;
     private component: string;
-    private self = this;
-
     constructor() {
-        this.title = "Customer - Index";
-        this.component = "customerdynamic-list"; //or "customerdynamic-card"
+        //this.component = "customerdynamic-list"; //or "customerdynamic-card"
     }
 
 

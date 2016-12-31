@@ -1,7 +1,5 @@
 ﻿import {  Directive, Component, ComponentFactory, OnChanges, Input, ViewContainerRef, Compiler, ComponentFactoryResolver } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+//import { CommonModule } from '@angular/common';
 
 @Directive({
     selector: '[component-outlet]'
