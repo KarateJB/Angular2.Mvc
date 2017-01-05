@@ -1,9 +1,12 @@
 ﻿@model List<Angular2.Mvc.Core.Models.ViewModel.VmCustomer>
 
-<div>
-    <input type="button" class="btn btn-primary" value="Create New" (click)="goToCreate()" />
+
+<div class="alert alert-info" role="alert">
+    @{
+        var title = "Hi, " + ViewBag.Description;
+    }
+    @title
 </div>
-<br />
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -41,20 +44,9 @@
                     <td class="col-sm-2">
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
-                    <td class="col-sm-2">
-                        <input type="button" class="btn btn-info" value="Edit" (click)="editCustomer(@item.Id)" />
-                        &nbsp;
-                        <input type="button" class="btn btn-danger" value="Delete" (click)="deleteCustomer(@item.Id)" />
-                    </td>
                 </tr>
             }
         }
     </tbody>
 </table>
 
-<div class="alert alert-info" role="alert">
-    @{
-        var title = "Hi, " + ViewBag.Description;
-    }
-    @title
-</div>

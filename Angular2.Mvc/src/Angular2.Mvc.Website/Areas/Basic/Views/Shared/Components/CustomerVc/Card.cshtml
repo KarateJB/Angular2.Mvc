@@ -1,0 +1,24 @@
+﻿@model List<Angular2.Mvc.Core.Models.ViewModel.VmCustomer>
+
+
+<div class="alert alert-info" role="alert">
+    @{
+        var title = "Hi, " + ViewBag.Description;
+    }
+    @title
+</div>
+
+<div class="text-center">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div style="border:dashed 1px;" class="card card-block">
+                <h4 class="card-title">@(new Microsoft.AspNetCore.Html.HtmlString(item.Name))</h4>
+                <p class="card-text">@Html.DisplayNameFor(model => model.First().Description)</p>
+                <p class="card-link">Phone/@Html.DisplayNameFor(model => model.First().Phone)</p>
+                <p>Age/@Html.DisplayNameFor(model => model.First().Age)</p>
+            </div>
+        }
+    }
+</div>

@@ -26,11 +26,36 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
         {
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int? id, string name)
+
+        /// <summary>
+        /// 1st version
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        //public async Task<IViewComponentResult> InvokeAsync(int? id, string name)
+        //{
+        //    var items = await this.getCustomersAsync(id, name);
+        //    ViewBag.Description = "this view is from ViewComponent.";
+
+        //    return View(items); //Return Default.cshtml
+        //}
+
+        /// <summary>
+        /// 2nd version
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public async Task<IViewComponentResult> InvokeAsync(string display, int? id, string name)
         {
             var items = await this.getCustomersAsync(id, name);
             ViewBag.Description = "this view is from ViewComponent.";
-            return View(items);
+
+            if (!string.IsNullOrEmpty(display) && display.ToLower().Equals("card"))
+                return View("Card", items);
+            else
+                return View("Default", items);
         }
 
 
@@ -43,7 +68,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
                 var predicateRole = PredicateBuilder.New<Customer>();
                 if (id.HasValue)
                 {
-                    predicateRole = predicateRole.And(x => x.Id==id.Value);
+                    predicateRole = predicateRole.And(x => x.Id == id.Value);
                 }
                 if (!string.IsNullOrEmpty(name))
                 {
@@ -62,7 +87,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
                 this._logger.Error(ex.Message);
                 throw;
             }
-            
+
         }
     }
 }
