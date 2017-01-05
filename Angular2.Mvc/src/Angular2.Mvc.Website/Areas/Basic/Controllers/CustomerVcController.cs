@@ -27,7 +27,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
         }
 
         [HttpGet]
-        //[Route("Basic/[controller]/GetView")]
         public IActionResult GetView([FromQuery] string name)
         {
             return ViewComponent("CustomerVc", new { name = "JB" });

@@ -15,9 +15,9 @@
         {
             <div style="border:dashed 1px;" class="card card-block">
                 <h4 class="card-title">@(new Microsoft.AspNetCore.Html.HtmlString(item.Name))</h4>
-                <p class="card-text">@Html.DisplayNameFor(model => model.First().Description)</p>
-                <p class="card-link">Phone/@Html.DisplayNameFor(model => model.First().Phone)</p>
-                <p>Age/@Html.DisplayNameFor(model => model.First().Age)</p>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                <p class="card-link">Phone/@Html.DisplayFor(modelItem => item.Phone)</p>
+                <p>Age/@Html.DisplayFor(modelItem => item.Age)</p>
             </div>
         }
     }

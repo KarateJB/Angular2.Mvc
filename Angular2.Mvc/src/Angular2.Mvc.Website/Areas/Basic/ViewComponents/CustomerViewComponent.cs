@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Angular2.Mvc.Core.Models.ViewModel;
 using Angular2.Mvc.DAL;
@@ -86,6 +87,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
             {
                 this._logger.Error(ex.Message);
                 throw;
+
             }
 
         }
