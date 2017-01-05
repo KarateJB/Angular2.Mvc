@@ -8,10 +8,12 @@ import { Utility} from '../../../class/Utility';
 import { EnumEx} from '../../../class/EnumEx';
 import { ProductTypeEnum } from '../../../enum/ProductTypeEnum';
 
+declare var swal: any; //SweetAlert2 typings definition
+
 
 @Injectable()
 export class ProductService {
-    6
+
     private httpOptions: RequestOptions;
     constructor(
         //@Inject(FirebaseApp) private firebaseApp: any,
@@ -161,6 +163,7 @@ export class ProductService {
                     resolve(current);
                 })
             }).then((newValue) => {
+                console.log(newValue);
                 let itemObservable = this._queryProducts();
                 itemObservable.update(newValue);
             });
