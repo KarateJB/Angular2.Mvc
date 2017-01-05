@@ -9,13 +9,28 @@ using Microsoft.AspNetCore.Mvc;
 namespace Angular2.Mvc.Website.Areas.Basic.Controllers
 {
     [Area("Basic")]
-    [Route("Basic/[controller]")]
+    [Route("Basic/[controller]/[action]")]
     public class CustomerVcController : Controller
     {
-        [Route("[action]")]
         public IActionResult Index()
         {
             return View();
+        }
+
+        /// <summary>
+        /// Sample from returning ViewComponent from Control
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult IndexVc()
+        {
+            return ViewComponent("CustomerVc", new { name = "JB" });
+        }
+
+        [HttpGet]
+        //[Route("Basic/[controller]/GetView")]
+        public IActionResult GetView([FromQuery] string name)
+        {
+            return ViewComponent("CustomerVc", new { name = "JB" });
         }
     }
 }

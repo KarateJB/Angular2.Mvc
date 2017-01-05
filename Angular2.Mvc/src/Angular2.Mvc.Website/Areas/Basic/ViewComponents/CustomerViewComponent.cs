@@ -8,6 +8,7 @@ using Angular2.Mvc.DAL.Factory;
 using Angular2.Mvc.DAL.Models.DAO;
 using Angular2.Mvc.DAL.Service;
 using Angular2.Mvc.Service.Factory;
+using LinqKit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLog;
@@ -28,6 +29,7 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int? id, string name)
         {
             var items = await this.getCustomersAsync(id, name);
+            ViewBag.Description = "this view is from ViewComponent.";
             return View(items);
         }
 
@@ -38,12 +40,19 @@ namespace Angular2.Mvc.Website.Areas.Basic.ViewComponents
 
             try
             {
+                var predicateRole = PredicateBuilder.New<Customer>();
+                if (id.HasValue)
+                {
+                    predicateRole = predicateRole.And(x => x.Id==id.Value);
+                }
+                if (!string.IsNullOrEmpty(name))
+                {
+                    predicateRole = predicateRole.And(x => x.Name.IndexOf(name) >= 0);
+                }
+
                 using (var custService = new CustomerService(DbContextFactory.Create()))
                 {
-                    var custs = custService.Get(
-                        x => (id != null ? x.Id == id.Value : true) &&
-                        (string.IsNullOrEmpty(name) ? true : x.Name.IndexOf(name) >= 0)).ToList();
-
+                    var custs = custService.GetAll().AsExpandable().Where(predicateRole).ToList();
                     custs.ForEach(x => custVms.Add(ViewModelFactory.Create<Customer, VmCustomer>(x)));
                     return custVms;
                 }
