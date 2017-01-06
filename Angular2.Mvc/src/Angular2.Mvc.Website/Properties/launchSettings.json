@@ -9,7 +9,7 @@
   },
   "profiles": {
     "IIS Express": {
-      "commandName": "IISExpress",6
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "Basic/CustomerVc/Index",
       "environmentVariables": {
