@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Angular2.Mvc.Core.Class;
 using Angular2.Mvc.DAL;
 using Angular2.Mvc.DAL.Factory;
 using Angular2.Mvc.DAL.Models.DAO;
+using Angular2.Mvc.Service.Factory;
 using Angular2.Mvc.Service.Service;
 using JSNLog;
 using Microsoft.AspNetCore.Builder;
@@ -51,6 +53,14 @@ namespace Angular2.Mvc.Website
 
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            #endregion
+
+            #region AppSettings Configuration
+            //Method 1.
+            services.Configure<ConfigManager>(Configuration.GetSection("Config"));
+            //Method 2.
+            ConfigFactory.SiteName = Configuration["Config:SiteName"];
+            ConfigFactory.SiteOwner = Configuration["Config:SiteOwner"];
             #endregion
 
             services.AddMvc();
