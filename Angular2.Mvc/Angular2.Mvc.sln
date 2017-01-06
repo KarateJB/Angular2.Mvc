@@ -24,7 +24,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2.Mvc.Service", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{292CC5DF-FAE8-447B-92B3-1E7FB88F895D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2.Mvc.UnitTest", "test\Angular2.Mvc.UnitTest\Angular2.Mvc.UnitTest.xproj", "{53CCF474-1814-4C25-9349-A6E269882DC2}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2.Mvc.xUnitTest", "test\Angular2.Mvc.UnitTest\Angular2.Mvc.xUnitTest.xproj", "{53CCF474-1814-4C25-9349-A6E269882DC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D546AA7F-E422-4284-A003-3EDA264F35F7}"
 EndProject

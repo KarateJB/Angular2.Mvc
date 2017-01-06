@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Angular2.Mvc.UnitTest.Model
+namespace Angular2.Mvc.xUnitTest.Model
 {
     public class TestCase
     {

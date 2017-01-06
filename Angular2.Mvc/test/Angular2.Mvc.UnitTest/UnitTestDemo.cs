@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Angular2.Mvc.Service.Factory;
 using Xunit;
-using Angular2.Mvc.UnitTest.Model;
+using Angular2.Mvc.xUnitTest.Model;
 
-namespace Angular2.Mvc.UnitTest
+namespace Angular2.Mvc.xUnitTest
 {
     public class UnitTestDemo
     {
