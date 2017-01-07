@@ -56,11 +56,19 @@ namespace Angular2.Mvc.Website
             #endregion
 
             #region AppSettings Configuration
+
             //Method 1.
             services.Configure<ConfigManager>(Configuration.GetSection("Config"));
+
             //Method 2.
-            ConfigFactory.SiteName = Configuration["Config:SiteName"];
-            ConfigFactory.SiteOwner = Configuration["Config:SiteOwner"];
+            //ConfigProvider.SiteName = Configuration["Config:SiteName"];
+            //ConfigProvider.SiteOwner = Configuration["Config:SiteOwner"];
+            //Method 2. (Binding complex object)
+            var configManager = new ConfigManager();
+            Configuration.GetSection("Config").Bind(configManager);
+            ConfigProvider.SiteName = configManager.SiteName;
+            ConfigProvider.SiteOwner = configManager.SiteOwner;
+
             #endregion
 
             services.AddMvc();

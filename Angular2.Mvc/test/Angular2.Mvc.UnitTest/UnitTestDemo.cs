@@ -11,14 +11,14 @@ namespace Angular2.Mvc.xUnitTest
     public class UnitTestDemo
     {
 
-        [Fact]
-        public void TestSplitCount()
-        {
-            var input = "Luke Skywalker, Leia Skywalker, Anakin Skywalker";
-            var actual = input.Split(',').Count();
+        //[Fact]
+        //public void TestSplitCount()
+        //{
+        //    var input = "Luke Skywalker, Leia Skywalker, Anakin Skywalker";
+        //    var actual = input.Split(',').Count();
 
-            Assert.True(actual.Equals(3), $"Expected:3, Actual:{actual}");
-        }
+        //    Assert.True(actual.Equals(3), $"Expected:3, Actual:{actual}");
+        //}
 
         //[Theory]
         //[InlineData("A,B,C")]

@@ -2,13 +2,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2 class="text-center">
+    <i class="fa fa-home"></i>@ViewBag.Title &nbsp;
+</h2>
+<h4 class="text-center">
+    <i class="fa fa-copyright"></i>@ViewBag.Owner
+</h4>
+
 <core-app>
     <div>
         <p><img src="~/asset/images/gif/ajax-loader.gif" /> Please wait ...</p>
     </div>
 </core-app>
 
-<span class="footer"><i class="fa fa-home"></i>@ViewBag.Title &nbsp; <i class="fa fa-copyright"></i>@ViewBag.Owner</span>
+
 
 
 
@@ -19,7 +26,7 @@
                 app: 'app'
             },
             packages: {
-                app: {main: 'main.js',defaultExtension: 'js'}
+                app: { main: 'main.js', defaultExtension: 'js' }
             },
         });
         System.import('app/main').then(null, console.error.bind(console));

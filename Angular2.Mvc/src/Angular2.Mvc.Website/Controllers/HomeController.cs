@@ -25,11 +25,11 @@ namespace Angular2.Mvc.Website.Controllers
         public IActionResult Index()
         {
             //Method 1. Use injection
-            ViewBag.Title = this._configManager.SiteName;
-            ViewBag.Owner = this._configManager.SiteOwner;
+            //ViewBag.Title = this._configManager.SiteName;
+            //ViewBag.Owner = this._configManager.SiteOwner;
             //Method 2. Use Static factory
-            //ViewBag.Title = ConfigFactory.SiteName;
-            //ViewBag.Owner = ConfigFactory.SiteOwner;
+            ViewBag.Title = ConfigProvider.SiteName;
+            ViewBag.Owner = ConfigProvider.SiteOwner;
 
             return View();
         }

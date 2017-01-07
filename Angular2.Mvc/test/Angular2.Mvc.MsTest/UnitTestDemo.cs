@@ -21,17 +21,17 @@ namespace Angular2.Mvc.MsTest
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void TestSplitCounter()
-        {
-            var splitConfig = new SplitConfig();
-            Debug.WriteLine(splitConfig.Separator);
+        //[TestMethod]
+        //public void TestSplitCounter()
+        //{
+        //    var splitConfig = new SplitConfig();
+        //    Debug.WriteLine(splitConfig.Separator);
 
-            var input = "Luke Skywalker, Leia Skywalker, Anakin Skywalker";
-            var expected = 3;
-            var actual = (new SplitCounter()).Calculate(input);
-            Assert.AreEqual(expected, actual);
-        }
+        //    var input = "Luke Skywalker, Leia Skywalker, Anakin Skywalker";
+        //    var expected = 3;
+        //    var actual = (new SplitCounter()).Calculate(input);
+        //    Assert.AreEqual(expected, actual);
+        //}
 
         [TestMethod]
         public void TestSplitCounterWithNSub()
@@ -42,7 +42,7 @@ namespace Angular2.Mvc.MsTest
             #endregion
 
             #region Set the return value of the mock objects
-            splitConfig.Separator.Returns(new char[] { ';'});
+            splitConfig.Separator.Returns(new char[] { ';' });
             #endregion
 
             #region Intialize the test target
