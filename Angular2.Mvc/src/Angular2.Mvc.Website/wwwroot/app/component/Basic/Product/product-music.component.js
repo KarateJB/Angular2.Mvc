@@ -70,7 +70,6 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
             ProductMusicComponent = __decorate([
                 core_1.Component({
                     selector: 'product-music',
-                    providers: [product_service_1.ProductService],
                     templateUrl: '/app/component/Basic/Product/product-music.component.html'
                 }),
                 __metadata("design:paramtypes", [router_1.Router,

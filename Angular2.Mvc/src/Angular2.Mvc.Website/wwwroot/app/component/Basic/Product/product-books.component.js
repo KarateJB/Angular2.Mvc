@@ -72,7 +72,6 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
             ProductBooksComponent = __decorate([
                 core_1.Component({
                     selector: 'product-books',
-                    providers: [product_service_1.ProductService],
                     templateUrl: '/app/component/Basic/Product/product-books.component.html'
                 }),
                 __metadata("design:paramtypes", [router_1.Router,

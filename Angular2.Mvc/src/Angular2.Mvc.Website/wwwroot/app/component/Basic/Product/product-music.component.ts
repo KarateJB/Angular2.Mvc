@@ -8,7 +8,6 @@ declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'product-music',
-    providers: [ProductService],
     templateUrl: '/app/component/Basic/Product/product-music.component.html'
     //styleUrls: ['/app/component/Basic/Product/Product-index.component.css']
 })

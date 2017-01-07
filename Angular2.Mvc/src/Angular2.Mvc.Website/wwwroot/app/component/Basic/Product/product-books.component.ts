@@ -3,13 +3,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Product} from '../../../class/Product';
-import {ProductService} from './product.service';
+import { ProductService } from './product.service';
+import { ProductBookingComponent } from './product-booking.component';
+
 
 declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'product-books',
-    providers: [ProductService],
     templateUrl: '/app/component/Basic/Product/product-books.component.html'
     //styleUrls: ['/app/component/Basic/Product/Product-index.component.css']
 })

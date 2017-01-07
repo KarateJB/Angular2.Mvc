@@ -70,7 +70,6 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
             ProductToysComponent = __decorate([
                 core_1.Component({
                     selector: 'product-toys',
-                    providers: [product_service_1.ProductService],
                     templateUrl: '/app/component/Basic/Product/product-toys.component.html'
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
