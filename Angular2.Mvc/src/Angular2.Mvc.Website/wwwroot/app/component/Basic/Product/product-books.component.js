@@ -1,5 +1,5 @@
 /// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
-System.register(["@angular/core", "@angular/router", "./product.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11,7 +11,7 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, product_service_1, ProductBooksComponent;
+    var core_1, router_1, product_service_1, ng2_toastr_1, ProductBooksComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -22,25 +22,40 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
+            },
+            function (ng2_toastr_1_1) {
+                ng2_toastr_1 = ng2_toastr_1_1;
             }
         ],
         execute: function () {/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
             ProductBooksComponent = (function () {
-                function ProductBooksComponent(router, productService) {
+                function ProductBooksComponent(router, productService, toastr, vRef) {
                     this.router = router;
                     this.productService = productService;
+                    this.toastr = toastr;
+                    this.vRef = vRef;
                     this.title = "Books";
+                    this.toastr.setRootViewContainerRef(vRef);
                     this.productService = productService;
                     JL("Angular2").debug("Come to BooksComponent!");
                 }
                 ProductBooksComponent.prototype.ngOnInit = function () {
                     this.initBooks();
+                    this.initToastrOptions();
                 };
                 //Initialize books
                 ProductBooksComponent.prototype.initBooks = function () {
                     var _this = this;
                     this.productService.getBooks().then(function (data) {
                         _this.books = data;
+                    });
+                };
+                //Set ng2-toastr options
+                ProductBooksComponent.prototype.initToastrOptions = function () {
+                    this.toastrOptions = new ng2_toastr_1.ToastOptions({
+                        dismiss: 'auto',
+                        animate: 'flyRight',
+                        positionClass: 'toast-bottom-right',
                     });
                 };
                 //Go to edit page
@@ -68,9 +83,7 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                     });
                 };
                 ProductBooksComponent.prototype.setShopCart = function (data) {
-                    console.log("Get emit data!");
-                    console.log(data);
-                    //this.events = data;
+                    this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
                 };
                 return ProductBooksComponent;
             }());
@@ -80,7 +93,9 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                     templateUrl: '/app/component/Basic/Product/product-books.component.html'
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
-                    product_service_1.ProductService])
+                    product_service_1.ProductService,
+                    ng2_toastr_1.ToastsManager,
+                    core_1.ViewContainerRef])
             ], ProductBooksComponent);
             exports_1("ProductBooksComponent", ProductBooksComponent);
         }

@@ -1,5 +1,5 @@
 /* 
- * JSNLog 2.20.1
+ * JSNLog 2.22.0
  * Open source under the MIT License.
  * Copyright 2016 Mattijs Perdeck All rights reserved.
  */
@@ -238,7 +238,13 @@ var JL;
                     return new StringifiedLogObject(finalString, null, finalString);
                 }
                 else {
-                    return new StringifiedLogObject(null, actualLogObject, JSON.stringify(actualLogObject));
+                    if (typeof JL.serialize === 'function') {
+                        finalString = JL.serialize.call(this, actualLogObject);
+                    }
+                    else {
+                        finalString = JSON.stringify(actualLogObject);
+                    }
+                    return new StringifiedLogObject(null, actualLogObject, finalString);
                 }
             default:
                 return new StringifiedLogObject("unknown", null, "unknown");
@@ -251,6 +257,7 @@ var JL;
         copyProperty("clientIP", options, this);
         copyProperty("requestId", options, this);
         copyProperty("defaultBeforeSend", options, this);
+        copyProperty("serialize", options, this);
         return this;
     }
     JL.setOptions = setOptions;
@@ -808,6 +815,19 @@ if (typeof window !== 'undefined' && !window.onerror) {
             "errorMsg": errorMsg, "url": url,
             "line number": lineNumber, "column": column
         }, errorObj);
+        // Tell browser to run its own error handler as well   
+        return false;
+    };
+}
+// Deal with unhandled exceptions thrown in promises
+if (typeof window !== 'undefined' && !window.onunhandledrejection) {
+    window.onunhandledrejection = function (event) {
+        // Send object with all data to server side log, using severity fatal, 
+        // from logger "onerrorLogger"
+        JL("onerrorLogger").fatalException({
+            "msg": "unhandledrejection",
+            "errorMsg": event.reason.message
+        }, event.reason);
         // Tell browser to run its own error handler as well   
         return false;
     };

@@ -24,6 +24,9 @@ import { counterReducer } from '../../../service/counter.action';
 import { shopcartReducer } from '../../../service/shopcart.action';
 
 
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
+
 let rootReducer: any = {
     counter: counterReducer,
     shopcart: shopcartReducer
@@ -36,6 +39,7 @@ let rootReducer: any = {
         FormsModule,
         HttpModule,
         ProductRoutes,
+        ToastModule,
         AngularFireModule.initializeApp(FirebaseConfig.Get()),
         StoreModule.provideStore(rootReducer)
     ],

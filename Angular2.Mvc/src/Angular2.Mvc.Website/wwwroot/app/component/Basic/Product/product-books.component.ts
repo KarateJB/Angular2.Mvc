@@ -1,11 +1,12 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../../../class/Product';
 import { ShopCart } from '../../../class/ShopCart';
 import { ProductService } from './product.service';
 import { ProductBookingComponent } from './product-booking.component';
+import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -18,18 +19,26 @@ declare var swal: any; //SweetAlert2 typings definition
 
 export class ProductBooksComponent implements OnInit {
     private title: string;
+    private toastrOptions: ToastOptions;
     private books: Product[];
+
     constructor(
         private router: Router,
-        private productService: ProductService
-    ) {
+        private productService: ProductService,
+        private toastr: ToastsManager,
+        private vRef: ViewContainerRef) {
+
         this.title = "Books";
+        this.toastr.setRootViewContainerRef(vRef);
+
         this.productService = productService;
+
         JL("Angular2").debug("Come to BooksComponent!");
     }
 
     ngOnInit() {
         this.initBooks();
+        this.initToastrOptions();
     }
 
     //Initialize books
@@ -37,6 +46,16 @@ export class ProductBooksComponent implements OnInit {
         this.productService.getBooks().then(data => {
             this.books = data;
         })
+    }
+
+    //Set ng2-toastr options
+    private initToastrOptions() {
+
+        this.toastrOptions = new ToastOptions({
+            dismiss: 'auto', 
+            animate: 'flyRight',
+            positionClass: 'toast-bottom-right',
+        });
     }
 
     //Go to edit page
@@ -72,9 +91,7 @@ export class ProductBooksComponent implements OnInit {
 
 
     private setShopCart(data: ShopCart) {
-        console.log("Get emit data!");
-        console.log(data);
-        //this.events = data;
+        this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
     }
 
 }

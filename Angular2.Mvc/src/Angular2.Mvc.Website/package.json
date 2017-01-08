@@ -35,6 +35,7 @@
     "firebase": "3.4.0",
     "font-awesome": "^4.7.0",
     "jsnlog": "^2.20.1",
+    "ng2-toastr": "^1.3.3",
     "reflect-metadata": "^0.1.8",
     "traceur": "0.0.111",
     "zone.js": "^0.6.25"

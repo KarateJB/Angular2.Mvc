@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "./product.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, product_service_1, ProductToysComponent;
+    var core_1, router_1, product_service_1, ng2_toastr_1, ProductToysComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -21,18 +21,26 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
+            },
+            function (ng2_toastr_1_1) {
+                ng2_toastr_1 = ng2_toastr_1_1;
             }
         ],
         execute: function () {
             ProductToysComponent = (function () {
-                function ProductToysComponent(router, productService) {
+                function ProductToysComponent(router, productService, toastr, vRef) {
                     this.router = router;
                     this.productService = productService;
+                    this.toastr = toastr;
+                    this.vRef = vRef;
                     this.title = "Toys";
+                    this.toastr.setRootViewContainerRef(vRef);
                     this.productService = productService;
+                    JL("Angular2").debug("Come to ToysComponent!");
                 }
                 ProductToysComponent.prototype.ngOnInit = function () {
                     this.initToys();
+                    this.initToastrOptions();
                 };
                 //Initialize books
                 ProductToysComponent.prototype.initToys = function () {
@@ -44,6 +52,14 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                 //Go to edit page
                 ProductToysComponent.prototype.edit = function (prod) {
                     this.router.navigate(['Basic/Product/Edit', prod.Id]);
+                };
+                //Set ng2-toastr options
+                ProductToysComponent.prototype.initToastrOptions = function () {
+                    this.toastrOptions = new ng2_toastr_1.ToastOptions({
+                        dismiss: 'auto',
+                        animate: 'flyRight',
+                        positionClass: 'toast-bottom-right',
+                    });
                 };
                 //Remove the product
                 ProductToysComponent.prototype.remove = function (prod) {
@@ -65,6 +81,9 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                         });
                     });
                 };
+                ProductToysComponent.prototype.setShopCart = function (data) {
+                    this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
+                };
                 return ProductToysComponent;
             }());
             ProductToysComponent = __decorate([
@@ -73,7 +92,9 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                     templateUrl: '/app/component/Basic/Product/product-toys.component.html'
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
-                    product_service_1.ProductService])
+                    product_service_1.ProductService,
+                    ng2_toastr_1.ToastsManager,
+                    core_1.ViewContainerRef])
             ], ProductToysComponent);
             exports_1("ProductToysComponent", ProductToysComponent);
         }
