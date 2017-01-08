@@ -1,8 +1,9 @@
 ﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
 
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Product} from '../../../class/Product';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from '../../../class/Product';
+import { ShopCart } from '../../../class/ShopCart';
 import { ProductService } from './product.service';
 import { ProductBookingComponent } from './product-booking.component';
 
@@ -66,7 +67,14 @@ export class ProductBooksComponent implements OnInit {
                     books.splice(index, 1);
                 });
 
-            })
+        })
+    }
+
+
+    private setShopCart(data: ShopCart) {
+        console.log("Get emit data!");
+        console.log(data);
+        //this.events = data;
     }
 
 }

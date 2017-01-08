@@ -21,6 +21,14 @@ import { ProductService } from './product.service';
 
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from '../../../service/counter.action';
+import { shopcartReducer } from '../../../service/shopcart.action';
+
+
+let rootReducer: any = {
+    counter: counterReducer,
+    shopcart: shopcartReducer
+}
+
 
 @NgModule({
     imports: [
@@ -29,7 +37,7 @@ import { counterReducer } from '../../../service/counter.action';
         HttpModule,
         ProductRoutes,
         AngularFireModule.initializeApp(FirebaseConfig.Get()),
-        StoreModule.provideStore({ counter: counterReducer })
+        StoreModule.provideStore(rootReducer)
     ],
     declarations: [
         ProductAppComponent,

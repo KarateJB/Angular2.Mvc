@@ -30,10 +30,11 @@ export class ProductIndexComponent implements OnInit {
     ) {
         this.title = "Products";
         this.counter = store.select("counter");
+        console.log(this.counter);
     }
 
     ngOnInit() {
-        this.increment();
+        
     }
 
     private increment() {
@@ -41,9 +42,15 @@ export class ProductIndexComponent implements OnInit {
 
     }
 
+    private decrement() {
+        this.store.dispatch({ type: DECREMENT });
+
+    }
+
     private goToCreate() {
         //JL("Angular2").debug("Redirect to create page");
         this.router.navigate(['Basic/Product/Create']);
     }
+    
 }
 

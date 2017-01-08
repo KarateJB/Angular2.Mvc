@@ -67,6 +67,11 @@ System.register(["@angular/core", "@angular/router", "./product.service"], funct
                         });
                     });
                 };
+                ProductBooksComponent.prototype.setShopCart = function (data) {
+                    console.log("Get emit data!");
+                    console.log(data);
+                    //this.events = data;
+                };
                 return ProductBooksComponent;
             }());
             ProductBooksComponent = __decorate([

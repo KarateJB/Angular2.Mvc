@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./product.route", "angularfire2", "../../../class/FirebaseConfig", "./product.app.component", "./product-index.component", "./product-create.component", "./product-edit.component", "./product-sub.component", "./product-books.component", "./product-toys.component", "./product-music.component", "./product-booking.component", "./product.service", "@ngrx/store", "../../../service/counter.action"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./product.route", "angularfire2", "../../../class/FirebaseConfig", "./product.app.component", "./product-index.component", "./product-create.component", "./product-edit.component", "./product-sub.component", "./product-books.component", "./product-toys.component", "./product-music.component", "./product-booking.component", "./product.service", "@ngrx/store", "../../../service/counter.action", "../../../service/shopcart.action"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, forms_1, platform_browser_1, http_1, product_route_1, angularfire2_1, FirebaseConfig_1, product_app_component_1, product_index_component_1, product_create_component_1, product_edit_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1, product_booking_component_1, product_service_1, store_1, counter_action_1, ProductAppModule;
+    var core_1, forms_1, platform_browser_1, http_1, product_route_1, angularfire2_1, FirebaseConfig_1, product_app_component_1, product_index_component_1, product_create_component_1, product_edit_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1, product_booking_component_1, product_service_1, store_1, counter_action_1, shopcart_action_1, rootReducer, ProductAppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -69,9 +69,16 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             },
             function (counter_action_1_1) {
                 counter_action_1 = counter_action_1_1;
+            },
+            function (shopcart_action_1_1) {
+                shopcart_action_1 = shopcart_action_1_1;
             }
         ],
         execute: function () {
+            rootReducer = {
+                counter: counter_action_1.counterReducer,
+                shopcart: shopcart_action_1.shopcartReducer
+            };
             ProductAppModule = (function () {
                 function ProductAppModule() {
                 }
@@ -85,7 +92,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         http_1.HttpModule,
                         product_route_1.ProductRoutes,
                         angularfire2_1.AngularFireModule.initializeApp(FirebaseConfig_1.FirebaseConfig.Get()),
-                        store_1.StoreModule.provideStore({ counter: counter_action_1.counterReducer })
+                        store_1.StoreModule.provideStore(rootReducer)
                     ],
                     declarations: [
                         product_app_component_1.ProductAppComponent,
