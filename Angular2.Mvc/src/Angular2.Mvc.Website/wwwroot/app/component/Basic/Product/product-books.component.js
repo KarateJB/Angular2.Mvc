@@ -1,5 +1,5 @@
 /// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
-System.register(["@angular/core", "@angular/router", "./product.service", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./product.service", "ng2-toastr/ng2-toastr", "@ngrx/store", "../../../service/counter.action"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11,7 +11,7 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, product_service_1, ng2_toastr_1, ProductBooksComponent;
+    var core_1, router_1, product_service_1, ng2_toastr_1, store_1, counter_action_1, ProductBooksComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -25,19 +25,27 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
             },
             function (ng2_toastr_1_1) {
                 ng2_toastr_1 = ng2_toastr_1_1;
+            },
+            function (store_1_1) {
+                store_1 = store_1_1;
+            },
+            function (counter_action_1_1) {
+                counter_action_1 = counter_action_1_1;
             }
         ],
         execute: function () {/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
             ProductBooksComponent = (function () {
-                function ProductBooksComponent(router, productService, toastr, vRef) {
+                function ProductBooksComponent(router, productService, toastr, vRef, store) {
                     this.router = router;
                     this.productService = productService;
                     this.toastr = toastr;
                     this.vRef = vRef;
+                    this.store = store;
                     this.title = "Books";
                     this.toastr.setRootViewContainerRef(vRef);
                     this.productService = productService;
                     JL("Angular2").debug("Come to BooksComponent!");
+                    this.counter = store.select("counter");
                 }
                 ProductBooksComponent.prototype.ngOnInit = function () {
                     this.initBooks();
@@ -85,6 +93,12 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
                 ProductBooksComponent.prototype.setShopCart = function (data) {
                     this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
                 };
+                ProductBooksComponent.prototype.increment = function () {
+                    this.store.dispatch({ type: counter_action_1.INCREMENT });
+                };
+                ProductBooksComponent.prototype.decrement = function () {
+                    this.store.dispatch({ type: counter_action_1.DECREMENT });
+                };
                 return ProductBooksComponent;
             }());
             ProductBooksComponent = __decorate([
@@ -95,7 +109,8 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
                 __metadata("design:paramtypes", [router_1.Router,
                     product_service_1.ProductService,
                     ng2_toastr_1.ToastsManager,
-                    core_1.ViewContainerRef])
+                    core_1.ViewContainerRef,
+                    store_1.Store])
             ], ProductBooksComponent);
             exports_1("ProductBooksComponent", ProductBooksComponent);
         }

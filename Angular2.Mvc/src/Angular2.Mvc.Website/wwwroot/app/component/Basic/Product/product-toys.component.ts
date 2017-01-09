@@ -7,7 +7,18 @@ import { ProductService } from './product.service';
 import { ProductBookingComponent } from './product-booking.component';
 import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import { INCREMENT, DECREMENT, RESET } from '../../../service/counter.action';
+
+
 declare var swal: any; //SweetAlert2 typings definition
+
+
+interface AppState {
+    counter: number;
+}
+
 
 @Component({
     selector: 'product-toys',
@@ -20,11 +31,14 @@ export class ProductToysComponent implements OnInit {
     private toastrOptions: ToastOptions;
     private toys: Product[];
 
+    private counter: Observable<number>;
+
     constructor(
         private router: Router,
         private productService: ProductService,
         private toastr: ToastsManager,
-        private vRef: ViewContainerRef) {
+        private vRef: ViewContainerRef,
+        private store: Store<AppState>) {
 
         this.title = "Toys";
         this.toastr.setRootViewContainerRef(vRef);
@@ -32,6 +46,8 @@ export class ProductToysComponent implements OnInit {
         this.productService = productService;
 
         JL("Angular2").debug("Come to ToysComponent!");
+
+        this.counter = store.select("counter");
     }
 
     ngOnInit() {
@@ -89,6 +105,17 @@ export class ProductToysComponent implements OnInit {
 
     private setShopCart(data: ShopCart) {
         this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
+    }
+
+
+    private increment() {
+        this.store.dispatch({ type: INCREMENT });
+
+    }
+
+    private decrement() {
+        this.store.dispatch({ type: DECREMENT });
+
     }
 
 }

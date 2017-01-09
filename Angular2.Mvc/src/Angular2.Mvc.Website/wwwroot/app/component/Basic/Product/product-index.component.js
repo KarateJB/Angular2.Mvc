@@ -33,7 +33,6 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                     this.store = store;
                     this.title = "Products";
                     this.counter = store.select("counter");
-                    console.log(this.counter);
                 }
                 ProductIndexComponent.prototype.ngOnInit = function () {
                 };

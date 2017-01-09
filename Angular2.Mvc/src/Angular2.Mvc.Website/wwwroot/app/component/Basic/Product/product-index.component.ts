@@ -30,7 +30,6 @@ export class ProductIndexComponent implements OnInit {
     ) {
         this.title = "Products";
         this.counter = store.select("counter");
-        console.log(this.counter);
     }
 
     ngOnInit() {
