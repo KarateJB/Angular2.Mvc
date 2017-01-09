@@ -9,6 +9,12 @@ import { ToastsManager, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
 declare var swal: any; //SweetAlert2 typings definition
 
+
+class AppState {
+    counter: number;
+}
+
+
 @Component({
     selector: 'product-music',
     templateUrl: '/app/component/Basic/Product/product-music.component.html'
@@ -30,8 +36,6 @@ export class ProductMusicComponent implements OnInit {
         this.toastr.setRootViewContainerRef(vRef);
 
         this.productService = productService;
-
-        JL("Angular2").debug("Come to MusicComponent!");
     }
 
     ngOnInit() {
@@ -92,6 +96,5 @@ export class ProductMusicComponent implements OnInit {
     private setShopCart(data: ShopCart) {
         this.toastr.info(data.cnt + ' items, total $' + data.sum, 'Shopping Cart', this.toastrOptions);
     }
-
 }
 

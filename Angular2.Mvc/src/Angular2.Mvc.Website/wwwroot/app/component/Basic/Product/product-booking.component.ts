@@ -50,6 +50,8 @@ export class ProductBookingComponent implements OnInit, OnChanges {
         this.shopcart = store.select("shopcart");
     }
 
+    ngOnInit() {
+    }
 
     public ngOnChanges() {
         this.shopItem.price = this.price;
@@ -86,7 +88,6 @@ export class ProductBookingComponent implements OnInit, OnChanges {
         });
     }
 
-    ngOnInit() {
-    }
+    
 }
 

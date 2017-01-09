@@ -12,7 +12,6 @@ System.register([], function (exports_1, context_1) {
                 if (state === void 0) { state = 0; }
                 switch (action.type) {
                     case INCREMENT:
-                        console.log('counterReducer: INCREMENT');
                         return state + 1;
                     case DECREMENT:
                         return state - 1;

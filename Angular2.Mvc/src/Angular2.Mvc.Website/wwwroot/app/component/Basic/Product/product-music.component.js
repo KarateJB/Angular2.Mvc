@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, product_service_1, ng2_toastr_1, ProductMusicComponent;
+    var core_1, router_1, product_service_1, ng2_toastr_1, AppState, ProductMusicComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -27,6 +27,11 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
             }
         ],
         execute: function () {
+            AppState = (function () {
+                function AppState() {
+                }
+                return AppState;
+            }());
             ProductMusicComponent = (function () {
                 function ProductMusicComponent(router, productService, toastr, vRef) {
                     this.router = router;
@@ -36,7 +41,6 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
                     this.title = "Music";
                     this.toastr.setRootViewContainerRef(vRef);
                     this.productService = productService;
-                    JL("Angular2").debug("Come to MusicComponent!");
                 }
                 ProductMusicComponent.prototype.ngOnInit = function () {
                     this.initMusic();
