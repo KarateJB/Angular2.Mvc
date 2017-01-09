@@ -29,6 +29,7 @@ declare var swal: any; //SweetAlert2 typings definition
 export class ProductBookingComponent implements OnInit, OnChanges {
 
     @Input('product') product: Product; 
+    @Input('default-number') defaultNumber: number;
     @Output('emit-events') emitEvents = new EventEmitter<ShopCart>(true); //Must set the EventEmitter to async
 
 
@@ -53,7 +54,7 @@ export class ProductBookingComponent implements OnInit, OnChanges {
     public ngOnChanges() {
         this.shopItem.id = this.product.Id;
         this.shopItem.title = this.product.Title;
-        this.shopItem.count = 0;
+        this.shopItem.count = this.defaultNumber ? this.defaultNumber : 0;
         this.shopItem.price = this.product.Price;
     }
 

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "./product.service", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "@ngrx/store", "./product.service", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, product_service_1, ng2_toastr_1, ProductToysComponent;
+    var core_1, router_1, store_1, product_service_1, ng2_toastr_1, ProductToysComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -18,6 +18,9 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (store_1_1) {
+                store_1 = store_1_1;
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
@@ -28,15 +31,18 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
         ],
         execute: function () {
             ProductToysComponent = (function () {
-                function ProductToysComponent(router, productService, toastr, vRef) {
+                function ProductToysComponent(router, productService, store, toastr, vRef) {
                     this.router = router;
                     this.productService = productService;
+                    this.store = store;
                     this.toastr = toastr;
                     this.vRef = vRef;
                     this.title = "Toys";
+                    this.itemNumbers = {};
                     this.toastr.setRootViewContainerRef(vRef);
                     this.productService = productService;
-                    JL("Angular2").debug("Come to ToysComponent!");
+                    //Get the reducer
+                    this.shopcart = store.select("shopcart");
                 }
                 ProductToysComponent.prototype.ngOnInit = function () {
                     this.initToys();
@@ -47,6 +53,18 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
                     var _this = this;
                     this.productService.getToys().then(function (data) {
                         _this.toys = data;
+                        //Use shopping cart to update data
+                        _this.shopcart.subscribe(function (cart) {
+                            _this.toys.forEach(function (item) {
+                                var storeItem = cart.items.find(function (x) { return x.id === item.Id; });
+                                if (!storeItem) {
+                                    _this.itemNumbers[item.Id] = 0;
+                                }
+                                else {
+                                    _this.itemNumbers[item.Id] = storeItem.count;
+                                }
+                            });
+                        });
                     });
                 };
                 //Go to edit page
@@ -93,6 +111,7 @@ System.register(["@angular/core", "@angular/router", "./product.service", "ng2-t
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
                     product_service_1.ProductService,
+                    store_1.Store,
                     ng2_toastr_1.ToastsManager,
                     core_1.ViewContainerRef])
             ], ProductToysComponent);

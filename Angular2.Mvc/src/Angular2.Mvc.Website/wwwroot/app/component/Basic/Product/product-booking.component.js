@@ -53,7 +53,7 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "../../../cl
                 ProductBookingComponent.prototype.ngOnChanges = function () {
                     this.shopItem.id = this.product.Id;
                     this.shopItem.title = this.product.Title;
-                    this.shopItem.count = 0;
+                    this.shopItem.count = this.defaultNumber ? this.defaultNumber : 0;
                     this.shopItem.price = this.product.Price;
                 };
                 ProductBookingComponent.prototype.increment = function () {
@@ -88,6 +88,10 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "../../../cl
                 core_1.Input('product'),
                 __metadata("design:type", Product_1.Product)
             ], ProductBookingComponent.prototype, "product", void 0);
+            __decorate([
+                core_1.Input('default-number'),
+                __metadata("design:type", Number)
+            ], ProductBookingComponent.prototype, "defaultNumber", void 0);
             __decorate([
                 core_1.Output('emit-events'),
                 __metadata("design:type", Object)
