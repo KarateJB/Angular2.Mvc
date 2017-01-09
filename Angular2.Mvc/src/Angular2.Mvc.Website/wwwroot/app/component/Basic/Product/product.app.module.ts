@@ -16,6 +16,7 @@ import { ProductBooksComponent } from './product-books.component';
 import { ProductToysComponent } from './product-toys.component';
 import { ProductMusicComponent } from './product-music.component';
 import { ProductBookingComponent } from './product-booking.component';
+import { ShopcartComponent } from './shopcart.component';
 import { ProductService } from './product.service';
 
 
@@ -52,7 +53,8 @@ let rootReducer: any = {
         ProductBooksComponent,
         ProductToysComponent,
         ProductMusicComponent,
-        ProductBookingComponent
+        ProductBookingComponent,
+        ShopcartComponent
     ],
     providers: [
         ProductService

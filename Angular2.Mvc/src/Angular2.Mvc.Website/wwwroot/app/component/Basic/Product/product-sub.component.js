@@ -37,18 +37,16 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     JL("Angular2").debug("Go to music!");
                     this.router.navigate(['Basic/Product/Sub', 'Music']);
                 };
+                ProductSubComponent.prototype.goToShopcart = function () {
+                    this.router.navigate(['Basic/Product/Shopcart']);
+                };
                 return ProductSubComponent;
             }());
             ProductSubComponent = __decorate([
                 core_1.Component({
                     selector: 'product-sub',
                     providers: [],
-                    template: '<div class="btn-group" role= "group" aria-label="Basic example">' +
-                        '<button type="button" class="btn btn-secondary" (click)="goToBooks()">Books</button>' +
-                        '<button type="button" class="btn btn-secondary" (click)="goToToys()">Toys</button>' +
-                        '<button type="button" class="btn btn-secondary" (click)="goToMusic()">Music</button>' +
-                        '</div>' +
-                        '<router-outlet></router-outlet>'
+                    template: "\n                <div class=\"btn-group\" role= \"group\" aria-label=\"Basic example\">\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"goToBooks()\">Books</button>\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"goToToys()\">Toys</button>\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"goToMusic()\">Music</button>\n                </div>\n                <router-outlet></router-outlet>\n                <div class=\"shipcart\" (click)=\"goToShopcart()\">\n                    <i class=\"fa fa-shopping-cart fa-3x\"></i>\n                </div>\n               "
                 }),
                 __metadata("design:paramtypes", [router_1.Router])
             ], ProductSubComponent);

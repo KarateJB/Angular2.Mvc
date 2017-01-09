@@ -50,6 +50,8 @@ export class ProductIndexComponent implements OnInit {
         //JL("Angular2").debug("Redirect to create page");
         this.router.navigate(['Basic/Product/Create']);
     }
+
+   
     
 }
 

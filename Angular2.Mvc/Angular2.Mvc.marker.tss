@@ -8,12 +8,6 @@
   </TabHighlightState>
   <TabHighlightState>
     <extensions>
-      <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-booking.component.ts</string>
-    </extensions>
-    <highlightIndex>1</highlightIndex>
-  </TabHighlightState>
-  <TabHighlightState>
-    <extensions>
       <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.ts</string>
       <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.html</string>
     </extensions>
