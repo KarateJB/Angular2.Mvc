@@ -11,7 +11,6 @@ export const CLEAR = 'CLEAR';
 export const shopcartReducer: ActionReducer<IShopCart> = (state: ShopCart = new ShopCart(), action: Action) => {
     switch (action.type) {
         case PUSH:
-            console.log('shopcartReducer: INCREMENT');
             return pushToCart(state, action.payload);
 
         case PULL:
@@ -20,6 +19,7 @@ export const shopcartReducer: ActionReducer<IShopCart> = (state: ShopCart = new 
         case CLEAR:
             state.cnt = 0;
             state.sum = 0;
+            state.items = [];
             return state;
 
         default:
@@ -28,17 +28,35 @@ export const shopcartReducer: ActionReducer<IShopCart> = (state: ShopCart = new 
 }
 
 
-export function pushToCart(shopcart: ShopCart, payload: ShopItem) {
+function pushToCart(shopcart: ShopCart, payload: ShopItem) {
     shopcart.cnt += 1;
     shopcart.sum += payload.price * 1;
-
-    console.log(shopcart);
-
+    updateItems(shopcart, payload);
+    console.log(shopcart.items);
     return shopcart;
 }
 
-export function pullFromCart(shopcart: ShopCart, payload: ShopItem) {
+function pullFromCart(shopcart: ShopCart, payload: ShopItem) {
     shopcart.cnt -= 1;
     shopcart.sum -= payload.price * 1;
+    updateItems(shopcart, payload);
+    console.log(shopcart.items);
     return shopcart;
+}
+
+
+function updateItems(shopcart: ShopCart, payload: ShopItem) {
+    let targetItem = shopcart.items.find(item => item.id === payload.id);
+    if (targetItem) { //Exist
+        if (payload.count <= 0) {
+            var index = shopcart.items.indexOf(targetItem);
+            shopcart.items.splice(index, 1);
+        }
+        else {
+            targetItem.count = payload.count;
+        }
+    }
+    else { //First time adding to shopping cart
+        shopcart.items.push(payload);
+    }
 }

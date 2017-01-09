@@ -25,7 +25,7 @@
             <td>{{prod.Id}}</td>
             <td>{{prod.Title}}</td>
             <td>{{prod.Price}}</td>
-            <td><product-booking [price]="prod.Price" (emit-events)="setShopCart($event)"></product-booking></td>
+            <td><product-booking [product]="prod" (emit-events)="setShopCart($event)"></product-booking></td>
             <td>
                 <input type="button" value="Edit" class="btn btn-info" (click)="edit(prod)" />
                 &nbsp;

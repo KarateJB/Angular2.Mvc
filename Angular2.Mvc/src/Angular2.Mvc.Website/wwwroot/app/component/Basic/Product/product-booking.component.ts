@@ -24,13 +24,11 @@ declare var swal: any; //SweetAlert2 typings definition
                  </tr>
                </table>
               `
-    
 })
 
 export class ProductBookingComponent implements OnInit, OnChanges {
 
-
-    @Input('price') price: number; 
+    @Input('product') product: Product; 
     @Output('emit-events') emitEvents = new EventEmitter<ShopCart>(true); //Must set the EventEmitter to async
 
 
@@ -45,15 +43,18 @@ export class ProductBookingComponent implements OnInit, OnChanges {
     ) {
         this.productService = productService;
 
-        this.shopItem = new ShopItem({ 'count': 0, 'price': this.price });
-
+        //Create ShopItem
+        this.shopItem = new ShopItem();
+        //Get the reducer
         this.shopcart = store.select("shopcart");
     }
 
 
     public ngOnChanges() {
-        this.shopItem.price = this.price;
-        console.log(this.shopItem);
+        this.shopItem.id = this.product.Id;
+        this.shopItem.title = this.product.Title;
+        this.shopItem.count = 0;
+        this.shopItem.price = this.product.Price;
     }
 
     private increment() {

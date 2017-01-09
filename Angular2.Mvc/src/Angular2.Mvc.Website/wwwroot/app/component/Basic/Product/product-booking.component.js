@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@ngrx/store", "@angular/router", "./product.service", "../../../service/shopcart.action", "../../../class/ShopItem"], function (exports_1, context_1) {
+System.register(["@angular/core", "@ngrx/store", "@angular/router", "../../../class/Product", "./product.service", "../../../service/shopcart.action", "../../../class/ShopItem"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "./product.s
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, store_1, router_1, product_service_1, shopcart_action_1, ShopItem_1, ProductBookingComponent;
+    var core_1, store_1, router_1, Product_1, product_service_1, shopcart_action_1, ShopItem_1, ProductBookingComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -21,6 +21,9 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "./product.s
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (Product_1_1) {
+                Product_1 = Product_1_1;
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
@@ -42,12 +45,16 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "./product.s
                     this.counter = 0;
                     this.shopItem = null;
                     this.productService = productService;
-                    this.shopItem = new ShopItem_1.ShopItem({ 'count': 0, 'price': this.price });
+                    //Create ShopItem
+                    this.shopItem = new ShopItem_1.ShopItem();
+                    //Get the reducer
                     this.shopcart = store.select("shopcart");
                 }
                 ProductBookingComponent.prototype.ngOnChanges = function () {
-                    this.shopItem.price = this.price;
-                    console.log(this.shopItem);
+                    this.shopItem.id = this.product.Id;
+                    this.shopItem.title = this.product.Title;
+                    this.shopItem.count = 0;
+                    this.shopItem.price = this.product.Price;
                 };
                 ProductBookingComponent.prototype.increment = function () {
                     var _this = this;
@@ -78,9 +85,9 @@ System.register(["@angular/core", "@ngrx/store", "@angular/router", "./product.s
                 return ProductBookingComponent;
             }());
             __decorate([
-                core_1.Input('price'),
-                __metadata("design:type", Number)
-            ], ProductBookingComponent.prototype, "price", void 0);
+                core_1.Input('product'),
+                __metadata("design:type", Product_1.Product)
+            ], ProductBookingComponent.prototype, "product", void 0);
             __decorate([
                 core_1.Output('emit-events'),
                 __metadata("design:type", Object)

@@ -7,6 +7,7 @@ System.register([], function (exports_1, context_1) {
         execute: function () {
             ShopCart = (function () {
                 function ShopCart() {
+                    this.items = [];
                     this.cnt = 0;
                     this.sum = 0;
                 }

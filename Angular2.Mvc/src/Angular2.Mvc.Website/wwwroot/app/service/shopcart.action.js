@@ -4,16 +4,32 @@ System.register(["../class/ShopCart"], function (exports_1, context_1) {
     function pushToCart(shopcart, payload) {
         shopcart.cnt += 1;
         shopcart.sum += payload.price * 1;
-        console.log(shopcart);
+        updateItems(shopcart, payload);
+        console.log(shopcart.items);
         return shopcart;
     }
-    exports_1("pushToCart", pushToCart);
     function pullFromCart(shopcart, payload) {
         shopcart.cnt -= 1;
         shopcart.sum -= payload.price * 1;
+        updateItems(shopcart, payload);
+        console.log(shopcart.items);
         return shopcart;
     }
-    exports_1("pullFromCart", pullFromCart);
+    function updateItems(shopcart, payload) {
+        var targetItem = shopcart.items.find(function (item) { return item.id === payload.id; });
+        if (targetItem) {
+            if (payload.count <= 0) {
+                var index = shopcart.items.indexOf(targetItem);
+                shopcart.items.splice(index, 1);
+            }
+            else {
+                targetItem.count = payload.count;
+            }
+        }
+        else {
+            shopcart.items.push(payload);
+        }
+    }
     var ShopCart_1, PUSH, PULL, CLEAR, shopcartReducer;
     return {
         setters: [
@@ -29,13 +45,13 @@ System.register(["../class/ShopCart"], function (exports_1, context_1) {
                 if (state === void 0) { state = new ShopCart_1.ShopCart(); }
                 switch (action.type) {
                     case PUSH:
-                        console.log('shopcartReducer: INCREMENT');
                         return pushToCart(state, action.payload);
                     case PULL:
                         return pullFromCart(state, action.payload);
                     case CLEAR:
                         state.cnt = 0;
                         state.sum = 0;
+                        state.items = [];
                         return state;
                     default:
                         return state;
