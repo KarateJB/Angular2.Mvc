@@ -21,6 +21,11 @@ namespace Angular2.Mvc.Website.Controllers
             this._configManager = cfgMangerOptions.Value;
         }
 
+        public IActionResult Spa()
+        {
+            return View();
+        }
+
 
         public IActionResult Index()
         {

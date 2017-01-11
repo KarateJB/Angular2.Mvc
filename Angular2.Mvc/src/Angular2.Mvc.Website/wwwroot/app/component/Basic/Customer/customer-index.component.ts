@@ -1,4 +1,4 @@
-﻿import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
+﻿import { Component, Pipe, PipeTransform, OnInit, ViewContainerRef} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer} from '../../../class/Customer';
 import {SysEvent} from '../../../class/SysEvent';
@@ -29,9 +29,11 @@ export class CustomerIndexComponent implements OnInit {
     selectedCustomer: Customer;
     constructor(
         private router: Router,
+        private viewContainerRef: ViewContainerRef,
         private blockUI: BlockUIService,
         private custService: CustomerService) {
         this.title = "Customers";
+        this.blockUI.vRef = this.viewContainerRef;
     }
 
     ngOnInit() {

@@ -13,4 +13,10 @@
     </extensions>
     <highlightIndex>2</highlightIndex>
   </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\Angular2.Mvc.Website\Views\Home\Spa.cshtml</string>
+    </extensions>
+    <highlightIndex>2</highlightIndex>
+  </TabHighlightState>
 </ArrayOfTabHighlightState>

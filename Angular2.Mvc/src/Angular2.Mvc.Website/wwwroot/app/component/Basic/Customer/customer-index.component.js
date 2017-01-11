@@ -31,11 +31,13 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
         ],
         execute: function () {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent(router, blockUI, custService) {
+                function CustomerIndexComponent(router, viewContainerRef, blockUI, custService) {
                     this.router = router;
+                    this.viewContainerRef = viewContainerRef;
                     this.blockUI = blockUI;
                     this.custService = custService;
                     this.title = "Customers";
+                    this.blockUI.vRef = this.viewContainerRef;
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
                     this.blockUI.start();
@@ -118,6 +120,7 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
                     styleUrls: ['/app/component/Basic/Customer/customer-index.component.css']
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
+                    core_1.ViewContainerRef,
                     blockUI_service_1.BlockUIService,
                     customer_service_1.CustomerService])
             ], CustomerIndexComponent);
