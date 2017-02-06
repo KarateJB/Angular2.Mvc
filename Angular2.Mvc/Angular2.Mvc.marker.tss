@@ -2,6 +2,18 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
+      <string>src\angular2.mvc.website\views\shared\_layout.cshtml</string>
+    </extensions>
+    <highlightIndex>3</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\angular2.mvc.website\views\home\spa.cshtml</string>
+    </extensions>
+    <highlightIndex>2</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
       <string>src\angular2.mvc.website\wwwroot\app\service\shopcart.action.ts</string>
     </extensions>
     <highlightIndex>4</highlightIndex>
@@ -10,12 +22,6 @@
     <extensions>
       <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.ts</string>
       <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.html</string>
-    </extensions>
-    <highlightIndex>2</highlightIndex>
-  </TabHighlightState>
-  <TabHighlightState>
-    <extensions>
-      <string>src\Angular2.Mvc.Website\Views\Home\Spa.cshtml</string>
     </extensions>
     <highlightIndex>2</highlightIndex>
   </TabHighlightState>
