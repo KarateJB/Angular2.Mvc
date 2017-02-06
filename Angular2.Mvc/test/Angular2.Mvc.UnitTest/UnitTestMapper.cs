@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Angular2.Mvc.Service.Factory;
 using Xunit;
 
-namespace Angular2.Mvc.UnitTest
+namespace Angular2.Mvc.xUnitTest
 {
     public class UnitTestMapper
     {

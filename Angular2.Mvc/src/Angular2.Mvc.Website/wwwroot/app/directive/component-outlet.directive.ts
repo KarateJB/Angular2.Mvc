@@ -1,15 +1,14 @@
 ﻿import {  Directive, Component, ComponentFactory, OnChanges, Input, ViewContainerRef, Compiler, ComponentFactoryResolver } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+//import { CommonModule } from '@angular/common';
 
 @Directive({
     selector: '[component-outlet]'
 })
 export class ComponentOutlet implements OnChanges {
     @Input() selector: string;
+    @Input() inputValue: any;
+
     componentRef;
-    init = false;
 
     constructor(
         private vcRef: ViewContainerRef,
@@ -21,12 +20,16 @@ export class ComponentOutlet implements OnChanges {
     ngOnChanges() {
 
         console.log("this.selector=" + this.selector);
-        if (!this.selector || this.init) return;
+        console.log("this.inputValue=" + this.inputValue);
+
+        if (!this.selector) return;
 
         const factories = Array.from(this.resolver['_factories'].values());
         const factory: any = factories.find((x: any) => x.selector === this.selector);
-        const compRef = this.vcRef.createComponent(factory);
+        const compRef:any = this.vcRef.createComponent(factory);
 
+        //Set input value for the component (optional)
+        compRef.instance.inputValue = this.inputValue;
 
         //console.log(this.resolver['_factories']);
         //var factories = Array.from(this.resolver['_factories'].keys());
@@ -41,7 +44,6 @@ export class ComponentOutlet implements OnChanges {
         }
 
         this.componentRef = compRef;
-        this.init = true;
     }
 
     public ngOnDestroy() {

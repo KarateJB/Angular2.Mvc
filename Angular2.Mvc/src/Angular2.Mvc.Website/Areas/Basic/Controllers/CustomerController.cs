@@ -20,10 +20,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
 
     public class CustomerController : BaseController
     {
-        public CustomerController(ILogger<BaseController> logger) : base(logger)
-        {
-
-        }
 
         [Route("[action]")]
         public IActionResult Index()
@@ -31,7 +27,11 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
             //Show how to log with NLog
             //base._logger.Debug($"Areas:Basic,Controller:Customer,Action:Index");
             //base._logger.Error($"Areas:Basic,Controller:Customer,Action:Index");
-            
+
+#if NET452
+            base._logger.Info("This log is for .NET framework 4.5.2 only!");
+#endif
+
             return View();
         }
 

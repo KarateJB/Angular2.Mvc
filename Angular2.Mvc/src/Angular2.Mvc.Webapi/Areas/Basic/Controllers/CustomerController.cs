@@ -20,9 +20,6 @@ namespace Angular2.Mvc.Webapi.Areas.Basic.Controllers
     [Route("api/Basic/[controller]")]
     public class CustomerController : BaseController
     {
-        protected static Logger _logger = LogManager.GetCurrentClassLogger();
-
-
         private List<DtoCustomer> _customers = null;
         public CustomerController()
         {

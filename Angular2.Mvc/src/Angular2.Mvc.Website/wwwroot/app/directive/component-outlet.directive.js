@@ -22,16 +22,18 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 function ComponentOutlet(vcRef, resolver) {
                     this.vcRef = vcRef;
                     this.resolver = resolver;
-                    this.init = false;
                 }
                 ComponentOutlet.prototype.ngOnChanges = function () {
                     var _this = this;
                     console.log("this.selector=" + this.selector);
-                    if (!this.selector || this.init)
+                    console.log("this.inputValue=" + this.inputValue);
+                    if (!this.selector)
                         return;
                     var factories = Array.from(this.resolver['_factories'].values());
                     var factory = factories.find(function (x) { return x.selector === _this.selector; });
                     var compRef = this.vcRef.createComponent(factory);
+                    //Set input value for the component (optional)
+                    compRef.instance.inputValue = this.inputValue;
                     //console.log(this.resolver['_factories']);
                     //var factories = Array.from(this.resolver['_factories'].keys());
                     //var factoryClass: any = factories.find((x: any) => x.name === this.selector);
@@ -41,7 +43,6 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         this.componentRef.destroy();
                     }
                     this.componentRef = compRef;
-                    this.init = true;
                 };
                 ComponentOutlet.prototype.ngOnDestroy = function () {
                     if (this.componentRef) {
@@ -55,6 +56,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 core_1.Input(),
                 __metadata("design:type", String)
             ], ComponentOutlet.prototype, "selector", void 0);
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Object)
+            ], ComponentOutlet.prototype, "inputValue", void 0);
             ComponentOutlet = __decorate([
                 core_1.Directive({
                     selector: '[component-outlet]'

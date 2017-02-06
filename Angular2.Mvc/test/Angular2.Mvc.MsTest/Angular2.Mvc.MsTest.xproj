@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>53ccf474-1814-4c25-9349-a6e269882dc2</ProjectGuid>
-    <RootNamespace>Angular2.Mvc.UnitTest</RootNamespace>
+    <ProjectGuid>caaba102-539f-4de3-a8c0-1cfd31220551</ProjectGuid>
+    <RootNamespace>Angular2.Mvc.MsTest</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

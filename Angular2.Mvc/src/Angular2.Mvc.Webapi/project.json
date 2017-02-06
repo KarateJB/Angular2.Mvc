@@ -28,8 +28,8 @@
     "Angular2.Mvc.Core": "1.0.0-*",
     "Angular2.Mvc.Service": "1.0.0-*",
     "Microsoft.AspNet.WebApi.Client": "5.2.3",
-    "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.0.0"
-    //"Microsoft.AspNetCore.Mvc.WebApiCompatShim": "1.0.0"
+    "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.0.0",
+    "MailKit": "1.10.1"
   },
 
   "tools": {

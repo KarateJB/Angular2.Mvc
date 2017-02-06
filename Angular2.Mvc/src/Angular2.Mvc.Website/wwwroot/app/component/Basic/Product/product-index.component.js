@@ -35,10 +35,12 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                     this.counter = store.select("counter");
                 }
                 ProductIndexComponent.prototype.ngOnInit = function () {
-                    this.increment();
                 };
                 ProductIndexComponent.prototype.increment = function () {
                     this.store.dispatch({ type: counter_action_1.INCREMENT });
+                };
+                ProductIndexComponent.prototype.decrement = function () {
+                    this.store.dispatch({ type: counter_action_1.DECREMENT });
                 };
                 ProductIndexComponent.prototype.goToCreate = function () {
                     //JL("Angular2").debug("Redirect to create page");

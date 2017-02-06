@@ -130,6 +130,19 @@ gulp.task('copy-ngrx-store', function () {
         .pipe(gulp.dest(root_path.package_lib + '/ngrx/store/'));
 });
 
+
+//ng2-toastr
+gulp.task('copy-ng2-toastr', function () {
+    return gulp.src([
+        root_path.nmSrc + "/ng2-toastr/bundles/*.min.js",
+        root_path.nmSrc + "/ng2-toastr/bundles/*.min.css"
+    ], {
+        base: root_path.nmSrc + '/ng2-toastr/bundles/'
+    }).pipe(gulp.dest(root_path.package_lib + '/ng2-toastr/'));
+});
+
+
+
 //font-awesome
 gulp.task('copy-fa-css', function () {
     return gulp.src(root_path.nmSrc + "/font-awesome/fonts/*", {
@@ -165,6 +178,7 @@ gulp.task("copy-all", [
     "copy-traceur",
     "copy-fa-css",
     "copy-fa-fonts",
+    "copy-ng2-toastr",
     "copy-ngrx-core",
     "copy-ngrx-store",
 ])

@@ -2,9 +2,9 @@
 <ArrayOfTabHighlightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TabHighlightState>
     <extensions>
-      <string>src\angular2.mvc.website\views\shared\_layout.cshtml</string>
+      <string>src\angular2.mvc.website\wwwroot\app\service\shopcart.action.ts</string>
     </extensions>
-    <highlightIndex>3</highlightIndex>
+    <highlightIndex>4</highlightIndex>
   </TabHighlightState>
   <TabHighlightState>
     <extensions>

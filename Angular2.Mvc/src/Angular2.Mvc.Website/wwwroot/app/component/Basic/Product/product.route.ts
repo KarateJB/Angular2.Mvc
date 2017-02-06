@@ -6,7 +6,8 @@ import { ProductEditComponent} from './product-edit.component';
 import { ProductSubComponent} from './product-sub.component';
 import { ProductBooksComponent} from './product-books.component';
 import { ProductToysComponent} from './product-toys.component';
-import { ProductMusicComponent} from './product-music.component';
+import { ProductMusicComponent } from './product-music.component';
+import { ShopcartComponent } from './shopcart.component';
 
 
 
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
     { path: 'Basic/Product/Index', component: ProductIndexComponent },
     { path: 'Basic/Product/Create', component: ProductCreateComponent },
     { path: 'Basic/Product/Edit/:id', component: ProductEditComponent },
+    { path: 'Basic/Product/Shopcart', component: ShopcartComponent },
     {
         path: 'Basic/Product/Sub',
         component: ProductSubComponent,

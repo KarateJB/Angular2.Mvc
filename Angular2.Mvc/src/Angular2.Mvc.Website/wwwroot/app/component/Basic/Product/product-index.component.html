@@ -1,5 +1,4 @@
 ﻿
-<div>Current users : {{counter | async}}</div>
 <table>
     <tr>
         <td>
@@ -10,5 +9,21 @@
 
 <hr />
 
+<div>
+    <product-sub></product-sub>
+</div>
 
-<product-sub></product-sub>
+
+
+<!--ngrx sample-->
+<div class="footer">
+    <table>
+        <tr>
+            <td (click)="decrement()"><label style="min-width:25px"><i class="fa fa-minus"></i></label></td>
+            <td>{{counter | async}}</td>
+            <td (click)="increment()"><label style="min-width:25px"><i class="fa fa-plus"></i></label></td>
+        </tr>
+    </table>
+</div>
+
+

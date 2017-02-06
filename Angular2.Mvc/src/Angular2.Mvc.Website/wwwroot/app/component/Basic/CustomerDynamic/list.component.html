@@ -15,8 +15,7 @@
                 <tr *ngFor="let item of customers; let sn=index">
                     <!--<td class="col-sm-1 text-center">{{sn+1}}</td>-->
                     <td class="col-sm-1 text-center">{{item.Id}}</td>
-                    <td class="col-sm-2">
-                        <a [innerHtml]="item.Name" (click)="showDetail(item)"></a>
+                    <td class="col-sm-2" [innerHtml]="item.Name">
                     </td>
                     <td class="col-sm-2">{{item.Phone}}</td>
                     <td class="col-sm-1">{{item.Age}}</td>

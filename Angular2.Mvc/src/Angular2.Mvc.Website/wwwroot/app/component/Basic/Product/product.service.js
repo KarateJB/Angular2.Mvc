@@ -150,6 +150,7 @@ System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../
                             resolve(current);
                         });
                     }).then(function (newValue) {
+                        console.log(newValue);
                         var itemObservable = _this._queryProducts();
                         itemObservable.update(newValue);
                     });

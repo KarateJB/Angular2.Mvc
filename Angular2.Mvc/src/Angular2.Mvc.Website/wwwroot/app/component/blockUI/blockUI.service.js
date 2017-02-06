@@ -36,6 +36,9 @@ System.register(["@angular/core", "./blockUI.comp"], function (exports_1, contex
                     if (this.blockUI) {
                         this.blockUI.destroy();
                     }
+                    //Or use remove
+                    //let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
+                    //viewContainerRef.remove(); //Remove the last View
                 };
                 return BlockUIService;
             }());

@@ -12,10 +12,6 @@ namespace Angular2.Mvc.Website.Areas.Basic.Controllers
     [Route("Basic/[controller]")]
     public class ProductController : BaseController
     {
-        public ProductController(ILogger<BaseController> logger) : base(logger)
-        {
-
-        }
 
         [Route("[action]")]
         public IActionResult Index()
