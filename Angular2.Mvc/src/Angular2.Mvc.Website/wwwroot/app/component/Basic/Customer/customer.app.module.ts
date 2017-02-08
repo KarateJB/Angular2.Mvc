@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CustomerRoutes} from './customer.route';
-import { WrapEventPipe} from './customer.pipe';
+import { WrapEventPipe } from './customer.pipe';
+import { SafeHtml } from '../../../directive/safe-html.directive';
 import { BlockUIComponent } from '../../blockUI/blockUI.comp';
 import { CustomerAppComponent }  from './customer.app.component';
 import { CustomerIndexComponent } from './customer-index.component';
@@ -15,7 +16,7 @@ import { CustomerEditComponent } from './customer-edit.component';
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule, 
+        FormsModule,
         HttpModule,
         CustomerRoutes
         //RouterModule.forRoot([
@@ -25,7 +26,7 @@ import { CustomerEditComponent } from './customer-edit.component';
         //    { path: '', redirectTo: 'Basic/Customer/Index', pathMatch: 'full' }
         //])
     ],
-    declarations: [BlockUIComponent, CustomerAppComponent, CustomerIndexComponent, CustomerDetailComponent, CustomerCreateComponent, CustomerEditComponent,WrapEventPipe],
+    declarations: [BlockUIComponent, CustomerAppComponent, CustomerIndexComponent, CustomerDetailComponent, CustomerCreateComponent, CustomerEditComponent, WrapEventPipe, SafeHtml],
     providers: [
         //appRoutingProviders,
         { provide: LOCALE_ID, useValue: "zh-TW" }, //replace "en-US" with your locale

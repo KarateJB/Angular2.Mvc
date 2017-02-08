@@ -6,17 +6,19 @@ export class BlockUIService {
 
 
     private blockUI: ComponentRef<BlockUIComponent>;
+    public vRef: ViewContainerRef;
 
     constructor(
-        private appRef: ApplicationRef,
+        //private appRef: ApplicationRef,
         private componentFactoryResolver: ComponentFactoryResolver) { }
 
     public start() {
 
         //let rootRef: ElementRef = this.appRef['_rootComponents'][0].location;
-        let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
+        //console.log(this.appRef['_rootComponents'][0]);
+        //let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
         let factory = this.componentFactoryResolver.resolveComponentFactory(BlockUIComponent);
-        this.blockUI = viewContainerRef.createComponent(factory);
+        this.blockUI = this.vRef.createComponent(factory);
     }
 
 

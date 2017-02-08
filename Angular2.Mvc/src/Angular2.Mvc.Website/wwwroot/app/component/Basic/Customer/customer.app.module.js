@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./customer.route", "./customer.pipe", "../../blockUI/blockUI.comp", "./customer.app.component", "./customer-index.component", "./customer-detail.component", "./customer-create.component", "./customer-edit.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./customer.route", "./customer.pipe", "../../../directive/safe-html.directive", "../../blockUI/blockUI.comp", "./customer.app.component", "./customer-index.component", "./customer-detail.component", "./customer-create.component", "./customer-edit.component"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, forms_1, platform_browser_1, http_1, customer_route_1, customer_pipe_1, blockUI_comp_1, customer_app_component_1, customer_index_component_1, customer_detail_component_1, customer_create_component_1, customer_edit_component_1, CustomerAppModule;
+    var core_1, forms_1, platform_browser_1, http_1, customer_route_1, customer_pipe_1, safe_html_directive_1, blockUI_comp_1, customer_app_component_1, customer_index_component_1, customer_detail_component_1, customer_create_component_1, customer_edit_component_1, CustomerAppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -30,6 +30,9 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             },
             function (customer_pipe_1_1) {
                 customer_pipe_1 = customer_pipe_1_1;
+            },
+            function (safe_html_directive_1_1) {
+                safe_html_directive_1 = safe_html_directive_1_1;
             },
             function (blockUI_comp_1_1) {
                 blockUI_comp_1 = blockUI_comp_1_1;
@@ -64,7 +67,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         http_1.HttpModule,
                         customer_route_1.CustomerRoutes
                     ],
-                    declarations: [blockUI_comp_1.BlockUIComponent, customer_app_component_1.CustomerAppComponent, customer_index_component_1.CustomerIndexComponent, customer_detail_component_1.CustomerDetailComponent, customer_create_component_1.CustomerCreateComponent, customer_edit_component_1.CustomerEditComponent, customer_pipe_1.WrapEventPipe],
+                    declarations: [blockUI_comp_1.BlockUIComponent, customer_app_component_1.CustomerAppComponent, customer_index_component_1.CustomerIndexComponent, customer_detail_component_1.CustomerDetailComponent, customer_create_component_1.CustomerCreateComponent, customer_edit_component_1.CustomerEditComponent, customer_pipe_1.WrapEventPipe, safe_html_directive_1.SafeHtml],
                     providers: [
                         //appRoutingProviders,
                         { provide: core_1.LOCALE_ID, useValue: "zh-TW" },

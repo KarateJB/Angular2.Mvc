@@ -22,15 +22,17 @@ System.register(["@angular/core", "./blockUI.comp"], function (exports_1, contex
         ],
         execute: function () {
             BlockUIService = (function () {
-                function BlockUIService(appRef, componentFactoryResolver) {
-                    this.appRef = appRef;
+                function BlockUIService(
+                    //private appRef: ApplicationRef,
+                    componentFactoryResolver) {
                     this.componentFactoryResolver = componentFactoryResolver;
                 }
                 BlockUIService.prototype.start = function () {
                     //let rootRef: ElementRef = this.appRef['_rootComponents'][0].location;
-                    var viewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
+                    //console.log(this.appRef['_rootComponents'][0]);
+                    //let viewContainerRef: ViewContainerRef = this.appRef['_rootComponents'][0]['_hostElement'].vcRef;
                     var factory = this.componentFactoryResolver.resolveComponentFactory(blockUI_comp_1.BlockUIComponent);
-                    this.blockUI = viewContainerRef.createComponent(factory);
+                    this.blockUI = this.vRef.createComponent(factory);
                 };
                 BlockUIService.prototype.stop = function () {
                     if (this.blockUI) {
@@ -44,8 +46,7 @@ System.register(["@angular/core", "./blockUI.comp"], function (exports_1, contex
             }());
             BlockUIService = __decorate([
                 core_1.Injectable(),
-                __metadata("design:paramtypes", [core_1.ApplicationRef,
-                    core_1.ComponentFactoryResolver])
+                __metadata("design:paramtypes", [core_1.ComponentFactoryResolver])
             ], BlockUIService);
             exports_1("BlockUIService", BlockUIService);
         }

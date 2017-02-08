@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../../../service/customer.service", "../../../service/resturi.service", "../../blockUI/blockUI.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../../../service/customer.service", "../../../service/html.service", "../../../service/resturi.service", "../../blockUI/blockUI.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, customer_service_1, resturi_service_1, blockUI_service_1, CustomerIndexComponent;
+    var core_1, router_1, customer_service_1, html_service_1, resturi_service_1, blockUI_service_1, CustomerIndexComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -22,6 +22,9 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
             function (customer_service_1_1) {
                 customer_service_1 = customer_service_1_1;
             },
+            function (html_service_1_1) {
+                html_service_1 = html_service_1_1;
+            },
             function (resturi_service_1_1) {
                 resturi_service_1 = resturi_service_1_1;
             },
@@ -31,11 +34,20 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
         ],
         execute: function () {
             CustomerIndexComponent = (function () {
-                function CustomerIndexComponent(router, blockUI, custService) {
+                function CustomerIndexComponent(router, viewContainerRef, blockUI, custService, htmlService) {
                     this.router = router;
+                    this.viewContainerRef = viewContainerRef;
                     this.blockUI = blockUI;
                     this.custService = custService;
+                    this.htmlService = htmlService;
+                    this.blockUI.vRef = this.viewContainerRef;
                     this.title = "Customers";
+                    this.htmlStr = "<script>alert('Testing!');</script>";
+                    var testStr = "&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
+                    var decodedHtml = htmlService.decodeHtml(testStr);
+                    var sanitizedHtml = htmlService.sanitizeHtml(this.htmlStr);
+                    JL("Angular").debug('decodedHtml = ' + decodedHtml);
+                    JL("Angular").debug('sanitizedHtml = ' + sanitizedHtml);
                 }
                 CustomerIndexComponent.prototype.ngOnInit = function () {
                     this.blockUI.start();
@@ -112,14 +124,16 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
                 }),
                 core_1.Component({
                     selector: 'customer-index',
-                    providers: [customer_service_1.CustomerService, resturi_service_1.RestUriService, blockUI_service_1.BlockUIService],
+                    providers: [customer_service_1.CustomerService, html_service_1.HtmlService, resturi_service_1.RestUriService, blockUI_service_1.BlockUIService],
                     //providers: [ROUTER_PROVIDERS, CustomerService],
                     templateUrl: '/app/component/Basic/Customer/customer-index.component.html',
                     styleUrls: ['/app/component/Basic/Customer/customer-index.component.css']
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
+                    core_1.ViewContainerRef,
                     blockUI_service_1.BlockUIService,
-                    customer_service_1.CustomerService])
+                    customer_service_1.CustomerService,
+                    html_service_1.HtmlService])
             ], CustomerIndexComponent);
             exports_1("CustomerIndexComponent", CustomerIndexComponent);
         }

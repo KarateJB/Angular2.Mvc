@@ -1,10 +1,13 @@
-﻿import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Customer} from '../../../class/Customer';
-import {SysEvent} from '../../../class/SysEvent';
-import {CustomerService} from '../../../service/customer.service';
-import {RestUriService} from '../../../service/resturi.service';
+﻿/// <reference path="../../../../lib-npm/typings/jsnlog.d.ts" />
+import { Component, Pipe, PipeTransform, ViewContainerRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Customer } from '../../../class/Customer';
+import { SysEvent } from '../../../class/SysEvent';
+import { CustomerService } from '../../../service/customer.service';
+import { HtmlService } from '../../../service/html.service';
+import { RestUriService } from '../../../service/resturi.service';
 import { BlockUIService } from '../../blockUI/blockUI.service';
+import { SafeHtml } from '../../../directive/safe-html.directive';
 
 
 declare var swal: any; //SweetAlert2 typings definition
@@ -16,7 +19,7 @@ declare var swal: any; //SweetAlert2 typings definition
 
 @Component({
     selector: 'customer-index',
-    providers: [CustomerService, RestUriService, BlockUIService],
+    providers: [CustomerService, HtmlService,  RestUriService, BlockUIService],
     //providers: [ROUTER_PROVIDERS, CustomerService],
     templateUrl: '/app/component/Basic/Customer/customer-index.component.html',
     styleUrls: ['/app/component/Basic/Customer/customer-index.component.css']
@@ -27,11 +30,24 @@ export class CustomerIndexComponent implements OnInit {
     customers: Customer[];
     events: SysEvent[];
     selectedCustomer: Customer;
+    htmlStr: string;
+
     constructor(
         private router: Router,
+        private viewContainerRef: ViewContainerRef,
         private blockUI: BlockUIService,
-        private custService: CustomerService) {
+        private custService: CustomerService,
+        private htmlService: HtmlService) {
+        this.blockUI.vRef = this.viewContainerRef;
         this.title = "Customers";
+        this.htmlStr = "<script>alert('Testing!');</script>";
+
+        let testStr = "&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
+        let decodedHtml = htmlService.decodeHtml(testStr);
+        let sanitizedHtml = htmlService.sanitizeHtml(this.htmlStr);
+
+        JL("Angular").debug('decodedHtml = ' + decodedHtml);
+        JL("Angular").debug('sanitizedHtml = ' + sanitizedHtml);
     }
 
     ngOnInit() {
