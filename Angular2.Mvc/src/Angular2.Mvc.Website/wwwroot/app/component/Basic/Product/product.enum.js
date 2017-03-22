@@ -13,10 +13,8 @@ System.register([], function (exports_1, context_1) {
             exports_1("ProductTypeEnum", ProductTypeEnum);
             //Usage
             //let a = ProductTypeEnum.Book;
-            //let name = ProductTypeEnum[ProductTypeEnum.Book]; // "Book" }
+            //let name = ProductTypeEnum[ProductTypeEnum.Book]; // "Book" 
+        }
     };
 });
-//Usage
-//let a = ProductTypeEnum.Book;
-//let name = ProductTypeEnum[ProductTypeEnum.Book]; // "Book" 
 //# sourceMappingURL=product.enum.js.map

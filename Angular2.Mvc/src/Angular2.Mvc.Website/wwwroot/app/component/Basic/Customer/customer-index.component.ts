@@ -42,7 +42,7 @@ export class CustomerIndexComponent implements OnInit {
         this.title = "Customers";
         this.htmlStr = "<script>alert('Testing!');</script>";
 
-        let testStr = "&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
+        let testStr = "XXX%20XXXX%20&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
         let decodedHtml = htmlService.decodeHtml(testStr);
         let sanitizedHtml = htmlService.sanitizeHtml(this.htmlStr);
 

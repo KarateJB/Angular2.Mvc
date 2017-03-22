@@ -43,7 +43,7 @@ System.register(["@angular/core", "@angular/router", "../../../service/customer.
                     this.blockUI.vRef = this.viewContainerRef;
                     this.title = "Customers";
                     this.htmlStr = "<script>alert('Testing!');</script>";
-                    var testStr = "&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
+                    var testStr = "XXX%20XXXX%20&#39134;&#24605;&#21345;&#23572;&#26368;&#26032;MCU";
                     var decodedHtml = htmlService.decodeHtml(testStr);
                     var sanitizedHtml = htmlService.sanitizeHtml(this.htmlStr);
                     JL("Angular").debug('decodedHtml = ' + decodedHtml);

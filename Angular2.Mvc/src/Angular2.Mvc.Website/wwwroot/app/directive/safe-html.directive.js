@@ -42,6 +42,12 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 __metadata("design:paramtypes", [core_1.ElementRef, core_1.Sanitizer])
             ], SafeHtml);
             exports_1("SafeHtml", SafeHtml);
+            /*
+            Usage:
+            
+            <div safe-html [html]="htmlStr"></div>
+            
+            */
         }
     };
 });
