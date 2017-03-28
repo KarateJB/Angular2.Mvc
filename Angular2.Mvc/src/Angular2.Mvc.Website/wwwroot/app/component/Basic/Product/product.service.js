@@ -245,6 +245,4 @@ System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../
         }
     };
 });
-//const PRODUCT_TYPES: ProductType[] =
-//    [{ "id": "1", "name": "Book" }, { "id": "2", "name": "Toy" }, { "id": "3", "name": "Music" }];
 //# sourceMappingURL=product.service.js.map

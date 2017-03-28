@@ -6,9 +6,6 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
     var __moduleName = context_1 && context_1.id;
     var core_1, forms_1, platform_browser_1, http_1, product_route_1, angularfire2_1, FirebaseConfig_1, product_app_component_1, product_index_component_1, product_create_component_1, product_edit_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1, product_booking_component_1, shopcart_component_1, product_service_1, store_1, counter_action_1, shopcart_action_1, ng2_toastr_1, rootReducer, ProductAppModule;
     return {
@@ -117,8 +114,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         product_service_1.ProductService
                     ],
                     bootstrap: [product_app_component_1.ProductAppComponent]
-                }),
-                __metadata("design:paramtypes", [])
+                })
             ], ProductAppModule);
             exports_1("ProductAppModule", ProductAppModule);
         }
