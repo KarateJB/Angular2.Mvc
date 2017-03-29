@@ -18,19 +18,22 @@ import { ProductMusicComponent } from './product-music.component';
 import { ProductBookingComponent } from './product-booking.component';
 import { ShopcartComponent } from './shopcart.component';
 import { ProductService } from './product.service';
+import { Utility } from '../../../service/utility';
 
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from '../../../service/counter.action';
+import { EffectsModule } from '@ngrx/effects';
 import { shopcartReducer } from '../../../service/shopcart.action';
+import { orderReducer } from '../../../service/order.action'; 
+import { orderEffects } from "../../../service/order.effects";
 
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 
 let rootReducer: any = {
-    counter: counterReducer,
-    shopcart: shopcartReducer
+    shopcart: shopcartReducer,
+    order: orderReducer
 }
 
 
@@ -42,7 +45,8 @@ let rootReducer: any = {
         ProductRoutes,
         ToastModule,
         AngularFireModule.initializeApp(FirebaseConfig.Get()),
-        StoreModule.provideStore(rootReducer)
+        StoreModule.provideStore(rootReducer),
+        EffectsModule.run(orderEffects)
     ],
     declarations: [
         ProductAppComponent,
@@ -57,7 +61,8 @@ let rootReducer: any = {
         ShopcartComponent
     ],
     providers: [
-        ProductService
+        ProductService,
+        Utility
     ],
     bootstrap: [ProductAppComponent]
 })

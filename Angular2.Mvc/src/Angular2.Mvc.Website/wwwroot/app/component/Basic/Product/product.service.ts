@@ -7,6 +7,7 @@ import {ProductType} from '../../../class/ProductType';
 import { Utility} from '../../../class/Utility';
 import { EnumEx} from '../../../class/EnumEx';
 import { ProductTypeEnum } from '../../../enum/ProductTypeEnum';
+import { Subject } from 'rxjs/Subject';
 
 declare var swal: any; //SweetAlert2 typings definition
 
@@ -59,6 +60,14 @@ export class ProductService {
 
 
     public getByKey(key: string) {
+        //let subject$ = new Subject();
+        //subject$.subscribe((key) => {
+        //    let target = this.af.database.object('/Demo/products/' + key);
+        //    target.take(1).subscribe(data => {
+        //        console.log(data);
+        //    })
+        //});
+        //subject$.next(key);
 
         return new Promise<Product>(
             resolve => {
@@ -155,7 +164,7 @@ export class ProductService {
         var getPromise = new Promise(
             resolve => {
                 let itemObservable = this._queryProducts();
-                console.log(itemObservable);
+                //console.log(itemObservable);
                 let current = null;
                 itemObservable.subscribe(value => {
                     current = value;
@@ -163,7 +172,7 @@ export class ProductService {
                     resolve(current);
                 })
             }).then((newValue) => {
-                console.log(newValue);
+                //console.log(newValue);
                 let itemObservable = this._queryProducts();
                 itemObservable.update(newValue);
             });

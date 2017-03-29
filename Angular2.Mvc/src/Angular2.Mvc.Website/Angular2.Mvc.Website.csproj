@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFrameworks>net452;netcoreapp1.0</TargetFrameworks>
@@ -12,6 +12,23 @@
 
   <ItemGroup>
     <Compile Remove="node_modules\**\*" />
+    <Content Include="wwwroot\app\class\Order.js" />
+    <Content Include="wwwroot\app\class\Order.js.map" />
+    <Content Include="wwwroot\app\class\ShopCart - 複製.js.map">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\class\Order.ts">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\interface\IOrder.ts" />
+    <Content Include="wwwroot\app\pipe\counter.action.js" />
+    <Content Include="wwwroot\app\pipe\counter.action.js.map" />
+    <Content Include="wwwroot\app\pipe\counter.action.ts" />
+    <Content Include="wwwroot\app\service\order.action.ts" />
+    <Content Include="wwwroot\app\service\order.effects.js" />
+    <Content Include="wwwroot\app\service\order.effects.js.map" />
+    <Content Include="wwwroot\app\service\order.effects.ts" />
+    <Content Include="wwwroot\app\service\utility.ts" />
     <None Update="wwwroot\**\*;Views\**\*;Areas\**\Views;Nlog.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

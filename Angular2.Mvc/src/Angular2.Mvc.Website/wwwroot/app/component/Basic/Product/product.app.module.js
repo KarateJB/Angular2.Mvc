@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./product.route", "angularfire2", "../../../class/FirebaseConfig", "./product.app.component", "./product-index.component", "./product-create.component", "./product-edit.component", "./product-sub.component", "./product-books.component", "./product-toys.component", "./product-music.component", "./product-booking.component", "./shopcart.component", "./product.service", "@ngrx/store", "../../../service/counter.action", "../../../service/shopcart.action", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/forms", "@angular/platform-browser", "@angular/http", "./product.route", "angularfire2", "../../../class/FirebaseConfig", "./product.app.component", "./product-index.component", "./product-create.component", "./product-edit.component", "./product-sub.component", "./product-books.component", "./product-toys.component", "./product-music.component", "./product-booking.component", "./shopcart.component", "./product.service", "../../../service/utility", "@ngrx/store", "@ngrx/effects", "../../../service/shopcart.action", "../../../service/order.action", "../../../service/order.effects", "ng2-toastr/ng2-toastr"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, forms_1, platform_browser_1, http_1, product_route_1, angularfire2_1, FirebaseConfig_1, product_app_component_1, product_index_component_1, product_create_component_1, product_edit_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1, product_booking_component_1, shopcart_component_1, product_service_1, store_1, counter_action_1, shopcart_action_1, ng2_toastr_1, rootReducer, ProductAppModule;
+    var core_1, forms_1, platform_browser_1, http_1, product_route_1, angularfire2_1, FirebaseConfig_1, product_app_component_1, product_index_component_1, product_create_component_1, product_edit_component_1, product_sub_component_1, product_books_component_1, product_toys_component_1, product_music_component_1, product_booking_component_1, shopcart_component_1, product_service_1, utility_1, store_1, effects_1, shopcart_action_1, order_action_1, order_effects_1, ng2_toastr_1, rootReducer, ProductAppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -64,14 +64,23 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
             },
+            function (utility_1_1) {
+                utility_1 = utility_1_1;
+            },
             function (store_1_1) {
                 store_1 = store_1_1;
             },
-            function (counter_action_1_1) {
-                counter_action_1 = counter_action_1_1;
+            function (effects_1_1) {
+                effects_1 = effects_1_1;
             },
             function (shopcart_action_1_1) {
                 shopcart_action_1 = shopcart_action_1_1;
+            },
+            function (order_action_1_1) {
+                order_action_1 = order_action_1_1;
+            },
+            function (order_effects_1_1) {
+                order_effects_1 = order_effects_1_1;
             },
             function (ng2_toastr_1_1) {
                 ng2_toastr_1 = ng2_toastr_1_1;
@@ -79,8 +88,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
         ],
         execute: function () {
             rootReducer = {
-                counter: counter_action_1.counterReducer,
-                shopcart: shopcart_action_1.shopcartReducer
+                shopcart: shopcart_action_1.shopcartReducer,
+                order: order_action_1.orderReducer
             };
             ProductAppModule = (function () {
                 function ProductAppModule() {
@@ -96,7 +105,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         product_route_1.ProductRoutes,
                         ng2_toastr_1.ToastModule,
                         angularfire2_1.AngularFireModule.initializeApp(FirebaseConfig_1.FirebaseConfig.Get()),
-                        store_1.StoreModule.provideStore(rootReducer)
+                        store_1.StoreModule.provideStore(rootReducer),
+                        effects_1.EffectsModule.run(order_effects_1.orderEffects)
                     ],
                     declarations: [
                         product_app_component_1.ProductAppComponent,
@@ -111,7 +121,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         shopcart_component_1.ShopcartComponent
                     ],
                     providers: [
-                        product_service_1.ProductService
+                        product_service_1.ProductService,
+                        utility_1.Utility
                     ],
                     bootstrap: [product_app_component_1.ProductAppComponent]
                 })

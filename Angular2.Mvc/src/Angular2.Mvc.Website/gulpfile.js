@@ -129,6 +129,10 @@ gulp.task('copy-ngrx-store', function () {
     return gulp.src(root_path.nmSrc + "/@ngrx/store/bundles/store.min.umd.js")
         .pipe(gulp.dest(root_path.package_lib + '/ngrx/store/'));
 });
+gulp.task('copy-ngrx-effects', function () {
+    return gulp.src(root_path.nmSrc + "/@ngrx/effects/bundles/effects.min.umd.js")
+        .pipe(gulp.dest(root_path.package_lib + '/ngrx/effects/'));
+});
 
 
 //ng2-toastr
@@ -181,4 +185,5 @@ gulp.task("copy-all", [
     "copy-ng2-toastr",
     "copy-ngrx-core",
     "copy-ngrx-store",
+    "copy-ngrx-effects"
 ])

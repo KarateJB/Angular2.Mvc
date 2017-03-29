@@ -59,6 +59,14 @@ System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../
                     //return PRODUCT_TYPES;
                 };
                 ProductService.prototype.getByKey = function (key) {
+                    //let subject$ = new Subject();
+                    //subject$.subscribe((key) => {
+                    //    let target = this.af.database.object('/Demo/products/' + key);
+                    //    target.take(1).subscribe(data => {
+                    //        console.log(data);
+                    //    })
+                    //});
+                    //subject$.next(key);
                     var _this = this;
                     return new Promise(function (resolve) {
                         _this.af.database.object('/Demo/products/' + key).subscribe(function (data) {
@@ -142,7 +150,7 @@ System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../
                     prod.Id = Utility_1.Utility.generateUUID();
                     var getPromise = new Promise(function (resolve) {
                         var itemObservable = _this._queryProducts();
-                        console.log(itemObservable);
+                        //console.log(itemObservable);
                         var current = null;
                         itemObservable.subscribe(function (value) {
                             current = value;
@@ -150,7 +158,7 @@ System.register(["@angular/core", "angularfire2", "../../../class/Utility", "../
                             resolve(current);
                         });
                     }).then(function (newValue) {
-                        console.log(newValue);
+                        //console.log(newValue);
                         var itemObservable = _this._queryProducts();
                         itemObservable.update(newValue);
                     });

@@ -1,5 +1,5 @@
 /**
- * @license Angular v2.3.1
+ * @license Angular v2.4.2
  * (c) 2010-2016 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -1306,6 +1306,8 @@
       * <some-element [ngClass]="{'first': true, 'second': true, 'third': false}">...</some-element>
       * *
       * <some-element [ngClass]="stringExp|arrayExp|objExp">...</some-element>
+      * *
+      * <some-element [ngClass]="{'class1 class2 class3' : true}">...</some-element>
       * ```
       * *
       * *
@@ -1599,6 +1601,28 @@
             this._cdr = _cdr;
             this._differ = null;
         }
+        Object.defineProperty(NgFor.prototype, "ngForTrackBy", {
+            /**
+             * @return {?}
+             */
+            get: function () { return this._trackByFn; },
+            /**
+             * @param {?} fn
+             * @return {?}
+             */
+            set: function (fn) {
+                if (_angular_core.isDevMode() && fn != null && typeof fn !== 'function') {
+                    // TODO(vicb): use a log service once there is a public one available
+                    if ((console) && (console.warn)) {
+                        console.warn(("trackBy must be a function, but received " + JSON.stringify(fn) + ". ") +
+                            "See https://angular.io/docs/ts/latest/api/common/index/NgFor-directive.html#!#change-propagation for more information.");
+                    }
+                }
+                this._trackByFn = fn;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(NgFor.prototype, "ngForTemplate", {
             /**
              * @param {?} value
@@ -3460,7 +3484,7 @@
     /**
      * @stable
      */
-    var /** @type {?} */ VERSION = new _angular_core.Version('2.3.1');
+    var /** @type {?} */ VERSION = new _angular_core.Version('2.4.2');
 
     exports.NgLocalization = NgLocalization;
     exports.CommonModule = CommonModule;

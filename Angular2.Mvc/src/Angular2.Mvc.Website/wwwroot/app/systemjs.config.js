@@ -35,6 +35,7 @@
         '@angular/platform-browser-dynamic': { main: 'platform-browser-dynamic.umd.min.js' },
         '@ngrx/core': { main: 'core.min.umd.js' },
         '@ngrx/store': { main: 'store.min.umd.js' },
+        '@ngrx/effects': { main: 'effects.min.umd.js' },
         'angularfire2': { main: 'angularfire2.umd.js' },
         'firebase': { main: 'firebase.js' },
         'service': { main: '*.js', defaultExtension: 'js' },

@@ -36,4 +36,29 @@
     </extensions>
     <highlightIndex>1</highlightIndex>
   </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\shopcart.component.ts</string>
+    </extensions>
+    <highlightIndex>3</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\angular2.mvc.website\wwwroot\app\component\basic\product\product-booking.component.ts</string>
+    </extensions>
+    <highlightIndex>4</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\angular2.mvc.website\wwwroot\app\service\shopcart.action.ts</string>
+    </extensions>
+    <highlightIndex>2</highlightIndex>
+  </TabHighlightState>
+  <TabHighlightState>
+    <extensions>
+      <string>src\Angular2.Mvc.Website\wwwroot\app\service\order.action.ts</string>
+      <string>src\angular2.mvc.website\wwwroot\app\service\order.effects.ts</string>
+    </extensions>
+    <highlightIndex>2</highlightIndex>
+  </TabHighlightState>
 </ArrayOfTabHighlightState>

@@ -3,7 +3,6 @@ import {Component, Pipe, PipeTransform, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { INCREMENT, DECREMENT, RESET } from '../../../service/counter.action';
 
 declare var swal: any; //SweetAlert2 typings definition
 
@@ -36,15 +35,6 @@ export class ProductIndexComponent implements OnInit {
         
     }
 
-    private increment() {
-        this.store.dispatch({ type: INCREMENT });
-
-    }
-
-    private decrement() {
-        this.store.dispatch({ type: DECREMENT });
-
-    }
 
     private goToCreate() {
         //JL("Angular2").debug("Redirect to create page");
