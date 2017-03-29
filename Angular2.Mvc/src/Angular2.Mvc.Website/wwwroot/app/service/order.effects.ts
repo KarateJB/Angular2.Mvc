@@ -4,14 +4,16 @@ import { Observable } from "rxjs";
 import { ShopItem } from '../class/ShopItem';
 import { Order } from '../class/Order';
 import { SAVE, SAVED, CANCEL, CANCELLED, COMPLETE } from './order.action';
-import { Utility } from '../service/utility';
+import { OrderService } from '../component/Basic/Product/order.service';
+import { Utility } from '../class/utility';
+
 
 @Injectable()
 export class orderEffects {
 
     constructor(
         private action$: Actions,
-        private utility: Utility
+        private orderService: OrderService
     ) { }
 
 
@@ -21,15 +23,17 @@ export class orderEffects {
 
 
             let payload: Order = {
-                id: this.utility.generateUUID(),
+                id: Utility.generateUUID(),
                 status: SAVED,
                 date: new Date().toLocaleDateString(),
                 items: action.payload.items
             };
 
             //Save the order to backend, database ...etc Or get something
+            return this.orderService.save(payload).switchMap(() => {
+                return Observable.of({ 'type': SAVED, 'payload': payload });
+            });
 
-            return Observable.of({'type': SAVED, 'payload': payload });
         });
 
 

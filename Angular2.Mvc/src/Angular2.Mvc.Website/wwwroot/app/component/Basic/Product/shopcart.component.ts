@@ -61,7 +61,7 @@ export class ShopcartComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private shopcartStore: Store<IShopCart>, 
+        private shopcartStore: Store<IShopCart>,
         private orderStore: Store<IOrder>
     ) {
         //Get the shopcart reducer
@@ -91,12 +91,10 @@ export class ShopcartComponent implements OnInit {
 
             this.orderStore.dispatch({ type: SAVE, payload: orderItem });
 
-            setTimeout(() => {
-                this.order$.subscribe(data => {
-                    console.log(data);
-                });
-            }, 2000);
-            
+            this.order$.subscribe(data => {
+                console.log(data);
+            });
+
         });
     }
 

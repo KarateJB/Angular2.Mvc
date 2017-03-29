@@ -53,11 +53,9 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                             items: data.items
                         };
                         _this.orderStore.dispatch({ type: order_action_1.SAVE, payload: orderItem });
-                        setTimeout(function () {
-                            _this.order$.subscribe(function (data) {
-                                console.log(data);
-                            });
-                        }, 2000);
+                        _this.order$.subscribe(function (data) {
+                            console.log(data);
+                        });
                     });
                 };
                 ShopcartComponent.prototype.goToProducts = function () {

@@ -18,7 +18,7 @@ import { ProductMusicComponent } from './product-music.component';
 import { ProductBookingComponent } from './product-booking.component';
 import { ShopcartComponent } from './shopcart.component';
 import { ProductService } from './product.service';
-import { Utility } from '../../../service/utility';
+import { OrderService } from './order.service';
 
 
 import { StoreModule } from '@ngrx/store';
@@ -62,7 +62,7 @@ let rootReducer: any = {
     ],
     providers: [
         ProductService,
-        Utility
+        OrderService
     ],
     bootstrap: [ProductAppComponent]
 })

@@ -6,7 +6,7 @@
         "Name": "<b>JB</b>",
         "Phone": "0933XXXXXX",
         "Age": 35,
-        "Description":  "JB is a good programmer."
+        "Description": "JB is a good programmer."
       },
       {
         "Id": "2",
@@ -21,6 +21,14 @@
         "Phone": "N/A",
         "Age": 3,
         "Description": "Leia is cute kid."
+      }
+    ],
+    "orders": [
+      {
+      "Id": "1",
+      "status":"New",
+      "date":"2017/3/29 18:00:00",
+      "items":[]
       }
     ],
     "products": [

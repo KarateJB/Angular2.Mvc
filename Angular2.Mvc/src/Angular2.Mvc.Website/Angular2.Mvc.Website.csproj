@@ -14,10 +14,12 @@
     <Compile Remove="node_modules\**\*" />
     <Content Include="wwwroot\app\class\Order.js" />
     <Content Include="wwwroot\app\class\Order.js.map" />
-    <Content Include="wwwroot\app\class\ShopCart - 複製.js.map">
+    <Content Include="wwwroot\app\class\Order.ts">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="wwwroot\app\class\Order.ts">
+    <Content Include="wwwroot\app\component\Basic\Product\order.service.js" />
+    <Content Include="wwwroot\app\component\Basic\Product\order.service.js.map" />
+    <Content Include="wwwroot\app\component\Basic\Product\order.service.ts">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\interface\IOrder.ts" />
@@ -28,7 +30,6 @@
     <Content Include="wwwroot\app\service\order.effects.js" />
     <Content Include="wwwroot\app\service\order.effects.js.map" />
     <Content Include="wwwroot\app\service\order.effects.ts" />
-    <Content Include="wwwroot\app\service\utility.ts" />
     <None Update="wwwroot\**\*;Views\**\*;Areas\**\Views;Nlog.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

@@ -1,4 +1,4 @@
-System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "../service/utility"], function (exports_1, context_1) {
+System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "../component/Basic/Product/order.service", "../class/utility"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var effects_1, core_1, rxjs_1, order_action_1, utility_1, orderEffects;
+    var effects_1, core_1, rxjs_1, order_action_1, order_service_1, utility_1, orderEffects;
     return {
         setters: [
             function (effects_1_1) {
@@ -25,26 +25,32 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
             function (order_action_1_1) {
                 order_action_1 = order_action_1_1;
             },
+            function (order_service_1_1) {
+                order_service_1 = order_service_1_1;
+            },
             function (utility_1_1) {
                 utility_1 = utility_1_1;
             }
         ],
         execute: function () {
             orderEffects = (function () {
-                function orderEffects(action$, utility) {
+                function orderEffects(action$, orderService) {
                     var _this = this;
                     this.action$ = action$;
-                    this.utility = utility;
+                    this.orderService = orderService;
                     this.save$ = this.action$
                         .ofType(order_action_1.SAVE)
                         .switchMap(function (action) {
                         var payload = {
-                            id: _this.utility.generateUUID(),
+                            id: utility_1.Utility.generateUUID(),
                             status: order_action_1.SAVED,
                             date: new Date().toLocaleDateString(),
                             items: action.payload.items
                         };
-                        return rxjs_1.Observable.of({ 'type': order_action_1.SAVED, 'payload': payload });
+                        //Save the order to backend, database ...etc Or get something
+                        return _this.orderService.save(payload).switchMap(function () {
+                            return rxjs_1.Observable.of({ 'type': order_action_1.SAVED, 'payload': payload });
+                        });
                     });
                 }
                 return orderEffects;
@@ -56,7 +62,7 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
             orderEffects = __decorate([
                 core_1.Injectable(),
                 __metadata("design:paramtypes", [effects_1.Actions,
-                    utility_1.Utility])
+                    order_service_1.OrderService])
             ], orderEffects);
             exports_1("orderEffects", orderEffects);
         }
