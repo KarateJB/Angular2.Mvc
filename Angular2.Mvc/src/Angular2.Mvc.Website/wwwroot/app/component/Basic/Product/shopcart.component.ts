@@ -27,6 +27,9 @@ interface AppState {
                    <div>
                       <button class='btn btn-success' (click)="sendOrder()"><i class="fa fa-save"></i> Send Order </button>
                       <button class="btn btn-default" (click)="goToProducts()"><i class="fa fa-ra"></i> Back </button>
+                      <span *ngFor="let st of states">
+                         <i class="fa fa-arrow-circle-right"></i>{{st}}
+                      </span>
                    </div>
 
                    <div>
@@ -58,6 +61,7 @@ export class ShopcartComponent implements OnInit {
 
     private shopcart$: Observable<IShopCart>;
     private order$: Observable<IOrder>;
+    private states: string[]=[];
 
     constructor(
         private router: Router,
@@ -67,7 +71,7 @@ export class ShopcartComponent implements OnInit {
         //Get the shopcart reducer
         this.shopcart$ = shopcartStore.select("shopcart");
         this.shopcart$.subscribe(data => {
-            //console.log(data.items);
+            console.log(data.items);
         })
 
         //Get the order reducer
@@ -80,20 +84,28 @@ export class ShopcartComponent implements OnInit {
     }
 
     private sendOrder() {
-        this.shopcart$.take(1).subscribe(data => {
+
+        this.shopcart$.subscribe(data => {
             let date = new Date();
             let orderItem: Order = {
                 id: '',
-                status: '',
+                status: 'Saving',
                 date: date.toLocaleDateString().concat(' ', date.toLocaleTimeString()),
                 items: data.items
             };
 
+            this.order$.subscribe(data => {
+
+                if (data.status)
+                    this.states.push(data.status);
+
+            });
+
+
             this.orderStore.dispatch({ type: SAVE, payload: orderItem });
 
-            this.order$.subscribe(data => {
-                console.log(data);
-            });
+
+            
 
         });
     }

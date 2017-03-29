@@ -18,22 +18,20 @@ System.register(["../class/Order"], function (exports_1, context_1) {
                 if (state === void 0) { state = new Order_1.Order(); }
                 switch (action.type) {
                     case SAVE:
-                        console.log('The order is saving!!');
                         state = action.payload;
-                        console.log(state);
+                        console.log("Order's state :" + state.status);
                         return state;
                     case SAVED:
-                        console.log('The order is saved!!');
                         state = action.payload;
-                        console.log(state);
+                        console.log("Order's state :" + state.status);
                         return state;
                     case CANCEL:
                         return state;
                     case CANCELLED:
                         return state;
                     case COMPLETE:
-                        console.log('The order is completed!');
-                        state.status = "Complete";
+                        state = action.payload;
+                        console.log("Order's state :" + state.status);
                         return state;
                     default:
                         return state;

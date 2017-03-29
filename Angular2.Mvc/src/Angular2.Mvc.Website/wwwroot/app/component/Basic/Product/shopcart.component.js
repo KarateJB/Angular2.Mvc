@@ -32,10 +32,11 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                     this.router = router;
                     this.shopcartStore = shopcartStore;
                     this.orderStore = orderStore;
+                    this.states = [];
                     //Get the shopcart reducer
                     this.shopcart$ = shopcartStore.select("shopcart");
                     this.shopcart$.subscribe(function (data) {
-                        //console.log(data.items);
+                        console.log(data.items);
                     });
                     //Get the order reducer
                     this.order$ = orderStore.select("order");
@@ -44,18 +45,19 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                 };
                 ShopcartComponent.prototype.sendOrder = function () {
                     var _this = this;
-                    this.shopcart$.take(1).subscribe(function (data) {
+                    this.shopcart$.subscribe(function (data) {
                         var date = new Date();
                         var orderItem = {
                             id: '',
-                            status: '',
+                            status: 'Saving',
                             date: date.toLocaleDateString().concat(' ', date.toLocaleTimeString()),
                             items: data.items
                         };
-                        _this.orderStore.dispatch({ type: order_action_1.SAVE, payload: orderItem });
                         _this.order$.subscribe(function (data) {
-                            console.log(data);
+                            if (data.status)
+                                _this.states.push(data.status);
                         });
+                        _this.orderStore.dispatch({ type: order_action_1.SAVE, payload: orderItem });
                     });
                 };
                 ShopcartComponent.prototype.goToProducts = function () {
@@ -67,7 +69,7 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "../../../se
                 core_1.Component({
                     selector: 'shop-cart',
                     providers: [],
-                    template: " \n                   <div>\n                      <button class='btn btn-success' (click)=\"sendOrder()\"><i class=\"fa fa-save\"></i> Send Order </button>\n                      <button class=\"btn btn-default\" (click)=\"goToProducts()\"><i class=\"fa fa-ra\"></i> Back </button>\n                   </div>\n\n                   <div>\n                   <table class=\"table table-inverse\">\n                     <thead>\n                        <tr>\n                            <th>Product</th>\n                            <th>Number</th>\n                            <th>Price/per</th>\n                            <th>Total Price</th>\n                        </tr>\n                     </thead>\n                     <tbody>\n                        <tr *ngFor=\"let item of (shopcart$ | async)?.items\">\n                          <td>{{item.title}}</td>\n                          <td>{{item.count}}</td>\n                          <td>{{item.price}}</td>\n                          <td>{{item.count * item.price}}</td>\n                        </tr>\n                     </tbody>\n                   </table>\n                   </div>\n                   \n                 "
+                    template: " \n                   <div>\n                      <button class='btn btn-success' (click)=\"sendOrder()\"><i class=\"fa fa-save\"></i> Send Order </button>\n                      <button class=\"btn btn-default\" (click)=\"goToProducts()\"><i class=\"fa fa-ra\"></i> Back </button>\n                      <span *ngFor=\"let st of states\">\n                         <i class=\"fa fa-arrow-circle-right\"></i>{{st}}\n                      </span>\n                   </div>\n\n                   <div>\n                   <table class=\"table table-inverse\">\n                     <thead>\n                        <tr>\n                            <th>Product</th>\n                            <th>Number</th>\n                            <th>Price/per</th>\n                            <th>Total Price</th>\n                        </tr>\n                     </thead>\n                     <tbody>\n                        <tr *ngFor=\"let item of (shopcart$ | async)?.items\">\n                          <td>{{item.title}}</td>\n                          <td>{{item.count}}</td>\n                          <td>{{item.price}}</td>\n                          <td>{{item.count * item.price}}</td>\n                        </tr>\n                     </tbody>\n                   </table>\n                   </div>\n                   \n                 "
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
                     store_1.Store,

@@ -43,14 +43,20 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
                         .switchMap(function (action) {
                         var payload = {
                             id: utility_1.Utility.generateUUID(),
-                            status: order_action_1.SAVED,
-                            date: new Date().toLocaleDateString(),
+                            status: "Saved!!",
+                            date: action.payload.date,
                             items: action.payload.items
                         };
                         //Save the order to backend, database ...etc Or get something
-                        return _this.orderService.save(payload).switchMap(function () {
+                        return _this.orderService.save(payload).delay(1000).switchMap(function () {
                             return rxjs_1.Observable.of({ 'type': order_action_1.SAVED, 'payload': payload });
                         });
+                    });
+                    this.saved$ = this.action$
+                        .ofType(order_action_1.SAVED).delay(1000)
+                        .switchMap(function (action) {
+                        action.payload.status = "Completed";
+                        return rxjs_1.Observable.of({ 'type': order_action_1.COMPLETE, 'payload': action.payload });
                     });
                 }
                 return orderEffects;
@@ -59,6 +65,10 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
                 effects_1.Effect(),
                 __metadata("design:type", Object)
             ], orderEffects.prototype, "save$", void 0);
+            __decorate([
+                effects_1.Effect(),
+                __metadata("design:type", Object)
+            ], orderEffects.prototype, "saved$", void 0);
             orderEffects = __decorate([
                 core_1.Injectable(),
                 __metadata("design:paramtypes", [effects_1.Actions,

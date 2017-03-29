@@ -24,16 +24,23 @@ export class orderEffects {
 
             let payload: Order = {
                 id: Utility.generateUUID(),
-                status: SAVED,
-                date: new Date().toLocaleDateString(),
+                status: "Saved!!",
+                date: action.payload.date,
                 items: action.payload.items
             };
 
             //Save the order to backend, database ...etc Or get something
-            return this.orderService.save(payload).switchMap(() => {
+            return this.orderService.save(payload).delay(1000).switchMap(() => {
                 return Observable.of({ 'type': SAVED, 'payload': payload });
             });
 
+        });
+
+    @Effect() saved$ = this.action$
+        .ofType(SAVED).delay(1000)
+        .switchMap((action) => {
+            action.payload.status = "Completed";
+            return Observable.of({ 'type': COMPLETE, 'payload': action.payload });
         });
 
 
