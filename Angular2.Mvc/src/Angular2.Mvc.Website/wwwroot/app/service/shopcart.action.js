@@ -5,14 +5,14 @@ System.register(["../class/ShopCart"], function (exports_1, context_1) {
         shopcart.cnt += 1;
         shopcart.sum += payload.price * 1;
         updateItems(shopcart, payload);
-        console.log(shopcart.items);
+        //console.log(shopcart.items);
         return shopcart;
     }
     function pullFromCart(shopcart, payload) {
         shopcart.cnt -= 1;
         shopcart.sum -= payload.price * 1;
         updateItems(shopcart, payload);
-        console.log(shopcart.items);
+        //console.log(shopcart.items);
         return shopcart;
     }
     function updateItems(shopcart, payload) {

@@ -32,7 +32,7 @@ function pushToCart(shopcart: ShopCart, payload: ShopItem) {
     shopcart.cnt += 1;
     shopcart.sum += payload.price * 1;
     updateItems(shopcart, payload);
-    console.log(shopcart.items);
+    //console.log(shopcart.items);
     return shopcart;
 }
 
@@ -40,7 +40,7 @@ function pullFromCart(shopcart: ShopCart, payload: ShopItem) {
     shopcart.cnt -= 1;
     shopcart.sum -= payload.price * 1;
     updateItems(shopcart, payload);
-    console.log(shopcart.items);
+    //console.log(shopcart.items);
     return shopcart;
 }
 

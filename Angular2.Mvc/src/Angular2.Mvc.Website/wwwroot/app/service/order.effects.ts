@@ -39,7 +39,7 @@ export class orderEffects {
     @Effect() saved$ = this.action$
         .ofType(SAVED).delay(1000)
         .switchMap((action) => {
-            action.payload.status = "Completed";
+            action.payload.status = "Complete";
             return Observable.of({ 'type': COMPLETE, 'payload': action.payload });
         });
 

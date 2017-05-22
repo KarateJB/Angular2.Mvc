@@ -55,7 +55,7 @@ System.register(["@ngrx/effects", "@angular/core", "rxjs", "./order.action", "..
                     this.saved$ = this.action$
                         .ofType(order_action_1.SAVED).delay(1000)
                         .switchMap(function (action) {
-                        action.payload.status = "Completed";
+                        action.payload.status = "Complete";
                         return rxjs_1.Observable.of({ 'type': order_action_1.COMPLETE, 'payload': action.payload });
                     });
                 }

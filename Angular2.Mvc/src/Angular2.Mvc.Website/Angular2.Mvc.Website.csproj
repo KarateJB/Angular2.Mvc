@@ -30,6 +30,12 @@
     <Content Include="wwwroot\app\service\order.effects.js" />
     <Content Include="wwwroot\app\service\order.effects.js.map" />
     <Content Include="wwwroot\app\service\order.effects.ts" />
+    <Content Include="wwwroot\scripts\demo.index.js" />
+    <Content Include="wwwroot\test\Index.html" />
+    <Content Include="wwwroot\test\karma.conf.js" />
+    <Content Include="wwwroot\test\spec\demo.index.spec.js" />
+    <Content Include="wwwroot\test\spec\fixtures\Index.html" />
+    <Content Include="wwwroot\test\spec\Index.html" />
     <None Update="wwwroot\**\*;Views\**\*;Areas\**\Views;Nlog.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
@@ -91,6 +97,10 @@
   <ItemGroup>
     <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.2.301" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Karma\Views\Demo\Index.cshtml" />
   </ItemGroup>
 
 </Project>

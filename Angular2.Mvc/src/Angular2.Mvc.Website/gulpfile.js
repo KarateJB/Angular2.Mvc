@@ -4,6 +4,7 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 "use strict";
 var gulp = require('gulp');
+var server = require('karma').Server;
 var root_path = {
     webroot: "./wwwroot/"
 }
@@ -186,4 +187,12 @@ gulp.task("copy-all", [
     "copy-ngrx-core",
     "copy-ngrx-store",
     "copy-ngrx-effects"
-])
+]);
+
+gulp.task('test', function (done) {
+    new server({
+        configFile: __dirname + '/wwwroot/test/karma.conf.js',
+        singleRun: true
+    }).start();
+});
+

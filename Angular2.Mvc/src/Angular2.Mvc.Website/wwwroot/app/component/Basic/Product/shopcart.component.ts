@@ -2,7 +2,7 @@
 import { Component, Pipe, PipeTransform, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
+import { Store, State } from '@ngrx/store';
 import { PUSH, PULL, CLEAR } from '../../../service/shopcart.action';
 import { SAVE, CANCEL, COMPLETE } from '../../../service/order.action';
 import { IShopCart } from '../../../interface/IShopCart';
@@ -52,7 +52,6 @@ interface AppState {
                      </tbody>
                    </table>
                    </div>
-                   
                  `
     //styleUrls: ['/app/component/Basic/Product/Product-index.component.css']
 })
@@ -61,7 +60,7 @@ export class ShopcartComponent implements OnInit {
 
     private shopcart$: Observable<IShopCart>;
     private order$: Observable<IOrder>;
-    private states: string[]=[];
+    private states: string[] = [];
 
     constructor(
         private router: Router,
@@ -70,9 +69,9 @@ export class ShopcartComponent implements OnInit {
     ) {
         //Get the shopcart reducer
         this.shopcart$ = shopcartStore.select("shopcart");
-        this.shopcart$.subscribe(data => {
-            console.log(data.items);
-        })
+        //this.shopcart$.subscribe(data => {
+        //    console.log(data.items);
+        //})
 
         //Get the order reducer
         this.order$ = orderStore.select("order");
@@ -94,24 +93,28 @@ export class ShopcartComponent implements OnInit {
                 items: data.items
             };
 
-            this.order$.subscribe(data => {
-
-                if (data.status)
-                    this.states.push(data.status);
-
-            });
-
-
             this.orderStore.dispatch({ type: SAVE, payload: orderItem });
+        });
 
 
-            
+        this.order$.subscribe(data => {
+
+            let state = this._getState(this.orderStore);
+            console.log("Adding " + state.order.status + " to array!");
+            this.states.push(state.order.status);
 
         });
     }
 
     private goToProducts() {
         this.router.navigate(['Basic/Product/Index']);
+    }
+
+    private _getState(store: Store<IOrder>) {
+
+        let state: any;
+        store.take(1).subscribe(s => state = s);
+        return state;
     }
 }
 
