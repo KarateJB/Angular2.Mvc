@@ -189,7 +189,7 @@ gulp.task("copy-all", [
     "copy-ngrx-effects"
 ]);
 
-gulp.task('test', function (done) {
+gulp.task('test', function () {
     new server({
         configFile: __dirname + '/wwwroot/test/karma.conf.js',
         singleRun: true

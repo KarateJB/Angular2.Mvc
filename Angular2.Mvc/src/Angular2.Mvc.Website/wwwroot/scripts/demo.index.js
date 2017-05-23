@@ -2,9 +2,13 @@
 
 $(function () {
 
-    $('#calculate').click(function () {
+    $('#add').click(function () {
         eventHandler(handler.add);
-    })
+    });
+
+    $('#minus').click(function () {
+        eventHandler(handler.minus);
+    });
 
 })
 
