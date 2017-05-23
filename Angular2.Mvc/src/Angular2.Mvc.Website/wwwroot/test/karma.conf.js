@@ -16,12 +16,11 @@
 
             //Inject html 
             'html/*.html'
-
         ],
         preprocessors: {
             'html/*.html': ['html2js']
         },
-        autoWatch: false,
-        singleRun: true
+        autoWatch: false, //Watching files and executing the tests if the files changes.
+        singleRun: true //If true, Karma will run tests and then exit.
     });
 };

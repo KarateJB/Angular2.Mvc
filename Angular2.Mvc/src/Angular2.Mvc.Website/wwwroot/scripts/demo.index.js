@@ -15,19 +15,21 @@ let handler = {
     get minus() {
         return "minus";
     }
+    //...
 };
 
 function eventHandler(handler) {
-    console.log('shit!');
-    console.log($('#numA'));
-    console.log(document.getElementById('numB'));
-
-
+    let a, b;
     switch (handler) {
         case 'add':
-            let a = $('#numA').val();
-            let b = $('#numB').val();
+            a = $('#numA').val();
+            b = $('#numB').val();
             $('#result').text(add(+a, +b));
+            break;
+        case 'minus':
+            a = $('#numA').val();
+            b = $('#numB').val();
+            $('#result').text(minus(+a, +b));
             break;
         default:
             break;
@@ -36,4 +38,8 @@ function eventHandler(handler) {
 
 function add(a, b) {
     return a + b;
+}
+
+function minus(a, b) {
+    return a - b;
 }
