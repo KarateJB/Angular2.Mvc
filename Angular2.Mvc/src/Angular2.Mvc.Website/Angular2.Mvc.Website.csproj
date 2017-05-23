@@ -31,6 +31,10 @@
     <Content Include="wwwroot\app\service\order.effects.js.map" />
     <Content Include="wwwroot\app\service\order.effects.ts" />
     <Content Include="wwwroot\scripts\demo.index.js" />
+    <Content Include="wwwroot\test\html\demo.index.html" />
+    <Content Include="wwwroot\test\html\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="wwwroot\test\Index.html" />
     <Content Include="wwwroot\test\karma.conf.js" />
     <Content Include="wwwroot\test\spec\demo.index.spec.js" />
