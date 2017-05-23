@@ -40,6 +40,16 @@ describe('Demo: Html test', function () {
         expect(+actual).toEqual(10);
     });
 
+    it('should return 2 for 6 - 4 on html', function () {
+        document.getElementById('numA').value = 6;
+        document.getElementById('numB').value = 4;
+
+        document.getElementById('minus').click();
+
+        let actual = document.getElementById('result').innerHTML;
+        expect(+actual).toEqual(2);
+    });
+
 });
 
 

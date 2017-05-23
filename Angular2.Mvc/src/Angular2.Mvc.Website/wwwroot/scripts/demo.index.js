@@ -23,21 +23,20 @@ let handler = {
 };
 
 function eventHandler(handler) {
-    let a, b;
+    let a = $('#numA').val();
+    let b = $('#numB').val();
+    let rslt = 0;
     switch (handler) {
         case 'add':
-            a = $('#numA').val();
-            b = $('#numB').val();
-            $('#result').text(add(+a, +b));
+            rslt = add(+a, +b);
             break;
         case 'minus':
-            a = $('#numA').val();
-            b = $('#numB').val();
-            $('#result').text(minus(+a, +b));
+            rslt = minus(+a, +b);
             break;
         default:
             break;
     }
+    $('#result').text(rslt);
 };
 
 function add(a, b) {
