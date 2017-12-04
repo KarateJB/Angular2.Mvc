@@ -4,8 +4,7 @@ ASP.NET Core MVC with Angular2
 
 ## Tutorials
 
-* [[Angular2 X ASP.NET Core] (1) – Hello world!]
-(http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc6-and-ng2-in.html)
+* [[Angular2 X ASP.NET Core] (1) – Hello world!](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc6-and-ng2-in.html)
 * [[Angular2 X ASP.NET Core] (2) – Routing](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc6-and-ng2-in_19.html)
 * [[Angular2 X ASP.NET Core] (3) – Sub component (input & emit)](http://karatejb.blogspot.com/2016/10/angular2-build-spa-with-mvc-and-ng2-in.html)
 * [[Angular2 X ASP.NET Core] (4) – Pipes](http://karatejb.blogspot.tw/2016/10/angular2-build-spa-with-mvc-and-ng2-in_25.html)
