@@ -60,6 +60,12 @@ System.register(["@angular/core", "@angular/forms", "@angular/platform-browser",
                         forms_1.FormsModule,
                         http_1.HttpModule,
                         customer_route_1.CustomerRoutes
+                        //RouterModule.forRoot([
+                        //    { path: 'Basic/Customer/Index', component: CustomerIndexComponent },
+                        //    { path: 'Basic/Customer/Create', component: CustomerCreateComponent },
+                        //    { path: 'Basic/Customer/Edit/:id', component: CustomerEditComponent },
+                        //    { path: '', redirectTo: 'Basic/Customer/Index', pathMatch: 'full' }
+                        //])
                     ],
                     declarations: [blockUI_comp_1.BlockUIComponent, customer_app_component_1.CustomerAppComponent, customer_index_component_1.CustomerIndexComponent, customer_detail_component_1.CustomerDetailComponent, customer_create_component_1.CustomerCreateComponent, customer_edit_component_1.CustomerEditComponent, customer_pipe_1.WrapEventPipe],
                     providers: [

@@ -108,6 +108,7 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store", "./product.s
                 core_1.Component({
                     selector: 'product-music',
                     templateUrl: '/app/component/Basic/Product/product-music.component.html'
+                    //styleUrls: ['/app/component/Basic/Product/Product-index.component.css']
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
                     product_service_1.ProductService,

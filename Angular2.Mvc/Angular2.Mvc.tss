@@ -2,51 +2,67 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-create.component.html</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-create.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\test\spec\demo.index.spec.js</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-sub.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\scripts\demo.index.js</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-index.component.html</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\test\karma.conf.js</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product.app.module.ts</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product.route.ts</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product.service.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\areas\karma\views\demo\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\app.component.html</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\app.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\test\html\demo.index.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\class\firebaseconfig.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\package.json</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\gulpfile.js</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-edit.component.html</string>
-      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\product\product-edit.component.ts</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\program.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Views\Shared\_Layout.cshtml</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\startup.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Karma\Controllers\DemoController.cs</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\properties\launchsettings.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\Areas\Karma\Views\Demo\Index.cshtml</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customer\customer-create.component.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\scripts\customervc.index.js</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\appsettings.json</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\test\karma.conf.js</string>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\nlog.config</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\scripts\demo.index.spec.js</string>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Website\wwwroot\app\service\resturi.service.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\component\basic\customerdynamic\card.component.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\service\customer.service.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\service\shopcart.action.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.website\wwwroot\app\service\order.action.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\works\source control\github\karatejb\angular2.mvc\angular2.mvc\src\angular2.mvc.webapi\startup.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>原始檔控制總管 - 已中斷連接</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Works\Source Control\GitHub\KarateJB\Angular2.Mvc\Angular2.Mvc\src\Angular2.Mvc.Webapi\Utility\CustomExceptionFilterAttribute.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

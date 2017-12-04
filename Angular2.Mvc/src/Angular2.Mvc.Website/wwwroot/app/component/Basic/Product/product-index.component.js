@@ -44,6 +44,7 @@ System.register(["@angular/core", "@angular/router", "@ngrx/store"], function (e
                     selector: 'product-index',
                     providers: [],
                     templateUrl: '/app/component/Basic/Product/product-index.component.html'
+                    //styleUrls: ['/app/component/Basic/Product/Product-index.component.css']
                 }),
                 __metadata("design:paramtypes", [router_1.Router,
                     store_1.Store])
